@@ -1,11 +1,243 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <script>
+    function openNav(nav) {
+        document.getElementById(nav).style.width = "243px";
+        document.getElementById("main").style.marginLeft = "243px";
+        document.getElementById("myAsistentesnav").style.marginLeft = "0px";
+        document.getElementById("Contactonav").style.width = "0px";
+
+    }
+
+    function resetMain() {
+        document.getElementById("main").style.marginLeft = "0px";
+    }
+
+    function resetNavContacto() {
+        document.getElementById("myAsistentesnav").style.marginLeft = "0px";
+        document.getElementById("main").style.marginLeft = "243px";
+    }
+
+    function closeNav(nav) {
+        document.getElementById(nav).style.width = "0";
+    }
+
+    function informacion() {
+        document.getElementById("myAsistentesnav").style.marginLeft = "243px";
+        document.getElementById("main").style.marginLeft = "490px";
+        document.getElementById("Contactonav").style.width = "243px";
+
+    }
+    </script>
+    <style>
+    body {
+        font-family: "Lato", sans-serif;
+    }
+    
+    .sideServiciosnav,
+    .sideAsistentesnav,
+    .sideContactonav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+    
+    .sideServiciosnav,
+    .sideAsistentesnav {
+        background-color: #111;
+    }
+    
+    .sideContactonav {
+        background-color: #2b60af;
+    }
+    
+    .sideServiciosnav a,
+    .sideAsistentesnav a,
+    .sideContactonav a, .sideContactonav p {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #ffffff;
+        display: block;
+        transition: 0.3s
+    }
+    
+    .sideServiciosnav a:hover,
+    .sideAsistentesnav a:hover,
+    .sideContactonav a:hover,
+    .offcanvas a:focus {
+        color: #f1f1f1;
+    }
+    
+    .sideAsistentesnav .sideServiciosnav .sideContactonav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+    }
+    
+    #navegacion {
+        width: 16%;
+        height: 100vh;
+        float: left;
+    }
+    
+    #serviciosLabel,
+    #asistentesLabel,
+    #ContactoLabel {
+        color: white;
+        text-align: center;
+    }
+    
+    #servicio1 {
+        height: 50vh;
+        width: 41%;
+        border-size:2px;
+border-style:solid;
+border-color:black;
+        float: left;
+            text-align: center;
+    }
+    
+    #servicio2 {
+        height: 50vh;
+        width: 41%;
+        border-size:2px;
+border-style:solid;
+border-color:black;
+        float: left;
+            text-align: center;
+    }
+    
+    #servicio3 {
+        height: 50vh;
+        width: 41%;
+        border-size:2px;
+border-style:solid;
+border-color:black;
+        float: left;
+            text-align: center;
+    }
+    
+    #servicio4 {
+        height: 50vh;
+        width: 41%;
+        border-size:1px;
+border-style:solid;
+border-color:black;
+        float: left;
+            text-align: center;
+    }
+
+
+    .contenedorExterior {
+    display: table;
+    width: 100px; /* anchura del padre */
+    height: 100px; /* altura del padre */
+    overflow: hidden;
+}
+.contenedorExterior .contenedorInterior {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.elemento {
+    background: #ddd;
+    width: 100px;
+    height: 100px;
+}
+    
+    @media screen and (max-height: 450px) {
+        .sideServiciosnav,
+        .sideAsistentesnav,
+        .sideContactonav {
+            padding-top: 15px;
+        }
+        .sideServiciosnav a,
+        .sideAsistentesnav a,
+        .sideContactonav a, {
+            font-size: 16px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="myServiciosnav" class="sideServiciosnav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myServiciosnav'); resetMain();">&times;</a>
+        <h2 id="serviciosLabel">Servicios<h2>
+  <a href="#">Chat de video</a>
+  <a href="#">Presentaciones</a>
+  <a href="#">Video y audio compartido</a>
+  <a href="#">Dibujos corporativos</a>
+</div>
+
+<div id="myAsistentesnav" class="sideAsistentesnav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myAsistentesnav');closeNav('Contactonav');resetMain();">&times;</a>
+  <h2 id="asistentesLabel" >Asistentes<h2>
+  <a href="#" onclick="informacion()">David</a>
+  <a href="#">Cristian</a>
+  <a href="#">Carlos</a>
+</div>
+
+<div id="Contactonav" class="sideContactonav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('Contactonav'); resetNavContacto();">&times;</a>
+  <h2 id="ContactoLabel" >Información David<h2>
+  <p>Username: david1</p>
+  <p>nombre: David</p>
+  <p>apellido: Villa</p>
+  <p>email: david@gmail.com</p>
+</div>
+
+
+
+<div id="main">
+  
+
+<div id="navegacion">
+  <h2>Sala Ejemplo</h2>
+        <span style="font-size:18px;cursor:pointer" onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); closeNav('Contactonav');">&#9776; Servicios</span>
+        <p/>
+        <span style="font-size:18px;cursor:pointer" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776; Asistentes</span>
+    </div>
+    <div id="servicio1">
+      <a href="javascript:void(0)" class="closebtn" >&times;</a>
+
+   			Servicio 1
+    </div>
+    <div id="servicio2">
+      <a href="javascript:void(0)" class="closebtn" >&times;</a>
+
+ Servicio 2
+    </div>
+    <div id="servicio3">
+      <a href="javascript:void(0)" class="closebtn">&times;</a>
+
+    	Servicio 3
+    </div>
+    <div id="servicio4">
+     <a href="javascript:void(0)" class="closebtn">&times;</a>
+  Servicio 4
+    </div>
+    </div>
+</body>
+
 </html>
