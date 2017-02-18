@@ -4,7 +4,9 @@
 
 module.exports = function(app) {
     var http = require('http');
-    var port = 8080;
+    var conf = require('../config');
+
+    var port = conf.port;
     var server = http.createServer(app);
 
     server.listen(port);
