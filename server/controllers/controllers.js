@@ -3,7 +3,7 @@ module.exports.about = function(req, res, next) {
 };
 
 module.exports.index = function(req, res, next){
-    res.render('index', {});
+    res.render('pages/index', {});
 }
 
 module.exports.searchContacts = function(req, res, next){
