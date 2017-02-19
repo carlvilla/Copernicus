@@ -1,0 +1,8 @@
+language: node_js
+branches:
+  only:
+  - gh-pages
+env:
+  global:
+  - SAUCE_USERNAME: chunpu
+  - secure: d8BzdTBlYP2S91xiUDQbsdrg5agE9aSztReyClsZVDGrKMhqYLQ2QBGiIIDDhF+4lDTSmiaoW/V6esGM0czCY5XD9MSRaDkF2WDrSkJNTewjFtg0kGOzZ3XyRcWQa9B5dG67EX9NgN7rA6r5thI3EWpUIa/cHof0AIqLirqt8HQ=

@@ -3,7 +3,21 @@ module.exports.about = function(req, res, next) {
 };
 
 module.exports.index = function(req, res, next){
-    res.render('pages/index', {});
+    res.render('index', {
+        lang:{
+            registro: 'Registro',
+            olvido:"¿Olvidaste la contraseña?",
+            username: 'Usuario',
+            nombre: 'Nombre',
+            apellidos: 'Apellidos',
+            email: 'Correo electrónico',
+            pass: 'Contraseña',
+            passConf: 'Confirmar contraseña',
+            registrarse: 'Registrarse'
+
+        }
+
+    });
 }
 
 module.exports.searchContacts = function(req, res, next){
