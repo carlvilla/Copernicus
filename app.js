@@ -5,9 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var routes = require('./routes/routes');
+var index = require('./server/routes/index');
+var users = require('./server/routes/users');
+var routesServer = require('./server/routes/routes');
+var routesApi = require('./api/routes/routes');
 
 var app = express();
 
@@ -25,12 +26,14 @@ app.use('/public', express.static('public'));
 app.use(favicon(path.join(__dirname, 'public','favicon.ico')));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
-app.use('/', routes);
+app.use('/', routesServer);
+app.use('/api',routesApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  var err = new Error('Página no encontrada - Error ');
   err.status = 404;
+  err.reason = "Parece que te has perdido...";
   next(err);
 });
 
