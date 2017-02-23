@@ -1,8 +1,8 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var model = require('seraph-model');
-var dbConfig = require('../config/config');
-var user = model(dbConfig.dbLocal, 'User');
+var dbConfig = require('../config/db');
+var user = model(dbConfig.db, 'User');
 var crypto = require('crypto');
 
 passport.use(new LocalStrategy({
