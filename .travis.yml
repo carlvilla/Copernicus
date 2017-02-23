@@ -4,4 +4,7 @@ node_js:
 
 notifications:
   email:
-    - uo236851@uniovi.es
+    recipients:
+      - uo236851@uniovi.es
+    on_success: never
+    on_success: always
