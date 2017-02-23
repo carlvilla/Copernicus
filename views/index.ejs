@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
     <meta charset="utf-8">
 
@@ -10,8 +10,11 @@
 
     <script language="JavaScript" type="text/javascript" src="../node_modules/angular/angular.js"></script>
 
+
     <script language="JavaScript" type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/public/javascripts/interface.js"></script>
+    <script src='/public/javascripts/controllers/registerController.js'></script>
+    <script src="../node_modules/angular-cookies/angular-cookies.js"></script>
 
 
 </head>
@@ -24,10 +27,10 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            <a href="" class="active"  id="login-form-link">Login</a>
+                            <a class="active"  id="login-form-link">Login</a>
                         </div>
                         <div class="col-xs-6">
-                            <a href="#" id="register-form-link"> <%=lang.registro%> </a>
+                            <a id="register-form-link"> <%=lang.registro%> </a>
                         </div>
                     </div>
                     <hr>
@@ -35,7 +38,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" role="form" style="display: block;">
+                            <form id="login-form" style="display: block;">
                                 <div class="form-group">
                                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder=<%=lang.username%> value="">
                                 </div>
@@ -53,39 +56,55 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="text-center">
-                                                <a href="" tabindex="5" class="forgot-password"><%= lang.olvido%></a>
+                                                <a tabindex="5" class="forgot-password"><%= lang.olvido%></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                            <form id="register-form" role="form" style="display: none;">
+                            <div ng-controller='registerController'>
+                            <form id="register-form" ng-submit="registrar(usuario)" style="display: none;">
+
                                 <div class="form-group">
-                                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="<%=lang.username%>" value="">
+                                    <input type="text" ng-model='usuario.nombre' id="nombre" tabindex="1"
+                                           class="form-control" placeholder="<%= lang.nombre%>" value="">
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="<%= lang.nombre%>" value="">
+                                    <input type="text" ng-model='usuario.apellidos' id="apellidos"
+                                           tabindex="1" class="form-control" placeholder="<%= lang.apellidos%>" value="">
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" name="apellidos" id="apellidos" tabindex="1" class="form-control" placeholder="<%= lang.apellidos%>" value="">
+                                    <input type="text" ng-model='usuario.username' id="username" tabindex="1"
+                                           class="form-control" placeholder="<%=lang.username%>" value="">
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="<%= lang.email%>" value="">
+                                    <input type="email" ng-model='usuario.email' id="email" tabindex="1"
+                                           class="form-control" placeholder="<%= lang.email%>" value="">
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="<%=lang.pass%>">
+                                    <input type="password" ng-model='usuario.password' id="password"
+                                           tabindex="2" class="form-control" placeholder="<%=lang.pass%>">
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="<%= lang.passConf %>" >
+                                    <input type="password" id="confirm-password" tabindex="2"
+                                           class="form-control" placeholder="<%= lang.passConf %>" >
                                 </div>
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value=<%=lang.registrarse%>>
+                                            <button class="form-control btn-success" type="submit" id="register-submit"> <%=lang.registrarse%> </button>
                                         </div>
                                     </div>
                                 </div>
+
                             </form>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ var seraph = require('seraph')({
     user: confDB.db.user,
     pass: confDB.db.pass});
 
-var User = model(seraph, 'User');
+var user = model(seraph, 'User');
 require('../config/passport.js');
 
 
@@ -19,7 +19,7 @@ module.exports.register = function(req, res) {
 
     if (!req.body.username || !req.body.nombre || !req.body.apellidos || !req.body.email || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
-            "message": "All fields required"
+            "message": "Todos los campos son obligatorios"
         });
         return;
     }
@@ -28,21 +28,21 @@ module.exports.register = function(req, res) {
     var nombre = req.body.nombre;
     var apellidos = req.body.apellidos;
     var email = req.body.email;
-    //var password = user.setPassword(req.body.password);
+    var credenciales = utils.setPassword(req.body.password);
 
-    User.save({username: username, nombre: nombre, apellidos: apellidos, email: email},function(err, node) {
+    user.save({username: username, nombre: nombre, apellidos: apellidos, email: email, hash: credenciales.hash,
+        salt: credenciales.salt},function(err, node) {
         var token;
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
-            //token = user.generateJwt();
+            token = utils.generateJwt(username, nombre);
             utils.sendJSONresponse(res, 200, {
-            //    "token" : token
+                "token" : token
             });
         }
     });
 };
-
 
 
 module.exports.profile = function(req, res) {

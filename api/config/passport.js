@@ -17,6 +17,7 @@ passport.use(new LocalStrategy({
                     message: 'Usuario incorrecto.'
                 });
             }
+            //Aqui es donde necesito obtener la hash y la salt y pasarselo al método validPassword
             if (!user.validPassword(password)) {
                 return done(null, false, {
                     message: 'Contraseña incorrecta.'
