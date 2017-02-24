@@ -6,7 +6,7 @@ var confDB = require('../config/db')
 var seraph = require('seraph')({
     URI: confDB.db.URI,
     user: confDB.db.user,
-    pass: confDB.db.pass});
+    pass: confDB.db.pass,});
 
 var user = model(seraph, 'User');
 require('../config/passport.js');
