@@ -4,6 +4,8 @@
 var myApp = angular.module('myApp', []);
 
 myApp.controller('registerController', function($scope, $http, $window){
+    $scope.messages = {};
+    $scope.messages.showError = false;
 
     var $cookies;
     angular.injector(['ngCookies']).invoke(['$cookies', function(_$cookies_) {
@@ -18,8 +20,6 @@ myApp.controller('registerController', function($scope, $http, $window){
         }).then(success, error);
     }
 
-    $scope.data = {};
-
     function success(res) {
         $scope.data.errorShow = false;
         $cookies.put('token', res.data.token);
@@ -29,6 +29,4 @@ myApp.controller('registerController', function($scope, $http, $window){
         $scope.data.error = res.statusText + ' (' + res.status + ')';
         $scope.data.errorShow = true;
     }
-
-
 });

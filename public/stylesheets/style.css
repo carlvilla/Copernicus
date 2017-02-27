@@ -7,7 +7,6 @@ a {
   color: #00B7FF;
 }
 
-
 .login {
     position: absolute;
     top: 50%;
@@ -137,6 +136,11 @@ body {
     background-color: #1CA347;
     border-color: #1CA347;
 }
+
+input.error.ng-invalid{
+    border: 1px solid #e70016;
+}
+
 
 
 

@@ -2,16 +2,15 @@ var config = {};
 
 if (process.env.NODE_ENV == 'production') {
     config = {
-        URI: 'http://hobby-cpklccdfjildgbkehgkkfaol.dbs.graphenedb.com:24789/db/data/',
-        user: 'thesis',
-        pass: process.env.REMOTE_DB_PASS,
-
+        URI: process.env.GRAPHENEDB_URL,
+        user: process.env.GRAPHENEDB_BOLT_USER,
+        pass: process.env.GRAPHENEDB_BOLT_PASSWORD
     };
 
 } else{
     config = {
         URI: 'http://localhost:7474/db/data',
-        user: 'neo4j',
+        user: process.env.LOCAL_DB_USER,
         pass: process.env.LOCAL_DB_PASS
     };
 

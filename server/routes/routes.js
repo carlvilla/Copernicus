@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var ctrl = require('../controllers/controllers');
+var ctrl = require('../controllers/pagesControllers');
 
 router.get('/', ctrl.index);
 router.get('/about', ctrl.about);

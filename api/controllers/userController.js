@@ -11,7 +11,6 @@ var seraph = require('seraph')({
 var user = model(seraph, 'User');
 require('../config/passport.js');
 
-
 module.exports.login = function(req, res) {
 };
 
@@ -41,6 +40,28 @@ module.exports.register = function(req, res) {
                 "token" : token
             });
         }
+    });
+};
+
+
+/**
+ * Comprueba que el nombre de usuario no este ya asignado
+ * 
+ * @param req
+ * @param res
+ */
+module.exports.validarUsername = function(req, res){
+    var predicate = { username: req.params.username };
+    var usuario = seraph.find(predicate, function (err, people) {
+        if (err) throw err;
+        if (people.length == 0) {
+            utils.sendJSONresponse(res, 204, "");
+        }else{
+            utils.sendJSONresponse(res, 200, people);
+        }
+
+
+        console.log(people);
     });
 };
 
