@@ -8,3 +8,8 @@ notifications:
       - uo236851@uniovi.es
     on_success: never
     on_success: always
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: ***REMOVED***
