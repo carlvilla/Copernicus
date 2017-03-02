@@ -1,7 +1,7 @@
 var config = {};
 
 if (process.env.NODE_ENV == 'production') {
-    var url = require('url').parse(confDB.db.URI)
+    var url = require('url').parse(process.env.GRAPHENEDB_URL)
 
     config = {
 
