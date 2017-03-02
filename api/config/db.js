@@ -3,9 +3,9 @@ var config = {};
 if (process.env.NODE_ENV == 'production') {
     config = {
         URI: process.env.GRAPHENEDB_URL,
-        user: process.env.GRAPHENEDB_BOLT_USER,
-        pass: process.env.GRAPHENEDB_BOLT_PASSWORD,
-        server: process.env.REMOTE_SERVER
+        user: process.env.GRAPHENEDB_USER,
+        pass: process.env.GRAPHENEDB_PASSWORD,
+        server: process.env.GRAPHENEDB_SERVER
     };
 
 } else{
@@ -17,9 +17,4 @@ if (process.env.NODE_ENV == 'production') {
     };
 
 }
-
-
 module.exports.db = config;
-
-
-
