@@ -15,14 +15,9 @@ var user = model(seraph, 'User');
 require('../config/passport.js');
 
 module.exports.login = function(req, res) {
-    console.log("Login");
-
 };
 
 module.exports.register = function(req, res) {
-
-    console.log("Registro");
-
     if (!req.body.username || !req.body.nombre || !req.body.apellidos || !req.body.email || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
             "message": "Todos los campos son obligatorios"
@@ -67,9 +62,6 @@ module.exports.validarUsername = function(req, res){
         }else{
             utils.sendJSONresponse(res, 200, people);
         }
-
-
-        console.log(people);
     });
 };
 
