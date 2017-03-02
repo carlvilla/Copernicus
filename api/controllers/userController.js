@@ -12,9 +12,13 @@ var user = model(seraph, 'User');
 require('../config/passport.js');
 
 module.exports.login = function(req, res) {
+    console.log("Login");
+
 };
 
 module.exports.register = function(req, res) {
+
+    console.log("Registro");
 
     if (!req.body.username || !req.body.nombre || !req.body.apellidos || !req.body.email || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
@@ -51,6 +55,9 @@ module.exports.register = function(req, res) {
  * @param res
  */
 module.exports.validarUsername = function(req, res){
+
+    console.log("Validar username");
+
     var predicate = { username: req.params.username };
     var usuario = seraph.find(predicate, function (err, people) {
         if (err) throw err;
