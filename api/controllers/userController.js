@@ -9,7 +9,7 @@ var seraph = require('seraph')({
     pass: confDB.db.pass,});
 
 var user = model(seraph, 'User');
-require('../config/passport.js');
+//require('../config/passport.js');
 
 module.exports.login = function(req, res) {
 };
