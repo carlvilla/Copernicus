@@ -4,11 +4,11 @@ node_js:
 
 notifications:
   email:
-    recipients:
-      - uo236851@uniovi.es
     on_success: never
     on_success: always
-
+    recipients:
+      - uo236851@uniovi.es
+    
 deploy:
   provider: heroku
   api_key:
