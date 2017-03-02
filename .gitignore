@@ -5,4 +5,5 @@ node_modules/*
 !node_modules/seraph
 !node_modules/passport
 !node_modules/passport-local
+!node_modules/ws
 .env
