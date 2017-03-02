@@ -1,4 +1,4 @@
-node_modules/
+node_modules/*
 !node_modules/jwt-simple
 !node_modules/moment
 !node_modules/seraph-model
