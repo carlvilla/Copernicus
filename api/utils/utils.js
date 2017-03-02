@@ -1,6 +1,6 @@
 var moment = require('moment');
 var crypto = require('crypto');
-var jwt = require('jwt-simple');
+//var jwt = require('jwt-simple');
 
 module.exports.sendJSONresponse = function(res, status, content) {
     res.status(status);
@@ -40,6 +40,6 @@ module.exports.generateJwt = function(username, nombre) {
         exp: moment().add(14, "days").unix()
     };
 
-    return jwt.encode(payload, process.env.JWT_SECRET);
+  //  return jwt.encode(payload, process.env.JWT_SECRET);
 };
 
