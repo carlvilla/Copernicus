@@ -20,8 +20,6 @@ module.exports.register = function(req, res) {
 
     console.log("Registro");
 
-    console.log(confDB);
-
     if (!req.body.username || !req.body.nombre || !req.body.apellidos || !req.body.email || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
             "message": "Todos los campos son obligatorios"
@@ -58,6 +56,7 @@ module.exports.register = function(req, res) {
  */
 module.exports.validarUsername = function(req, res){
 
+    console.log(confDB);
     console.log("Validar username");
 
     var predicate = { username: req.params.username };
