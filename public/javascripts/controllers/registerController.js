@@ -21,12 +21,12 @@ myApp.controller('registerController', function($scope, $http, $window){
     }
 
     function success(res) {
-        $scope.data.errorShow = false;
+        $scope.messages.showError = false;
         $cookies.put('token', res.data.token);
         $window.location.href = '/personalPage';
     }
     function error(res) {
         $scope.data.error = res.statusText + ' (' + res.status + ')';
-        $scope.data.errorShow = true;
+        $scope.messages.showError = true;
     }
 });
