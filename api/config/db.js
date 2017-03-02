@@ -1,11 +1,14 @@
 var config = {};
 
 if (process.env.NODE_ENV == 'production') {
+    var url = require('url').parse(confDB.db.URI)
+
     config = {
-        URI: process.env.GRAPHENEDB_URL,
-        user: process.env.GRAPHENEDB_USER,
-        pass: process.env.GRAPHENEDB_PASSWORD,
-        server: process.env.GRAPHENEDB_SERVER
+
+        server: url.protocol + '//' + url.host,
+        user: url.auth.split(':')[0],
+        pass: url.auth.split(':')[1]
+
     };
 
 } else{
