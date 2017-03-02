@@ -1,11 +1,2 @@
-node_modules/*
-!node_modules/jwt-simple
-!node_modules/moment
-!node_modules/seraph-model
-!node_modules/seraph
-!node_modules/passport
-!node_modules/passport-local
-!node_modules/ws
-!node_modules/jquey
 .env
 public/images/
