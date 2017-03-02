@@ -1,11 +1,11 @@
-//var passport = require('passport');
+var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var model = require('seraph-model');
 var dbConfig = require('../config/db');
 var user = model(dbConfig.db, 'User');
 var crypto = require('crypto');
 
-/*passport.use(new LocalStrategy({
+passport.use(new LocalStrategy({
         usernameField: 'username',
         passwordField: 'password'
     },
@@ -27,4 +27,4 @@ var crypto = require('crypto');
         });
     }
 ));
-*/
+
