@@ -2,12 +2,14 @@ var passport = require('passport');
 var utils = require('../utils/utils');
 var model = require("seraph-model");
 
+
 var confDB = require('../config/db')
+
 var seraph = require('seraph')({
     server: confDB.db.server,
-    URI: confDB.db.URI,
     user: confDB.db.user,
-    pass: confDB.db.pass});
+    pass: confDB.db.pass
+});
 
 var user = model(seraph, 'User');
 require('../config/passport.js');
@@ -56,9 +58,6 @@ module.exports.register = function(req, res) {
  * @param res
  */
 module.exports.validarUsername = function(req, res){
-
-    console.log(confDB);
-    console.log("Validar username");
 
     var predicate = { username: req.params.username };
     var usuario = seraph.find(predicate, function (err, people) {
