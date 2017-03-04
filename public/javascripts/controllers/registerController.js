@@ -1,9 +1,9 @@
 /**
  * Created by carlosvillablanco on 20/02/2017.
  */
-var myApp = angular.module('myApp', []);
+var webApp = angular.module('webApp', []);
 
-myApp.controller('registerController', function($scope, $http, $window){
+webApp.controller('registerController', function($scope, $http, $window){
     $scope.messages = {};
     $scope.messages.showError = false;
 
