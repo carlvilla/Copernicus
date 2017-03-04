@@ -13,8 +13,10 @@ module.exports.index = function(req, res, next){
             email: 'Correo electrónico',
             pass: 'Contraseña',
             passConf: 'Confirmar contraseña',
-            registrarse: 'Registrarse'
-
+            registrarse: 'Registrarse',
+            diffPass: 'Las contraseñas no coinciden',
+            comprobarUsername: 'Comprobando validez del nombre de usuario....',
+            usernameNotAvailable: 'Este nombre de usuario ya está en uso'
         }
 
     });

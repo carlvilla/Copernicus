@@ -2,7 +2,7 @@
  * Created by carlosvillablanco on 26/02/2017.
  */
 
-angular.module("myApp").directive("usernameValidation", function($http, $q){
+angular.module("webApp").directive("usernameValidation", function($http, $q){
 
     return {
         restrict: 'AE',
