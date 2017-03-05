@@ -1,8 +1,16 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var model = require('seraph-model');
+var utils = require('./utils');
+
 var dbConfig = require('../config/db');
-var user = model(dbConfig.db, 'User');
+var seraph = require('seraph')({
+    server: dbConfig.db.server,
+    user: dbConfig.db.user,
+    pass: dbConfig.db.pass
+});
+var model = require('seraph-model');
+var user = model(seraph, 'User');
+
 var crypto = require('crypto');
 
 passport.use(new LocalStrategy({
@@ -10,20 +18,22 @@ passport.use(new LocalStrategy({
         passwordField: 'password'
     },
     function(username, password, done) {
-        user.findAll('MATCH (u:User) WHERE u.username = {name}',{name: username} ,function (err, user) {
-            if (err) { return done(err); }
-            if (!user) {
+        user.where({username: username}, function (err, usuario) {
+            if (err) {
+                return done(err);
+            }
+            if (!usuario[0]) {
                 return done(null, false, {
-                    message: 'Usuario incorrecto.'
+                    message: 'Usuario y/o contraseña incorrectos.'
                 });
             }
             //Aqui es donde necesito obtener la hash y la salt y pasarselo al método validPassword
-            if (!user.validPassword(password)) {
+            if (!utils.validPassword(password,usuario[0].hash,usuario[0].salt)) {
                 return done(null, false, {
                     message: 'Contraseña incorrecta.'
                 });
             }
-            return done(null, user);
+            return done(null, usuario[0]);
         });
     }
 ));

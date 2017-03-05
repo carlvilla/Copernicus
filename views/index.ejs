@@ -11,9 +11,16 @@
     <script language="JavaScript" type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/angular-cookies/angular-cookies.js"></script>
 
+    <script src="/public/javascripts/userInterface.js"></script>
+
     <link rel="stylesheet" href="/public/stylesheets/style.css">
-    <script src="/public/javascripts/interface.js"></script>
+
+    <!-- Controllers -->
+    <script src='/public/module.js'></script>
+    <script src='/public/javascripts/controllers/loginController.js'></script>
     <script src='/public/javascripts/controllers/registerController.js'></script>
+
+    <!--Directivas-->
     <script src='/public/javascripts/directives/usernameValidation.js'></script>
     <script src='/public/javascripts/directives/passwordValidation.js'></script>
 
@@ -41,20 +48,27 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" style="display: block;">
+                            <div ng-controller='loginController'>
+                            <form ng-submit="login()" id="login-form" style="display: block;">
                                 <div class="form-group">
-                                    <input type="text" name="username" required id="username" tabindex="1"
-                                           class="form-control" placeholder=<%= lang.username %> value="">
+                                    <input type="text" ng-model="credenciales.username" name="username-login" required id="username-login" tabindex="1"
+                                           class="form-control" placeholder=<%= lang.username %>>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password-login" required id="password-login" tabindex="2"
+                                    <input type="password" ng-model="credenciales.password" name="password-login" required id="password-login" tabindex="2"
                                            class="form-control" placeholder=<%= lang.pass %>>
                                 </div>
+
+                                <!-- Error al iniciar sesión -->
+                                <div class="alert alert-danger" ng-if="loginError">
+                                    <%= lang.loginError %>
+                                </div>
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <input type="submit" name="login-submit" id="login-submit" tabindex="4"
-                                                   class="form-control btn btn-login" value="Log In">
+                                                   class="form-control btn btn-login" value="<%= lang.iniciarSesion%>">
                                         </div>
                                     </div>
                                 </div>
@@ -68,6 +82,7 @@
                                     </div>
                                 </div>
                             </form>
+                            </div>
                             <div ng-controller='registerController'>
                                 <form id="register-form" name="registerForm" ng-submit="registrar(usuario)"
                                       style="display: none;">
@@ -106,21 +121,21 @@
                                     <div class="form-group">
                                         <input type="password" id="password" name="password"  ng-model='usuario.password'
                                                minlength="8" required
-                                               class="form-control"
+                                               class="form-control" tabindex="1"
                                                placeholder="<%= lang.pass %>">
                                     </div>
 
                                     <div class="form-group">
                                         <input type="password" id="confirmPassword" name="confirmPassword" ng-model="confirmPassword"
                                                password-validation="password" required
-                                               class="form-control" placeholder="<%= lang.passConf %>">
+                                               class="form-control" tabindex="1" placeholder="<%= lang.passConf %>">
                                     </div>
 
-                                    <div class='msg-block'>
-                                        <span class='msg-error' ng-show='registerForm.confirmPassword.$error.samepass'>
-                                            <%= lang.diffPass %>
-                                        </span>
+                                    <!-- Diferentes contraseñas -->
+                                    <div class="alert alert-warning" ng-show='registerForm.confirmPassword.$error.samepass'>
+                                        <%= lang.diffPass %>
                                     </div>
+
 
                                     <div class="form-group">
                                         <div class="row">

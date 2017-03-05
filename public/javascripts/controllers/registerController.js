@@ -1,16 +1,11 @@
 /**
  * Created by carlosvillablanco on 20/02/2017.
  */
-var webApp = angular.module('webApp', []);
+var webApp = angular.module('webApp');
 
-webApp.controller('registerController', function($scope, $http, $window){
+webApp.controller('registerController', function($scope, $http, $window, $cookies){
     $scope.messages = {};
     $scope.messages.showError = false;
-
-    var $cookies;
-    angular.injector(['ngCookies']).invoke(['$cookies', function(_$cookies_) {
-        $cookies = _$cookies_;
-    }]);
 
     $scope.registrar = function (usuario) {
         $http({

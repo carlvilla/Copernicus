@@ -22,10 +22,9 @@ module.exports.setPassword = function(password){
     };
 };
 
-module.exports.validPassword = function(password) {
-    var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
-    return this.hash === hash;
-    //Necesitare forma
+module.exports.validPassword = function(password, hash, salt) {
+    var hashAux = crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha1').toString('hex');
+    return hash === hashAux;
 };
 
 

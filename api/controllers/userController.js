@@ -1,4 +1,5 @@
 var passport = require('passport');
+require('../utils/passport');
 var utils = require('../utils/utils');
 var model = require("seraph-model");
 
@@ -12,9 +13,32 @@ var seraph = require('seraph')({
 });
 
 var user = model(seraph, 'User');
-require('../config/passport.js');
 
 module.exports.login = function(req, res) {
+
+    if(!req.body.username || !req.body.password){
+        utils.sendJSONresponse(res, 400, {
+            "message": "Todos los campos son obligatorios"
+        });
+    }else{
+        passport.authenticate('local', function (err, usuario, info){
+            var token;
+            if (err) {
+                utils.sendJSONresponse(res, 404, err);
+                return;
+            }
+
+            if (usuario) {
+                token = utils.generateJwt(usuario.username,usuario.nombre);
+                utils.sendJSONresponse(res, 200, {
+                    "token": token
+                });
+            } else {
+                utils.sendJSONresponse(res, 401, info);
+            }
+
+        }) (req, res);
+        }
 };
 
 module.exports.register = function(req, res) {
@@ -67,6 +91,9 @@ module.exports.validarUsername = function(req, res){
 
 
 module.exports.profile = function(req, res) {
+
+    console.log("Profile");
+
 };
 
 module.exports.users = function(req, res) {
