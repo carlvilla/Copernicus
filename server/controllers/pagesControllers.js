@@ -18,7 +18,8 @@ module.exports.index = function(req, res, next){
             comprobarUsername: 'Comprobando validez del nombre de usuario....',
             usernameNotAvailable: 'Este nombre de usuario ya está en uso',
             iniciarSesion: 'Iniciar sesión',
-            loginError: 'Usuario y/o contraseñas incorrectas'
+            loginError: 'Usuario y/o contraseña incorrectas',
+            about: "Sobre nosotros"
         }
 
     });
@@ -34,10 +35,6 @@ module.exports.personalPage = function(req, res, next){
 
 module.exports.chatroom = function(req, res, next){
     res.render('chatroom', {});
-}
-
-module.exports.register = function(req, res, next){
-    res.render('register', {});
 }
 
 module.exports.profile = function(req, res, next){

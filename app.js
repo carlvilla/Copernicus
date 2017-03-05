@@ -10,7 +10,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./server/routes/index');
-var users = require('./server/routes/users');
 var routesServer = require('./server/routes/routes');
 var routesApi = require('./api/routes/routes');
 
@@ -30,8 +29,8 @@ app.use('/public', express.static('public'));
 app.use(favicon(path.join(__dirname, 'public','favicon.ico')));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
-app.use('/', routesServer);
 app.use('/api',routesApi);
+app.use('/', routesServer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
