@@ -1,7 +1,3 @@
-/**
- * Created by carlosvillablanco on 26/02/2017.
- */
-
 angular.module("webApp").directive("usernameValidation", function($http, $q){
 
     return {
@@ -16,12 +12,10 @@ angular.module("webApp").directive("usernameValidation", function($http, $q){
 
                 function success(res) {
                     if (res.data.length == 0) {
-                        console.log("Valido");
                         scope.messages.showError = false;
                         model.$setValidity('usernameAvailable', true);
                         defer.resolve();
                     } else {
-                        console.log("Escogido");
                         scope.messages.showError = true;
                         model.$setValidity('usernameAvailable', false);
                         defer.reject("Este usuario ya está en uso");
