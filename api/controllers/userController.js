@@ -1,11 +1,10 @@
 var passport = require('passport');
 require('../utils/passport');
+
 var utils = require('../utils/utils');
-var model = require("seraph-model");
 
-
+var model = require('seraph-model');
 var confDB = require('../config/db')
-
 var seraph = require('seraph')({
     server: confDB.db.server,
     user: confDB.db.user,
@@ -13,6 +12,17 @@ var seraph = require('seraph')({
 });
 
 var user = model(seraph, 'User');
+var emailRegex = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
+user.schema = {
+    username: { type: String, required: true},
+    nombre: { type: String, required: true },
+    apellidos: {type: String, required: true },
+    email: { type: String,match: emailRegex, required: true },
+    hash: { type: String},
+    salt: { type: String}
+};
+
+
 
 module.exports.login = function(req, res) {
 
@@ -79,7 +89,8 @@ module.exports.register = function(req, res) {
 module.exports.validarUsername = function(req, res){
 
     var predicate = { username: req.params.username };
-    var usuario = seraph.find(predicate, function (err, people) {
+
+    user.where(predicate, function (err, people) {
         if (err) throw err;
         if (people.length == 0) {
             utils.sendJSONresponse(res, 204, "");
