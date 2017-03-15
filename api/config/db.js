@@ -9,7 +9,6 @@ if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'test') {
         pass: url.auth.split(':')[1]
 
     };
-
 }
 
 else{

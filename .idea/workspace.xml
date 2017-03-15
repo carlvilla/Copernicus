@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/config/db.js" afterPath="$PROJECT_DIR$/api/config/db.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test-user.js" afterPath="$PROJECT_DIR$/test/test-user.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,21 +18,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test-user.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test-user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/test-user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="module.js" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.1.0/core-modules/module.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="406" column="2" lean-forward="false" selection-start-line="406" selection-start-column="2" selection-end-line="406" selection-end-column="2" />
+            <state relative-caret-position="-856">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="db.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/config/db.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="270">
+              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -994,44 +983,44 @@
       <workItem from="1489358013559" duration="551000" />
       <workItem from="1489531995957" duration="6175000" />
       <workItem from="1489608571644" duration="48000" />
-      <workItem from="1489608637623" duration="6405000" />
+      <workItem from="1489608637623" duration="7116000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 18m 03s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 42m 16s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 18m 25s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 42m 17s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 18m 42s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 42m 19s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 19m 26s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 42m 37s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 19m 42s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 43m 03s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 20m 14s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 44m 06s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 23m 03s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 44m 08s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 23m 10s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 44m 10s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 23m 52s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 46m 25s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.03.15 at 23h 24m 09s.xml">
+    <history-entry file="test_test-user_js - 2017.03.15 at 23h 46m 30s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163307000" />
+    <option name="totallyTimeSpent" value="164018000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1107,7 +1096,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1374,14 +1363,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/supertest/node_modules/superagent/lib/node/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="666" column="13" lean-forward="false" selection-start-line="666" selection-start-column="13" selection-end-line="666" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/supertest/lib/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1394,14 +1375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/registerController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1430,26 +1403,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/loginController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.1.0/core-modules/module.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
           <caret line="406" column="2" lean-forward="false" selection-start-line="406" selection-start-column="2" selection-end-line="406" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test-user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1462,10 +1419,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/registerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/loginController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/supertest/node_modules/superagent/lib/node/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="686" column="2" lean-forward="false" selection-start-line="686" selection-start-column="2" selection-end-line="686" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/config/db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        <state relative-caret-position="270">
+          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test-user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-856">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
