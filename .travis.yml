@@ -15,6 +15,6 @@ deploy:
     secure: ***REMOVED***
   app: web-app-videoconferencias
 
-if [ "$TEST_ADAPTER" = "HTTP" ]; then
-    npm start
-fi
+script:
+   - npm start &
+
