@@ -1,7 +1,9 @@
+require('dotenv').load();
+
 process.env.NODE_ENV = 'test';
 
 var model = require('seraph-model');
-var confDB = require('../api/config/db')
+var confDB = require('../api/config/db');
 var seraph = require('seraph')({
     server: confDB.db.server,
     user: confDB.db.user,
@@ -14,7 +16,7 @@ var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
 
-var url = "http://localhost:8080";
+var url = 'http://localhost:8080';
 
 /*
  * Test de registro de usuarios
@@ -25,7 +27,7 @@ describe('Registro de usuarios', function() {
         var usuario = {
             'nombre': 'Usuario',
             'apellidos': 'ApellidosUsuario',
-            'username': 'nombreUsuario7',
+            'username': 'nombreUsuario',
             'email': 'usuario@email.com',
             'password': 'passwordtest'
         }
@@ -40,13 +42,10 @@ describe('Registro de usuarios', function() {
 
                 res.status.should.be.equal(200);
                 done();
-
-
+                
                 //.end(function(err, res){
                 // expect(res).to.have.property('status', 200);
                 //expect(res).to.be.json;
-
-
                 // res.body.should.be.a('object');
                 // should.exist(res.headers.date) //Comprobar que existe cookie
 
