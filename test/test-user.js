@@ -14,7 +14,7 @@ var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
 
-var url = confDB.db.url;
+var url = "http://localhost:8080";
 
 /*
  * Test de registro de usuarios
@@ -22,13 +22,12 @@ var url = confDB.db.url;
 describe('Registro de usuarios', function() {
     it('debería registrar correctamente un usuario', function (done) {
 
-
         var usuario = {
             'nombre': 'Usuario',
             'apellidos': 'ApellidosUsuario',
-            'username': 'nombreUsuario',
+            'username': 'nombreUsuario7',
             'email': 'usuario@email.com',
-            'password': 'password'
+            'password': 'passwordtest'
         }
 
         request(url)
