@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/config/db.js" afterPath="$PROJECT_DIR$/api/config/db.js" />
-    </list>
+    <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -91,8 +89,8 @@
       <file leaf-file-name="db.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/config/db.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -935,7 +933,7 @@
       <workItem from="1489358013559" duration="551000" />
       <workItem from="1489531995957" duration="6175000" />
       <workItem from="1489608571644" duration="48000" />
-      <workItem from="1489608637623" duration="3036000" />
+      <workItem from="1489608637623" duration="3129000" />
     </task>
     <servers />
   </component>
@@ -972,7 +970,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159938000" />
+    <option name="totallyTimeSpent" value="160031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1396,8 +1394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/config/db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding />
         </state>
       </provider>
