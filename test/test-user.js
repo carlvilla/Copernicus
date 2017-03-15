@@ -16,7 +16,8 @@ var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
 
-var url = 'http://localhost:8080';
+//var url = 'https://web-app-videoconferencias.herokuapp.com';
+var url = 'http://localhost:8080'
 
 /*
  * Test de registro de usuarios
