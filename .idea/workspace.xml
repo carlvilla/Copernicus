@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test-user.js" afterPath="$PROJECT_DIR$/test/test-user.js" />
-    </list>
+    <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -926,7 +923,7 @@
       <workItem from="1489358013559" duration="551000" />
       <workItem from="1489531995957" duration="6175000" />
       <workItem from="1489608571644" duration="48000" />
-      <workItem from="1489608637623" duration="3554000" />
+      <workItem from="1489608637623" duration="3607000" />
     </task>
     <servers />
   </component>
@@ -963,7 +960,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160456000" />
+    <option name="totallyTimeSpent" value="160509000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
