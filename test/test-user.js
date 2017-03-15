@@ -2,22 +2,12 @@ require('dotenv').load();
 
 process.env.NODE_ENV = 'test';
 
-var model = require('seraph-model');
-var confDB = require('../api/config/db');
-var seraph = require('seraph')({
-    server: confDB.db.server,
-    user: confDB.db.user,
-    pass: confDB.db.pass
-});
-
-var user = model(seraph, 'User');
 
 var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
 
-var url = 'https://web-app-videoconferencias.herokuapp.com';
-//var url = 'http://localhost:8080'
+var url = 'http://localhost:8080';
 
 /*
  * Test de registro de usuarios

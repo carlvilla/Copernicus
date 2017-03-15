@@ -16,5 +16,5 @@ deploy:
   app: web-app-videoconferencias
 
 script:
-   - npm start &
+   - node app.js &
    - npm test
