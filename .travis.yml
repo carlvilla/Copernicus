@@ -14,3 +14,6 @@ deploy:
   api_key:
     secure: 7dd91c82-8298-4b15-a764-b427a5ec64ea
   app: web-app-videoconferencias
+
+env:
+ - NODE_ENV:testing
