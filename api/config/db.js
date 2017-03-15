@@ -1,17 +1,18 @@
 var config = {};
 
-if (process.env.NODE_ENV == 'production') {
-    var url = require('url').parse(process.env.GRAPHENEDB_URL)
+if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'testing') {
+    var url = require('url').parse(process.env.GRAPHENEDB_URL);
 
     config = {
-
         server: url.protocol + '//' + url.host,
         user: url.auth.split(':')[0],
         pass: url.auth.split(':')[1]
 
     };
 
-} else{
+}
+
+else{
     config = {
         URI: 'http://localhost:7474/db/data',
         user: process.env.LOCAL_DB_USER,
