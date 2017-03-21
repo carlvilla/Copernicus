@@ -1,0 +1,21 @@
+{
+  "name": "webapp-videoconferencias",
+  "description": "Aplicación de videoconferencias",
+  "main": "",
+  "authors": [
+    "Carlos Villa <uo236851@uniovi.es>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/carlvilla/WebApp_Videoconferencias",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

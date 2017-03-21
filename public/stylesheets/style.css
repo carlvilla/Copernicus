@@ -138,6 +138,17 @@ input.error.ng-invalid{
 }
 
 
+/* Estilos para página personal */
+.menu-lateral{
+    width: 24%;
+    padding: 10px 0px 25px 10px;
+    margin-left: -40px;
+}
+
+.nav-header{
+    margin-top: 15px;
+}
+
 
 
 

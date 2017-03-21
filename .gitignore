@@ -1,3 +1,4 @@
 .env
 public/images/
 node_modules
+bower_components

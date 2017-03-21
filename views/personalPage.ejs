@@ -3,14 +3,17 @@
 <head>
     <meta charset="utf-8">
 
+    <title>Página personal</title>
+
     <script language="JavaScript" type="text/javascript" src="../node_modules/angular/angular.js"></script>
     <script language="JavaScript" type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="/public/stylesheets/bootstrap.css">
     <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.js"></script>
 
+    <script src="../node_modules/angular-cookies/angular-cookies.js"></script>
     <script src='/public/module.js'></script>
-
 </head>
 <body>
 
@@ -18,8 +21,28 @@
 
 <div class="container">
 
-Esta es la futura página personal de cada usuario. ¡BIEVENIDO!
+    <div class="menu-lateral well">
+            <ul class="nav nav-list">
 
+                <li class="nav-header">Contactos</li>
+                <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Añadir Contacto</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Bloquear contacto</a></li>
+
+                <li class="nav-header">Salas</li>
+                <li><a href="#"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Crear sala</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Gestionar salas</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Notificaciones de salas <span class="badge badge-info">10</span></a></li></a></li>
+
+                <li class="nav-header">Ajustes</li>
+                <li><a href="#"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Ajustes de la cuenta</a></li>
+
+                <li class="nav-header"><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Cerrar sesión</a></li>
+            </ul>
+    </div>
+    <div id="listado-contactos">
+    </div>
+    <div id="listado-salas">
+    </div>
 </div>
 
 </body>
