@@ -6,8 +6,8 @@ notifications:
   email:
     recipients:
       - uo236851@uniovi.es
-    on_success: never
-    on_failure: always
+    on_success: change
+    on_failure: change
     
 deploy:
   provider: heroku
