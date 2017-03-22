@@ -9,7 +9,7 @@ var seraph = require('seraph')({
     pass: dbConfig.db.pass
 });
 var model = require('seraph-model');
-var user = model(seraph, 'User');
+var user = model(seraph, 'Usuario');
 
 var crypto = require('crypto');
 
