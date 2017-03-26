@@ -26,4 +26,5 @@ webApp.controller('loginController', function($scope, $http, $cookies, $window){
     function error(res) {
         $scope.loginError = true;
     }
+
 });
