@@ -1,12 +1,12 @@
-module.exports.about = function(req, res, next) {
+module.exports.about = function (req, res, next) {
     res.render('about', {});
 };
 
-module.exports.index = function(req, res, next){
+module.exports.index = function (req, res, next) {
     res.render('index', {
-        lang:{
+        lang: {
             registro: 'Registro',
-            olvido:"¿Olvidaste la contraseña?",
+            olvido: "¿Olvidaste la contraseña?",
             username: 'Usuario',
             nombre: 'Nombre',
             apellidos: 'Apellidos',
@@ -25,18 +25,35 @@ module.exports.index = function(req, res, next){
     });
 }
 
-module.exports.searchContacts = function(req, res, next){
+module.exports.searchContacts = function (req, res, next) {
     res.render('searchContacts', {});
 }
 
-module.exports.personalPage = function(req, res, next){
-    res.render('personalPage', {});
+module.exports.personalPage = function (req, res, next) {
+    console.log((req.headers["accept-language"]));
+    res.render('personalPage', {
+        lang: {
+            contacts: 'Contactos',
+            addContact: "Añadir contacto",
+            blockContact: 'Bloquear Contacto',
+            rooms: 'Salas',
+            createRoom: 'Crear sala',
+            manageRooms: 'Gestionar salas',
+            roomsNotifications: 'Notificaciones de salas',
+            settings: 'Ajustes',
+            accountSettings: 'Ajustes de la cuenta',
+            logout: 'Cerrar sesión',
+            conectedContacts: 'Contactos conectados',
+            roomsAccess: 'Acceso a salas',
+        }
+
+    });
 }
 
-module.exports.chatroom = function(req, res, next){
+module.exports.chatroom = function (req, res, next) {
     res.render('chatroom', {});
 }
 
-module.exports.profile = function(req, res, next){
+module.exports.profile = function (req, res, next) {
     res.render('profile', {});
 }

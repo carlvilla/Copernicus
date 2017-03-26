@@ -1,9 +1,14 @@
 var express = require('express');
-var controller = require('../controllers/usuarioController');
+var usuarioController = require('../controllers/usuarioController');
+var salaController = require('../controllers/salaController');
 var router = express.Router();
 
-router.post('/login', controller.login);
-router.post('/register', controller.register);
-router.get('/validarUsername/:username', controller.validarUsername);
+//llamadas rest para gestionar usuarios
+router.post('/login', usuarioController.login);
+router.post('/register', usuarioController.register);
+router.get('/validarUsername/:username', usuarioController.validarUsername);
+
+//llamadas rest para gestionar salas
+router.get('/salasParticipa', salaController.findSalasParticipa);
 
 module.exports = router;

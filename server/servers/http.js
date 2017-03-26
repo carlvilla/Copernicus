@@ -2,7 +2,7 @@
  * Created by carlosvillablanco on 15/02/2017.
  */
 
-module.exports = function(app) {
+module.exports = function (app) {
     var http = require('http');
     var conf = require('../config');
 
