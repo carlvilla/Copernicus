@@ -1,0 +1,151 @@
+.sideServiciosnav,
+.sideAsistentesnav,
+.sideContactonav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sideServiciosnav,
+.sideAsistentesnav {
+    background-color: #111;
+}
+
+.sideContactonav {
+    background-color: #2b60af;
+}
+
+.sideServiciosnav a,
+.sideAsistentesnav a,
+.sideContactonav a, .sideContactonav p {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s
+}
+
+.sideServiciosnav a:hover,
+.sideAsistentesnav a:hover,
+.sideContactonav a:hover,
+.offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+.sideAsistentesnav .sideServiciosnav .sideContactonav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    display: block;
+    height: 100vh;
+    width: 65%;
+    float: left;
+    margin: 5px;
+}
+
+#navegacion {
+    width: 180px;
+    height: 100vh;
+    float: left;
+    display: block;
+    background-color: #f8f8f8;
+    border: 3px solid transparent;
+}
+
+#serviciosLabel,
+#asistentesLabel,
+#ContactoLabel {
+    color: white;
+    text-align: center;
+}
+
+#servicio1 {
+    height: 50vh;
+    width: 41%;
+    border-size:2px;
+    border-style:solid;
+    border-color:black;
+    float: left;
+    text-align: center;
+}
+
+#servicio2 {
+    height: 50vh;
+    width: 41%;
+    border-size:2px;
+    border-style:solid;
+    border-color:black;
+    float: left;
+    text-align: center;
+}
+
+#servicio3 {
+    height: 50vh;
+    width: 41%;
+    border-size:2px;
+    border-style:solid;
+    border-color:black;
+    float: left;
+    text-align: center;
+}
+
+#servicio4 {
+    height: 50vh;
+    width: 41%;
+    border-size:1px;
+    border-style:solid;
+    border-color:black;
+    float: left;
+    text-align: center;
+}
+
+.contenedorExterior {
+    display: table;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+.contenedorExterior .contenedorInterior {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.elemento {
+    background: #ddd;
+    width: 100px;
+    height: 100px;
+}
+
+@media screen and (max-height: 450px) {
+    .sideServiciosnav,
+    .sideAsistentesnav,
+    .sideContactonav {
+        padding-top: 15px;
+    }
+    .sideServiciosnav a,
+    .sideAsistentesnav a,
+    .sideContactonav a{
+        font-size: 16px;
+    }
+}
+
+
+/* Cambios bootstrap */
+
+.navbar {
+    margin-bottom: 0px;
+}

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="webApp">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 
     <title>Página personal</title>
 
+    <!-- Hojas de estilos y scripts -->
+    <link rel="stylesheet" href="/public/stylesheets/personalPage.css">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
     <script language="JavaScript" type="text/javascript" src="../node_modules/angular/angular.js"></script>
     <script language="JavaScript" type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="/public/stylesheets/style.css">
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="bootstrap/js/bootstrap.js"></script>
-
     <script src="../node_modules/angular-cookies/angular-cookies.js"></script>
     <script src='/public/module.js'></script>
 
@@ -56,7 +57,7 @@
 </div>
         <div ng-controller="listSalasController" id="listado-salas" class="btn-group-vertical">
             <div class="panel-heading"><%=lang.roomsAccess%>:</div>
-            <a ng-repeat="sala in salas" href="" class="list-group-item boton-listado">{{sala.nombre}}</a>
+            <a ng-repeat="sala in salas" href="chatroom" class="list-group-item boton-listado">{{sala.nombre}}</a>
         </ul>
         </div>
 
