@@ -29,6 +29,7 @@ app.use('/public', express.static('public'));
 app.use(favicon(path.join(__dirname, 'public','favicon.ico')));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist/'));
+app.use('/gridstack', express.static(__dirname + '/bower_components/gridstack/dist/'));
 
 
 app.use('/api',routesApi);
