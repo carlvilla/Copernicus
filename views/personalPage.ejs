@@ -16,10 +16,9 @@
     <script src="../node_modules/angular-cookies/angular-cookies.js"></script>
     <script src='/public/module.js'></script>
 
-    <!-- Controladores -->
-    <script src='/public/javascripts/controllers/listSalasController.js'></script>
+    <!-- Controladores-->
+    <script src='/public/javascripts/controllers/salaController.js'></script>
     <script src='/public/javascripts/controllers/logoutController.js'></script>
-
 
 </head>
 <body>
@@ -55,10 +54,9 @@
             <a href="#" class="list-group-item boton-listado">Contacto 4</a>
     </ul>
 </div>
-        <div ng-controller="listSalasController" id="listado-salas" class="btn-group-vertical">
+        <div ng-controller="salaController" id="listado-salas" class="btn-group-vertical">
             <div class="panel-heading"><%=lang.roomsAccess%>:</div>
-            <a ng-repeat="sala in salas" href="chatroom" class="list-group-item boton-listado">{{sala.nombre}}</a>
-        </ul>
+            <button ng-repeat="sala in salas" ng-click="accederSala(sala.idSala)" class="list-group-item boton-listado">{{sala.nombre}}</button>
         </div>
 
 </div>

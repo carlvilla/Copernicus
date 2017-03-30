@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="webApp">
 
 <head>
     <meta charset="UTF-8">
@@ -16,9 +16,29 @@
     <script src="../node_modules/angular-cookies/angular-cookies.js"></script>
     <script src='/public/module.js'></script>
     <script src="/public/javascripts/navAnimation.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
+    <script src="/gridstack/gridstack.js"></script>
+
+    <!-- Controladores -->
+    <script src='/public/javascripts/controllers/salaController.js'></script>
+
+    <style type="text/css">
+        .grid-stack {
+            background: lightgoldenrodyellow;
+        }
+
+        .grid-stack-item-content {
+            color: #2c3e50;
+            text-align: center;
+            background-color: #18bc9c;
+        }
+    </style>
+
 </head>
-<body>
+<body ng-controller="salaController">
 
 <div id="myServiciosnav" class="sideServiciosnav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myServiciosnav');">&times;</a>
@@ -51,7 +71,7 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Nombre de la sala</a>
+            <h4>{{selectedSala().nombre}}</h4>
         </div>
     </div>
 </nav>
@@ -66,29 +86,114 @@
 
 <!-- MÓDULOS -->
 
-<div id="grid-stack">
+<!--<div id="grid-stack">
 
-    <div class="grid-stack-item" data-gs-current-height="6">
-
-
-        <div id="servicio1" class="grid-stack-item-content">
-
-            <a href="javascript:void(0)" class="closebtn">&times;</a>
-            <button type="button" class="btn btn-primary">Hola</button>
-
+    <div id="servicio1" class="grid-stack-item panel panel-default" data-gs-current-height="6">
+        <div class="panel-heading">
             <div>
-
-                Aqui va la funcionalidad del módulo
-
-            </div>
+                Videoconferencia </div> <div>[] <-></div>
 
         </div>
 
+        <div>
+
+                <div>
+
+                    Aqui va la funcionalidad del módulo
+
+                </div>
+
+
+        </div>
+
+
     </div>
 
+</div>-->
+
+<div style="float: left; width: 80%;" class="container-fluid">
+    <div>
+        <button data-bind="click: addNewWidget">Add new widget</button>
+    </div>
+
+    <br>
+
+    <div data-bind="component: {name: 'dashboard-grid', params: $data}"></div>
 </div>
 
-</div>
+
+<script type="text/javascript">
+    ko.components.register('dashboard-grid', {
+        viewModel: {
+            createViewModel: function (controller, componentInfo) {
+                var ViewModel = function (controller, componentInfo) {
+                    var grid = null;
+
+                    this.widgets = controller.widgets;
+
+                    this.afterAddWidget = function (items) {
+                        if (grid == null) {
+                            grid = $(componentInfo.element).find('.grid-stack').gridstack({
+                                auto: false
+                            }).data('gridstack');
+                        }
+
+                        var item = _.find(items, function (i) { return i.nodeType == 1 });
+                        grid.addWidget(item);
+                        ko.utils.domNodeDisposal.addDisposeCallback(item, function () {
+                            grid.removeWidget(item);
+                        });
+                    };
+                };
+
+                return new ViewModel(controller, componentInfo);
+            }
+        },
+        template:
+            [
+                '<div class="grid-stack" data-bind="foreach: {data: widgets, afterRender: afterAddWidget}">',
+                '   <div class="grid-stack-item" data-bind="attr: {\'data-gs-x\': $data.x, \'data-gs-y\': $data.y, \'data-gs-width\': $data.width, \'data-gs-height\': $data.height, \'data-gs-auto-position\': $data.auto_position}">',
+                '       <div class="grid-stack-item-content"><button data-bind="click: $root.deleteWidget">Delete me</button></div>',
+                '   </div>',
+                '</div> '
+            ].join('')
+    });
+
+    $(function () {
+        var Controller = function (widgets) {
+            var self = this;
+
+            this.widgets = ko.observableArray(widgets);
+
+            this.addNewWidget = function () {
+                this.widgets.push({
+                    x: 0,
+                    y: 0,
+                    width: 6,
+                    height: 7,
+                    auto_position: true
+                });
+                return false;
+            };
+
+            this.deleteWidget = function (item) {
+                self.widgets.remove(item);
+                return false;
+            };
+        };
+
+        var widgets = [
+            {x: 7, y: 0, width: 6, height: 6},
+            {x: 0, y: 0, width: 6, height: 6},
+            {x: 7, y: 0, width: 6, height: 6},
+            {x: 0, y: 0, width: 6, height: 6}
+        ];
+
+        var controller = new Controller(widgets);
+        ko.applyBindings(controller);
+    });
+</script>
+
 
 </body>
 

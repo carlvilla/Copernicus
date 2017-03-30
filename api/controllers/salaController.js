@@ -57,6 +57,29 @@ module.exports.findSalasParticipa = function (req, res) {
 
 }
 
+module.exports.checkParticipante = function (req, res){
+
+    var token = req.cookies.token;
+    var payload = jwt.decode(token, process.env.JWT_SECRET);
+
+    var username = payload.sub.username;
+
+    var query = "MATCH (u:Usuario{username:'"+username+"'}),(s:Sala{idSala:"+ req.body.idSala +"})where (u)-" +
+        "[:Miembro | Admin]->(s) return s";
+
+
+    db.query(query, function(err, result){
+       if(err){
+           utils.sendJSONresponse(res, 500, err);
+       } else if(result.length == 1){
+           utils.sendJSONresponse(res, 200, result);
+       } else{
+           //El usuario no tiene permisos para acceder a esta sala
+           utils.sendJSONresponse(res, 403, err);
+       }
+    });
+}
+
 
 module.exports.findSalasMiembro = function (req, res) {
 
