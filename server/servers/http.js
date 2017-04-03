@@ -18,7 +18,7 @@ module.exports = function (app) {
     }
 
     function onListening() {
-        console.log("Server is running on port: " + port);
+        console.log("Servidor escuchando en el puerto: " + port);
     }
 
     return server;
