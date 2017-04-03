@@ -17,6 +17,8 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "gridstack": "^0.2.6"
+    "gridstack": "^0.2.6",
+    "knockout": "^3.4.2",
+    "lodash": "^4.17.4"
   }
 }
