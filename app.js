@@ -28,6 +28,10 @@ app.use(favicon(path.join(__dirname, 'public','favicon.ico')));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist/'));
 app.use('/gridstack', express.static(__dirname + '/bower_components/gridstack/dist/'));
+app.use('/knockout', express.static(__dirname + '/bower_components/knockout/dist/'));
+app.use('/lodash', express.static(__dirname + '/bower_components/lodash/dist/'));
+app.use('/jquery-ui', express.static(__dirname + '/bower_components/jquery-ui/'));
+app.use('/jquery', express.static(__dirname + '/bower_components/jquery/dist/'));
 
 
 app.use('/api',routesApi);
