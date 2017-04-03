@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js",
-    "test": "mocha --timeout 10000"
+    "test": "mocha --timeout 10000",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "angular": "^1.6.2",
