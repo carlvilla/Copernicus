@@ -1,3 +1,8 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
 .sideServiciosnav,
 .sideAsistentesnav,
 .sideContactonav {
@@ -56,8 +61,8 @@
 }
 
 #navegacion {
-    width: 180px;
-    height: 100vh;
+    width: 14%;
+    height: 100%;
     float: left;
     display: block;
     background-color: #f8f8f8;
@@ -74,9 +79,9 @@
 #servicio1 {
     height: 50vh;
     width: 41%;
-    border-size:2px;
-    border-style:solid;
-    border-color:black;
+    border-size: 2px;
+    border-style: solid;
+    border-color: black;
     float: left;
     text-align: center;
 }
@@ -84,9 +89,9 @@
 #servicio2 {
     height: 50vh;
     width: 41%;
-    border-size:2px;
-    border-style:solid;
-    border-color:black;
+    border-size: 2px;
+    border-style: solid;
+    border-color: black;
     float: left;
     text-align: center;
 }
@@ -94,9 +99,9 @@
 #servicio3 {
     height: 50vh;
     width: 41%;
-    border-size:2px;
-    border-style:solid;
-    border-color:black;
+    border-size: 2px;
+    border-style: solid;
+    border-color: black;
     float: left;
     text-align: center;
 }
@@ -104,9 +109,9 @@
 #servicio4 {
     height: 50vh;
     width: 41%;
-    border-size:1px;
-    border-style:solid;
-    border-color:black;
+    border-size: 1px;
+    border-style: solid;
+    border-color: black;
     float: left;
     text-align: center;
 }
@@ -117,6 +122,7 @@
     height: 100px;
     overflow: hidden;
 }
+
 .contenedorExterior .contenedorInterior {
     display: table-cell;
     vertical-align: middle;
@@ -124,6 +130,7 @@
     margin: 0 auto;
     text-align: center;
 }
+
 .elemento {
     background: #ddd;
     width: 100px;
@@ -136,16 +143,36 @@
     .sideContactonav {
         padding-top: 15px;
     }
+
     .sideServiciosnav a,
     .sideAsistentesnav a,
-    .sideContactonav a{
+    .sideContactonav a {
         font-size: 16px;
     }
 }
 
+/* Módulos */
+
+.grid-stack {
+    background: lightgoldenrodyellow;
+}
+
+.grid-stack-item-content {
+    color: #2c3e50;
+    text-align: center;
+    background-color: #18bc9c;
+}
+
+.closeModule, .fullScreenModule {
+    float: right;
+}
 
 /* Cambios bootstrap */
 
 .navbar {
     margin-bottom: 0px;
 }
+
+
+
+

@@ -16,26 +16,13 @@
     <script src="../node_modules/angular-cookies/angular-cookies.js"></script>
     <script src='/public/module.js'></script>
     <script src="/public/javascripts/navAnimation.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
     <script src="/gridstack/gridstack.js"></script>
 
     <!-- Controladores -->
     <script src='/public/javascripts/controllers/salaController.js'></script>
-
-    <style type="text/css">
-        .grid-stack {
-            background: lightgoldenrodyellow;
-        }
-
-        .grid-stack-item-content {
-            color: #2c3e50;
-            text-align: center;
-            background-color: #18bc9c;
-        }
-    </style>
 
 </head>
 <body ng-controller="salaController">
@@ -51,11 +38,12 @@
 
 <div id="myAsistentesnav" class="sideAsistentesnav">
     <a href="javascript:void(0)" class="closebtn"
-       onclick="closeNav('myAsistentesnav');closeNav('Contactonav');resetMain();">&times;</a>
+       onclick="closeNav('myAsistentesnav');closeNav('Contactonav');">&times;</a>
     <h2 id="asistentesLabel">Asistentes</h2>
-    <a href="#" onclick="informacion()">David</a>
-    <a href="#">Cristian</a>
-    <a href="#">Carlos</a>
+    <a ng-controller='asistentesController' ng-repeat="asistente in asistentes">{{asistente.nombre}}</a>
+
+   <!-- <a href="#" onclick="informacion()">David</a> -->
+
 </div>
 
 <div id="Contactonav" class="sideContactonav">
@@ -112,9 +100,9 @@
 </div>-->
 
 <div style="float: left; width: 80%;" class="container-fluid">
-    <div>
+  <!--  <div>
         <button data-bind="click: addNewWidget">Add new widget</button>
-    </div>
+    </div> -->
 
     <br>
 
@@ -138,7 +126,9 @@
                             }).data('gridstack');
                         }
 
-                        var item = _.find(items, function (i) { return i.nodeType == 1 });
+                        var item = _.find(items, function (i) {
+                            return i.nodeType == 1
+                        });
                         grid.addWidget(item);
                         ko.utils.domNodeDisposal.addDisposeCallback(item, function () {
                             grid.removeWidget(item);
@@ -149,14 +139,19 @@
                 return new ViewModel(controller, componentInfo);
             }
         },
-        template:
-            [
-                '<div class="grid-stack" data-bind="foreach: {data: widgets, afterRender: afterAddWidget}">',
-                '   <div class="grid-stack-item" data-bind="attr: {\'data-gs-x\': $data.x, \'data-gs-y\': $data.y, \'data-gs-width\': $data.width, \'data-gs-height\': $data.height, \'data-gs-auto-position\': $data.auto_position}">',
-                '       <div class="grid-stack-item-content"><button data-bind="click: $root.deleteWidget">Delete me</button></div>',
-                '   </div>',
-                '</div> '
-            ].join('')
+        template: [
+            '<div class="grid-stack" data-bind="foreach: {data: widgets, afterRender: afterAddWidget}">',
+            '   <div class="grid-stack-item" data-bind="attr: {\'data-gs-x\': $data.x, \'data-gs-y\': $data.y, ' +
+            '\'data-gs-width\': $data.width, \'data-gs-height\': $data.height, \'data-gs-auto-position\'' +
+            ': $data.auto_position}">',
+            '       <div class="grid-stack-item-content">' +
+            '<button class="closeModule" data-bind="click: $root.deleteWidget">' +
+            '<span class="glyphicon glyphicon-remove"></span>' +
+            '</button><button class="fullScreenModule" data-bind="">' +
+            '<span class="glyphicon glyphicon-fullscreen"></span></button></div>',
+            '   </div>',
+            '</div> '
+        ].join('')
     });
 
     $(function () {
