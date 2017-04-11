@@ -2,6 +2,8 @@ var passport = require('passport');
 require('../utils/passport');
 
 var utils = require('../utils/utils');
+var jwt = require('jwt-simple');
+
 
 var model = require('seraph-model');
 var confDB = require('../config/db')
@@ -102,7 +104,22 @@ module.exports.validarUsername = function (req, res) {
 
 module.exports.profile = function (req, res) {
 
-    console.log("Profile");
+    console.log("Aqui");
+
+    var token = req.cookies.token;
+
+    var payload = jwt.decode(token, process.env.JWT_SECRET);
+
+    var predicate = {username: payload.sub.username};
+
+    user.where(predicate, function (err, people) {
+        if (err) throw err;
+        if (people.length == 0) {
+            utils.sendJSONresponse(res, 204, "");
+        } else {
+            utils.sendJSONresponse(res, 200, people);
+        }
+    });
 
 };
 
