@@ -9,12 +9,12 @@ angular.module('webApp')
 
         ws.onOpen(function () {
             console.log("Open");
-         //   growl.success('Server started. Enjoy!', {
-          //      title: 'Success',
-           // });
-            setInterval(function () {
-                ws.send('ping at ' + new Date().getUTCSeconds());
-            }, 30000);
+            //   growl.success('Server started. Enjoy!', {
+            //      title: 'Success',
+            // });
+          //  setInterval(function () {
+           //     ws.send('ping at ' + new Date().getUTCSeconds());
+            //}, 30000);
         });
         window.onbeforeunload = function () {
             asistentesManager.setDisconnected();
@@ -23,12 +23,14 @@ angular.module('webApp')
         ws.onMessage(function (message) {
             if (utils.IsJsonString(message.data)) {
                 var obj = JSON.parse(message.data);
-                switch (obj.section) {
+                switch (obj.seccion) {
                     case "asistentes":
-                        if (obj.data.operation == 'connected')
-                            asistentesManager.addPerson(obj.data);
-                        else if (obj.data.operation == 'disconnected')
-                            asistentesManager.deletePerson(obj.data);
+                        if (obj.data.operacion == 'connected') {
+                            console.log("Añadir asistente");
+                            asistentesManager.addAsistente(obj.data);
+                        }
+                        else if (obj.data.operacion == 'disconnected')
+                            asistentesManager.deleteAsistente(obj.data);
                         break;
                 }
             }
