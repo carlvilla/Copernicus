@@ -6,6 +6,7 @@ var router = express.Router();
 //llamadas rest para gestionar usuarios
 router.post('/login', usuarioController.login);
 router.post('/register', usuarioController.register);
+router.get('/profile', usuarioController.profile);
 router.get('/validarUsername/:username', usuarioController.validarUsername);
 
 //llamadas rest para gestionar salas

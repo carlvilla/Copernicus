@@ -1,18 +1,17 @@
 angular.module('webApp')
-    .service('webSocketService', function ($websocket, growl, utils) {
+    .factory('webSocketService', function ($websocket, utils) {
         if (!window.WebSocket) {
             console.log("WebSockets no están soportados con este navegador");
         }
         var HOST = location.origin.replace(/^http/, 'ws');
         var ws = $websocket(HOST);
-        var asistentesManager = new AsistentesManager(ws, growl);
-
+        var asistentesManager = new AsistentesManager(ws);
 
         ws.onOpen(function () {
             console.log("Open");
-            growl.success('Server started. Enjoy!', {
-                title: 'Success',
-            });
+         //   growl.success('Server started. Enjoy!', {
+          //      title: 'Success',
+           // });
             setInterval(function () {
                 ws.send('ping at ' + new Date().getUTCSeconds());
             }, 30000);
@@ -22,7 +21,7 @@ angular.module('webApp')
             ws.close();
         };
         ws.onMessage(function (message) {
-            if (utils.isJson(message.data)) {
+            if (utils.IsJsonString(message.data)) {
                 var obj = JSON.parse(message.data);
                 switch (obj.section) {
                     case "asistentes":

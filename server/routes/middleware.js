@@ -50,12 +50,17 @@ module.exports.checkSesion = function (req, res, next) {
     var token = req.cookies.token;
 
     if(token) {
-        var payload = jwt.decode(token, process.env.JWT_SECRET);
-
-        if (payload.exp > moment().unix()) {
-            req.sub = payload.sub;
-            res.redirect('./personalPage');
+        try {
+            var payload = jwt.decode(token, process.env.JWT_SECRET);
+            if (payload.exp > moment().unix()) {
+                req.sub = payload.sub;
+                res.redirect('./personalPage');
+            }
+        }catch(err){
+            next();
         }
+
+
     }
 
     next();

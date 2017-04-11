@@ -17,7 +17,7 @@ module.exports = function(server) {
 
         ws.on('message', function (message) {
             console.log('Received: %s', message);
-            if (isJson(message)) {
+            if (IsJsonString(message)) {
                 var obj = JSON.parse(message);
                 switch (obj.section) {
                     case 'asistentes':
@@ -129,5 +129,15 @@ module.exports = function(server) {
     function onListening() {
         console.info('Servidor Websocket escuchando en el puerto: ' + config.port);
     }
+
+    function IsJsonString(str) {
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
+        }
+        return true;
+    };
+
 
 };

@@ -2,31 +2,31 @@
 <html ng-app="webApp">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 
-    <!-- Hojas de estilos y scripts -->
-    <link rel="stylesheet" href="/gridstack/gridstack.css"/>
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="/public/stylesheets/chatroom.css">
+    <% include partials/shared-head %>
 
-    <script src="../node_modules/angular/angular.js"></script>
-
-    <script src="../node_modules/angular-cookies/angular-cookies.js"></script>
-    <script src='/public/module.js'></script>
     <script src="/public/javascripts/navAnimation.js"></script>
     <script src="/lodash/lodash.js"></script>
     <script src="/knockout/knockout.js"></script>
-    <script src="/jquery/jquery.js"></script>
-    <script src="/jquery-ui/jquery-ui.js"></script>
+
     <script src="/gridstack/gridstack.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+
+
 
     <!-- Controladores -->
     <script src='/public/javascripts/controllers/salaController.js'></script>
 
+    <script src='/public/javascripts/controllers/asistentesController.js'></script>
+
+    <script src='/public/javascripts/managers/AsistentesManager.js'></script>
+
+
+
 </head>
-<body ng-controller="salaController">
+<body>
 
 <div id="myServiciosnav" class="sideServiciosnav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myServiciosnav');">&times;</a>
@@ -37,11 +37,11 @@
     <a href="#">Dibujos corporativos</a>
 </div>
 
-<div id="myAsistentesnav" class="sideAsistentesnav">
+<div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav" >
     <a href="javascript:void(0)" class="closebtn"
        onclick="closeNav('myAsistentesnav');closeNav('Contactonav');">&times;</a>
     <h2 id="asistentesLabel">Asistentes</h2>
-    <a ng-controller='asistentesController' ng-repeat="asistente in asistentes">{{asistente.nombre}}</a>
+    <a ng-repeat="asistente in asistentes">{{asistente.nombre}}</a>
 
    <!-- <a href="#" onclick="informacion()">David</a> -->
 
@@ -57,7 +57,7 @@
 </div>
 
 
-<nav class="navbar navbar-default navbar-static-top">
+<nav ng-controller="salaController" class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
             <h4>{{selectedSala().nombre}}</h4>

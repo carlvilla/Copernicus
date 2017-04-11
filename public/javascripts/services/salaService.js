@@ -1,8 +1,8 @@
 /**
  * Created by carlosvillablanco on 30/3/17.
  */
-angular.module('webApp')
-    .factory('salaService', function () {
+var webApp = angular.module('webApp')
+webApp.service('salaService', function () {
 
     return {
         addData: addData,

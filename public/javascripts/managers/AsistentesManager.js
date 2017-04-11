@@ -1,13 +1,13 @@
-function PeopleManagement(ws, growl) {
+function AsistentesManager(ws) {
 
     var asistentes = [];
-    var usuario;
 
     /**
      * Añadir asistentes a la sala
      * @param asistente
      */
     this.addAsistente = function (asistente) {
+        console.log(asistente);
         asistentes.push(asistente);
     }
 
