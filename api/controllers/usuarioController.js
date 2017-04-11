@@ -104,8 +104,6 @@ module.exports.validarUsername = function (req, res) {
 
 module.exports.profile = function (req, res) {
 
-    console.log("Aqui");
-
     var token = req.cookies.token;
 
     var payload = jwt.decode(token, process.env.JWT_SECRET);

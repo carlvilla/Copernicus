@@ -16,12 +16,12 @@ module.exports = function(server) {
         console.log('Creando conexión a servidor WebSocket');
 
         ws.on('message', function (message) {
-            console.log('Received: %s', message);
+
             if (IsJsonString(message)) {
                 var obj = JSON.parse(message);
-                switch (obj.section) {
-                    case 'asistentes':
-                        if (obj.data.operation == 'connected') {
+                switch (obj.seccion) {
+                    case "asistentes":
+                        if (obj.data.operacion == "connected") {
                             connections.push({
                                 'ws': ws,
                                 'usuario': {
@@ -34,7 +34,7 @@ module.exports = function(server) {
                             broadcast(message, obj.data.username);
                             obtenerInformacionAsistentes(ws, obj.data.username);
                         }
-                        else if (obj.data.operation == 'disconnected') {
+                        else if (obj.data.operation == "disconnected") {
                             //Notificar a otros usuarios del asistente desconectado
                             broadcast(message, obj.data.username);
                             desconectarUsuario(obj.data.username);
@@ -59,9 +59,7 @@ module.exports = function(server) {
          */
         broadcast = function (message, usuarioAccion) {
             connections.forEach(function (conexion) {
-                if (conexion.user.username != usuarioAccion) {
-
-                    console.log('Sent: %s to %s', message, conexion.user.username);
+                if (conexion.usuario.username != usuarioAccion) {
 
                     if (conexion.ws)
                         conexion.ws.send(message);
@@ -80,17 +78,16 @@ module.exports = function(server) {
          */
         obtenerInformacionAsistentes = function broadcast(ws, usuarioAccion) {
             connections.forEach(function (conexion) {
-                if (conexion.user.username != usuarioAccion) {
+                if (conexion.usuario.username != usuarioAccion) {
                     var message = {
                         'seccion': 'asistentes',
                         'data': {
                             'operacion': 'connected',
-                            'nombre': conexion.user.nombre,
-                            'username': conexion.user.username
+                            'nombre': conexion.usuario.nombre,
+                            'username': conexion.usuario.username
 
                         }
                     };
-                    console.log('**Sent: %s to %s', JSON.stringify(message), usuarioAccion);
 
                     if (ws)
                         ws.send(JSON.stringify(message));
@@ -107,7 +104,7 @@ module.exports = function(server) {
         desconectarUsuario = function (usuarioAccion) {
 
             for (var i = 0; i < connections.length; i++) {
-                if (connections[i].user.username == usuarioAccion) {
+                if (connections[i].usuario.username == usuarioAccion) {
                     connections.splice(i, 1);
                     i--;
                 }

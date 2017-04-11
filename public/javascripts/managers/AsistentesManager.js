@@ -1,13 +1,13 @@
 function AsistentesManager(ws) {
 
     var asistentes = [];
+    var usuarioConectado;
 
     /**
      * Añadir asistentes a la sala
      * @param asistente
      */
     this.addAsistente = function (asistente) {
-        console.log(asistente);
         asistentes.push(asistente);
     }
 
@@ -37,22 +37,21 @@ function AsistentesManager(ws) {
      * @param nombre
      */
     this.setConnected = function (username, nombre) {
-        usuario = {
+        usuarioConectado = {
             'username': username,
-            'name': nombre
+            'nombre': nombre
         };
 
-        this.addPerson(user);
-        sendData(userName, name, 'connected');
+        sendData(username, nombre, 'connected');
     };
 
 
     /**
      * Indicar que el usuario ya no es un asistente
      */
-    this.setConnected = function () {
-        this.deletePerson(usuario);
-        sendData(userName, name, 'disconnected');
+    this.setDisconnected = function () {
+        this.deleteAsistente(usuarioConectado);
+        sendData(usuarioConectado.username, usuarioConectado.nombre, 'disconnected');
     };
 
 

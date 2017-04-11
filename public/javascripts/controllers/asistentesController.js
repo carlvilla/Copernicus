@@ -11,9 +11,11 @@ webApp.controller('asistentesController', function ($scope, $http, $cookies, web
 
             var usuario = res.data[0];
 
-            webSocketService.asistentesManager.addAsistente(usuario);
+            webSocketService.asistentesManager.setConnected(usuario.username, usuario.nombre);
 
             var asistentes = webSocketService.asistentesManager.getAsistentes();
+
+            console.log(asistentes);
 
             asistentes.splice(asistentes.indexOf(usuario),1);
 

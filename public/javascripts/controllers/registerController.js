@@ -21,7 +21,7 @@ webApp.controller('registerController', function($scope, $http, $window, $cookie
         $window.location.href = '/personalPage';
     }
     function error(res) {
-        $scope.data.error = res.statusText + ' (' + res.status + ')';
+        $scope.data.error = res.statusText;
         $scope.messages.showError = true;
     }
 });
