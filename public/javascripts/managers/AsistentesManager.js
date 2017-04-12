@@ -8,7 +8,18 @@ function AsistentesManager(ws) {
      * @param asistente
      */
     this.addAsistente = function (asistente) {
-        asistentes.push(asistente);
+        //Es necesario comprobar que el usuario no esté ya incluido en la lista de asistentes, ya que
+        //si el usuario refresca la página se intentará añadir de nuevo el mismo.
+        var nuevoAsistente = true;
+
+        asistentes.forEach(function(asis){
+            if(asis.username == asistente.username){
+                nuevoAsistente = false;
+            }
+        })
+
+        if(nuevoAsistente)
+            asistentes.push(asistente);
     }
 
     /**
@@ -24,6 +35,7 @@ function AsistentesManager(ws) {
      * @param asistente
      */
     this.deleteAsistente = function (asistente) {
+        console.log("Eliminar asistente");
         for (var a in asistentes) {
             if (a.username == asistente.username) {
                 asistentes.splice(asistentes.indexOf(a), 1);

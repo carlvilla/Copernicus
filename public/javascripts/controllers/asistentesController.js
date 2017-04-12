@@ -9,22 +9,25 @@ webApp.controller('asistentesController', function ($scope, $http, $cookies, web
 
     function success(res) {
 
-            var usuario = res.data[0];
+        //Obtenemos los datos del usuario que se acaba de conectar
+        var usuario = res.data[0];
 
-            webSocketService.asistentesManager.setConnected(usuario.username, usuario.nombre);
+        //Avisamos a los demás asistentes de la sala que el usuario se conectó
+        webSocketService.asistentesManager.setConnected(usuario.username, usuario.nombre);
 
-            var asistentes = webSocketService.asistentesManager.getAsistentes();
+        //Obtenemos los asistentes conectados en la sala
+        var asistentes = webSocketService.asistentesManager.getAsistentes();
 
-            console.log(asistentes);
+        //Eliminamos al usuario que se acaba de conectar de la lista para no mostrarlo en su listado de
+        //asistentes conectados
+        asistentes.splice(asistentes.indexOf(usuario), 1);
 
-            asistentes.splice(asistentes.indexOf(usuario),1);
+        $scope.asistentes = asistentes;
+    };
 
-            $scope.asistentes = asistentes;
-        };
-
-        function error(res) {
-            console.log(res);
-        };
+    function error(res) {
+        console.log(res);
+    };
 
 });
 
