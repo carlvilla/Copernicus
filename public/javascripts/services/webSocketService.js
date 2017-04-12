@@ -8,25 +8,24 @@ angular.module('webApp')
         var asistentesManager = new AsistentesManager(ws);
 
         ws.onOpen(function () {
-            console.log("Open");
-            //   growl.success('Server started. Enjoy!', {
-            //      title: 'Success',
-            // });
-          //  setInterval(function () {
-           //     ws.send('ping at ' + new Date().getUTCSeconds());
-            //}, 30000);
+            console.log("Abriendo webSocketService");
         });
-        window.onbeforeunload = function () {
+
+        //Si se cierra la ventana o se utilizan las flechas de navegación, se hace una llamada a este método
+        window.addEventListener("beforeunload", function (e) {
             asistentesManager.setDisconnected();
             ws.close();
-        };
+        });
+
+
         ws.onMessage(function (message) {
+            console.log("webSocketService");
             if (utils.IsJsonString(message.data)) {
                 var obj = JSON.parse(message.data);
                 switch (obj.seccion) {
                     case "asistentes":
                         if (obj.data.operacion == 'connected') {
-                            console.log("Añadir asistente");
+                            console.log("Añadiendo asistente conectado");
                             asistentesManager.addAsistente(obj.data);
                         }
                         else if (obj.data.operacion == 'disconnected')
