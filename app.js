@@ -30,10 +30,9 @@ app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/di
 app.use('/gridstack', express.static(__dirname + '/bower_components/gridstack/dist/'));
 app.use('/knockout', express.static(__dirname + '/bower_components/knockout/dist/'));
 app.use('/lodash', express.static(__dirname + '/bower_components/lodash/dist/'));
-app.use('/jquery-ui', express.static(__dirname + '/bower_components/jquery-ui/'));
 app.use('/jquery', express.static(__dirname + '/bower_components/jquery/dist/'));
+app.use('/jquery-ui', express.static(__dirname + '/bower_components/jquery-ui/'));
 app.use('/websocket', express.static(__dirname + '/bower_components/angular-websocket/dist/'));
-
 
 
 app.use('/api',routesApi);
