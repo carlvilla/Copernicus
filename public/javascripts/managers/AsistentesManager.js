@@ -36,9 +36,11 @@ function AsistentesManager(ws) {
      */
     this.deleteAsistente = function (asistente) {
         console.log("Eliminar asistente");
-        for (var a in asistentes) {
-            if (a.username == asistente.username) {
-                asistentes.splice(asistentes.indexOf(a), 1);
+        console.log(asistentes);
+        for (var index in asistentes) {
+            if (asistentes[index].username == asistente.username) {
+                console.log(asistente.username);
+                asistentes.splice(index, 1);
             }
         }
     }
