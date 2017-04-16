@@ -51,7 +51,17 @@ module.exports.personalPage = function (req, res, next) {
 }
 
 module.exports.chatroom = function (req, res, next) {
-    res.render('chatroom', {});
+    res.render('chatroom', {
+
+        lang: {
+            asistentes: 'Asistentes Conectados',
+
+        }
+
+
+
+
+    });
 }
 
 module.exports.profile = function (req, res, next) {

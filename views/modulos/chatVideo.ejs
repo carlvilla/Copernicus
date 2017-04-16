@@ -1,0 +1,26 @@
+<div ng-controller='videoconferenciaController' id="moduloChatVideo">
+        <div class="grid-stack-item">
+            <div class="grid-stack-item-content">
+                <button class="closeModule">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                <button class="fullScreenModule" data-bind="">
+                    <span class="glyphicon glyphicon-fullscreen"></span></button>
+
+
+                <div ng-controller='videoconferenciaController'>
+                    <div></div><input type='checkbox' id='disableVideoconferenceCheckbox' ng-model='$parent.disableVideoconferenceModel'
+                           ng-checked='$scope.disableVideoconferenceModel' ng-change='changeDisableVideoconferenceModel()'> Disable </input>
+
+                    <input type='checkbox' id='muteVideoconferenceCheckbox' ng-model='$parent.muteVideoconferenceModel'
+                           ng-checked='$scope.muteVideoconferenceModel' ng-change='changeMuteVideoconferenceModel()'> Mute </input>
+                </div>
+
+                    <div id="videoconferenceArea" ng-cloak></div>
+                    <video id="videoconferenceLocal"></video>
+
+                </div>
+            </div>
+        </div>
+</div>
+

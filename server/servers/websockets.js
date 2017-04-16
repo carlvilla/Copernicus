@@ -39,8 +39,8 @@ module.exports = function (server) {
 
                             console.log("Añadiendo usuario");
 
-                            connections.forEach(function(con){
-                                if(con.usuario.username == conexion.usuario.username){
+                            connections.forEach(function (con) {
+                                if (con.usuario.username == conexion.usuario.username) {
                                     console.log("usuario ya registrado");
                                 }
                             });
@@ -60,6 +60,50 @@ module.exports = function (server) {
                         }
                         break;
 
+
+
+
+
+                    case 'videoconference':
+                        switch (obj.data.operation) {
+                            case 'login':
+                                setVideoconferenceEnabled(obj.data.username, true);
+                                var response = {
+                                    'section': 'videoconference',
+                                    'data': {
+                                        'operation': 'login',
+                                        'others': getOtherUserNames(obj.data.username)
+                                    }
+                                };
+                                ws.send(JSON.stringify(response)); //to notify this user
+                                break;
+                            case 'offer':
+                                sendTo(message, obj.data.targetUserName); //to notify targetUserName
+                                break;
+                            case 'answer':
+                                sendTo(message, obj.data.sourceUserName); //to notify sourceUserName
+                                break;
+                            case 'candidate':
+                                sendTo(message, obj.data.otherUserName); //to notify the other part
+                                break;
+                            case 'leave':
+                                setVideoconferenceEnabled(obj.data.username, false);
+                                broadcast(message, obj.data.username); //to notify others
+                                break;
+                            default:
+                                console.log('Unrecognized message regarding the videoconference');
+                                break;
+                        }
+                        break;
+
+
+
+
+
+
+
+
+
                     default:
                         console.log('Mensaje erróneo');
                         break;
@@ -77,77 +121,119 @@ module.exports = function (server) {
          */
         broadcast = function (message, usuarioAccion) {
             connections.forEach(function (conexion) {
-                if (conexion.usuario.username != usuarioAccion) {
-                    if (conexion.ws) {
-                        console.log("Enviando mensaje a webSocketService");
-                        conexion.ws.send(message);
+                    if (conexion.usuario.username != usuarioAccion) {
+                        if (conexion.ws) {
+                            console.log("Enviando mensaje a webSocketService");
+                            conexion.ws.send(message);
+                        }
                     }
                 }
-        }
-        );
-};
+            );
+        };
 
 
-/**
- * Obtenemos la información de los usuarios que ya estaban conectados, para comunicarsela al usuario
- * que se acaba de conectar
- *
- * @param ws
- * @param usuarioAccion
- */
-obtenerInformacionAsistentes = function (ws, usuarioAccion) {
-    connections.forEach(function (conexion) {
-        if (conexion.usuario.username != usuarioAccion) {
-            var message = {
-                'seccion': 'asistentes',
-                'data': {
-                    'operacion': 'connected',
-                    'username': conexion.usuario.username,
-                    'nombre': conexion.usuario.nombre
+        /**
+         * Obtenemos la información de los usuarios que ya estaban conectados, para comunicarsela al usuario
+         * que se acaba de conectar
+         *
+         * @param ws
+         * @param usuarioAccion
+         */
+        obtenerInformacionAsistentes = function (ws, usuarioAccion) {
+            connections.forEach(function (conexion) {
+                if (conexion.usuario.username != usuarioAccion) {
+                    var message = {
+                        'seccion': 'asistentes',
+                        'data': {
+                            'operacion': 'connected',
+                            'username': conexion.usuario.username,
+                            'nombre': conexion.usuario.nombre
+                        }
+                    };
+
+                    if (ws)
+                        ws.send(JSON.stringify(message));
                 }
-            };
+            });
+        };
 
-            if (ws)
-                ws.send(JSON.stringify(message));
-        }
+
+        /**
+         * Si el usuario se desconecta, lo eliminamos de la lista de usuarios conectados
+         *
+         * @param usuarioAccion
+         */
+        desconectarUsuario = function (usuarioAccion) {
+            for (var i = 0; i < connections.length; i++) {
+                if (connections[i].usuario.username == usuarioAccion) {
+                    connections.splice(i, 1);
+                    break;
+                }
+            }
+        };
     });
-};
 
 
-/**
- * Si el usuario se desconecta, lo eliminamos de la lista de usuarios conectados
- *
- * @param usuarioAccion
- */
-desconectarUsuario = function (usuarioAccion) {
-    for (var i = 0; i < connections.length; i++) {
-        if (connections[i].usuario.username == usuarioAccion) {
-            connections.splice(i, 1);
-            break;
+    function onError(error) {
+        console.error(error.message);
+        process.exit(1);
+    }
+
+    function onListening() {
+        console.info('Servidor Websocket escuchando en el puerto: ' + config.port);
+    }
+
+    function IsJsonString(str) {
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
         }
-    }
+        return true;
+    };
+
+
+
+
+
+
+
+
+    setVideoconferenceEnabled = function (sentBy, enabled) {
+        for (var i = 0; i < connections.length; i++) {
+            if (connections[i].user.username == sentBy) {
+                connections[i].videoconference = {
+                    'enabled': enabled,
+                }
+            }
+        }
+    };
+
+
+    getOtherUserNames = function (sentBy) {
+        var others = [];
+        connections.forEach(function (cnn) {
+            if (cnn.user.username != sentBy) {
+                if (cnn.videoconference.enabled)
+                    others.push(cnn.user.username);
+            }
+        });
+        return others;
+    };
+
+
+    sendTo = function(message, sentTo) {
+        connections.forEach(function(cnn) {
+            if (cnn.user.username == sentTo) {
+            }
+            console.log('Sent: %s to %s', message, sentTo);
+            if (cnn.ws) cnn.ws.send(message);
+        });
+    };
+
+
+
+
+
+
 };
-});
-
-
-function onError(error) {
-    console.error(error.message);
-    process.exit(1);
-}
-
-function onListening() {
-    console.info('Servidor Websocket escuchando en el puerto: ' + config.port);
-}
-
-function IsJsonString(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
-    }
-    return true;
-};
-
-
-}
-;

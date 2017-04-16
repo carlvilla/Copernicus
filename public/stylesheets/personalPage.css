@@ -36,3 +36,15 @@
     margin: 3px 0px;
     text-align: center;
 }
+
+
+/* Dialogs */
+
+#dialogCrearSalaLabelUsername{
+    display: inherit;
+}
+
+#dialogCrearSalaUsername{
+    width: 50%;
+    float: left;
+}

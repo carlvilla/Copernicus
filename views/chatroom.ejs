@@ -14,39 +14,46 @@
 
     <script src="/gridstack/gridstack.js"></script>
 
-
-
-    <!-- Controladores -->
+    <!-- Controladores y Managers -->
     <script src='/public/javascripts/controllers/salaController.js'></script>
 
     <script src='/public/javascripts/controllers/asistentesController.js'></script>
 
+    <script src='/public/javascripts/controllers/modulosController.js'></script>
+
     <script src='/public/javascripts/managers/AsistentesManager.js'></script>
+
+    <script src='/public/javascripts/controllers/modulosController.js'></script>
+
+    <script src='/public/javascripts/controllers/videoconferenciaController.js'></script>
+
+    <script src='/public/javascripts/managers/VideoconferenciaManager.js'></script>
+
 
 
 
 </head>
 <body>
 
-<div id="myServiciosnav" class="sideServiciosnav">
+<div ng-controller='modulosController' id="myServiciosnav" class="sideServiciosnav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myServiciosnav');">&times;</a>
     <h2 id="serviciosLabel">Servicios</h2>
-    <a href="#">Chat de video</a>
-    <a href="#">Presentaciones</a>
+    <a ng-click="addModule('chatVideo')">Chat de video</a>
+    <a ng-click="addModule('presentaciones')">Presentaciones</a>
     <a href="#">Video y audio compartido</a>
     <a href="#">Dibujos corporativos</a>
 </div>
 
 <div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav" >
     <a href="javascript:void(0)" class="closebtn"
-       onclick="closeNav('myAsistentesnav');closeNav('Contactonav');">&times;</a>
-    <h2 id="asistentesLabel">Asistentes</h2>
-    <a ng-repeat="asistente in asistentes">{{asistente.nombre}}</a>
-
-   <!-- <a href="#" onclick="informacion()">David</a> -->
+       onclick="closeNav('myAsistentesnav'); ">&times;</a>
+    <h3 id="asistentesLabel"><%=lang.asistentes%></h3>
+    <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}}</a>
+    <a ng-show="!(asistentes.length)">No hay usuarios conectados</a>
 
 </div>
 
+<!-- Mostrar información de usuario seleccionado en panel de asistentes conectados
 <div id="Contactonav" class="sideContactonav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('Contactonav'); resetNavContacto();">&times;</a>
     <h2 id="ContactoLabel">Información David</h2>
@@ -55,7 +62,7 @@
     <p>apellido: Villa</p>
     <p>email: david@gmail.com</p>
 </div>
-
+-->
 
 <nav ng-controller="salaController" class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -68,127 +75,23 @@
 
 <div id="navegacion">
     <span style="font-size:18px;cursor:pointer"
-          onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); closeNav('Contactonav');">&#9776; Servicios</span>
+          onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); ">&#9776; Servicios</span>
     <p/>
     <span style="font-size:18px;cursor:pointer" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776; Asistentes</span>
 </div>
 
+
 <!-- MÓDULOS -->
 
-<!--<div id="grid-stack">
+<div id="contenedorGridStack" class="container-fluid">
 
-    <div id="servicio1" class="grid-stack-item panel panel-default" data-gs-current-height="6">
-        <div class="panel-heading">
-            <div>
-                Videoconferencia </div> <div>[] <-></div>
-
-        </div>
-
-        <div>
-
-                <div>
-
-                    Aqui va la funcionalidad del módulo
-
-                </div>
-
-
-        </div>
-
-
-    </div>
-
-</div>-->
-
-<div style="float: left; width: 80%;" class="container-fluid">
-  <!--  <div>
-        <button data-bind="click: addNewWidget">Add new widget</button>
-    </div> -->
-
-    <br>
+    <div class="grid-stack" id="modulos"></div>
 
     <div data-bind="component: {name: 'dashboard-grid', params: $data}"></div>
+
 </div>
 
-
-<script type="text/javascript">
-    ko.components.register('dashboard-grid', {
-        viewModel: {
-            createViewModel: function (controller, componentInfo) {
-                var ViewModel = function (controller, componentInfo) {
-                    var grid = null;
-
-                    this.widgets = controller.widgets;
-
-                    this.afterAddWidget = function (items) {
-                        if (grid == null) {
-                            grid = $(componentInfo.element).find('.grid-stack').gridstack({
-                                auto: false
-                            }).data('gridstack');
-                        }
-
-                        var item = _.find(items, function (i) {
-                            return i.nodeType == 1
-                        });
-                        grid.addWidget(item);
-                        ko.utils.domNodeDisposal.addDisposeCallback(item, function () {
-                            grid.removeWidget(item);
-                        });
-                    };
-                };
-
-                return new ViewModel(controller, componentInfo);
-            }
-        },
-        template: [
-            '<div class="grid-stack" data-bind="foreach: {data: widgets, afterRender: afterAddWidget}">',
-            '   <div class="grid-stack-item" data-bind="attr: {\'data-gs-x\': $data.x, \'data-gs-y\': $data.y, ' +
-            '\'data-gs-width\': $data.width, \'data-gs-height\': $data.height, \'data-gs-auto-position\'' +
-            ': $data.auto_position}">',
-            '       <div class="grid-stack-item-content">' +
-            '<button class="closeModule" data-bind="click: $root.deleteWidget">' +
-            '<span class="glyphicon glyphicon-remove"></span>' +
-            '</button><button class="fullScreenModule" data-bind="">' +
-            '<span class="glyphicon glyphicon-fullscreen"></span></button></div>',
-            '   </div>',
-            '</div> '
-        ].join('')
-    });
-
-    $(function () {
-        var Controller = function (widgets) {
-            var self = this;
-
-            this.widgets = ko.observableArray(widgets);
-
-            this.addNewWidget = function () {
-                this.widgets.push({
-                    x: 0,
-                    y: 0,
-                    width: 6,
-                    height: 7,
-                    auto_position: true
-                });
-                return false;
-            };
-
-            this.deleteWidget = function (item) {
-                self.widgets.remove(item);
-                return false;
-            };
-        };
-
-        var widgets = [
-            {x: 7, y: 0, width: 6, height: 6},
-            {x: 0, y: 0, width: 6, height: 6},
-            {x: 7, y: 0, width: 6, height: 6},
-            {x: 0, y: 0, width: 6, height: 6}
-        ];
-
-        var controller = new Controller(widgets);
-        ko.applyBindings(controller);
-    });
-</script>
+</div>
 
 
 </body>
