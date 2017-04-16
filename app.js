@@ -24,6 +24,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/public', express.static('public'));
+app.use('/modulos', express.static('views/modulos'));
+app.use('/dialogs', express.static('views/dialogs'));
+
 app.use(favicon(path.join(__dirname, 'public','favicon.ico')));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist/'));
@@ -33,6 +36,9 @@ app.use('/lodash', express.static(__dirname + '/bower_components/lodash/dist/'))
 app.use('/jquery', express.static(__dirname + '/bower_components/jquery/dist/'));
 app.use('/jquery-ui', express.static(__dirname + '/bower_components/jquery-ui/'));
 app.use('/websocket', express.static(__dirname + '/bower_components/angular-websocket/dist/'));
+app.use('/angularAnimate', express.static(__dirname + '/bower_components/angular-animate/'));
+app.use('/angularAria', express.static(__dirname + '/bower_components/angular-aria/'));
+app.use('/angularMaterial', express.static(__dirname + '/bower_components/angular-material/'));
 
 
 app.use('/api',routesApi);

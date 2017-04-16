@@ -6,6 +6,7 @@ angular.module('webApp')
         var HOST = location.origin.replace(/^http/, 'ws');
         var ws = $websocket(HOST);
         var asistentesManager = new AsistentesManager(ws);
+        var videoconferenciaManager = new VideoconferenciaManager(ws);
 
         ws.onOpen(function () {
             console.log("Abriendo webSocketService");
@@ -14,6 +15,7 @@ angular.module('webApp')
         //Si se cierra la ventana o se utilizan las flechas de navegación, se hace una llamada a este método
         window.addEventListener("beforeunload", function (e) {
             asistentesManager.setDisconnected();
+            videoconferenciaManager.setDisconnected();
             ws.close();
         });
 
@@ -31,12 +33,17 @@ angular.module('webApp')
                         else if (obj.data.operacion == 'disconnected')
                             asistentesManager.deleteAsistente(obj.data);
                         break;
+
+                    case "videoconference":
+                        videoconferenciaManager.getMessage(obj.data);
+                        break;
                 }
             }
         });
         var methods = {
             ws: ws,
             asistentesManager: asistentesManager,
+            videoconferenciaManager: videoconferenciaManager,
         };
         return methods;
     });
