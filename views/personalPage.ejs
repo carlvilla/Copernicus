@@ -5,6 +5,8 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+    <!-- Scripts y hojas de estilos compartidos -->
     <% include partials/shared-head %>
 
     <!-- Hojas de estilos y scripts -->
@@ -15,45 +17,61 @@
     <script src='/public/javascripts/controllers/logoutController.js'></script>
     <script src='/public/javascripts/controllers/dialogController.js'></script>
 
-
-
-
 </head>
 <body>
 
+<!-- Cabecera -->
 <% include partials/header %>
 
 <div class="container">
 
+    <!-- Menu lateral -->
     <div ng-controller="dialogController" class="menu-lateral well">
         <ul class="nav nav-list">
-
             <li class="nav-header"><%= lang.contacts %></li>
-            <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= lang.addContact %></a>
+            <li>
+                <a data-target="#addUsuario" data-toggle="modal">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= lang.addContact %>
+                </a>
             </li>
-            <li><a href="#"><span class="glyphicon glyphicon-ban-circle"
-                                  aria-hidden="true"></span> <%= lang.blockContact %></a></li>
-
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true">
+                    </span> <%= lang.blockContact %>
+                </a>
+            </li>
             <li class="nav-header"><%= lang.rooms %></li>
-            <li><a data-target="#createRoom" data-toggle="modal"><span class="glyphicon glyphicon-blackboard"
-                                                         aria-hidden="true"></span> <%= lang.createRoom %></a></li>
-
-            <li><a href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <%= lang.manageRooms %>
-                </a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-send"
-                                  aria-hidden="true"></span> <%= lang.roomsNotifications %> <span
-                            class="badge badge-info">10</span></a></li>
-            </a></li>
-
+            <li>
+                <a data-target="#createRoom" data-toggle="modal"><span class="glyphicon glyphicon-blackboard" aria-hidden="true">
+                    </span> <%= lang.createRoom %>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> <%= lang.manageRooms %>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> <%= lang.roomsNotifications %>
+                    <span class="badge badge-info">10</span>
+                </a>
+            </li>
             <li class="nav-header"><%= lang.settings %></li>
-            <li><a href="#"><span class="glyphicon glyphicon-wrench"
-                                  aria-hidden="true"></span> <%= lang.accountSettings %></a></li>
-
-            <li class="nav-header"><a ng-controller="logoutController" ng-click="logout()" href="index"><span
-                            class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <%= lang.logout %></a></li>
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> <%= lang.accountSettings %>
+                </a>
+            </li>
+            <li class="nav-header">
+                <a ng-controller="logoutController" ng-click="logout()" href="index">
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <%= lang.logout %>
+                </a>
+            </li>
         </ul>
     </div>
+    <!-- Fin Menu lateral -->
 
+    <!-- Listado contactos -->
     <div id="listado-contactos">
         <ul class="list-group">
             <div class="panel-heading"><%= lang.conectedContacts %>:</div>
@@ -63,66 +81,20 @@
             <a href="#" class="list-group-item boton-listado">Contacto 4</a>
         </ul>
     </div>
+    <!-- Fin listado contactos -->
 
+    <!-- Listado salas -->
     <div ng-controller="salaController" id="listado-salas" class="btn-group-vertical">
         <div class="panel-heading"><%= lang.roomsAccess %>:</div>
         <button ng-repeat="sala in salas" ng-click="accederSala(sala.idSala)" class="list-group-item boton-listado">
             {{sala.nombre}}
         </button>
     </div>
+    <!-- Fin listado salas -->
 
-
-    <div class="modal" id="createRoom" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <button class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Crear sala</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input class="form-control" id="nombre" placeholder="Nombre sala" type="text">
-                        <label for="descripcion">Descripción (Opcional)</label>
-                        <input class="form-control" id="descripcion" placeholder="Descripción" type="text">
-                        <div id="addMiembros" panel panel-default>
-                            <h5>Añadir miembros</h5>
-                            <div id="buscarUsuarios">
-                                <label for="username" id="dialogCrearSalaLabelUsername">Nombre de usuario</label>
-                                <input class="form-control" id="dialogCrearSalaUsername" placeholder="Nombre de usuario" type="text">
-                                <button class="btn btn-primary" id="dialogCrearSalaAdd">Añadir</button>
-                            </div>
-                            <div id="showUsuarios">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>Nombre usuario</th>
-                                        <th>Nombre</th>
-                                        <th>Apellidos</th>
-                                        <th>Eliminar</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Ejemploaidfbapubfd</td>
-                                        <td>Ejemploadfadsf</td>
-                                        <td>Ejemploafdfads Ejemplodafafd</td>
-                                        <td><button class="btn btn-primary">Eliminar</button></td>
-                                    </tr>
-
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary">Crear sala</button>
-                    <button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
+    <!-- Dialogs -->
+    <% include partials/dialogs/addUsuario.ejs %>
+    <% include partials/dialogs/crearSala.ejs %>
 
 </div>
 </body>

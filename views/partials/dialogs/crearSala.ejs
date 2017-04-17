@@ -1,0 +1,49 @@
+<div class="modal" id="createRoom" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Crear sala</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input class="form-control" id="nombre" placeholder="Nombre sala" type="text">
+                    <label for="descripcion">Descripción (Opcional)</label>
+                    <input class="form-control" id="descripcion" placeholder="Descripción" type="text">
+                    <div id="addMiembros" panel panel-default>
+                        <h5>Añadir miembros</h5>
+                        <div id="buscarUsuarios">
+                            <label for="username" id="dialogCrearSalaLabelUsername">Nombre de usuario</label>
+                            <input class="form-control" id="dialogCrearSalaUsername" placeholder="Nombre de usuario" type="text">
+                            <button class="btn btn-primary" id="dialogCrearSalaAdd">Añadir</button>
+                        </div>
+                        <div id="showUsuarios">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Nombre usuario</th>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                                <tr>
+                                    <td>Ejemploaidfbapubfd</td>
+                                    <td>Ejemploadfadsf</td>
+                                    <td>Ejemploafdfads Ejemplodafafd</td>
+                                    <td><button class="btn btn-primary">Eliminar</button></td>
+                                </tr>
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">Crear sala</button>
+                <button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>

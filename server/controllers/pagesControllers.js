@@ -30,6 +30,7 @@ module.exports.searchContacts = function (req, res, next) {
 }
 
 module.exports.personalPage = function (req, res, next) {
+    console.log("Página personal");
     //console.log((req.headers["accept-language"]));
     res.render('personalPage', {
         lang: {

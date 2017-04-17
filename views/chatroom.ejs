@@ -2,38 +2,36 @@
 <html ng-app="webApp">
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 
     <% include partials/shared-head %>
 
+    <!-- Hojas de estilos y scripts -->
     <script src="/public/javascripts/navAnimation.js"></script>
     <script src="/lodash/lodash.js"></script>
     <script src="/knockout/knockout.js"></script>
-
     <script src="/gridstack/gridstack.js"></script>
+    <link rel="stylesheet" href="/public/stylesheets/chatroom.css">
 
     <!-- Controladores y Managers -->
     <script src='/public/javascripts/controllers/salaController.js'></script>
-
     <script src='/public/javascripts/controllers/asistentesController.js'></script>
-
     <script src='/public/javascripts/controllers/modulosController.js'></script>
-
     <script src='/public/javascripts/managers/AsistentesManager.js'></script>
-
     <script src='/public/javascripts/controllers/modulosController.js'></script>
-
     <script src='/public/javascripts/controllers/videoconferenciaController.js'></script>
-
     <script src='/public/javascripts/managers/VideoconferenciaManager.js'></script>
-
-
-
-
 </head>
 <body>
+
+<nav ng-controller="salaController" class="navbar navbar-default navbar-static-top">
+    <div class="navbar-header">
+        <h5 id="enlaceHome"><a href="personalPage"><span class="glyphicon glyphicon-menu-left"></span>Home</a></h5>
+        <h4 id="nombreSala">{{selectedSala().nombre}}</h4>
+    </div>
+</nav>
+
 
 <div ng-controller='modulosController' id="myServiciosnav" class="sideServiciosnav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myServiciosnav');">&times;</a>
@@ -44,10 +42,10 @@
     <a href="#">Dibujos corporativos</a>
 </div>
 
-<div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav" >
+<div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav">
     <a href="javascript:void(0)" class="closebtn"
        onclick="closeNav('myAsistentesnav'); ">&times;</a>
-    <h3 id="asistentesLabel"><%=lang.asistentes%></h3>
+    <h3 id="asistentesLabel"><%= lang.asistentes %></h3>
     <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}}</a>
     <a ng-show="!(asistentes.length)">No hay usuarios conectados</a>
 
@@ -63,14 +61,6 @@
     <p>email: david@gmail.com</p>
 </div>
 -->
-
-<nav ng-controller="salaController" class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <h4>{{selectedSala().nombre}}</h4>
-        </div>
-    </div>
-</nav>
 
 
 <div id="navegacion">
