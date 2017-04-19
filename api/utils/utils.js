@@ -42,3 +42,15 @@ module.exports.generateJwt = function(username, nombre) {
     return jwt.encode(payload, process.env.JWT_SECRET);
 };
 
+/**
+ * Devuelve el username del usuario que realizó la llamada
+ * @returns {*}
+ */
+module.exports.getUsername = function(req){
+
+    var token = req.cookies.token;
+    var payload = jwt.decode(token, process.env.JWT_SECRET);
+    return payload.sub.username;
+
+}
+

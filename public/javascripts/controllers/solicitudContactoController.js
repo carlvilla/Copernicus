@@ -4,16 +4,19 @@
 
 var webApp = angular.module('webApp');
 
-webApp.controller('solicitudContactoController', function ($scope) {
+webApp.controller('solicitudContactoController', function ($scope, $http) {
 
-    $scope.usernames = [
-        {username: "David10"},
-        {username: "Carlos"},
-        {username: "Carlos10"},
-        {username: "Carla"},
-        {username: "Carlos1111"},
-        {username: "David"},
-        {username: "David_username"},
-    ];
+    $http({
+        method: "GET",
+        url: "api/findPosiblesContactos"
+    }).then(success, error);
+
+    function success(res){
+        $scope.usernames = res.data;
+    }
+
+    function error(res) {
+        console.log(res);
+    }
 
 });

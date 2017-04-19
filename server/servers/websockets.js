@@ -60,50 +60,6 @@ module.exports = function (server) {
                         }
                         break;
 
-
-
-
-
-                    case 'videoconference':
-                        switch (obj.data.operation) {
-                            case 'login':
-                                setVideoconferenceEnabled(obj.data.username, true);
-                                var response = {
-                                    'section': 'videoconference',
-                                    'data': {
-                                        'operation': 'login',
-                                        'others': getOtherUserNames(obj.data.username)
-                                    }
-                                };
-                                ws.send(JSON.stringify(response)); //to notify this user
-                                break;
-                            case 'offer':
-                                sendTo(message, obj.data.targetUserName); //to notify targetUserName
-                                break;
-                            case 'answer':
-                                sendTo(message, obj.data.sourceUserName); //to notify sourceUserName
-                                break;
-                            case 'candidate':
-                                sendTo(message, obj.data.otherUserName); //to notify the other part
-                                break;
-                            case 'leave':
-                                setVideoconferenceEnabled(obj.data.username, false);
-                                broadcast(message, obj.data.username); //to notify others
-                                break;
-                            default:
-                                console.log('Unrecognized message regarding the videoconference');
-                                break;
-                        }
-                        break;
-
-
-
-
-
-
-
-
-
                     default:
                         console.log('Mensaje erróneo');
                         break;
