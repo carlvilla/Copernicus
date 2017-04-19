@@ -39,6 +39,7 @@ app.use('/websocket', express.static(__dirname + '/bower_components/angular-webs
 app.use('/angularAnimate', express.static(__dirname + '/bower_components/angular-animate/'));
 app.use('/angularAria', express.static(__dirname + '/bower_components/angular-aria/'));
 app.use('/angularMaterial', express.static(__dirname + '/bower_components/angular-material/'));
+app.use('/angucomplete', express.static(__dirname + '/bower_components/angucomplete/'));
 
 
 app.use('/api',routesApi);

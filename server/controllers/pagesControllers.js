@@ -36,6 +36,7 @@ module.exports.personalPage = function (req, res, next) {
         lang: {
             contacts: 'Contactos',
             addContact: "Añadir contacto",
+            solicitudesContacto: "Solicitudes de contacto",
             blockContact: 'Bloquear Contacto',
             rooms: 'Salas',
             createRoom: 'Crear sala',

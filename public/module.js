@@ -1,2 +1,2 @@
-angular.module('webApp', ['ngCookies', 'angular-websocket']);
+angular.module('webApp', ['ngCookies', 'angular-websocket', 'angucomplete']);
 var config = {};

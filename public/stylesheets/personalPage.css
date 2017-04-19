@@ -40,11 +40,18 @@
 
 /* Dialogs */
 
-#dialogCrearSalaLabelUsername{
+#username-crear-sala-label{
     display: inherit;
 }
 
-#dialogCrearSalaUsername{
+#username-crear-sala{
     width: 50%;
     float: left;
+}
+
+
+#mensaje-solicitud-contacto{
+    resize: none;
+    min-width: 100%;
+    height: 150px;
 }
