@@ -31,10 +31,7 @@ module.exports.createSala = function (req, res) {
  */
 module.exports.findSalasParticipa = function (req, res) {
 
-    var token = req.cookies.token;
-    var payload = jwt.decode(token, process.env.JWT_SECRET);
-
-    var username = payload.sub.username;
+    var username = utils.getUsername(req);
 
     var query = "MATCH (Usuario { username: '"+username+"' })-[:Miembro|Admin]-(Sala) RETURN Sala"
 
@@ -59,10 +56,7 @@ module.exports.findSalasParticipa = function (req, res) {
 
 module.exports.checkParticipante = function (req, res){
 
-    var token = req.cookies.token;
-    var payload = jwt.decode(token, process.env.JWT_SECRET);
-
-    var username = payload.sub.username;
+    var username = utils.getUsername(req);
 
     var query = "MATCH (u:Usuario{username:'"+username+"'}),(s:Sala{idSala:"+ req.body.idSala +"})where (u)-" +
         "[:Miembro | Admin]->(s) return s";

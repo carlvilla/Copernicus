@@ -15,11 +15,11 @@
 
 
     <!-- Controladores-->
+    <script src='/public/javascripts/controllers/contactosController.js'></script>
     <script src='/public/javascripts/controllers/salaController.js'></script>
     <script src='/public/javascripts/controllers/logoutController.js'></script>
     <script src='/public/javascripts/controllers/dialogController.js'></script>
     <script src='/public/javascripts/controllers/solicitudContactoController.js'></script>
-
 
 </head>
 <body>
@@ -27,7 +27,7 @@
 <!-- Cabecera -->
 <% include partials/header %>
 
-<div class="container">
+<div class="container" ng-controller="contactosController">
 
     <!-- Menu lateral -->
     <div ng-controller="dialogController" class="menu-lateral well">
@@ -40,8 +40,9 @@
             </li>
             <li>
                 <a>
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <%= lang.solicitudesContacto %>
-                    <span class="badge badge-info">2</span>
+                    <span class="glyphicon glyphicon-envelope"
+                          aria-hidden="true"></span> <%= lang.solicitudesContacto %>
+                    <span ng-hide="solicitudes.length < 1" class="badge badge-info">{{solicitudes.length}}</span>
                 </a>
             </li>
             <li>
@@ -51,7 +52,8 @@
             </li>
             <li class="nav-header"><%= lang.rooms %></li>
             <li>
-                <a data-target="#createRoom" data-toggle="modal"><span class="glyphicon glyphicon-blackboard" aria-hidden="true">
+                <a data-target="#createRoom" data-toggle="modal"><span class="glyphicon glyphicon-blackboard"
+                                                                       aria-hidden="true">
                     </span> <%= lang.createRoom %>
                 </a>
             </li>
@@ -83,13 +85,8 @@
 
     <!-- Listado contactos -->
     <div id="listado-contactos">
-        <ul class="list-group">
-            <div class="panel-heading"><%= lang.conectedContacts %>:</div>
-            <a href="#" class="list-group-item boton-listado">Contacto 1</a>
-            <a href="#" class="list-group-item boton-listado">Contacto 2</a>
-            <a href="#" class="list-group-item boton-listado">Contacto 3</a>
-            <a href="#" class="list-group-item boton-listado">Contacto 4</a>
-        </ul>
+        <div class="panel-heading"><%= lang.conectedContacts %>:</div>
+        <button ng-repeat="contacto in contactos" class="list-group-item boton-listado">{{contacto.username}}</button>
     </div>
     <!-- Fin listado contactos -->
 

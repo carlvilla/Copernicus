@@ -16,8 +16,10 @@ router.get('/salasParticipa', salaController.findSalasParticipa);
 router.post('/chatroom', salaController.checkParticipante);
 
 //llamadas rest para gestionar contactos
-router.get('/findUsuario', contactoController.findUsuario);
+router.get('/findPosiblesContactos', contactoController.findPosiblesContactos);
 router.get('/findContacto', contactoController.findEntreContactos);
 router.get('/contactos', contactoController.findMisContactos);
+router.get('/solicitudesContacto', contactoController.findSolicitudesContacto);
+
 
 module.exports = router;

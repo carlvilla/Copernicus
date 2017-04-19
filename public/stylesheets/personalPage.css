@@ -40,15 +40,25 @@
 
 /* Dialogs */
 
+/* Crear sala */
 #username-crear-sala-label{
     display: inherit;
 }
 
-#username-crear-sala{
+#username-crear-sala {
     width: 50%;
     float: left;
 }
 
+#add-miembros-div{
+    margin-top: 30px;
+}
+
+#show-usuarios, #buscar-contactos-crear-sala, #datos-sala{
+    margin-top: 20px;
+}
+
+/* Solicitud contacto */
 
 #mensaje-solicitud-contacto{
     resize: none;

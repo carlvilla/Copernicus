@@ -7,18 +7,23 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
+
+                    <h4><%=lang.datosSala%></h4>
+                    <div id="datos-sala">
                     <label for="nombre">Nombre</label>
-                    <input class="form-control" id="nombre" placeholder="Nombre sala" type="text">
-                    <label for="descripcion">Descripción (Opcional)</label>
-                    <input class="form-control" id="descripcion" placeholder="Descripción" type="text">
-                    <div id="addMiembros" panel panel-default>
-                        <h5>Añadir miembros</h5>
-                        <div id="buscarUsuarios">
-                            <label for="username" id="username-crear-sala-label">Nombre de usuario</label>
+                    <input class="form-control" id="nombre-crear-sala" placeholder="Nombre sala" type="text">
+                    <label for="descripcion-crear-sala">Descripción (Opcional)</label>
+                    <input class="form-control" id="descripcion-crear-sala" placeholder="Descripción" type="text">
+                    </div>
+
+                    <div id="add-miembros-div" panel panel-default>
+                        <h4><%=lang.addMiembros%></h4>
+                        <div id="buscar-contactos-crear-sala">
+                            <label for="username-crear-sala" id="username-crear-sala-label">Nombre de usuario</label>
                             <input class="form-control" id="username-crear-sala" placeholder="Nombre de usuario" type="text">
-                            <button class="btn btn-primary" id="dialogCrearSalaAdd">Añadir</button>
+                            <button class="btn btn-primary" id="add-button-crear-sala">Añadir</button>
                         </div>
-                        <div id="showUsuarios">
+                        <div id="show-usuarios">
                             <table class="table table-bordered">
                                 <tr>
                                     <th>Nombre usuario</th>
@@ -39,6 +44,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="modal-footer">
                 <button class="btn btn-primary">Crear sala</button>
                 <button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
