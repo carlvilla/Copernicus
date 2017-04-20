@@ -32,11 +32,9 @@ module.exports.findPosiblesContactos = function (req, res) {
             utils.sendJSONresponse(res, 500, err);
         }
         else if (result.length > 0) {
-            //El usuario participa en alguna sala
             utils.sendJSONresponse(res, 200, result);
         }
         else {
-            //El usuario no participa en ninguna sala
             utils.sendJSONresponse(res, 204, "");
         }
     });
@@ -73,11 +71,9 @@ module.exports.findMisContactos = function (req, res) {
             utils.sendJSONresponse(res, 500, err);
         }
         else if (result.length > 0) {
-            //El usuario participa en alguna sala
             utils.sendJSONresponse(res, 200, result);
         }
         else {
-            //El usuario no participa en ninguna sala
             utils.sendJSONresponse(res, 204, "");
         }
     });
@@ -102,14 +98,47 @@ module.exports.findSolicitudesContacto = function(req, res){
             utils.sendJSONresponse(res, 500, err);
         }
         else if (result.length > 0) {
-            //El usuario participa en alguna sala
             utils.sendJSONresponse(res, 200, result);
         }
         else {
-            //El usuario no participa en ninguna sala
             utils.sendJSONresponse(res, 204, "");
         }
     });
+}
+
+/**
+ * Establece una relación de tipo SolicitudContacto entre los usuarios pasados con un atributo mensaje
+ *
+ * @param req
+ * @param res
+ */
+module.exports.enviarSolicitudContacto = function(req, res){
+
+    var usernameEnvia = utils.getUsername(req);
+
+    var usernameRecibe = req.body.username;
+
+    var mensaje = req.body.mensaje;
+
+    console.log(mensaje);
+
+    var query = "MATCH (u1:Usuario {username: '"+usernameEnvia+"'}), (u2:Usuario { username: '"+usernameRecibe+"' }) " +
+        "create (u1)-[:SolicitudContacto{mensaje:'"+mensaje+"'}]->(u2)";
+
+    db.query(query, function(err, result) {
+        if (err) {
+            //Error en el servidor
+            console.log(err);
+            utils.sendJSONresponse(res, 500, err);
+        }
+        else if (result.length > 0) {
+            utils.sendJSONresponse(res, 200, result);
+        }
+        else {
+            utils.sendJSONresponse(res, 204, "");
+        }
+    });
+
 }
 
 
