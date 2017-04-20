@@ -49,6 +49,10 @@ module.exports.personalPage = function (req, res, next) {
             roomsAccess: 'Acceso a salas',
             addMiembros: 'Añadir miembros a la sala',
             datosSala: 'Datos de la sala',
+            usuariosBloqueados: 'Usuarios bloqueados',
+            desbloquear: 'Desbloquear',
+            username: 'Nombre de usuario',
+            apellidos: 'Apellidos'
         }
 
     });

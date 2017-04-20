@@ -19,7 +19,9 @@
     <script src='/public/javascripts/controllers/salaController.js'></script>
     <script src='/public/javascripts/controllers/logoutController.js'></script>
     <script src='/public/javascripts/controllers/dialogController.js'></script>
-    <script src='/public/javascripts/controllers/solicitudContactoController.js'></script>
+    <script src='/public/javascripts/controllers/addContactoController.js'></script>
+    <script src='/public/javascripts/controllers/solicitudesContactoController.js'></script>
+
 
 </head>
 <body>
@@ -39,14 +41,15 @@
                 </a>
             </li>
             <li>
-                <a>
+                <a data-target="#solicitudes-contacto" data-toggle="modal">
                     <span class="glyphicon glyphicon-envelope"
                           aria-hidden="true"></span> <%= lang.solicitudesContacto %>
                     <span ng-hide="solicitudes.length < 1" class="badge badge-info">{{solicitudes.length}}</span>
                 </a>
             </li>
             <li>
-                <a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true">
+                <a data-target="#bloquearUsuario" data-toggle="modal"><span class="glyphicon glyphicon-ban-circle"
+                                                                            aria-hidden="true">
                     </span> <%= lang.blockContact %>
                 </a>
             </li>
@@ -84,24 +87,36 @@
     <!-- Fin Menu lateral -->
 
     <!-- Listado contactos -->
-    <div id="listado-contactos">
+    <div id="contenedor-listado-contactos">
         <div class="panel-heading"><%= lang.conectedContacts %>:</div>
-        <button ng-repeat="contacto in contactos" class="list-group-item boton-listado">{{contacto.username}}</button>
+        <div id="contenedor2-listado-contactos">
+            <div id="listado-contactos">
+                <button ng-repeat="contacto in contactos" class="list-group-item boton-listado">{{contacto.username}}
+                </button>
+            </div>
+        </div>
     </div>
     <!-- Fin listado contactos -->
 
     <!-- Listado salas -->
-    <div ng-controller="salaController" id="listado-salas" class="btn-group-vertical">
+    <div ng-controller="salaController" id="contenedor-listado-salas" class="btn-group-vertical">
         <div class="panel-heading"><%= lang.roomsAccess %>:</div>
-        <button ng-repeat="sala in salas" ng-click="accederSala(sala.idSala)" class="list-group-item boton-listado">
-            {{sala.nombre}}
-        </button>
+        <div id="contenedor2-listado-salas">
+            <div id="listado-salas">
+                <button ng-repeat="sala in salas" ng-click="accederSala(sala.idSala)"
+                        class="list-group-item boton-listado">
+                    {{sala.nombre}}
+                </button>
+            </div>
+        </div>
     </div>
     <!-- Fin listado salas -->
 
     <!-- Dialogs -->
-    <% include partials/dialogs/solicitudContacto.ejs %>
+    <% include partials/dialogs/addContacto.ejs %>
     <% include partials/dialogs/crearSala.ejs %>
+    <% include partials/dialogs/bloquearContacto.ejs %>
+    <% include partials/dialogs/solicitudesContacto.ejs %>
 
 </div>
 </body>

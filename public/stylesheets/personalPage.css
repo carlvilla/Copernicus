@@ -1,47 +1,73 @@
-.menu-lateral{
+.menu-lateral {
     width: 24%;
     padding: 10px 0px 25px 10px;
     margin-left: -40px;
     float: left;
-    display:inline-block;
+    display: inline-block;
 }
 
-.nav-header{
+body {
+    min-width: 700px;
+}
+
+.nav-header {
     margin-top: 15px;
 }
 
-#listado-contactos{
-    width: 30%;
-    height: 90vh;
+#contenedor-listado-contactos {
+    width: 35%;
+    height: 80vh;
     float: left;
     margin: 0px 30px 0px 40px;
+    background: #f2f2f2;
+    display: inline-block;
+}
 
+#contenedor2-listado-contactos {
+    width: 100%;
+    height: 100%;
     background: #f2f2f2;
     border: 1px solid #e6e6e6;
     display: inline-block;
-
 }
 
-#listado-salas{
+#listado-contactos {
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+}
+
+#contenedor-listado-salas {
     float: left;
-    width: 30%;
-    height: 90vh;
+    width: 35%;
+    height: 80vh;
+    background: #f2f2f2;
+    display: inline-block;
+}
 
+#contenedor2-listado-salas {
+    width: 100%;
+    height: 100%;
     background: #f2f2f2;
     border: 1px solid #e6e6e6;
     display: inline-block;
 }
 
-.boton-listado{
+listado-salas {
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+}
+
+.boton-listado {
     margin: 3px 0px;
     text-align: center;
 }
 
-
 /* Dialogs */
 
 /* Crear sala */
-#username-crear-sala-label{
+#username-crear-sala-label {
     display: inherit;
 }
 
@@ -50,17 +76,17 @@
     float: left;
 }
 
-#add-miembros-div{
+#add-miembros-div {
     margin-top: 30px;
 }
 
-#show-usuarios, #buscar-contactos-crear-sala, #datos-sala{
+#show-usuarios, #buscar-contactos-crear-sala, #datos-sala {
     margin-top: 20px;
 }
 
 /* Solicitud contacto */
 
-#mensaje-solicitud-contacto{
+#mensaje-solicitud-contacto {
     resize: none;
     min-width: 100%;
     height: 150px;
