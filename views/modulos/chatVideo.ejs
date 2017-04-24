@@ -1,11 +1,13 @@
-<div ng-controller='videoconferenciaController' id="moduloChatVideo">
+<div ng-controller="videoController" id="chatVideo">
     <div class="grid-stack-item">
         <div class="grid-stack-item-content">
-            <button class="closeModule">
+
+            <a ng-click="removeModule('chatVideo')" class="closeModule">
                 <span class="glyphicon glyphicon-remove"></span>
-            </button>
-            <button class="fullScreenModule" data-bind="">
-                <span class="glyphicon glyphicon-fullscreen"></span></button>
+            </a>
+
+            <a class="fullScreenModule" data-bind="">
+                <span class="glyphicon glyphicon-fullscreen"></span></a>
 
             <div>
                 <input type='checkbox' id='muteVideoconferenceCheckbox'> Silenciar </input>

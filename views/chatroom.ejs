@@ -20,6 +20,13 @@
     <script src='/public/javascripts/controllers/modulosController.js'></script>
     <script src='/public/javascripts/managers/AsistentesManager.js'></script>
     <script src='/public/javascripts/controllers/modulosController.js'></script>
+    <script src='/public/javascripts/controllers/videoController.js'></script>
+
+
+
+
+
+
 
 </head>
 <body>
@@ -37,7 +44,7 @@
     <h2 id="serviciosLabel">Servicios</h2>
     <a ng-click="addModule('chatVideo')">Chat de video</a>
     <a ng-click="addModule('presentaciones')">Presentaciones</a>
-    <a >Video y audio compartido</a>
+    <a>Video y audio compartido</a>
     <a ng-click="addModule('dibujo')">Dibujos corporativos</a>
 </div>
 
@@ -72,58 +79,9 @@
 
 <!-- MÓDULOS -->
 
-<div id="contenedorGridStack" class="container-fluid">
-
-    <div class="grid-stack" id="modulos"></div>
-
-    <div data-bind="component: {name: 'dashboard-grid', params: $data}"></div>
-
+<div id="contenedorGridStack">
+    <div class="grid-stack"></div>
 </div>
-
-<div>
-    <a class="btn btn-default" id="add-new-widget" href="#">Add Widget</a>
-</div>
-
-<br/>
-
-<div class="grid-stack">
-</div>
-
-<!--
-<script type="text/javascript">
-    $(function () {
-        var options = {};
-        $('.grid-stack').gridstack(options);
-
-        new function () {
-
-
-            this.grid = $('.grid-stack').data('gridstack');
-
-            this.addNewWidget = function () {
-
-
-                var node = {
-                    width: 5,
-                    height: 5,
-                    minWidth: 3,
-                    maxWidth: 6,
-                    minHeight: 3,
-                    maxHeight: 5
-                }
-
-                this.grid.addWidget($('<div> <div class="grid-stack-item-content"> <button class="closeModule"> <span class="glyphicon glyphicon-remove"></span> </button> <button class="fullScreenModule" data-bind=""> <span class="glyphicon glyphicon-fullscreen"></span></button>                    <div id="presentacion">AQUI IRÁ LA PRESENTACIÓN </div> </div> </div>'),
-                    0, 0, node.width, node.height, true, node.minWidth, node.maxWidth, node.minWidth, node.maxHeight);
-                return false;
-
-
-            }.bind(this);
-
-            $('#add-new-widget').click(this.addNewWidget);
-        };
-    });
-</script>
--->
 
 </body>
 
