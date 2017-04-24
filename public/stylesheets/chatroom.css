@@ -169,7 +169,6 @@ html, body {
 }
 
 .grid-stack {
-    /*    background: lightgoldenrodyellow;*/
     width: 100%;
     height: 100%;
 }
@@ -182,19 +181,15 @@ html, body {
 .grid-stack-item-content {
     color: #2c3e50;
     text-align: center;
-    background-color: #18bc9c;
     height: 100%;
     width: 100%;
+    border-style: solid;
 }
 
 .closeModule, .fullScreenModule {
     float: right;
 }
 
-#moduloChatVideo {
-    width: 50%;
-    height: 50%;
-}
 
 /* Cambios bootstrap */
 

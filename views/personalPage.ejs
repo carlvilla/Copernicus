@@ -16,9 +16,9 @@
 
     <!-- Controladores-->
     <script src='/public/javascripts/controllers/contactosController.js'></script>
+    <script src='/public/javascripts/controllers/notificacionesController.js'></script>
     <script src='/public/javascripts/controllers/salaController.js'></script>
     <script src='/public/javascripts/controllers/logoutController.js'></script>
-    <script src='/public/javascripts/controllers/dialogController.js'></script>
     <script src='/public/javascripts/controllers/addContactoController.js'></script>
     <script src='/public/javascripts/controllers/solicitudesContactoController.js'></script>
 
@@ -29,10 +29,10 @@
 <!-- Cabecera -->
 <% include partials/header %>
 
-<div class="container" ng-controller="contactosController">
+<div class="container" ng-controller="notificacionesController">
 
     <!-- Menu lateral -->
-    <div ng-controller="dialogController" class="menu-lateral well">
+    <div class="menu-lateral well">
         <ul class="nav nav-list">
             <li class="nav-header"><%= lang.contacts %></li>
             <li>
@@ -87,7 +87,7 @@
     <!-- Fin Menu lateral -->
 
     <!-- Listado contactos -->
-    <div id="contenedor-listado-contactos">
+    <div id="contenedor-listado-contactos" ng-controller="contactosController">
         <div class="panel-heading"><%= lang.conectedContacts %>:</div>
         <div id="contenedor2-listado-contactos">
             <div id="listado-contactos">

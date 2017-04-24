@@ -5,19 +5,10 @@ webApp.controller('contactosController', function ($scope, $http) {
     $http({
         method: "GET",
         url: "api/contactos"
-    }).then(successContactos, error);
+    }).then(success, error);
 
-    $http({
-        method: "GET",
-        url: "api/solicitudesContacto"
-    }).then(successSolicitudes, error);
-
-    function successContactos(res) {
+    function success(res) {
         $scope.contactos = res.data;
-    }
-
-    function successSolicitudes(res) {
-        $scope.solicitudes = res.data;
     }
 
     function error(){
