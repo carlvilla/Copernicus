@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('modulosController', function ($scope, webSocketService) {
+webApp.controller('modulosController', function ($scope, $compile,webSocketService) {
 
     //Primero cargamos los htmls de los módulos
     //Es necesario hacer esto en primer lugar, no se puede cargar el html una vez se va a añadir ya que no se cargará
@@ -24,15 +24,17 @@ webApp.controller('modulosController', function ($scope, webSocketService) {
     });
 
 
-    var options = {};
+    var options = {
+        float:true
+    };
 
     var node = {
         width: 5,
         height: 5,
         minWidth: 3,
-        maxWidth: 6,
+        maxWidth: 8,
         minHeight: 3,
-        maxHeight: 5
+        maxHeight: 8
     }
 
     $('.grid-stack').gridstack(options);
@@ -41,6 +43,9 @@ webApp.controller('modulosController', function ($scope, webSocketService) {
 
     $scope.addModule = function (modulo) {
 
+        console.log(numModulosMostrados);
+
+        console.log("Añadiendo módulo: "+modulo);
         //Por el momento solo se pueden utilizar 4 módulos simultáneamente
         if(numModulosMostrados > 3){
             return;
@@ -66,8 +71,19 @@ webApp.controller('modulosController', function ($scope, webSocketService) {
 
         grid.addWidget($(moduloSeleccionado),
             0, 0, node.width, node.height, true, node.minWidth, node.maxWidth, node.minWidth, node.maxHeight);
-        return false;
 
+
+        $compile('.grid-stack')($scope);
+
+        return false;
+    };
+
+
+    $scope.removeModule = function (modulo){
+        console.log("Borrando módulo: "+modulo);
+        console.log(numModulosMostrados);
+        numModulosMostrados--;
+        grid.removeWidget($('#'+modulo));
     };
 
 });

@@ -14,6 +14,7 @@ deploy:
   api_key:
     secure: ***REMOVED***
   app: web-app-videoconferencias
+  skip_cleanup: true
 
 script:
    - node app.js &
