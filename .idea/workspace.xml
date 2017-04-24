@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/controllers/notificacionesController.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/controllers/dialogController.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/searchContacts.ejs" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/contactosController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/contactosController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/modulosController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/modulosController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/chatroom.css" afterPath="$PROJECT_DIR$/public/stylesheets/chatroom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test-user.js" afterPath="$PROJECT_DIR$/test/test-user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/chatroom.ejs" afterPath="$PROJECT_DIR$/views/chatroom.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/modulos/chatVideo.ejs" afterPath="$PROJECT_DIR$/views/modulos/chatVideo.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/modulos/dibujo_corporativo.ejs" afterPath="$PROJECT_DIR$/views/modulos/dibujo_corporativo.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/modulos/presentaciones.ejs" afterPath="$PROJECT_DIR$/views/modulos/presentaciones.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/personalPage.ejs" afterPath="$PROJECT_DIR$/views/personalPage.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,91 +28,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="personalPage.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/personalPage.ejs">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addContacto.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/dialogs/addContacto.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="76" lean-forward="false" selection-start-line="23" selection-start-column="76" selection-end-line="23" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chatroom.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/chatroom.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chatroom.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/chatroom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="170" column="13" lean-forward="false" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modulosController.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/modulosController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="43" column="74" lean-forward="false" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dibujo_corporativo.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/modulos/dibujo_corporativo.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="presentaciones.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/modulos/presentaciones.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chatVideo.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/modulos/chatVideo.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="67" lean-forward="false" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contactoController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/controllers/contactoController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1485">
-              <caret line="99" column="37" lean-forward="false" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+            <state relative-caret-position="190">
+              <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -168,8 +78,8 @@
       <find>selected</find>
       <find>solicit</find>
       <find>chatVi</find>
-      <find>chatVide</find>
       <find>contenedorGridStack</find>
+      <find>chatVide</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -212,7 +122,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/controllers/videoconferenciaController.js" />
         <option value="$PROJECT_DIR$/views/dialogs/createRoom.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/dialogController.js" />
-        <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/views/partials/dialogAddUsuario.ejs" />
         <option value="$PROJECT_DIR$/public/module.js" />
         <option value="$PROJECT_DIR$/app.js" />
@@ -244,6 +153,7 @@
         <option value="$PROJECT_DIR$/views/modulos/dibujo_corporativo.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/chatroom.css" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/modulosController.js" />
+        <option value="$PROJECT_DIR$/bower.json" />
       </list>
     </option>
   </component>
@@ -1140,7 +1050,7 @@
       <workItem from="1492380368830" duration="7327000" />
       <workItem from="1492602324893" duration="22126000" />
       <workItem from="1492729494721" duration="1741000" />
-      <workItem from="1492984746637" duration="6307000" />
+      <workItem from="1492984746637" duration="6476000" />
     </task>
     <servers />
   </component>
@@ -1177,11 +1087,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="343038000" />
+    <option name="totallyTimeSpent" value="343207000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1195,7 +1104,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23828755" sideWeight="0.516129" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31369862" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13661203" sideWeight="0.503231" order="8" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13661203" sideWeight="0.503231" order="8" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26655897" sideWeight="0.48387095" order="0" side_tool="false" content_ui="combo" />
@@ -1262,25 +1171,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/loginController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/angular-material/layouts/angular-material.layouts.ie_fixes.css" />
     <entry file="file://$PROJECT_DIR$/bower_components/angular-material/layouts/angular-material.layout-attributes.scss" />
     <entry file="file://$PROJECT_DIR$/views/dialogs/createRoom.ejs" />
     <entry file="file://$PROJECT_DIR$/bower_components/angular-aria/angular-aria.js" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/module.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1489,14 +1383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test-user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
@@ -1589,6 +1475,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
           <caret line="43" column="74" lean-forward="false" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
           <folding />
         </state>
       </provider>
