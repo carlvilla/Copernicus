@@ -1,21 +1,20 @@
 <div ng-controller='videoconferenciaController' id="moduloChatVideo">
-        <div class="grid-stack-item">
-            <div class="grid-stack-item-content">
-                <button class="closeModule">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </button>
-                <button class="fullScreenModule" data-bind="">
-                    <span class="glyphicon glyphicon-fullscreen"></span></button>
+    <div class="grid-stack-item">
+        <div class="grid-stack-item-content">
+            <button class="closeModule">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            <button class="fullScreenModule" data-bind="">
+                <span class="glyphicon glyphicon-fullscreen"></span></button>
 
-                <div>
-                    <input type='checkbox' id='muteVideoconferenceCheckbox'> Silenciar </input>
-                </div>
-
-                    <div id="videoconferenceArea" ng-cloak></div>
-                    <video id="videoconferenceLocal"></video>
-
-                </div>
+            <div>
+                <input type='checkbox' id='muteVideoconferenceCheckbox'> Silenciar </input>
             </div>
+
+            <div id="videoconferenceArea" ng-cloak></div>
+            <video id="videoconferenceLocal"></video>
+
         </div>
+    </div>
 </div>
 
