@@ -62,7 +62,9 @@ module.exports.chatroom = function (req, res, next) {
     res.render('chatroom', {
 
         lang: {
-            asistentes: 'Asistentes Conectados',
+            asistentesConectados: 'Asistentes Conectados',
+            servicios: 'Servicios',
+            asistentes: 'Asistentes'
 
         }
 

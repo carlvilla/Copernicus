@@ -70,12 +70,24 @@ html, body {
 }
 
 #navegacion {
-    width: 14%;
+    width: 10%;
     height: 100%;
     float: left;
     display: block;
     background-color: #f8f8f8;
     border: 3px solid transparent;
+    min-width: 120px;
+    margin-left: 5px;
+}
+
+.opcion-navegacion{
+    font-size:18px;
+    cursor:pointer;
+    display: block;
+}
+
+#esconder-navegacion{
+    text-align: right;
 }
 
 #serviciosLabel,
@@ -188,6 +200,15 @@ html, body {
 
 .closeModule, .fullScreenModule {
     float: right;
+}
+
+/* Módulos */
+
+#videoChat, #videoChat2, #videoChat3, #videoChat4
+{
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
 }
 
 

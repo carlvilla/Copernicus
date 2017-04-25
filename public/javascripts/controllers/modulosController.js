@@ -43,15 +43,16 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
 
     $scope.addModule = function (modulo) {
 
-        console.log(numModulosMostrados);
-
-        console.log("Añadiendo módulo: "+modulo);
         //Por el momento solo se pueden utilizar 4 módulos simultáneamente
         if(numModulosMostrados > 3){
             return;
         }
 
         numModulosMostrados++;
+
+        console.log(numModulosMostrados);
+
+        console.log("Añadiendo módulo: "+modulo);
 
         switch (modulo) {
             case "chatVideo":
@@ -81,7 +82,6 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
 
     $scope.removeModule = function (modulo){
         console.log("Borrando módulo: "+modulo);
-        console.log(numModulosMostrados);
         numModulosMostrados--;
         grid.removeWidget($('#'+modulo));
     };
