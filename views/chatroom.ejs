@@ -20,13 +20,7 @@
     <script src='/public/javascripts/controllers/modulosController.js'></script>
     <script src='/public/javascripts/managers/AsistentesManager.js'></script>
     <script src='/public/javascripts/controllers/modulosController.js'></script>
-    <script src='/public/javascripts/controllers/videoController.js'></script>
-
-
-
-
-
-
+    <script src='/public/javascripts/controllers/chatVideoController.js'></script>
 
 </head>
 <body>
@@ -51,7 +45,7 @@
 <div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav">
     <a href="javascript:void(0)" class="closebtn"
        onclick="closeNav('myAsistentesnav'); ">&times;</a>
-    <h3 id="asistentesLabel"><%= lang.asistentes %></h3>
+    <h3 id="asistentesLabel"><%= lang.asistentesConectados %></h3>
     <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}}</a>
     <a ng-show="!(asistentes.length)">No hay usuarios conectados</a>
 
@@ -70,10 +64,9 @@
 
 
 <div id="navegacion">
-    <span style="font-size:18px;cursor:pointer"
-          onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); ">&#9776; Servicios</span>
-    <p/>
-    <span style="font-size:18px;cursor:pointer" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776; Asistentes</span>
+    <span class="opcion-navegacion glyphicon glyphicon-chevron-left" id="esconder-navegacion" onclick="closeNavPrincipal(); "></span>
+    <span class="opcion-navegacion" onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); ">&#9776; <%= lang.servicios %></span>
+    <span class="opcion-navegacion" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776; <%= lang.asistentes %></span>
 </div>
 
 
