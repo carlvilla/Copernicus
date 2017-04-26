@@ -3,6 +3,8 @@ function AsistentesManager(ws) {
     var asistentes = [];
     var usuarioConectado;
 
+    var sala;
+
     /**
      * Añadir asistentes a la sala
      * @param asistente
@@ -50,13 +52,15 @@ function AsistentesManager(ws) {
      * @param username
      * @param nombre
      */
-    this.setConnected = function (username, nombre) {
+    this.setConnected = function (username, nombre, salaParam) {
         usuarioConectado = {
             'username': username,
             'nombre': nombre
         };
 
-        sendData(username, nombre, 'connected');
+        sala = salaParam;
+
+        sendData(username, nombre, sala, 'connected');
     };
 
 
@@ -65,7 +69,7 @@ function AsistentesManager(ws) {
      */
     this.setDisconnected = function () {
         this.deleteAsistente(usuarioConectado);
-        sendData(usuarioConectado.username, usuarioConectado.nombre, 'disconnected');
+        sendData(usuarioConectado.username, usuarioConectado.nombre, sala, 'disconnected');
     };
 
 
@@ -76,14 +80,15 @@ function AsistentesManager(ws) {
      * @param name
      * @param operation
      */
-    function sendData(username, nombre, operacion) {
+    function sendData(username, nombre, sala, operacion) {
         ws.send(
             JSON.stringify({
                 'seccion': 'asistentes',
                 'data': {
                     'operacion': operacion,
                     'nombre': nombre,
-                    'username': username
+                    'username': username,
+                    'sala': sala
                 }}));
     }
 
