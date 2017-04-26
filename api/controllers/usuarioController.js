@@ -116,6 +116,13 @@ module.exports.profile = function (req, res) {
         if (people.length == 0) {
             utils.sendJSONresponse(res, 204, "");
         } else {
+
+            //No queremos mostrar información sobre las credenciales del usuario o el id de la BD, por ello los
+            //eliminamos antes de enviarlos al cliente
+            delete people[0].hash;
+            delete people[0].salt;
+            delete people[0].id;
+
             utils.sendJSONresponse(res, 200, people);
         }
     });

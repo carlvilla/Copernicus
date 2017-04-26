@@ -25,7 +25,7 @@ webApp.controller('salaController', function ($scope, $http, $window) {
 
 
     function successAcceso(res) {
-        window.localStorage.setItem("salaSeleccionada", JSON.stringify(res.data[0]));
+        window.sessionStorage.setItem("salaSeleccionada", JSON.stringify(res.data[0]));
         $window.location.href ='/chatroom';
     }
 
@@ -34,7 +34,7 @@ webApp.controller('salaController', function ($scope, $http, $window) {
     }
 
     $scope.selectedSala = function(){
-        return JSON.parse(window.localStorage.getItem("salaSeleccionada"));
+        return JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
     }
 
 

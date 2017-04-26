@@ -5,7 +5,9 @@ angular.module('webApp')
         }
         var HOST = location.origin.replace(/^http/, 'ws');
         var ws = $websocket(HOST);
+
         var asistentesManager = new AsistentesManager(ws);
+        var videoChatManager = new VideoChatManager(ws);
 
         ws.onOpen(function () {
             console.log("Abriendo webSocketService");
@@ -23,20 +25,29 @@ angular.module('webApp')
             if (utils.IsJsonString(message.data)) {
                 var obj = JSON.parse(message.data);
                 switch (obj.seccion) {
+
                     case "asistentes":
                         if (obj.data.operacion == 'connected') {
                             console.log("Añadiendo asistente conectado");
                             asistentesManager.addAsistente(obj.data);
                         }
-                        else if (obj.data.operacion == 'disconnected')
+                        else if (obj.data.operacion == 'disconnected') {
+                            console.log("Desconectando desde webSocketService");
                             asistentesManager.deleteAsistente(obj.data);
+                        }
                         break;
+
+                    case "videoChat":
+                        videoChatManager.getMessage(obj.data);
+                        break;
+
                 }
             }
         });
         var methods = {
             ws: ws,
             asistentesManager: asistentesManager,
+            videoChatManager: videoChatManager,
         };
         return methods;
     });

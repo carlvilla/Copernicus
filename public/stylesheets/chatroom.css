@@ -204,7 +204,7 @@ html, body {
 
 /* Módulos */
 
-#videoChat, #videoChat2, #videoChat3, #videoChat4
+#localVideo, #remoteVideo1, #remoteVideo2, #remoteVideo3
 {
     transform: rotateY(180deg);
     -webkit-transform:rotateY(180deg);
