@@ -52,7 +52,6 @@ module.exports = function (server) {
                             });
 
                             if (addUser) {
-
                                 connections.push(conexion);
                                 console.log("Avisando a los demás usuarios");
                                 //Notificar a otros usuarios del asistente conectado
@@ -85,17 +84,24 @@ module.exports = function (server) {
                         switch (obj.data.operacion) {
                             case 'inicio':
 
-                                setDisponibleUsuarioVideoChat(obj.data.username, true);
+                                console.log("inicio");
+
+                                setDisponibleUsuarioVideoChat(obj.data.username, sala, true);
 
                                 console.log("Usuario envió mensaje: " + obj.data.username)
+
+
+                                var usuarios = getUsuarios(obj.data.username, sala);
 
                                 var response = {
                                     'seccion': 'videoChat',
                                     'data': {
                                         'operacion': 'inicio',
-                                        'usuarios': getUsuarios(obj.data.username, sala)
+                                        'usuarios': usuarios
                                     }
                                 };
+
+                                console.log("Array de usuarios: "+  usuarios);
 
                                 console.log("Enviar usuarios conectados");
 
@@ -103,14 +109,39 @@ module.exports = function (server) {
 
                                 break;
 
+                            case 'oferta':
 
-                            case 'cerrar':
-                                setDisponibleUsuarioVideoChat(obj.data.userName, false);
+                                console.log("oferta:");
+
+                                console.log(message);
+                                console.log(obj.data.usernameObjetivo);
+
+                                console.log("Fin oferta");
+
+                                enviarA(message, obj.data.usernameObjetivo, sala);
                                 break;
 
 
-                                defaul:
-                                    console.log("Mensaje no reconocido");
+                            case 'respuesta':
+                                console.log("respuesta");
+                                enviarA(message, obj.data.usernameOrigen, sala);
+                                break;
+
+
+                            case 'candidato':
+                                console.log("candidato");
+                                enviarA(message, obj.data.otherUsername, sala);
+                                break;
+
+                            case 'cerrar':
+                                console.log("cerrar");
+                                setDisponibleUsuarioVideoChat(obj.data.username, false);
+                                broadcast(message, obj.data.username, sala);
+                                break;
+
+
+                            default:
+                                console.log("Mensaje no reconocido");
                                 break;
 
                         }
@@ -125,38 +156,6 @@ module.exports = function (server) {
             }
         });
 
-        /**
-         * Establece el estado del usuario pasado como parámetro respecto al video chat
-         * @param username
-         * @param disponible
-         */
-        setDisponibleUsuarioVideoChat = function (username, disponible) {
-            connections.forEach(function (conexion) {
-                if (conexion.usuario.username == username) {
-                    conexion.videoChat = {
-                        'disponible': disponible
-                    }
-                }
-            });
-        };
-
-        /**
-         * Obtiene los demás usuarios disponibles para hacer una videoconferencia en la sala
-         *
-         * @param sentBy
-         * @returns {Array}
-         */
-        getUsuarios = function (sentBy, sala) {
-            var usuarios = [];
-            connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
-                if (conexion.usuario.username != sentBy) {
-                    if (conexion.videoChat.disponible)
-                        usuarios.push(conexion.usuario.username);
-                }
-
-            });
-            return usuarios;
-        };
 
 
         /**
@@ -257,35 +256,65 @@ module.exports = function (server) {
     };
 
 
-    setVideoconferenceEnabled = function (sentBy, enabled) {
-        for (var i = 0; i < connections.length; i++) {
-            if (connections[i].user.username == sentBy && connections[i].sala == sala) {
-                connections[i].videoconference = {
+    setVideoconferenceEnabled = function (usernameEnvia, enabled) {
+        connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
+            if (conexion.user.username == usernameEnvia) {
+                conexion.videoconference = {
                     'enabled': enabled,
                 }
             }
-        }
+        })
     };
 
 
-    getOtherUserNames = function (sentBy) {
-        var others = [];
-        connections.forEach(function (cnn) {
-            if (cnn.user.username != sentBy && connections[i].sala == sala) {
-                if (cnn.videoconference.enabled)
-                    others.push(cnn.user.username);
+
+    /**
+     * Establece el estado del usuario pasado como parámetro respecto al video chat
+     * @param username
+     * @param disponible
+     */
+    setDisponibleUsuarioVideoChat = function (username, sala, disponible) {
+        console.log("Establecer usuario como disponible: "+username);
+        connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
+            if (conexion.usuario.username == username) {
+                conexion.videoChat = {
+                    'disponible': disponible
+                }
             }
         });
-        return others;
+
     };
 
 
-    sendTo = function (message, sentTo) {
-        connections.forEach(function (cnn) {
-            if (cnn.user.username == sentTo && connections[i].sala == sala) {
-                console.log('Sent: %s to %s', message, sentTo);
-                if (cnn.ws)
-                    cnn.ws.send(message);
+    /**
+     * Obtiene los demás usuarios disponibles para hacer una videoconferencia en la sala
+     *
+     * @param usernameEnvia
+     * @returns {Array}
+     */
+    getUsuarios = function (usernameEnvia, sala) {
+        var usuarios = [];
+        console.log("Obtener usuarios");
+
+        console.log(connections);
+        connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
+            if (conexion.usuario.username != usernameEnvia) {
+                console.log(conexion);
+                if (conexion.videoChat && conexion.videoChat.disponible)
+                    usuarios.push(conexion.usuario.username);
+            }
+
+        });
+        return usuarios;
+    };
+
+
+    enviarA = function (message, usernameSeEnvia, sala) {
+        connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
+            if (conexion.usuario.username == usernameSeEnvia) {
+                console.log('Sent: %s to %s', message, usernameSeEnvia);
+                if (conexion.ws)
+                    conexion.ws.send(message);
             }
         });
     };

@@ -202,6 +202,11 @@ html, body {
     float: right;
 }
 
+.closeModule{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 /* Módulos */
 
 #localVideo, #remoteVideo1, #remoteVideo2, #remoteVideo3

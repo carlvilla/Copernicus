@@ -49,7 +49,7 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
         }
 
         numModulosMostrados++;
-        
+
         console.log("Añadiendo módulo: "+modulo);
 
         switch (modulo) {
