@@ -7,6 +7,7 @@ function VideoChatManager(ws) {
     var videoRemoto3;
 
     var usuario;
+    var sala;
 
     var peerConnections = [];
     var remotes = [];
@@ -19,7 +20,9 @@ function VideoChatManager(ws) {
     };
 
 
-    this.start = function () {
+    this.start = function (salaParam) {
+
+        sala = salaParam;
 
         videoLocal = document.getElementById("localVideo");
         videoRemoto1 = document.getElementById("remoteVideo1");
@@ -50,30 +53,48 @@ function VideoChatManager(ws) {
 
 
     this.getMessage = function (data) {
+
+        console.log(data.operacion);
+        console.log(data.usuarios);
+
         switch (data.operacion) {
-
             case 'inicio':
+                data.usuarios.forEach(function (user) {
+                    console.log("Iniciar conferencia");
+                    var localPeerConnection = iniciarVideoConferencia();
 
-                console.log(data);
+                    localPeerConnection.createOffer(
+                        function gotLocalDescription(description) {
+                            sendOferta(description, user);
+                            localPeerConnection.setLocalDescription(description);
+                        },
 
-                var localPeerConnection = iniciarVideoConferencia();
+                        function onSignalingError(err) {
+                            console.err('Failed to create signaling message: ' + err.message);
+                        });
 
-                localPeerConnection.createOffer(
-                    function gotLocalDescription(description) {
-                        sendOffer(description, usuario);
-                        localPeerConnection.setLocalDescription(description);
-                    },
-
-                    function onSignalingError(err) {
-                        console.err('Failed to create signaling message: ' + err.message);
+                    peerConnections.push({
+                        'username': user,
+                        'connection': localPeerConnection
                     });
-
-                peerConnections.push({
-                    'username': usuario,
-                    'connection': localPeerConnection
                 });
 
+                break;
 
+            case 'oferta':
+                onOferta(data.oferta, data.usernameOrigen);
+                break;
+
+            case 'respuesta':
+                onRespuesta(data.respuesta, data.usernameObjetivo);
+                break;
+
+            case 'candidato':
+                onCandidato(data.candidato, data.username);
+                break;
+
+            case 'cerrar':
+                onCerrar(data.username);
                 break;
 
 
@@ -105,7 +126,8 @@ function VideoChatManager(ws) {
         //Handler to be called whenever a new local ICE candidate becomes available
         localPeerConnection.onicecandidate = function (event) {
             if (event.candidate) {
-                sendCandidate(event.candidate, getUsername(localPeerConnection));
+                console.log("Send candidate");
+                sendCandidato(event.candidate, getUsername(localPeerConnection));
             }
         };
 
@@ -114,18 +136,23 @@ function VideoChatManager(ws) {
         localPeerConnection.onaddstream = function gotRemoteStream(event) {
 
 
+            console.log("OnAddStream");
+
             //Aqui se tienen que utilizar los componentes remoteVideo1, remoteVideo2, remoteVideo3 (Puede haber como máximo 4 personas
             // haciendo una videoconferencia)
-            var videoRemote = document.createElement("remoteVideo1");
+
             //Associate the remote video element with the retrieved stream
-            videoRemote.src = window.URL.createObjectURL(event.stream);
-            videoRemote.className = 'videoRemote';
-            videoRemote.play();
-            videoRemote.muted = false;
+            videoRemoto1.src = window.URL.createObjectURL(event.stream);
+            //videoRemote.className = 'videoRemote';
+
+            console.log("VideoRemote: "+videoRemoto1);
+
+            videoRemoto1.play();
+            videoRemoto1.muted = false;
 
             remotes.push({
-                'username': getUsername(localPeerConnection), //the other userName
-                'video': videoRemote
+                'username': getUsername(localPeerConnection),
+                'video': videoRemoto1
             });
         };
         return localPeerConnection;
@@ -143,7 +170,7 @@ function VideoChatManager(ws) {
     function getUsername(localPeerConnection) {
         for (var i = 0; i < peerConnections.length; i++) {
             if (peerConnections[i].connection == localPeerConnection) {
-                return peerConnections[i].userName;
+                return peerConnections[i].username;
             }
         }
     }
@@ -167,26 +194,93 @@ function VideoChatManager(ws) {
         }
     }
 
-    function sendOffer(descripcion, usernameDestino) {
+
+    function onOferta(oferta, usernameOrigen) {
+        console.log("Recibe oferta de: "+usernameOrigen);
+        var localPeerConnection = iniciarVideoConferencia();
+        peerConnections.push({
+            'username': usernameOrigen,
+            'connection': localPeerConnection
+        });
+        localPeerConnection.setRemoteDescription(new RTCSessionDescription(oferta));
+        localPeerConnection.createAnswer(function (respuesta) {
+            localPeerConnection.setLocalDescription(respuesta);
+            sendRespuesta(respuesta, usernameOrigen);
+        }, function (err) {
+            console.error(err);
+        });
+    }
+
+    function onRespuesta(respuesta, targetUsername) {
+        console.log("Recibe respuesta de: "+ targetUsername);
+        peerConnections.forEach(function (peer) {
+            if (peer.username == targetUsername) {
+                peer.connection.setRemoteDescription(new RTCSessionDescription(respuesta));
+            }
+        });
+    }
+
+    function onCandidato(candidato, username) {
+        peerConnections.forEach(function (peer) {
+            if (peer.username == username) {
+                peer.connection.addIceCandidate(new RTCIceCandidate(candidato));
+            }
+        });
+    }
+
+    function onCerrar(username) {
+        for (var i = 0; i < peerConnections.length; i++) {
+            if (peerConnections[i].username == username) {
+                peerConnections[i].connection.close();
+                peerConnections.splice(i, 1);
+                i--;
+            }
+        }
+        for (var i = 0; i < remotes.length; i++) {
+            if (remotes[i].username == username) {
+                // area.removeChild(remotes[i].video);
+                remotes.splice(i, 1);
+                i--;
+            }
+        }
+    }
+
+    function sendRespuesta(respuesta, usernameOrigen) {
         ws.send(JSON.stringify({
             'seccion': 'videoChat',
             'data': {
-                'operacion': 'offer',
-                'usernameOrigen': usuario.username,
-                'usernameDestino': usernameDestino,
-                'offer': descripcion
+                'operacion': 'respuesta',
+                'usernameOrigen': usernameOrigen,
+                'usernameObjetivo': usuario.username,
+                'respuesta': respuesta,
+                'sala': sala
             }
         }));
     }
 
-    function sendCandidate(candidate, otherUsername) {
+
+    function sendOferta(descripcion, usernameObjetivo) {
         ws.send(JSON.stringify({
             'seccion': 'videoChat',
             'data': {
-                'operacion': 'candidate',
+                'operacion': 'oferta',
+                'usernameOrigen': usuario.username,
+                'usernameObjetivo': usernameObjetivo,
+                'oferta': descripcion,
+                'sala': sala
+            }
+        }));
+    }
+
+    function sendCandidato(candidato, otherUsername) {
+        ws.send(JSON.stringify({
+            'seccion': 'videoChat',
+            'data': {
+                'operacion': 'candidato',
                 'username': usuario.username,
                 'otherUsername': otherUsername,
-                'candidate': candidate
+                'candidato': candidato,
+                'sala': sala
             }
         }));
     }
@@ -198,7 +292,9 @@ function VideoChatManager(ws) {
                 'data': {
                     'operacion': operacion,
                     'username': usuario.username,
+                    'sala': sala
                 }
+
             }));
     }
 
