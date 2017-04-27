@@ -15,7 +15,7 @@ function VideoChatManager(ws) {
     var referenciaStream; //to save the reference of the stream
 
     var constraints = {
-        audio: false,
+        audio: true,
         video: true
     };
 
@@ -46,6 +46,8 @@ function VideoChatManager(ws) {
         };
         window.stream = stream;
         videoLocal.srcObject = stream;
+
+        videoLocal.muted = true;
 
         console.log("Enviando mensaje 'login' desde videoChatManager")
         sendData('inicio');
@@ -97,14 +99,9 @@ function VideoChatManager(ws) {
                 onCerrar(data.username);
                 break;
 
-
             default:
-
                 break;
-
-
         }
-
     }
 
     function iniciarVideoConferencia() {
@@ -145,7 +142,7 @@ function VideoChatManager(ws) {
             videoRemoto1.src = window.URL.createObjectURL(event.stream);
             //videoRemote.className = 'videoRemote';
 
-            console.log("VideoRemote: "+videoRemoto1);
+            console.log("VideoRemote: " + videoRemoto1);
 
             videoRemoto1.play();
             videoRemoto1.muted = false;
@@ -176,6 +173,25 @@ function VideoChatManager(ws) {
     }
 
 
+    this.setMuted = function (mute) {
+        muted = mute;
+        if (muted) { //mute myself
+            theStream.getAudioTracks()[0].enabled = false;
+        }
+        else {
+            theStream.getAudioTracks()[0].enabled = true;
+        }
+        remotes.forEach(function (remote) { //mute others
+            remote.video.muted = mute;
+        });
+    };
+
+
+    this.isMuted = function () {
+        return muted;
+    };
+
+
     function handleError(error) {
         if (error.name === 'ConstraintNotSatisfiedError') {
             errorMsg('The resolution ' + constraints.video.width.exact + 'x' +
@@ -196,7 +212,7 @@ function VideoChatManager(ws) {
 
 
     function onOferta(oferta, usernameOrigen) {
-        console.log("Recibe oferta de: "+usernameOrigen);
+        console.log("Recibe oferta de: " + usernameOrigen);
         var localPeerConnection = iniciarVideoConferencia();
         peerConnections.push({
             'username': usernameOrigen,
@@ -212,7 +228,7 @@ function VideoChatManager(ws) {
     }
 
     function onRespuesta(respuesta, targetUsername) {
-        console.log("Recibe respuesta de: "+ targetUsername);
+        console.log("Recibe respuesta de: " + targetUsername);
         peerConnections.forEach(function (peer) {
             if (peer.username == targetUsername) {
                 peer.connection.setRemoteDescription(new RTCSessionDescription(respuesta));
