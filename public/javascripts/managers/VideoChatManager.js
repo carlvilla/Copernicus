@@ -70,7 +70,7 @@ function VideoChatManager(ws) {
 
                     localPeerConnection.createOffer(
                         function gotLocalDescription(description) {
-                            sendOferta(description, user);
+                            sendOffer(description, user);
                             localPeerConnection.setLocalDescription(description);
                         },
 
@@ -86,16 +86,16 @@ function VideoChatManager(ws) {
 
                 break;
 
-            case 'oferta':
-                onOferta(data.oferta, data.usernameOrigen);
+            case 'offer':
+                onOffer(data.offer, data.usernameOrigen);
                 break;
 
-            case 'respuesta':
-                onRespuesta(data.respuesta, data.usernameObjetivo);
+            case 'answer':
+                onAnswer(data.answer, data.usernameObjetivo);
                 break;
 
-            case 'candidato':
-                onCandidato(data.candidato, data.username);
+            case 'candidate':
+                onCandidate(data.candidate, data.username);
                 break;
 
             case 'cerrar':
@@ -113,7 +113,7 @@ function VideoChatManager(ws) {
             RTCPeerConnection = webkitRTCPeerConnection;
 
         var configuration = {
-            "iceServers": [{"urls": "stun:stun.phoneserve.com"}]
+            "iceServers": [{'url': 'stun:stun.l.google.com:19302'}]
         };
         var configuration;
 
@@ -127,7 +127,7 @@ function VideoChatManager(ws) {
         localPeerConnection.onicecandidate = function (event) {
             if (event.candidate) {
                 console.log("Send candidate");
-                sendCandidato(event.candidate, getUsername(localPeerConnection));
+                sendCandidate(event.candidate, getUsername(localPeerConnection));
             }
         };
 
@@ -284,35 +284,35 @@ function VideoChatManager(ws) {
     }
 
 
-    function onOferta(oferta, usernameOrigen) {
-        console.log("Recibe oferta de: " + usernameOrigen);
+    function onOffer(offer, usernameOrigen) {
+        console.log("Recibe offer de: " + usernameOrigen);
         var localPeerConnection = iniciarVideoConferencia();
         peerConnections.push({
             'username': usernameOrigen,
             'connection': localPeerConnection
         });
-        localPeerConnection.setRemoteDescription(new RTCSessionDescription(oferta));
-        localPeerConnection.createAnswer(function (respuesta) {
-            localPeerConnection.setLocalDescription(respuesta);
-            sendRespuesta(respuesta, usernameOrigen);
+        localPeerConnection.setRemoteDescription(new RTCSessionDescription(offer));
+        localPeerConnection.createAnswer(function (answer) {
+            localPeerConnection.setLocalDescription(answer);
+            sendAnswer(answer, usernameOrigen);
         }, function (err) {
             console.error(err);
         });
     }
 
-    function onRespuesta(respuesta, targetUsername) {
-        console.log("Recibe respuesta de: " + targetUsername);
+    function onAnswer(answer, targetUsername) {
+        console.log("Recibe answer de: " + targetUsername);
         peerConnections.forEach(function (peer) {
             if (peer.username == targetUsername) {
-                peer.connection.setRemoteDescription(new RTCSessionDescription(respuesta));
+                peer.connection.setRemoteDescription(new RTCSessionDescription(answer));
             }
         });
     }
 
-    function onCandidato(candidato, username) {
+    function onCandidate(candidate, username) {
         peerConnections.forEach(function (peer) {
             if (peer.username == username) {
-                peer.connection.addIceCandidate(new RTCIceCandidate(candidato));
+                peer.connection.addIceCandidate(new RTCIceCandidate(candidate));
             }
         });
     }
@@ -334,41 +334,41 @@ function VideoChatManager(ws) {
         }
     }
 
-    function sendRespuesta(respuesta, usernameOrigen) {
+    function sendAnswer(answer, usernameOrigen) {
         ws.send(JSON.stringify({
             'seccion': 'videoChat',
             'data': {
-                'operacion': 'respuesta',
+                'operacion': 'answer',
                 'usernameOrigen': usernameOrigen,
                 'usernameObjetivo': usuario.username,
-                'respuesta': respuesta,
+                'answer': answer,
                 'sala': sala
             }
         }));
     }
 
 
-    function sendOferta(descripcion, usernameObjetivo) {
+    function sendOffer(descripcion, usernameObjetivo) {
         ws.send(JSON.stringify({
             'seccion': 'videoChat',
             'data': {
-                'operacion': 'oferta',
+                'operacion': 'offer',
                 'usernameOrigen': usuario.username,
                 'usernameObjetivo': usernameObjetivo,
-                'oferta': descripcion,
+                'offer': descripcion,
                 'sala': sala
             }
         }));
     }
 
-    function sendCandidato(candidato, otherUsername) {
+    function sendCandidate(candidate, otherUsername) {
         ws.send(JSON.stringify({
             'seccion': 'videoChat',
             'data': {
-                'operacion': 'candidato',
+                'operacion': 'candidate',
                 'username': usuario.username,
                 'otherUsername': otherUsername,
-                'candidato': candidato,
+                'candidate': candidate,
                 'sala': sala
             }
         }));

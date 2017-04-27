@@ -109,27 +109,27 @@ module.exports = function (server) {
 
                                 break;
 
-                            case 'oferta':
+                            case 'offer':
 
-                                console.log("oferta:");
+                                console.log("offer:");
 
                                 console.log(message);
                                 console.log(obj.data.usernameObjetivo);
 
-                                console.log("Fin oferta");
+                                console.log("Fin offer");
 
                                 enviarA(message, obj.data.usernameObjetivo, sala);
                                 break;
 
 
-                            case 'respuesta':
-                                console.log("respuesta");
+                            case 'answer':
+                                console.log("answer");
                                 enviarA(message, obj.data.usernameOrigen, sala);
                                 break;
 
 
-                            case 'candidato':
-                                console.log("candidato");
+                            case 'candidate':
+                                console.log("candidate");
                                 enviarA(message, obj.data.otherUsername, sala);
                                 break;
 
