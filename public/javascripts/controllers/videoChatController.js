@@ -10,4 +10,5 @@ webApp.controller('videoChatController', function ($scope, $rootScope, webSocket
 
     webSocketService.videoChatManager.start(sala);
 
+
 });
