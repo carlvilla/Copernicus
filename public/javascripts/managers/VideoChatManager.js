@@ -47,6 +47,9 @@ function VideoChatManager(ws) {
         window.stream = stream;
         videoLocal.srcObject = stream;
 
+        videoLocal.style.width = "100%";
+        videoLocal.style.height = "100%";
+
         videoLocal.muted = true;
 
         console.log("Enviando mensaje 'login' desde videoChatManager")
@@ -138,19 +141,89 @@ function VideoChatManager(ws) {
             //Aqui se tienen que utilizar los componentes remoteVideo1, remoteVideo2, remoteVideo3 (Puede haber como máximo 4 personas
             // haciendo una videoconferencia)
 
-            //Associate the remote video element with the retrieved stream
-            videoRemoto1.src = window.URL.createObjectURL(event.stream);
-            //videoRemote.className = 'videoRemote';
 
-            console.log("VideoRemote: " + videoRemoto1);
+            if(videoRemoto1.src == ""){
 
-            videoRemoto1.play();
-            videoRemoto1.muted = false;
+                //Associate the remote video element with the retrieved stream
+                videoRemoto1.src = window.URL.createObjectURL(event.stream);
+                //videoRemote.className = 'videoRemote';
 
-            remotes.push({
-                'username': getUsername(localPeerConnection),
-                'video': videoRemoto1
-            });
+                console.log("VideoRemote: " + videoRemoto1);
+
+                videoLocal.style.width = "50%";
+                videoLocal.style.height = "100%";
+
+                videoRemoto1.style.width = "50%";
+                videoRemoto1.style.height = "100%";
+
+                videoRemoto1.play();
+                videoRemoto1.muted = false;
+
+                remotes.push({
+                    'username': getUsername(localPeerConnection),
+                    'video': videoRemoto1
+                });
+
+
+
+            }
+            else if(videoRemoto2.src == ""){
+
+                //Associate the remote video element with the retrieved stream
+                videoRemoto2.src = window.URL.createObjectURL(event.stream);
+                //videoRemote.className = 'videoRemote';
+
+                console.log("VideoRemote: " + videoRemoto1);
+
+
+                videoLocal.style.width = "50%";
+                videoLocal.style.height = "50%";
+
+                videoRemoto1.style.width = "50%";
+                videoRemoto1.style.height = "50%";
+
+                videoRemoto2.style.width = "50%";
+                videoRemoto2.style.height = "50%";
+
+
+                videoRemoto2.play();
+                videoRemoto2.muted = false;
+
+                remotes.push({
+                    'username': getUsername(localPeerConnection),
+                    'video': videoRemoto2
+                });
+
+
+            } else if(videoRemoto3.src == ""){
+
+                //Associate the remote video element with the retrieved stream
+                videoRemoto3.src = window.URL.createObjectURL(event.stream);
+                //videoRemote.className = 'videoRemote';
+
+                console.log("VideoRemote: " + videoRemoto1);
+
+                videoRemoto3.style.width = "50%";
+                videoRemoto3.style.height = "50%";
+
+                videoRemoto3.play();
+                videoRemoto3.muted = false;
+
+
+                remotes.push({
+                    'username': getUsername(localPeerConnection),
+                    'video': videoRemoto3
+                });
+
+            }else{
+                //Si hay más de 4 participantes de momento si quita el video y solo se utiliza audio
+                videoLocal.stop();
+                videoRemoto1.stop();
+                videoRemoto2.stop();
+                videoRemoto3.stop();
+
+            }
+
         };
         return localPeerConnection;
 
