@@ -91,3 +91,67 @@ listado-salas {
     min-width: 100%;
     height: 150px;
 }
+
+#username-solicitud-contacto_value{
+    width: 100%;
+}
+
+#mensaje-solicitud{
+    resize:none;
+}
+
+.solicitud-contacto{
+    width: 100%;
+    overflow:auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid;
+    border-width: 2px;
+}
+
+#datos-contacto-solicitud, #div-mensaje-solicitud, #botones-solicitud{
+
+    float: left;
+    display: block;
+
+}
+
+#datos-contacto-solicitud{
+    width: 35%;
+}
+
+#div-mensaje-solicitud{
+    width: 40%;
+    height: 100%;
+    margin-left: 10px;
+}
+
+#mensaje-solicitud{
+    width: 100%;
+}
+
+
+#botones-solicitud{
+    width: 20%;
+    text-align: center;
+    margin-left: 10px;
+}
+
+#boton-aceptar-solicitud{
+    margin-bottom: 5px;
+    width: 70%;
+}
+
+#boton-ignorar-solicitud{
+    width: 70%;
+}
+
+#username-solicitud{
+    text-align: center;
+    display: block;
+}
+
+#nombre-apellidos-solicitud{
+    text-align: center;
+    display: block;
+}

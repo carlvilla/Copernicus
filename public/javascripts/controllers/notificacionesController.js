@@ -18,7 +18,7 @@ webApp.controller('notificacionesController', function ($scope, $http) {
     }
 
     function error(err){
-        console.log(err);
+        //console.log(err);
     }
 
 });
