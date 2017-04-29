@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
 
-                <div class="solicitud-contacto" ng-repeat="solicitud in solicitudes">
+                <div id="solicitud-de-{{solicitud.contacto.username}}" class="solicitud-contacto" ng-repeat="solicitud in solicitudes">
 
                 <div id="datos-contacto-solicitud">
                     <label id="username-solicitud">{{solicitud.contacto.username}}</label>
@@ -23,9 +23,11 @@
                 </div>
 
                 <div id="botones-solicitud">
-                    <button id="boton-aceptar-solicitud" class="btn btn-primary">Aceptar</button>
+                    <button id="boton-aceptar-solicitud" class="btn btn-primary"
+                            ng-click="aceptarSolicitud(solicitud.contacto.username)">Aceptar</button>
 
-                    <button id="boton-ignorar-solicitud" class="btn btn-primary">Ignorar</button>
+                    <button id="boton-ignorar-solicitud" class="btn btn-primary"
+                            ng-click="ignorarSolicitud(solicitud.contacto.username)">Ignorar</button>
 
                 </div>
 
