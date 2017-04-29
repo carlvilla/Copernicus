@@ -60,7 +60,6 @@ function VideoChatManager(ws) {
     this.getMessage = function (data) {
 
         console.log(data.operacion);
-        console.log(data.usuarios);
 
         switch (data.operacion) {
             case 'inicio':
@@ -113,7 +112,8 @@ function VideoChatManager(ws) {
             RTCPeerConnection = webkitRTCPeerConnection;
 
         var configuration = {
-            "iceServers": [{'url': 'stun:stun.l.google.com:19302'}]
+            "iceServers": [
+                {'url': 'stun:stun.l.google.com:19302'}]
         };
         var configuration;
 
