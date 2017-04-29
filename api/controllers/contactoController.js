@@ -90,7 +90,8 @@ module.exports.findSolicitudesContacto = function(req, res){
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (u1:Usuario)-[:SolicitudContacto]->(u2:Usuario { username: '"+username+"' }) RETURN u1"
+    var query = "MATCH (contacto:Usuario)-[solicitud:SolicitudContacto]->(u2:Usuario { username: '"+username+"' }) " +
+        "RETURN contacto,solicitud"
 
     db.query(query, function(err, result) {
         if (err) {

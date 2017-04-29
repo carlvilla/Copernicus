@@ -7,6 +7,29 @@
             </div>
             <div class="modal-body">
 
+                <div class="solicitud-contacto" ng-repeat="solicitud in solicitudes">
+
+                <div id="datos-contacto-solicitud">
+                    <label id="username-solicitud">{{solicitud.contacto.username}}</label>
+                    <div id="nombre-apellidos-solicitud">
+                    <label id="nombre-solicitud">{{solicitud.contacto.nombre}}</label>
+                    <label id="apellidos-solicitud">{{solicitud.contacto.apellidos}}</label>
+                    </div>
+                </div>
+
+                <div id="div-mensaje-solicitud">
+                    <textarea id="mensaje-solicitud" disabled="true">{{solicitud.solicitud.properties.mensaje}}</textarea>
+
+                </div>
+
+                <div id="botones-solicitud">
+                    <button id="boton-aceptar-solicitud" class="btn btn-primary">Aceptar</button>
+
+                    <button id="boton-ignorar-solicitud" class="btn btn-primary">Ignorar</button>
+
+                </div>
+
+                </div>
 
             </div>
             <div class="modal-footer">

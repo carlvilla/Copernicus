@@ -196,6 +196,8 @@ html, body {
     height: 100%;
     width: 100%;
     border-style: solid;
+    overflow: hidden; /* Debido al redimensionamiento del módulo videoChat, se dan circunstancias en las que el video
+    puede sobresalir del módulo. Con esta propiedad a hidden ocultamos aquellas partes del video que sobresalgan */
 }
 
 .closeModule, .fullScreenModule {
