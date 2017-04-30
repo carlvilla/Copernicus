@@ -21,6 +21,8 @@ router.get('/findContacto', contactoController.findEntreContactos);
 router.get('/contactos', contactoController.findMisContactos);
 router.get('/solicitudesContacto', contactoController.findSolicitudesContacto);
 router.post('/enviarSolicitudContacto', contactoController.enviarSolicitudContacto);
+router.post('/aceptarSolicitud', contactoController.aceptarSolicitudContacto);
+router.post('/ignorarSolicitud', contactoController.ignorarSolicitudContacto);
 
 
 module.exports = router;

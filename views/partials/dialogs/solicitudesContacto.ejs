@@ -18,8 +18,8 @@
                 </div>
 
                 <div id="div-mensaje-solicitud">
-                    <textarea id="mensaje-solicitud" disabled="true">{{solicitud.solicitud.properties.mensaje}}</textarea>
-
+                    <textarea class="mensaje-solicitud" ng-show="!solicitud.solicitud.properties.mensaje" disabled="true"><%=lang.sinMensaje%></textarea>
+                    <textarea class="mensaje-solicitud" ng-show="solicitud.solicitud.properties.mensaje" disabled="true">{{solicitud.solicitud.properties.mensaje}}</textarea>
                 </div>
 
                 <div id="botones-solicitud">
@@ -35,7 +35,7 @@
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" data-dismiss="modal" ng-click="cerrarPantallaSolicitudes()">Cerrar</button>
             </div>
         </div>
     </div>

@@ -45,14 +45,15 @@ module.exports.personalPage = function (req, res, next) {
             settings: 'Ajustes',
             accountSettings: 'Ajustes de la cuenta',
             logout: 'Cerrar sesión',
-            conectedContacts: 'Mis Contactos',
+            myContacts: 'Mis Contactos',
             roomsAccess: 'Acceso a salas',
             addMiembros: 'Añadir miembros a la sala',
             datosSala: 'Datos de la sala',
             usuariosBloqueados: 'Usuarios bloqueados',
             desbloquear: 'Desbloquear',
             username: 'Nombre de usuario',
-            apellidos: 'Apellidos'
+            apellidos: 'Apellidos',
+            sinMensaje: 'Sin mensaje'
         }
 
     });

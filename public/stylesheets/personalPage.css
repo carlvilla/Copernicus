@@ -96,7 +96,7 @@ listado-salas {
     width: 100%;
 }
 
-#mensaje-solicitud{
+.mensaje-solicitud{
     resize:none;
 }
 
