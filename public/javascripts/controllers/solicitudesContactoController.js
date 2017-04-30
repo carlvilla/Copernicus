@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('solicitudesContactoController', function ($scope, $http) {
+webApp.controller('solicitudesContactoController', function ($scope, $http, $window) {
 
     $http({
         method: "GET",
@@ -17,29 +17,31 @@ webApp.controller('solicitudesContactoController', function ($scope, $http) {
 
     $scope.aceptarSolicitud = function(usernameMandoSolicitud){
 
-        //Username de la persona que acepta la solicitud
-
         $http({
             method: "POST",
-            url: "api/aceptarSolicitud"
+            url: "api/aceptarSolicitud",
+            data: {'usernameAceptado': usernameMandoSolicitud}
         });
 
         $("#solicitud-de-"+usernameMandoSolicitud).remove();
 
     }
 
-    $scope.ignorarSolicitud = function(usernameMandoSolicitud){
 
-        //Username de la persona que acepta la solicituds
+    $scope.ignorarSolicitud = function(usernameMandoSolicitud){
 
         $http({
             method: "POST",
-            url: "api/eliminarSolicitud"
+            url: "api/ignorarSolicitud",
+            data: {'usernameIgnorado': usernameMandoSolicitud}
         });
 
         $("#solicitud-de-"+usernameMandoSolicitud).remove();
 
+    }
 
+    $scope.cerrarPantallaSolicitudes = function(){
+        $window.location.reload();
     }
 
 

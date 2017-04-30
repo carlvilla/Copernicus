@@ -88,7 +88,8 @@
 
     <!-- Listado contactos -->
     <div id="contenedor-listado-contactos" ng-controller="contactosController">
-        <div class="panel-heading"><%= lang.conectedContacts %>:</div>
+        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left">
+                <%= lang.myContacts %>:</label> <input style="float:left; margin-bottom: 5px;" placeholder="Filtrar contactos"/></div>
         <div id="contenedor2-listado-contactos">
             <div id="listado-contactos">
                 <button ng-repeat="contacto in contactos" class="list-group-item boton-listado">{{contacto.username}}
@@ -100,7 +101,8 @@
 
     <!-- Listado salas -->
     <div ng-controller="salaController" id="contenedor-listado-salas" class="btn-group-vertical">
-        <div class="panel-heading"><%= lang.roomsAccess %>:</div>
+        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left;">
+                <%= lang.roomsAccess %>:</label><input style="float:left; margin-bottom: 5px;" placeholder="Filtrar salas"/></div>
         <div id="contenedor2-listado-salas">
             <div id="listado-salas">
                 <button ng-repeat="sala in salas" ng-click="accederSala(sala.idSala)"
