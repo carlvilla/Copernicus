@@ -20,9 +20,74 @@ sala.schema = {
     descripcion: {type: String}
 };
 
+/**
+ * Crea una sala con la información pasada y la relaciona con los usuarios pasados en la petición
+ *
+ * @param req
+ * @param res
+ */
 module.exports.createSala = function (req, res) {
 
+    var username = utils.getUsername(req);
+
+    var sala = req.body.sala.nombre;
+    var descripcion = req.body.sala.descripcion;
+
+    var usuarios = req.body.usuarios;
+
+    var idSala;
+
+    //Obtenemos el último idSala utilizado. Este id es necesario para identificar de forma unequivoca una sala
+    var queryLastSalaID = "match(s:Sala) with s.idSala as id return id order by id desc limit 1";
+    db.query(queryLastSalaID, function (err, result) {
+        idSala = parseInt(result[0].id) + 1;
+
+        //Creamos la sala
+        var querySala = "CREATE(s:Sala{idSala:" + idSala + ", nombre:'" + sala + "', descripcion:'" + descripcion + "'})"
+        db.query(querySala, function (err, result) {
+            if (err) {
+                //Error al crear la sala
+                utils.sendJSONresponse(res, 500, err);
+            }
+            else {
+
+                //Relacionamos los usuarios elegidos con la sala con una la relación pasada en el atributo permiso del
+                //usuario
+                if (usuarios.length > 0) {
+                    var queryUsuario;
+                    usuarios.forEach(function (usuario) {
+                        console.log(usuario.permisos);
+                        queryUsuario = "MATCH(u:Usuario{username:'" + usuario.username + "'}),(s:Sala{idSala:" + idSala
+                            + "}) CREATE(u)-[:Candidato{permisos:'" + usuario.permisos + "'}]->(s)";
+                        db.query(queryUsuario, function (err, result) {
+                            if (err) {
+                                utils.sendJSONresponse(res, 500, err);
+                            }
+                        });
+
+                    })
+
+                    //Relacionamos el creador de la sala con la sala con una relación de tipo Admin
+                    var queryAdmin = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
+                        + "}) CREATE(u)-[:Admin]->(s)";
+
+                    db.query(queryAdmin, function (err, result) {
+                        if (err) {
+                            utils.sendJSONresponse(res, 500, err);
+                        } else {
+                            utils.sendJSONresponse(res, 204, "");
+                        }
+                    });
+
+                }
+
+            }
+        });
+
+    });
+
 }
+
 
 /**
  * Busca las salas en las que el usuario es administrador a miembro
@@ -33,10 +98,10 @@ module.exports.findSalasParticipa = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (Usuario { username: '"+username+"' })-[:Miembro|Admin]-(Sala) RETURN Sala"
+    var query = "MATCH (Usuario { username: '" + username + "' })-[:Miembro|Admin]-(Sala) RETURN Sala"
 
 
-    db.query(query, function(err, result) {
+    db.query(query, function (err, result) {
         if (err) {
             //Error en el servidor
             utils.sendJSONresponse(res, 500, err);
@@ -54,23 +119,23 @@ module.exports.findSalasParticipa = function (req, res) {
 
 }
 
-module.exports.checkParticipante = function (req, res){
+module.exports.checkParticipante = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (u:Usuario{username:'"+username+"'}),(s:Sala{idSala:"+ req.body.idSala +"})where (u)-" +
+    var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + req.body.idSala + "})where (u)-" +
         "[:Miembro | Admin]->(s) return s";
 
 
-    db.query(query, function(err, result){
-       if(err){
-           utils.sendJSONresponse(res, 500, err);
-       } else if(result.length == 1){
-           utils.sendJSONresponse(res, 200, result);
-       } else{
-           //El usuario no tiene permisos para acceder a esta sala
-           utils.sendJSONresponse(res, 403, err);
-       }
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else if (result.length == 1) {
+            utils.sendJSONresponse(res, 200, result);
+        } else {
+            //El usuario no tiene permisos para acceder a esta sala
+            utils.sendJSONresponse(res, 403, err);
+        }
     });
 }
 
@@ -107,8 +172,8 @@ module.exports.modifySala = function (req, res) {
 
 /*
 
-Esta consulta devuelve todas las salas con las que está relacionado el usuario
-con username 'prueba'
+ Esta consulta devuelve todas las salas con las que está relacionado el usuario
+ con username 'prueba'
 
  MATCH (Usuario { username: 'prueba' })--(Sala)
  RETURN Sala

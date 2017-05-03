@@ -168,7 +168,7 @@ module.exports = function (server) {
             connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
                     if (conexion.usuario.username != usuarioAccion) {
                         if (conexion.ws.readyState == ws.OPEN) {
-                            console.log("Enviando mensaje a webSocketService");
+                            console.log("Enviando mensaje a webSocketService: "+message);
                             conexion.ws.send(message);
                         }
                         else{

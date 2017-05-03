@@ -14,6 +14,7 @@ router.get('/validarUsername/:username', usuarioController.validarUsername);
 //llamadas rest para gestionar salas
 router.get('/salasParticipa', salaController.findSalasParticipa);
 router.post('/chatroom', salaController.checkParticipante);
+router.post('/createSala', salaController.createSala);
 
 //llamadas rest para gestionar contactos
 router.get('/findPosiblesContactos', contactoController.findPosiblesContactos);
