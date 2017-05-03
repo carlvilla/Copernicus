@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Crear sala</h4>
             </div>
 
-            <form id="sala-form" name="salaForm" autocomplete="off" ng-submit="crearSala(sala)">
+            <form id="sala-form" name="salaForm" autocomplete="off" >
 
             <div class="modal-body">
                 <div class="form-group">
@@ -47,7 +47,8 @@
 
                                 </div>
 
-                                <button class="btn btn-primary" type="button" ng-click="addContactoTabla()">Añadir contacto</button>
+                                <button class="btn btn-primary" type="button"
+                                        ng-click="addContactoTabla()">Añadir contacto</button>
 
 
                             </div>
@@ -68,13 +69,14 @@
                                         <td>{{contacto.nombre}}</td>
                                         <td>{{contacto.apellidos}}</td>
                                         <td>
-                                            <select>
-                                                <option value="miembro">Miembro</option>
-                                                <option value="moderador">Moderador</option>
+                                            <select ng-model="contacto.permisos" ng-init="contacto.permisos = 'Miembro'">
+                                                <option value="Miembro">Miembro</option>
+                                                <option value="Moderador">Moderador</option>
                                             </select>
                                         </td>
                                         <td>
-                                            <button class="btn btn-primary" type="button" ng-click="eliminarSeleccionado(contacto.username)">Eliminar</button>
+                                            <button class="btn btn-primary" type="button"
+                                                    ng-click="eliminarSeleccionado(contacto.username)">Eliminar</button>
                                         </td>
                                     </tr>
 
@@ -87,8 +89,8 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-primary" type="submit">Crear sala</button>
-                <button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" type="button" ng-click="crearSala(sala)">Crear sala</button>
+                <button class="btn btn-primary" type="button" data-dismiss="modal">Cerrar</button>
             </div>
 
             </form>

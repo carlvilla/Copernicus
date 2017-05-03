@@ -33,6 +33,11 @@
 
                 </div>
 
+                <div ng-show="solicitudes.length == 0">
+                    <h4>No tienes ninguna solicitud pendiente</h4>
+
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" data-dismiss="modal" ng-click="cerrarPantallaSolicitudes()">Cerrar</button>

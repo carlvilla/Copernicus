@@ -25,27 +25,31 @@ webApp.controller('salaController', function ($scope, $http, $window) {
 
     function successAcceso(res) {
         window.sessionStorage.setItem("salaSeleccionada", JSON.stringify(res.data[0]));
-        $window.location.href ='/chatroom';
+        $window.location.href = '/chatroom';
     }
 
     $scope.crearSala = function (sala) {
         $http({
             method: "POST",
-            url: "api/createChatroom",
-            data: angular.toJson(sala)
-        }).then(successCrear, error)
+            url: "api/createSala",
+            data: angular.toJson(
+                {
+                    "sala": sala,
+                    "usuarios": $scope.contactosSeleccionados
+                }
+            )
+        }).then(successCrear, error);
     }
 
-    function successCrear(res) {
-        window.sessionStorage.setItem("salaSeleccionada", JSON.stringify(res.data[0]));
-        $window.location.href ='/chatroom';
+    var successCrear = function(res){
+        $window.location.href = '/personalPage';
     }
 
     $scope.contactos = {};
     $scope.contactosSeleccionados = [];
 
-    $scope.addContactoTabla = function(){
-        if($scope.usuarioSeleccionado != undefined) {
+    $scope.addContactoTabla = function () {
+        if ($scope.usuarioSeleccionado != undefined) {
             var usuario = $scope.usuarioSeleccionado.originalObject;
 
             //Si el usuario no se incluyó todavía
@@ -54,23 +58,23 @@ webApp.controller('salaController', function ($scope, $http, $window) {
         }
     }
 
-    $scope.eliminarSeleccionado = function(username){
-        $scope.contactosSeleccionados.forEach(function(usuario){
-           if(usuario.username == username){
-               var index = $scope.contactosSeleccionados.indexOf(usuario);
-               $scope.contactosSeleccionados.splice(index, 1);
-           }
+    $scope.eliminarSeleccionado = function (username) {
+        $scope.contactosSeleccionados.forEach(function (usuario) {
+            if (usuario.username == username) {
+                var index = $scope.contactosSeleccionados.indexOf(usuario);
+                $scope.contactosSeleccionados.splice(index, 1);
+            }
         });
     }
 
-    var findContactos = function(){
+    var findContactos = function () {
         $http({
             method: "GET",
             url: "api/contactos"
         }).then(success, error);
 
         function success(res) {
-            if(!(res.data == "")){
+            if (!(res.data == "")) {
                 $scope.contactos = res.data;
             }
         }
@@ -83,13 +87,11 @@ webApp.controller('salaController', function ($scope, $http, $window) {
     findContactos();
 
 
-
-
     function error(res) {
         console.log(res);
     }
 
-    $scope.selectedSala = function(){
+    $scope.selectedSala = function () {
         return JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
     }
 
