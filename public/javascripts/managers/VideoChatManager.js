@@ -111,9 +111,12 @@ function VideoChatManager(ws) {
         if (typeof RTCPeerConnection == "undefined")
             RTCPeerConnection = webkitRTCPeerConnection;
 
+        var turnCredential = process.env.PASS_TURN;
+
         var configuration = {
             "iceServers": [
-                {'url': 'stun:stun.l.google.com:19302'}]
+                {'url': 'stun:stun.l.google.com:19302'},
+                {"url":"turn:carlvilla.swe@gmail.com@numb.viagenie.ca", "credential":turnCredential}]
         };
         var configuration;
 
