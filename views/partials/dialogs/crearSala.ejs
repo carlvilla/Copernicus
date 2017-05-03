@@ -1,54 +1,97 @@
-<div class="modal" id="createRoom" tabindex="-1">
+<div class="modal" ng-controller="salaController" id="createRoom" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Crear sala</h4>
             </div>
+
+            <form id="sala-form" name="salaForm" autocomplete="off" ng-submit="crearSala(sala)">
+
             <div class="modal-body">
                 <div class="form-group">
 
-                    <h4><%=lang.datosSala%></h4>
-                    <div id="datos-sala">
-                    <label for="nombre">Nombre</label>
-                    <input class="form-control" id="nombre-crear-sala" placeholder="Nombre sala" type="text">
-                    <label for="descripcion-crear-sala">Descripción (Opcional)</label>
-                    <input class="form-control" id="descripcion-crear-sala" placeholder="Descripción" type="text">
-                    </div>
+                        <h4><%= lang.datosSala %></h4>
+                        <div id="datos-sala">
+                            <label for="nombre">Nombre</label>
+                            <input class="form-control" id="nombre-crear-sala" ng-model="sala.nombre"
+                                   placeholder="Nombre sala" type="text">
+                            <label for="descripcion-crear-sala">Descripción (Opcional)</label>
+                            <input class="form-control" id="descripcion-crear-sala" ng-model="sala.descripcion"
+                                   placeholder="Descripción" type="text">
 
-                    <div id="add-miembros-div" panel panel-default>
-                        <h4><%=lang.addMiembros%></h4>
-                        <div id="buscar-contactos-crear-sala">
-                            <label for="username-crear-sala" id="username-crear-sala-label">Nombre de usuario</label>
-                            <input class="form-control" id="username-crear-sala" placeholder="Nombre de usuario" type="text">
-                            <button class="btn btn-primary" id="add-button-crear-sala">Añadir</button>
+                            <label for="checkbox-crear-sala">Indicar si solo el administrador puede abrir y cerrar
+                                servicios</label>
+                            <input id="checkbox-crear-sala" ng-model="sala.modificarSoloAdmin" type="checkbox">
                         </div>
-                        <div id="show-usuarios">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>Nombre usuario</th>
-                                    <th>Nombre</th>
-                                    <th>Apellidos</th>
-                                    <th>Eliminar</th>
-                                </tr>
-                                <tr>
-                                    <td>Ejemploaidfbapubfd</td>
-                                    <td>Ejemploadfadsf</td>
-                                    <td>Ejemploafdfads Ejemplodafafd</td>
-                                    <td><button class="btn btn-primary">Eliminar</button></td>
-                                </tr>
+
+                        <div id="add-miembros-div" panel panel-default>
+                            <h4><%= lang.addMiembros %></h4>
+                            <div id="buscar-contactos-crear-sala">
+                                <label for="username-crear-sala" id="username-crear-sala-label">Nombre de
+                                    usuario</label>
+
+                                <div>
+
+                                <angucomplete id="username-crear-sala"
+                                              placeholder="Nombre de usuario"
+                                              pause="100"
+                                              selectedobject="usuarioSeleccionado"
+                                              localdata="contactos"
+                                              titlefield="username"
+                                              searchfields="username"
+                                              minlength="2"
+                                              inputclass="form-control"
+                                />
 
 
-                            </table>
+                                </div>
+
+                                <button class="btn btn-primary" type="button" ng-click="addContactoTabla()">Añadir contacto</button>
+
+
+                            </div>
+
+
+                            <div id="show-usuarios" ng-show="contactosSeleccionados.length > 0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Nombre usuario</th>
+                                        <th>Nombre</th>
+                                        <th>Apellidos</th>
+                                        <th>Permisos</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+
+                                    <tr ng-repeat="contacto in contactosSeleccionados">
+                                        <td>{{contacto.username}}</td>
+                                        <td>{{contacto.nombre}}</td>
+                                        <td>{{contacto.apellidos}}</td>
+                                        <td>
+                                            <select>
+                                                <option value="miembro">Miembro</option>
+                                                <option value="moderador">Moderador</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary" type="button" ng-click="eliminarSeleccionado(contacto.username)">Eliminar</button>
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+                            </div>
                         </div>
-                    </div>
+
                 </div>
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-primary">Crear sala</button>
+                <button class="btn btn-primary" type="submit">Crear sala</button>
                 <button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
             </div>
+
+            </form>
 
         </div>
     </div>
