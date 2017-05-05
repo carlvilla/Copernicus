@@ -9,12 +9,16 @@ webApp.controller('notificacionesController', function ($scope, $http) {
 
     $http({
         method: "GET",
-        url: "api/solicitudesContacto"
-    }).then(successSolicitudes, error);
+        url: "api/solicitudesSala"
+    }).then(successSala, error);
 
 
     function successSolicitudes(res) {
         $scope.solicitudes = res.data;
+    }
+
+    function successSala(res) {
+        $scope.solicitudesSala = res.data;
     }
 
     function error(err){
