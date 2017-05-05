@@ -110,10 +110,8 @@ listado-salas {
 }
 
 #datos-contacto-solicitud, #div-mensaje-solicitud, #botones-solicitud{
-
     float: left;
     display: block;
-
 }
 
 #datos-contacto-solicitud{
@@ -154,4 +152,19 @@ listado-salas {
 #nombre-apellidos-solicitud{
     text-align: center;
     display: block;
+}
+
+/*Solicitudes sala*/
+
+.solicitud-sala{
+    width: 100%;
+    overflow:auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid;
+    border-width: 2px;
+}
+
+.descripcion-sala{
+    resize:none;
 }

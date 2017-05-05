@@ -11,8 +11,6 @@
 
     <!-- Hojas de estilos y scripts -->
     <link rel="stylesheet" href="/public/stylesheets/personalPage.css">
-    <link rel="stylesheet" href="/angucomplete/angucomplete.css"/>
-
 
     <!-- Controladores-->
     <script src='/public/javascripts/controllers/contactosController.js'></script>
@@ -42,21 +40,20 @@
             </li>
             <li>
                 <a data-target="#solicitudes-contacto" data-toggle="modal">
-                    <span class="glyphicon glyphicon-envelope"
-                          aria-hidden="true"></span> <%= lang.solicitudesContacto %>
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <%= lang.solicitudesContacto %>
                     <span ng-hide="solicitudes.length < 1" class="badge badge-info">{{solicitudes.length}}</span>
                 </a>
             </li>
             <li>
-                <a data-target="#bloquearUsuario" data-toggle="modal"><span class="glyphicon glyphicon-ban-circle"
-                                                                            aria-hidden="true">
+                <a data-target="#bloquearUsuario" data-toggle="modal">
+                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true">
                     </span> <%= lang.blockContact %>
                 </a>
             </li>
             <li class="nav-header"><%= lang.rooms %></li>
             <li>
-                <a data-target="#createRoom" data-toggle="modal"><span class="glyphicon glyphicon-blackboard"
-                                                                       aria-hidden="true">
+                <a data-target="#createRoom" data-toggle="modal">
+                    <span class="glyphicon glyphicon-blackboard" aria-hidden="true">
                     </span> <%= lang.createRoom %>
                 </a>
             </li>
@@ -66,9 +63,9 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> <%= lang.roomsNotifications %>
-                    <span class="badge badge-info">10</span>
+                <a data-target="#solicitudes-salas" data-toggle="modal">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> <%= lang.solicitudesSala %>
+                    <span ng-hide="solicitudesSala.length < 1" class="badge badge-info">{{solicitudesSala.length}}</span>
                 </a>
             </li>
             <li class="nav-header"><%= lang.settings %></li>
@@ -119,6 +116,7 @@
     <% include partials/dialogs/crearSala.ejs %>
     <% include partials/dialogs/bloquearContacto.ejs %>
     <% include partials/dialogs/solicitudesContacto.ejs %>
+    <% include partials/dialogs/solicitudesSala.ejs %>
 
 </div>
 </body>

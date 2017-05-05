@@ -18,7 +18,7 @@ webApp.controller('salaController', function ($scope, $http, $window) {
     $scope.accederSala = function (idSala) {
         $http({
             method: "POST",
-            url: "api/chatroom",
+            url: "api/salas",
             data: angular.toJson({idSala: idSala})
         }).then(successAcceso, error)
     }
@@ -27,6 +27,9 @@ webApp.controller('salaController', function ($scope, $http, $window) {
         window.sessionStorage.setItem("salaSeleccionada", JSON.stringify(res.data[0]));
         $window.location.href = '/chatroom';
     }
+
+
+    //Crear sala
 
     $scope.crearSala = function (sala) {
         $http({
@@ -87,12 +90,57 @@ webApp.controller('salaController', function ($scope, $http, $window) {
     findContactos();
 
 
-    function error(res) {
-        console.log(res);
-    }
 
     $scope.selectedSala = function () {
         return JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
+    }
+
+    //Fin crear sala
+
+    //Solicitudes para unirse a sala
+    $http({
+        method: "GET",
+        url: "api/solicitudesSala"
+    }).then(successSolicitudes, error);
+
+    function successSolicitudes(res) {
+        $scope.solicitudesSala = res.data;
+    }
+
+    $scope.aceptarSolicitud = function(idSala){
+
+        $http({
+            method: "POST",
+            url: "api/aceptarSolicitudSala",
+            data: {'idSala': idSala}
+        });
+
+        $("#solicitud-de-"+idSala).remove();
+
+    }
+
+
+    $scope.ignorarSolicitud = function(idSala){
+
+        $http({
+            method: "POST",
+            url: "api/ignorarSolicitudSala",
+            data: {'idSala': idSala}
+        });
+
+        $("#solicitud-de-"+idSala).remove();
+
+    }
+
+    $scope.cerrarPantallaSolicitudes = function(){
+        $window.location.reload();
+    }
+
+    //Fin solicitudes para unirse a sala
+
+
+    function error(res) {
+        //console.log(res);
     }
 
 

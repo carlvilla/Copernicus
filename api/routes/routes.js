@@ -13,8 +13,11 @@ router.get('/validarUsername/:username', usuarioController.validarUsername);
 
 //llamadas rest para gestionar salas
 router.get('/salasParticipa', salaController.findSalasParticipa);
-router.post('/chatroom', salaController.checkParticipante);
+router.get('/solicitudesSala', salaController.findSalasCandidato);
+router.post('/salas', salaController.checkParticipante);
 router.post('/createSala', salaController.createSala);
+router.post('/aceptarSolicitudSala', salaController.aceptarSolicitud);
+router.post('/ignorarSolicitudSala', salaController.ignorarSolicitud);
 
 //llamadas rest para gestionar contactos
 router.get('/findPosiblesContactos', contactoController.findPosiblesContactos);

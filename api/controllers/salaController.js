@@ -40,7 +40,11 @@ module.exports.createSala = function (req, res) {
     //Obtenemos el último idSala utilizado. Este id es necesario para identificar de forma unequivoca una sala
     var queryLastSalaID = "match(s:Sala) with s.idSala as id return id order by id desc limit 1";
     db.query(queryLastSalaID, function (err, result) {
-        idSala = parseInt(result[0].id) + 1;
+        //Si no existe ninguna sala, se crea la primera con el id 1
+        if(result[0]!=null)
+            idSala = parseInt(result[0].id) + 1;
+        else
+            idSala = 1;
 
         //Creamos la sala
         var querySala = "CREATE(s:Sala{idSala:" + idSala + ", nombre:'" + sala + "', descripcion:'" + descripcion + "'})"
@@ -98,7 +102,7 @@ module.exports.findSalasParticipa = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (Usuario { username: '" + username + "' })-[:Miembro|Admin]-(Sala) RETURN Sala"
+    var query = "MATCH (Usuario { username: '" + username + "' })-[:Miembro|Admin|Moderador]-(Sala) RETURN Sala"
 
 
     db.query(query, function (err, result) {
@@ -124,7 +128,7 @@ module.exports.checkParticipante = function (req, res) {
     var username = utils.getUsername(req);
 
     var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + req.body.idSala + "})where (u)-" +
-        "[:Miembro | Admin]->(s) return s";
+        "[:Miembro | Admin | Moderador]->(s) return s";
 
 
     db.query(query, function (err, result) {
@@ -140,14 +144,6 @@ module.exports.checkParticipante = function (req, res) {
 }
 
 
-module.exports.findSalasMiembro = function (req, res) {
-
-}
-
-module.exports.findSalasAdmin = function (req, res) {
-
-}
-
 /**
  * Busca las salas en las que el usuario es candidato. Esto es que
  * se ha enviado una solicitud al usuario a que se una a una sala,
@@ -156,8 +152,80 @@ module.exports.findSalasAdmin = function (req, res) {
  * @param res
  */
 module.exports.findSalasCandidato = function (req, res) {
+
+    var username = utils.getUsername(req);
+
+    var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala)where (u)-" +
+        "[:Candidato]->(s) return s";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            utils.sendJSONresponse(res, 200, result);
+        }
+    });
+
+
 }
 
+module.exports.aceptarSolicitud = function (req, res) {
+
+    var username = utils.getUsername(req);
+    var idSala = req.body.idSala;
+
+    //Elimina la relación de candidato entre el usuario y sala, y devuelve los permisos que se han concedido
+    //al usuario en la sala
+    var queryBorrarCandidato = "MATCH(u:Usuario{username:'"+username+"'})-[c:Candidato]->(s:Sala{idSala:"+idSala+"}) WITH c as candidato, " +
+        "c.permisos as permisos DELETE candidato RETURN permisos"
+
+    db.query(queryBorrarCandidato, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        }else{
+            var permisos = result[0].permisos;
+
+            //Relaciona el usuario con la sala utilizando los permisos que se le concedieron
+            var queryAddUsuario = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
+                + "}) CREATE(u)-[:"+permisos+"]->(s)";
+
+            db.query(queryAddUsuario, function (err, result) {
+                if (err) {
+                    utils.sendJSONresponse(res, 500, err);
+                } else {
+                    utils.sendJSONresponse(res, 200, result);
+                }
+            });
+        }
+    });
+}
+
+module.exports.ignorarSolicitud = function (req, res) {
+    var username = utils.getUsername(req);
+    var idSala = req.body.idSala;
+
+
+    //Elimina la relación de candidato entre el usuario y sala
+    var query = "MATCH(u:Usuario{username:'"+username+"'})-[c:Candidato]->(s:Sala{idSala:"+idSala+"}) DELETE c"
+
+    db.query(query, function (err, res) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        }else{
+            utils.sendJSONresponse(res, 200, "");
+        }
+    });
+
+}
+
+
+module.exports.findSalasMiembro = function (req, res) {
+
+}
+
+module.exports.findSalasAdmin = function (req, res) {
+
+}
 
 module.exports.deleteSala = function (req, res) {
 

@@ -41,7 +41,7 @@ module.exports.personalPage = function (req, res, next) {
             rooms: 'Salas',
             createRoom: 'Crear sala',
             manageRooms: 'Gestionar salas',
-            roomsNotifications: 'Notificaciones de salas',
+            solicitudesSala: 'Solicitudes de salas',
             settings: 'Ajustes',
             accountSettings: 'Ajustes de la cuenta',
             logout: 'Cerrar sesión',
