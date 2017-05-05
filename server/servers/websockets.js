@@ -101,7 +101,7 @@ module.exports = function (server) {
                                     }
                                 };
 
-                                console.log("Array de usuarios: "+  usuarios);
+                             //   console.log("Array de usuarios: "+  usuarios);
 
                                 console.log("Enviar usuarios conectados");
 
@@ -113,10 +113,10 @@ module.exports = function (server) {
 
                                 console.log("offer:");
 
-                                console.log(message);
-                                console.log(obj.data.usernameObjetivo);
+                               // console.log(message);
+                             //   console.log(obj.data.usernameObjetivo);
 
-                                console.log("Fin offer");
+                              //  console.log("Fin offer");
 
                                 enviarA(message, obj.data.usernameObjetivo, sala);
                                 break;
@@ -135,7 +135,7 @@ module.exports = function (server) {
 
                             case 'cerrar':
                                 console.log("cerrar");
-                                setDisponibleUsuarioVideoChat(obj.data.username, false);
+                                setDisponibleUsuarioVideoChat(obj.data.username, sala, false);
                                 broadcast(message, obj.data.username, sala);
                                 break;
 
@@ -168,7 +168,7 @@ module.exports = function (server) {
             connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
                     if (conexion.usuario.username != usuarioAccion) {
                         if (conexion.ws.readyState == ws.OPEN) {
-                            console.log("Enviando mensaje a webSocketService: "+message);
+                            console.log("Enviando mensaje a webSocketService");
                             conexion.ws.send(message);
                         }
                         else{
@@ -277,7 +277,7 @@ module.exports = function (server) {
      * @param disponible
      */
     setDisponibleUsuarioVideoChat = function (username, sala, disponible) {
-        console.log("Establecer usuario como disponible: "+username);
+        console.log("Establecer usuario como disponible a "+disponible+" : "+username);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username == username) {
                 conexion.videoChat = {
@@ -299,7 +299,7 @@ module.exports = function (server) {
         var usuarios = [];
         console.log("Obtener usuarios");
 
-        console.log(connections);
+      //  console.log(connections);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username != usernameEnvia) {
                 console.log(conexion);
@@ -315,7 +315,7 @@ module.exports = function (server) {
     enviarA = function (message, usernameSeEnvia, sala) {
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username == usernameSeEnvia) {
-                console.log('Sent: %s to %s', message, usernameSeEnvia);
+               // console.log('Sent: %s to %s', message, usernameSeEnvia);
                 if (conexion.ws)
                     conexion.ws.send(message);
             }

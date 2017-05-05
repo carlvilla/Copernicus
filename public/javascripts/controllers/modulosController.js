@@ -78,7 +78,7 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
     };
 
 
-    $scope.removeModule = function (modulo){
+    $scope.eliminarModulo = function (modulo){
         console.log("Borrando módulo: "+modulo);
         numModulosMostrados--;
         grid.removeWidget($('#'+modulo));

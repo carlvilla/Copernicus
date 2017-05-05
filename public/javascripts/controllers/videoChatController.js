@@ -9,6 +9,10 @@ webApp.controller('videoChatController', function ($scope, $rootScope, webSocket
     var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
 
     webSocketService.videoChatManager.start(sala);
+    
+    $scope.cerrarModulo = function(){
+        webSocketService.videoChatManager.setDisconnected();
+    }
 
 
 });

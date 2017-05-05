@@ -141,8 +141,9 @@ function VideoChatManager(ws) {
             //Aqui se tienen que utilizar los componentes remoteVideo1, remoteVideo2, remoteVideo3 (Puede haber como máximo 4 personas
             // haciendo una videoconferencia)
 
+            var username = getUsername(localPeerConnection);
 
-            if(videoRemoto1.src == ""){
+            if (!videoRemoto1.username) {
 
                 //Associate the remote video element with the retrieved stream
                 videoRemoto1.src = window.URL.createObjectURL(event.stream);
@@ -156,18 +157,19 @@ function VideoChatManager(ws) {
                 videoRemoto1.style.width = "50%";
                 videoRemoto1.style.height = "100%";
 
+                videoRemoto1.username = (username);
+
                 videoRemoto1.play();
                 videoRemoto1.muted = false;
 
                 remotes.push({
-                    'username': getUsername(localPeerConnection),
+                    'username': username,
                     'video': videoRemoto1
                 });
 
 
-
             }
-            else if(videoRemoto2.src == ""){
+            else if (!videoRemoto2.username) {
 
                 //Associate the remote video element with the retrieved stream
                 videoRemoto2.src = window.URL.createObjectURL(event.stream);
@@ -182,9 +184,10 @@ function VideoChatManager(ws) {
                 videoRemoto1.style.width = "50%";
                 videoRemoto1.style.height = "50%";
 
-                videoRemoto2.style.width = "50%";
+                videoRemoto2.style.width = "100%";
                 videoRemoto2.style.height = "50%";
 
+                videoRemoto2.username = (username);
 
                 videoRemoto2.play();
                 videoRemoto2.muted = false;
@@ -195,7 +198,7 @@ function VideoChatManager(ws) {
                 });
 
 
-            } else if(videoRemoto3.src == ""){
+            } else if (!videoRemoto3.username) {
 
                 //Associate the remote video element with the retrieved stream
                 videoRemoto3.src = window.URL.createObjectURL(event.stream);
@@ -206,6 +209,8 @@ function VideoChatManager(ws) {
                 videoRemoto3.style.width = "50%";
                 videoRemoto3.style.height = "50%";
 
+                videoRemoto3.username = (username);
+
                 videoRemoto3.play();
                 videoRemoto3.muted = false;
 
@@ -215,7 +220,7 @@ function VideoChatManager(ws) {
                     'video': videoRemoto3
                 });
 
-            }else{
+            } else {
                 //Si hay más de 4 participantes de momento si quita el video y solo se utiliza audio
                 videoLocal.stop();
                 videoRemoto1.stop();
@@ -328,10 +333,95 @@ function VideoChatManager(ws) {
         for (var i = 0; i < remotes.length; i++) {
             if (remotes[i].username == username) {
                 // area.removeChild(remotes[i].video);
+                actualizarVideos(username);
                 remotes.splice(i, 1);
                 i--;
             }
         }
+    }
+
+    /**
+     * Pausa el video en el cual se muestra el usuario con el username pasado como parámetro, y se actualizan las
+     * dimensiones de todos los videos
+     *
+     * @param username
+     */
+    function actualizarVideos(username) {
+        switch (username) {
+            case videoRemoto1.username:
+                videoRemoto1.style.width = "0%";
+                videoRemoto1.style.height = "0%";
+                videoRemoto1.username = undefined;
+                videoRemoto1.pause();
+                break;
+
+            case videoRemoto2.username:
+                videoRemoto2.style.width = "0%";
+                videoRemoto2.style.height = "0%";
+                videoRemoto2.username = undefined;
+                videoRemoto2.pause();
+                break;
+
+            case videoRemoto3.username:
+                videoRemoto3.style.width = "0%";
+                videoRemoto3.style.height = "0%";
+                videoRemoto3.username = undefined;
+                videoRemoto3.pause();
+                break;
+
+            default:
+                console.log("Usuario mandado:" + username);
+                console.log("VideoRemoto1: " + videoRemoto1.username);
+                console.log("VideoRemoto2: " + videoRemoto2.username);
+                console.log("VideoRemoto3: " + videoRemoto3.username);
+                console.log("Error al restablecer los videos");
+                break;
+        }
+
+        //Si no hay ningún video remoto, el video local ocupa el módulo
+        if (!videoRemoto1.username && !videoRemoto2.username && !videoRemoto3.username) {
+            videoLocal.style.width = "100%";
+            videoLocal.style.height = "100%";
+
+        }else{
+
+            //Almacenamos en una variable los videos remotos disponibles
+            var videosActualizar = [];
+
+            if(videoRemoto1.username)
+                videosActualizar.push(videoRemoto1);
+
+            if(videoRemoto2.username)
+                videosActualizar.push(videoRemoto2);
+
+            if(videoRemoto3.username)
+                videosActualizar.push(videoRemoto3);
+
+
+            //Actualizamos las dimensiones del video local y de los videos remotos
+            if(videosActualizar.length == 2){
+                videoLocal.style.width = "50%";
+                videoLocal.style.height = "50%";
+
+                videosActualizar[0].style.width = "50%";
+                videosActualizar[0].style.height = "50%";
+
+                videosActualizar[1].style.width = "100%";
+                videosActualizar[1].style.height = "50%";
+
+
+
+            }else if(videosActualizar.length == 1){
+                videoLocal.style.width = "50%";
+                videoLocal.style.height = "100%";
+
+                videosActualizar[0].style.width = "50%";
+                videosActualizar[0].style.height = "100%";
+            }
+
+
+        }
+
     }
 
     function sendAnswer(answer, usernameOrigen) {
@@ -373,6 +463,30 @@ function VideoChatManager(ws) {
             }
         }));
     }
+
+
+    this.setDisconnected = function () {
+        console.log("Desconectado módulo videoChat");
+        sendData('cerrar');
+
+        for (var i = 0; i < peerConnections.length; i++) {
+            peerConnections[i].connection.close();
+            peerConnections.splice(i, 1);
+            i--;
+        }
+        for (var i = 0; i < remotes.length; i++) {
+            actualizarVideos(remotes[i].username);
+            remotes.splice(i, 1);
+            i--;
+        }
+
+        videoLocal.pause();
+        referenciaStream.getTracks().forEach(function (track) {
+            track.stop();
+        });
+
+    };
+
 
     function sendData(operacion) {
         ws.send(JSON.stringify(

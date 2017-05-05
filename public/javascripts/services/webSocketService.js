@@ -16,6 +16,7 @@ angular.module('webApp')
         //Si se cierra la ventana o se utilizan las flechas de navegación, se hace una llamada a este método
         window.addEventListener("beforeunload", function (e) {
             asistentesManager.setDisconnected();
+            videoChatManager.setDisconnected();
             ws.close();
         });
 
