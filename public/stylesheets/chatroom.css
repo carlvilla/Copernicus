@@ -209,7 +209,7 @@ html, body {
     margin-right: 5px;
 }
 
-/* Módulos */
+/* Módulo videoChat */
 
 #localVideo, #remoteVideo1, #remoteVideo2, #remoteVideo3
 {
@@ -218,6 +218,16 @@ html, body {
     -moz-transform:rotateY(180deg);
 }
 
+/* Módulos Presentaciones*/
+
+#presentacion{
+    height: 100%;
+    width: 100%;
+}
+
+#presentacionDropzone{
+
+}
 
 /* Cambios bootstrap */
 

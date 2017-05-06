@@ -1,15 +1,16 @@
-<div id="presentaciones">
+<div id="presentaciones" ng-controller="presentacionController">
     <div class="grid-stack-item-content">
-        <button ng-click="eliminarModulo('presentaciones')" class="closeModule">
+
+        <a ng-click="eliminarModulo('presentaciones');" class="closeModule">
             <span class="glyphicon glyphicon-remove"></span>
-        </button>
-        <button class="fullScreenModule">
-            <span class="glyphicon glyphicon-fullscreen"></span></button>
+        </a>
 
-        <div id="presentacion">
+        <a class="fullScreenModule" data-bind="">
+            <span class="glyphicon glyphicon-fullscreen"></span></a>
 
-            AQUI IRÁ LA PRESENTACIÓN
+        <!-- <div id="presentacionDropzone" options="dzOptions" methods="dzMethods" class="dropzone" callbacks="dzCallbacks" ng-dropzone></div>-->
 
-        </div>
+        <iframe id="presentacion" src="/reveal.js/ejemplo.html" allowfullscreen="true"/>
+
     </div>
 </div>

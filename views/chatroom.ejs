@@ -12,17 +12,20 @@
     <script src="/lodash/lodash.js"></script>
     <script src="/knockout/knockout.js"></script>
     <script src="/gridstack/gridstack.js"></script>
+    <script src="/ng-dropzone/ng-dropzone.min.js"></script>
     <link rel="stylesheet" href="/public/stylesheets/chatroom.css">
+    <link rel="stylesheet" href="/ng-dropzone/ng-dropzone.css">
 
     <!-- Controladores y Managers -->
     <script src='/public/javascripts/managers/AsistentesManager.js'></script>
     <script src='/public/javascripts/managers/VideoChatManager.js'></script>
+    <script src='/public/javascripts/managers/PresentacionManager.js'></script>
 
     <script src='/public/javascripts/controllers/salaController.js'></script>
     <script src='/public/javascripts/controllers/asistentesController.js'></script>
     <script src='/public/javascripts/controllers/modulosController.js'></script>
-    <script src='/public/javascripts/controllers/modulosController.js'></script>
     <script src='/public/javascripts/controllers/videoChatController.js'></script>
+    <script src='/public/javascripts/controllers/presentacionController.js'></script>
 
 
 
@@ -42,9 +45,10 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myServiciosnav');">&times;</a>
     <h2 id="serviciosLabel">Servicios</h2>
     <a ng-click="addModule('chatVideo')">Chat de video</a>
+    <a ng-click="addModule('chatTexto')">Chat de texto</a>
     <a ng-click="addModule('presentaciones')">Presentaciones</a>
     <a>Video y audio compartido</a>
-    <a ng-click="addModule('dibujo')">Dibujos corporativos</a>
+    <a ng-click="addModule('dibujo')">Dibujos</a>
 </div>
 
 <div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav">
