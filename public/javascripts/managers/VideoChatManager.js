@@ -383,23 +383,23 @@ function VideoChatManager(ws) {
             videoLocal.style.width = "100%";
             videoLocal.style.height = "100%";
 
-        }else{
+        } else {
 
             //Almacenamos en una variable los videos remotos disponibles
             var videosActualizar = [];
 
-            if(videoRemoto1.username)
+            if (videoRemoto1.username)
                 videosActualizar.push(videoRemoto1);
 
-            if(videoRemoto2.username)
+            if (videoRemoto2.username)
                 videosActualizar.push(videoRemoto2);
 
-            if(videoRemoto3.username)
+            if (videoRemoto3.username)
                 videosActualizar.push(videoRemoto3);
 
 
             //Actualizamos las dimensiones del video local y de los videos remotos
-            if(videosActualizar.length == 2){
+            if (videosActualizar.length == 2) {
                 videoLocal.style.width = "50%";
                 videoLocal.style.height = "50%";
 
@@ -410,8 +410,7 @@ function VideoChatManager(ws) {
                 videosActualizar[1].style.height = "50%";
 
 
-
-            }else if(videosActualizar.length == 1){
+            } else if (videosActualizar.length == 1) {
                 videoLocal.style.width = "50%";
                 videoLocal.style.height = "100%";
 

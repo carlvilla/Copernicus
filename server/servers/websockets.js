@@ -148,6 +148,11 @@ module.exports = function (server) {
 
                         break;
 
+
+                    case "presentacion":
+                        broadcast(message, obj.data.username, sala);
+                        break;
+
                     default:
                         console.log('Mensaje erróneo');
                         break;

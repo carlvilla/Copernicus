@@ -40,6 +40,8 @@ app.use('/angularAnimate', express.static(__dirname + '/bower_components/angular
 app.use('/angularAria', express.static(__dirname + '/bower_components/angular-aria/'));
 app.use('/angularMaterial', express.static(__dirname + '/bower_components/angular-material/'));
 app.use('/angucomplete', express.static(__dirname + '/bower_components/angucomplete/'));
+app.use('/reveal.js', express.static(__dirname + '/bower_components/reveal.js/'));
+app.use('/ng-dropzone', express.static(__dirname + '/bower_components/ng-dropzone/dist'));
 
 
 app.use('/api',routesApi);

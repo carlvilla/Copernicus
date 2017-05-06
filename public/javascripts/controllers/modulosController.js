@@ -5,21 +5,27 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
     //Primero cargamos los htmls de los módulos
     //Es necesario hacer esto en primer lugar, no se puede cargar el html una vez se va a añadir ya que no se cargará
     //a tiempo
-    var htmlVideoChat;
+    var htmlChatVideo;
     var htmlPresentaciones;
     var htmlDibujo;
+    var htmlChatTexto;
 
-    var numModulosMostrados = 0;
+    var modulosMostrados = [];
+
 
     $.get("/modulos/chatVideo.ejs", function (html) {
-        htmlVideoChat = html;
+        htmlChatVideo = html;
+    });
+
+    $.get("/modulos/chatTexto.ejs", function (html) {
+        htmlChatTexto = html;
     });
 
     $.get("/modulos/presentaciones.ejs", function (html) {
         htmlPresentaciones = html;
     });
 
-    $.get("/modulos/dibujo_corporativo.ejs", function (html) {
+    $.get("/modulos/dibujo.ejs", function (html) {
         htmlDibujo = html;
     });
 
@@ -44,25 +50,56 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
     $scope.addModule = function (modulo) {
 
         //Por el momento solo se pueden utilizar 4 módulos simultáneamente
-        if(numModulosMostrados > 3){
+        if(modulosMostrados.length > 3){
             return;
         }
-
-        numModulosMostrados++;
 
         console.log("Añadiendo módulo: "+modulo);
 
         switch (modulo) {
             case "chatVideo":
-                moduloSeleccionado = htmlVideoChat;
+                moduloSeleccionado = htmlChatVideo;
+
+                if(!contains(modulosMostrados,"chatVideo")){
+                    modulosMostrados.push("chatVideo");
+                }else{
+                    console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
+                    return;
+                }
+
                 break;
+
+
+            case "chatTexto":
+                moduloSeleccionado = htmlChatTexto;
+
+                if(!contains(modulosMostrados,"chatTexto")){
+                    modulosMostrados.push("chatVideo");
+                }else{
+                    console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
+                    return;
+                }
+
+                break;
+
 
             case "presentaciones":
                 moduloSeleccionado = htmlPresentaciones;
+
+                if(!contains(modulosMostrados,"presentaciones")){
+                    modulosMostrados.push("presentaciones");
+                }else{
+                    console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
+                    return;
+                }
+
+
                 break;
 
             case "dibujo":
                 moduloSeleccionado = htmlDibujo;
+                modulosMostrados.push("dibujo");
+                break;
 
             default:
                 break;
@@ -72,15 +109,24 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
             0, 0, node.width, node.height, true, node.minWidth, node.maxWidth, node.minWidth, node.maxHeight);
 
 
-        $compile('.grid-stack')($scope);
-
-        return false;
+        $compile('#'+modulo)($scope);
     };
+
+
+    function contains(array, obj) {
+        var i = array.length;
+        while (i--) {
+            if (array[i] === obj) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     $scope.eliminarModulo = function (modulo){
         console.log("Borrando módulo: "+modulo);
-        numModulosMostrados--;
+        modulosMostrados.splice(modulo, 1);
         grid.removeWidget($('#'+modulo));
     };
 
