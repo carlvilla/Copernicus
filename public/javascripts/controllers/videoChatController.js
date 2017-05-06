@@ -5,6 +5,7 @@ webApp.controller('videoChatController', function ($scope, $rootScope, webSocket
     //Usuario almacenado por asistentesController en el rootScope
     webSocketService.videoChatManager.setUsuario($rootScope.usuario);
 
+
     //Id de la sala a la que se accedió
     var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
 

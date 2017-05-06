@@ -9,6 +9,7 @@ angular.module('webApp')
         var asistentesManager = new AsistentesManager(ws);
         var videoChatManager = new VideoChatManager(ws);
         var presentacionManager = new PresentacionManager(ws);
+        var chatTextoManager = new ChatTextoManager(ws);
 
         ws.onOpen(function () {
             console.log("Abriendo webSocketService");
@@ -45,6 +46,11 @@ angular.module('webApp')
 
                     case "presentacion":
                         presentacionManager.actualizarPresentacion(obj.data);
+                        break;
+
+                    case "chatTexto":
+                        chatTextoManager.addMensaje(obj.data);
+                        break;
                 }
             }
         });
@@ -52,7 +58,8 @@ angular.module('webApp')
             ws: ws,
             asistentesManager: asistentesManager,
             videoChatManager: videoChatManager,
-            presentacionManager: presentacionManager
+            presentacionManager: presentacionManager,
+            chatTextoManager: chatTextoManager
         };
         return methods;
     });
