@@ -1,5 +1,23 @@
-<div id="chatTexto">
+<div id="chatTexto" ng-controller="chatTextoController">
     <div class="grid-stack-item-content">
 
+        <a ng-click="eliminarModulo('chatTexto');" class="closeModule">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+
+        <div id="chat">
+            <div id="mensajes">
+
+
+            </div>
+
+
+        <div id="bottom-chat">
+            <form>
+            <textarea id="texto-enviar" type="text"/>
+            <button type="submit" id="boton-enviar"><span class="glyphicon glyphicon-send"></span></button>
+            </form>
+        </div>
+        </div>
     </div>
 </div>

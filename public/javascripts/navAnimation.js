@@ -13,10 +13,16 @@ function closeNav(nav) {
 }
 
 function closeNavPrincipal(){
-    $( "#navegacion" ).toggle( "slide");
+    $( "#navegacion" ).toggle("slide");
     $("#esconder-navegacion").toggleClass("glyphicon-chevron-right glyphicon-chevron-left");
 
+    var contenedorGridStack = document.getElementById("contenedorGridStack");
+
     //Cuando se oculta el menu, cambiar width de contenedorGridStack a 100%, cuando se muestra establecer valor original
+    if(contenedorGridStack.style.width == "100%")
+        contenedorGridStack.style.width = "85%";
+    else
+        contenedorGridStack.style.width = "100%";
 
 }
 
