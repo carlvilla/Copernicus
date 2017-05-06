@@ -80,13 +80,21 @@ html, body {
     margin-left: 5px;
 }
 
-.opcion-navegacion{
-    font-size:18px;
-    cursor:pointer;
+#div-hide-navegacion{
+    width: 10%;
+    height: 3%;
+    border: 3px solid transparent;
+    margin-left: 5px;
+}
+
+
+.opcion-navegacion {
+    font-size: 18px;
+    cursor: pointer;
     display: block;
 }
 
-#esconder-navegacion{
+#esconder-navegacion {
     text-align: right;
 }
 
@@ -196,37 +204,67 @@ html, body {
     height: 100%;
     width: 100%;
     border-style: solid;
-    overflow: hidden; /* Debido al redimensionamiento del módulo videoChat, se dan circunstancias en las que el video
-    puede sobresalir del módulo. Con esta propiedad a hidden ocultamos aquellas partes del video que sobresalgan */
+    overflow: hidden;
+    /* Debido al redimensionamiento del módulo videoChat, se dan circunstancias en las que el video
+       puede sobresalir del módulo. Con esta propiedad a hidden ocultamos aquellas partes del video que sobresalgan */
 }
 
 .closeModule, .fullScreenModule {
     float: right;
 }
 
-.closeModule{
+.closeModule {
     margin-left: 5px;
     margin-right: 5px;
 }
 
 /* Módulo videoChat */
 
-#localVideo, #remoteVideo1, #remoteVideo2, #remoteVideo3
-{
+#localVideo, #remoteVideo1, #remoteVideo2, #remoteVideo3 {
     transform: rotateY(180deg);
-    -webkit-transform:rotateY(180deg);
-    -moz-transform:rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
 }
 
-/* Módulos Presentaciones*/
+/* Módulo Presentaciones*/
 
-#presentacion{
+#presentacion {
     height: 100%;
     width: 100%;
 }
 
-#presentacionDropzone{
+#presentacionDropzone {
 
+}
+
+/* Módulo chatTexto */
+
+#chat {
+    height: 100%;
+    width: 100%;
+}
+
+#mensajes {
+    height: 85%;
+    background-color: rgb(245, 215, 110);
+}
+
+#bottom-chat{
+    height: 10%;
+}
+
+#texto-enviar{
+    float: left;
+    width: 87%;
+    height: 100%;
+    resize: none;
+
+}
+
+#boton-enviar{
+    float: left;
+    width: 13%;
+    height: 100%;
 }
 
 /* Cambios bootstrap */

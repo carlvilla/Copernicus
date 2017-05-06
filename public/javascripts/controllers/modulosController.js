@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('modulosController', function ($scope, $compile,webSocketService) {
+webApp.controller('modulosController', function ($scope, $compile) {
 
     //Primero cargamos los htmls de los módulos
     //Es necesario hacer esto en primer lugar, no se puede cargar el html una vez se va a añadir ya que no se cargará
@@ -34,6 +34,7 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
         float:true
     };
 
+    //Valores por defecto
     var node = {
         width: 5,
         height: 5,
@@ -41,7 +42,7 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
         maxWidth: 8,
         minHeight: 3,
         maxHeight: 8
-    }
+    };
 
     $('.grid-stack').gridstack(options);
 
@@ -62,6 +63,16 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
 
                 if(!contains(modulosMostrados,"chatVideo")){
                     modulosMostrados.push("chatVideo");
+
+                    node = {
+                        width: 5,
+                        height: 5,
+                        minWidth: 3,
+                        maxWidth: 9,
+                        minHeight: 3,
+                        maxHeight: 9
+                    };
+
                 }else{
                     console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
                     return;
@@ -74,7 +85,17 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
                 moduloSeleccionado = htmlChatTexto;
 
                 if(!contains(modulosMostrados,"chatTexto")){
-                    modulosMostrados.push("chatVideo");
+                    modulosMostrados.push("chatTexto");
+
+                     node = {
+                        width: 4,
+                        height: 5,
+                        minWidth: 4,
+                        maxWidth: 5,
+                        minHeight: 5,
+                        maxHeight: 7
+                    };
+
                 }else{
                     console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
                     return;
@@ -98,7 +119,14 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
 
             case "dibujo":
                 moduloSeleccionado = htmlDibujo;
-                modulosMostrados.push("dibujo");
+
+                if(!contains(modulosMostrados,"dibujo")){
+                    modulosMostrados.push("dibujo");
+                }else{
+                    console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
+                    return;
+                }
+
                 break;
 
             default:
@@ -126,7 +154,9 @@ webApp.controller('modulosController', function ($scope, $compile,webSocketServi
 
     $scope.eliminarModulo = function (modulo){
         console.log("Borrando módulo: "+modulo);
+        console.log(modulosMostrados);
         modulosMostrados.splice(modulo, 1);
+        console.log(modulosMostrados);
         grid.removeWidget($('#'+modulo));
     };
 
