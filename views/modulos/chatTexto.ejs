@@ -7,14 +7,27 @@
 
         <div id="chat">
             <div id="mensajes">
+            <span ng-repeat="mensaje in mensajes">
+                <div class="mensaje" ng-show="usernameUsuario != mensaje.username" style="width:100%; display: inline-block">
+                    <div class="contenido-mensaje" style="float: left; width:40%; display: inline-block; background-color:white; border-radius: 12px;">
+                        <div class="usuario-envia" align="left" style="color:#1c94c4">
+                            {{mensaje.username}}
+                        </div>
+                        {{mensaje.mensaje}}
+                    </div>
+                </div>
 
-
+                <div class="mensaje" ng-show="usernameUsuario == mensaje.username" style="width:100%; display: inline-block">
+                    <div class="contenido-mensaje" style="float: right; width:40%; display: inline-block; background-color:#1b91ff; border-radius: 12px;">
+                        {{mensaje.mensaje}}
+                    </div>
+                </div>
+            </span>
             </div>
 
-
         <div id="bottom-chat">
-            <form>
-            <textarea id="texto-enviar" type="text"/>
+            <form ng-submit="sendMensaje(mensaje)">
+            <textarea id="texto-enviar" type="text" ng-model="mensaje"/>
             <button type="submit" id="boton-enviar"><span class="glyphicon glyphicon-send"></span></button>
             </form>
         </div>
