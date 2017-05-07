@@ -89,7 +89,7 @@ html, body {
 
 
 .opcion-navegacion {
-    font-size: 18px;
+    font-size: 17px;
     cursor: pointer;
     display: block;
 }
@@ -179,6 +179,30 @@ html, body {
         font-size: 16px;
     }
 }
+
+.conectado {
+    animation: blink-animation 1.5s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1.5s steps(5, start) infinite;
+    color: #00FF00;"
+}
+
+.desconectado{
+    color: #e70016;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+
+
 
 /* Módulos */
 

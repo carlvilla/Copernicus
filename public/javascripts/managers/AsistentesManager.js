@@ -20,8 +20,13 @@ function AsistentesManager(ws) {
             }
         })
 
-        if(nuevoAsistente)
+        if(nuevoAsistente) {
             asistentes.push(asistente);
+        }
+    }
+
+    this.getDesconectados = function(){
+        return desconectados;
     }
 
     /**
@@ -38,10 +43,8 @@ function AsistentesManager(ws) {
      */
     this.deleteAsistente = function (asistente) {
         console.log("Eliminar asistente");
-        console.log(asistentes);
         for (var index in asistentes) {
             if (asistentes[index].username == asistente.username) {
-                console.log(asistente.username);
                 asistentes.splice(index, 1);
             }
         }

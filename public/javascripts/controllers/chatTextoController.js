@@ -16,11 +16,18 @@ webApp.controller("chatTextoController",function($scope, $rootScope , webSocketS
 
     $scope.sendMensaje = function(mensaje){
         if(mensaje!="") {
-            webSocketService.chatTextoManager.sendMensaje(mensaje);
             document.getElementById("texto-enviar").value = "";
+            webSocketService.chatTextoManager.sendMensaje(mensaje);
             $scope.mensaje = "";
         }
 
+    };
+
+    $scope.enviarMensajeTeclado = function(event, mensaje) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            $scope.sendMensaje(mensaje);
+        }
     };
 
 });

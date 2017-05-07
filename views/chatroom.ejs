@@ -53,10 +53,8 @@
 <div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav">
     <a href="javascript:void(0)" class="closebtn"
        onclick="closeNav('myAsistentesnav'); ">&times;</a>
-    <h3 id="asistentesLabel"><%= lang.asistentesConectados %></h3>
-    <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}}</a>
-    <a ng-show="!(asistentes.length)">No hay usuarios conectados</a>
-
+    <h3 id="asistentesLabel"><%= lang.participantes %></h3>
+    <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}} <span class="conectado">•</span></a>
 </div>
 
 <!-- Mostrar información de usuario seleccionado en panel de asistentes conectados
@@ -74,7 +72,7 @@
 </div>
 <div id="navegacion">
     <span class="opcion-navegacion" onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); ">&#9776; <%= lang.servicios %></span>
-    <span class="opcion-navegacion" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776; <%= lang.asistentes %></span>
+    <span class="opcion-navegacion" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776; <%= lang.participantes %></span>
 </div>
 
 
