@@ -273,6 +273,7 @@ html, body {
     width: 100%;
     background-color: rgb(245, 215, 110);
     overflow: scroll;
+    padding-top: 2%;
 }
 
 #bottom-chat{
