@@ -30,6 +30,40 @@ webApp.controller('asistentesController', function ($scope, $http, $cookies, $ro
         asistentes.splice(asistentes.indexOf(usuario), 1);
 
         $scope.asistentes = asistentes;
+
+        //Obtenemos todos los usuarios de la sala
+        var usuariosAMostrar;
+
+        $http({
+            method: "POST",
+            url: "api/participantesSala",
+            data: {idSala: sala}
+        }).then(function (res) {
+
+            usuariosAMostrar = res.data;
+
+            usuariosAMostrar.splice(usuariosAMostrar.indexOf(usuario), 1);
+
+            $scope.participantes = usuariosAMostrar;
+
+        }, error);
+
+    };
+
+    $scope.estaConectado = function (usuario) {
+
+        var conectado = false;
+
+        $scope.participantes.every(function (participante) {
+            if(usuario.username == participante.username) {
+             console.log("El participante: "+usuario.username+" , está conectado");
+                conectado = true;
+                return true;
+            }
+        })
+
+        return conectado;
+
     };
 
     function error(res) {

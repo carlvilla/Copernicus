@@ -31,17 +31,26 @@ module.exports.createSala = function (req, res) {
     var username = utils.getUsername(req);
 
     var sala = req.body.sala.nombre;
-    var descripcion = req.body.sala.descripcion;
+
+    var descripcion
+
+    if (!req.body.sala.descripcion == undefined)
+        descripcion = req.body.sala.descripcion;
+    else {
+        descripcion = "";
+    }
 
     var usuarios = req.body.usuarios;
 
     var idSala;
 
+    console.log("Creando sala: " + sala);
+
     //Obtenemos el último idSala utilizado. Este id es necesario para identificar de forma unequivoca una sala
     var queryLastSalaID = "match(s:Sala) with s.idSala as id return id order by id desc limit 1";
     db.query(queryLastSalaID, function (err, result) {
         //Si no existe ninguna sala, se crea la primera con el id 1
-        if(result[0]!=null)
+        if (result[0] != null)
             idSala = parseInt(result[0].id) + 1;
         else
             idSala = 1;
@@ -60,7 +69,6 @@ module.exports.createSala = function (req, res) {
                 if (usuarios.length > 0) {
                     var queryUsuario;
                     usuarios.forEach(function (usuario) {
-                        console.log(usuario.permisos);
                         queryUsuario = "MATCH(u:Usuario{username:'" + usuario.username + "'}),(s:Sala{idSala:" + idSala
                             + "}) CREATE(u)-[:Candidato{permisos:'" + usuario.permisos + "'}]->(s)";
                         db.query(queryUsuario, function (err, result) {
@@ -70,20 +78,20 @@ module.exports.createSala = function (req, res) {
                         });
 
                     })
-
-                    //Relacionamos el creador de la sala con la sala con una relación de tipo Admin
-                    var queryAdmin = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
-                        + "}) CREATE(u)-[:Admin]->(s)";
-
-                    db.query(queryAdmin, function (err, result) {
-                        if (err) {
-                            utils.sendJSONresponse(res, 500, err);
-                        } else {
-                            utils.sendJSONresponse(res, 204, "");
-                        }
-                    });
-
                 }
+
+                //Relacionamos el creador de la sala con la sala con una relación de tipo Admin
+                var queryAdmin = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
+                    + "}) CREATE(u)-[:Admin]->(s)";
+
+                db.query(queryAdmin, function (err, result) {
+                    if (err) {
+                        utils.sendJSONresponse(res, 500, err);
+                    } else {
+                        utils.sendJSONresponse(res, 204, "");
+                    }
+                });
+
 
             }
         });
@@ -176,18 +184,18 @@ module.exports.aceptarSolicitud = function (req, res) {
 
     //Elimina la relación de candidato entre el usuario y sala, y devuelve los permisos que se han concedido
     //al usuario en la sala
-    var queryBorrarCandidato = "MATCH(u:Usuario{username:'"+username+"'})-[c:Candidato]->(s:Sala{idSala:"+idSala+"}) WITH c as candidato, " +
+    var queryBorrarCandidato = "MATCH(u:Usuario{username:'" + username + "'})-[c:Candidato]->(s:Sala{idSala:" + idSala + "}) WITH c as candidato, " +
         "c.permisos as permisos DELETE candidato RETURN permisos"
 
     db.query(queryBorrarCandidato, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
-        }else{
+        } else {
             var permisos = result[0].permisos;
 
             //Relaciona el usuario con la sala utilizando los permisos que se le concedieron
             var queryAddUsuario = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
-                + "}) CREATE(u)-[:"+permisos+"]->(s)";
+                + "}) CREATE(u)-[:" + permisos + "]->(s)";
 
             db.query(queryAddUsuario, function (err, result) {
                 if (err) {
@@ -206,16 +214,45 @@ module.exports.ignorarSolicitud = function (req, res) {
 
 
     //Elimina la relación de candidato entre el usuario y sala
-    var query = "MATCH(u:Usuario{username:'"+username+"'})-[c:Candidato]->(s:Sala{idSala:"+idSala+"}) DELETE c"
+    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:Candidato]->(s:Sala{idSala:" + idSala + "}) DELETE c"
 
     db.query(query, function (err, res) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
-        }else{
+        } else {
             utils.sendJSONresponse(res, 200, "");
         }
     });
 
+}
+
+/**
+ * Devuelve los participantes de una sala (Miembros, Admin y Moderadores)
+ *
+ * @param req
+ * @param res
+ */
+module.exports.participantesSala = function (req, res) {
+
+    var idSala = req.body.idSala;
+
+    var query = "MATCH(u:Usuario)-[:Miembro | Admin | Moderador]->(s:Sala{idSala:" + idSala + "}) RETURN u"
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+
+            //Eliminamos datos sensibles, que no deseamos que otros usuarios puedan obtener.
+            result.forEach(function (person) {
+                delete person.hash;
+                delete person.salt;
+                delete person.id;
+            });
+
+            utils.sendJSONresponse(res, 200, result);
+        }
+    });
 }
 
 

@@ -27,7 +27,7 @@
 
         <div id="bottom-chat">
             <form ng-submit="sendMensaje(mensaje)">
-            <textarea id="texto-enviar" type="text" ng-model="mensaje"/>
+            <textarea id="texto-enviar" type="text" ng-model="mensaje" ng-keydown="enviarMensajeTeclado($event,mensaje)"/>
             <button type="submit" id="boton-enviar"><span class="glyphicon glyphicon-send"></span></button>
             </form>
         </div>

@@ -18,6 +18,7 @@ router.post('/salas', salaController.checkParticipante);
 router.post('/createSala', salaController.createSala);
 router.post('/aceptarSolicitudSala', salaController.aceptarSolicitud);
 router.post('/ignorarSolicitudSala', salaController.ignorarSolicitud);
+router.post('/participantesSala', salaController.participantesSala);
 
 //llamadas rest para gestionar contactos
 router.get('/findPosiblesContactos', contactoController.findPosiblesContactos);
