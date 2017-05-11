@@ -282,13 +282,19 @@ html, body {
 
 #texto-enviar{
     float: left;
-    width: 87%;
+    width: 74%;
     height: 100%;
     resize: none;
 
 }
 
 #boton-enviar{
+    float: left;
+    width: 13%;
+    height: 100%;
+}
+
+#boton-adjuntar{
     float: left;
     width: 13%;
     height: 100%;

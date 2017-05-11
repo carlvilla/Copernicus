@@ -49,6 +49,7 @@ angular.module('webApp')
                         break;
 
                     case "chatTexto":
+                        console.log("Añadiendo mensaje");
                         chatTextoManager.addMensaje(obj.data);
                         break;
                 }
