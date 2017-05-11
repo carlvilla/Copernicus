@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller("chatTextoController",function($scope, $rootScope , webSocketService){
+webApp.controller("chatTextoController", function ($scope, $rootScope, webSocketService) {
 
     var usuario = $rootScope.usuario;
 
@@ -14,8 +14,8 @@ webApp.controller("chatTextoController",function($scope, $rootScope , webSocketS
 
     $scope.mensajes = webSocketService.chatTextoManager.getMensajes();
 
-    $scope.sendMensaje = function(mensaje){
-        if(mensaje!="") {
+    $scope.sendMensaje = function (mensaje) {
+        if (mensaje != "") {
             document.getElementById("texto-enviar").value = "";
             webSocketService.chatTextoManager.sendMensaje(mensaje);
             $scope.mensaje = "";
@@ -23,11 +23,31 @@ webApp.controller("chatTextoController",function($scope, $rootScope , webSocketS
 
     };
 
-    $scope.enviarMensajeTeclado = function(event, mensaje) {
+    $scope.enviarMensajeTeclado = function (event, mensaje) {
         if (event.keyCode == 13) {
             event.preventDefault();
             $scope.sendMensaje(mensaje);
         }
     };
+
+
+    $scope.uploadFiles = function (file, errFiles) {
+
+        if (file) {
+            switch (file.type) {
+                case "image/png":
+                case "image/gif":
+                case "image/jpeg":
+                    console.log("Es una foto");
+                    webSocketService.chatTextoManager.sendArchivo(file, "foto");
+                    break;
+
+                default:
+                    webSocketService.chatTextoManager.sendArchivo(file, "archivo");
+                    break;
+            }
+        }
+        ;
+    }
 
 });

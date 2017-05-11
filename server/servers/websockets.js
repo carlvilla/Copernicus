@@ -155,6 +155,7 @@ module.exports = function (server) {
 
 
                     case "chatTexto":
+                        console.log("Enviado: "+sala);
                         broadcast(message, obj.data.username, sala);
                         break;
 

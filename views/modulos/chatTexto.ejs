@@ -8,8 +8,10 @@
         <div id="chat">
             <div id="mensajes">
             <span ng-repeat="mensaje in mensajes">
-                <div class="mensaje" ng-show="usernameUsuario != mensaje.username" style="width:100%; display: inline-block">
-                    <div class="contenido-mensaje" style="float: left; width:40%; display: inline-block; background-color:white; border-radius: 12px;">
+                <div class="mensaje" ng-show="usernameUsuario != mensaje.username && mensaje.tipo == 'texto'"
+                     style="width:100%; display: inline-block">
+                    <div class="contenido-mensaje"
+                         style="float: left; width:50%; display: inline-block; background-color:white; border-radius: 12px;">
                         <div class="usuario-envia" align="left" style="color:#1c94c4; padding-left: 5%">
                             {{mensaje.username}}
                         </div>
@@ -17,20 +19,72 @@
                     </div>
                 </div>
 
-                <div class="mensaje" ng-show="usernameUsuario == mensaje.username" style="width:100%; display: inline-block">
-                    <div class="contenido-mensaje" style="float: right; width:40%; display: inline-block; background-color:#1b91ff; border-radius: 12px;">
+                   <div class="mensaje" ng-show="usernameUsuario != mensaje.username && mensaje.tipo == 'foto'"
+                        style="width:100%; display: inline-block">
+                    <div class="contenido-mensaje"
+                         style="float: left; width:50%; display: inline-block; background-color:white; border-radius: 12px;">
+                        <div class="usuario-envia" align="left" style="color:#1c94c4; padding-left: 5%">
+                            {{mensaje.username}}
+                        </div>
+                           <a ng-href="{{mensaje.contenido}}" download="{{mensaje.fichero}}">Descargar</a>
+                        <img ng-src="{{mensaje.contenido}}" height=100 width=100/>
+                    </div>
+                </div>
+
+                    <div class="mensaje" ng-show="usernameUsuario != mensaje.username && mensaje.tipo == 'archivo'"
+                         style="width:100%; display: inline-block">
+                    <div class="contenido-mensaje"
+                         style="float: left; width:50%; display: inline-block; background-color:white; border-radius: 12px;">
+                        <div class="usuario-envia" align="left" style="color:#1c94c4; padding-left: 5%">
+                            {{mensaje.username}}
+                        </div>
+                           <a ng-href="{{mensaje.contenido}}" download="{{mensaje.fichero}}">Descargar</a>
+                        <img src="/public/fotos/document.png" height=50s width=100/>
+                    </div>
+                </div>
+
+
+                <div class="mensaje" ng-show="usernameUsuario == mensaje.username && mensaje.tipo == 'texto'"
+                     style="width:100%; display: inline-block">
+                    <div class="contenido-mensaje"
+                         style="float: right; width:50%; display: inline-block; background-color:#1b91ff; border-radius: 12px;">
                         {{mensaje.mensaje}}
                     </div>
                 </div>
+
+                <div class="mensaje" ng-show="usernameUsuario == mensaje.username && mensaje.tipo == 'foto'"
+                     style="width:100%; display: inline-block">
+                    <div class="contenido-mensaje"
+                         style="float: right; width:50%; display: inline-block; background-color:#1b91ff; border-radius: 12px;">
+                        <a ng-href="{{mensaje.contenido}}" download="{{mensaje.fichero}}">Descargar</a>
+                        <img ng-src="{{mensaje.contenido}}" height=100 width=100/>
+                    </div>
+                </div>
+
+
+                <div class="mensaje" ng-show="usernameUsuario == mensaje.username && mensaje.tipo == 'archivo'"
+                     style="width:100%; display: inline-block">
+                    <div class="contenido-mensaje"
+                         style="float: right; width:50%; display: inline-block; background-color:#1b91ff; border-radius: 12px;">
+                        <a ng-href="{{mensaje.contenido}}" download="{{mensaje.fichero}}">Descargar</a>
+                        <img src="/public/fotos/document.png" height=50 width=100/>
+                    </div>
+                </div>
+
+
             </span>
             </div>
 
-        <div id="bottom-chat">
-            <form ng-submit="sendMensaje(mensaje)">
-            <textarea id="texto-enviar" type="text" ng-model="mensaje" ng-keydown="enviarMensajeTeclado($event,mensaje)"/>
-            <button type="submit" id="boton-enviar"><span class="glyphicon glyphicon-send"></span></button>
-            </form>
-        </div>
+            <div id="bottom-chat">
+                <button type="file" ngf-select="uploadFiles($file, $invalidFiles)" ngf-max-size="5MB"
+                        id="boton-adjuntar">
+                    <span class="glyphicon glyphicon-paperclip"></span></button>
+                <form ng-submit="sendMensaje(mensaje)">
+                    <textarea id="texto-enviar" type="text" ng-model="mensaje"
+                              ng-keydown="enviarMensajeTeclado($event,mensaje)"/>
+                    <button type="submit" id="boton-enviar"><span class="glyphicon glyphicon-send"></span></button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
