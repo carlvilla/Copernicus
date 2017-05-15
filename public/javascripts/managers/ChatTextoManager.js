@@ -49,36 +49,22 @@ function ChatTextoManager(ws) {
             }));
     }
 
-    this.sendArchivo = function (file, tipo) {
+    this.sendArchivo = function (file, contenido, tipo) {
         console.log("Enviar archivo");
         var fr = new FileReader();
-        fr.readAsDataURL(file);
 
-        fr.onloadend = function () {
-
-            console.log("Nombre: " + file.name);
-
-            ws.send(JSON.stringify({
-                'seccion': 'chatTexto',
-                'data': {
-                    'tipo': tipo,
-                    'fichero': file.name,
-                    'contenido': fr.result,
-                    'username': usernameUsuario,
-                    'sala': sala
-                }
-            }));
-
-            var mensaje = {
-                tipo: tipo,
-                fichero: file.name,
-                contenido: fr.result,
-                username: usernameUsuario
+        ws.send(JSON.stringify({
+            'seccion': 'chatTexto',
+            'data': {
+                'tipo': tipo,
+                'fichero': file.name,
+                'contenido': contenido,
+                'username': usernameUsuario,
+                'sala': sala
             }
+        }));
 
-            mensajes.push(mensaje);
+    };
 
-        };
-    }
 
 }

@@ -33,21 +33,53 @@ webApp.controller("chatTextoController", function ($scope, $rootScope, webSocket
 
     $scope.uploadFiles = function (file, errFiles) {
 
-        if (file) {
-            switch (file.type) {
-                case "image/png":
-                case "image/gif":
-                case "image/jpeg":
-                    console.log("Es una foto");
-                    webSocketService.chatTextoManager.sendArchivo(file, "foto");
-                    break;
+        var fr = new FileReader();
 
-                default:
-                    webSocketService.chatTextoManager.sendArchivo(file, "archivo");
-                    break;
+        fr.readAsDataURL(file);
+
+        fr.onloadend = function () {
+
+            console.log("Nombre: " + file.name);
+
+            var tipoFichero;
+
+            if (file) {
+                switch (file.type) {
+                    case "image/png":
+                    case "image/gif":
+                    case "image/jpeg":
+                        console.log("Es una foto");
+                        tipoFichero = "foto";
+                        webSocketService.chatTextoManager.sendArchivo(file, fr.result, tipoFichero);
+                        break;
+
+                    default:
+                        tipoFichero = "archivo";
+                        webSocketService.chatTextoManager.sendArchivo(file, fr.result, tipoFichero);
+                        break;
+                }
+
+                //Es necesario añadir el archivo directamente desde el controlador debido a que no es posible
+                //utilizar $scope.$appply en el manager. Para poder mostrar el archivo al usuario que lo manda,
+                //es necesario esperar a se ejecute el evento fr.onloadend, pero si simplemente se añade el mensaje al
+                //array en fr.onloadend no se actualiza correctamente la vista. Utilizando $scope.$apply este problema
+                //se soluciona.
+                $scope.$apply(function () {
+                    $scope.mensajes.push({
+                        username: usuario.username,
+                        tipo: tipoFichero,
+                        fichero: file.name,
+                        contenido: fr.result
+                    });
+                })
+
             }
-        }
-        ;
+            ;
+
+
+        };
+
+
     }
 
 });
