@@ -101,7 +101,7 @@ module.exports = function (server) {
                                     }
                                 };
 
-                             //   console.log("Array de usuarios: "+  usuarios);
+                                //   console.log("Array de usuarios: "+  usuarios);
 
                                 console.log("Enviar usuarios conectados");
 
@@ -113,10 +113,10 @@ module.exports = function (server) {
 
                                 console.log("offer:");
 
-                               // console.log(message);
-                             //   console.log(obj.data.usernameObjetivo);
+                                // console.log(message);
+                                //   console.log(obj.data.usernameObjetivo);
 
-                              //  console.log("Fin offer");
+                                //  console.log("Fin offer");
 
                                 enviarA(message, obj.data.usernameObjetivo, sala);
                                 break;
@@ -155,8 +155,8 @@ module.exports = function (server) {
 
 
                     case "chatTexto":
-                        console.log("Enviado: "+sala);
-                        broadcast(message, obj.data.username, sala);
+                        console.log("Enviado: " + sala);
+                            broadcast(message, obj.data.username, sala);
                         break;
 
                     default:
@@ -166,7 +166,6 @@ module.exports = function (server) {
                 }
             }
         });
-
 
 
         /**
@@ -182,14 +181,13 @@ module.exports = function (server) {
                             console.log("Enviando mensaje a webSocketService");
                             conexion.ws.send(message);
                         }
-                        else{
-                            console.log("Error: El estado del cliente es "+ws.readyState);
+                        else {
+                            console.log("Error: El estado del cliente es " + ws.readyState);
                         }
                     }
                 }
             );
         };
-
 
         /**
          * Obtenemos la información de los usuarios que ya estaban conectados, para comunicarsela al usuario
@@ -281,14 +279,13 @@ module.exports = function (server) {
     };
 
 
-
     /**
      * Establece el estado del usuario pasado como parámetro respecto al video chat
      * @param username
      * @param disponible
      */
     setDisponibleUsuarioVideoChat = function (username, sala, disponible) {
-        console.log("Establecer usuario como disponible a "+disponible+" : "+username);
+        console.log("Establecer usuario como disponible a " + disponible + " : " + username);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username == username) {
                 conexion.videoChat = {
@@ -310,7 +307,7 @@ module.exports = function (server) {
         var usuarios = [];
         console.log("Obtener usuarios");
 
-      //  console.log(connections);
+        //  console.log(connections);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username != usernameEnvia) {
                 console.log(conexion);
@@ -326,7 +323,7 @@ module.exports = function (server) {
     enviarA = function (message, usernameSeEnvia, sala) {
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username == usernameSeEnvia) {
-               // console.log('Sent: %s to %s', message, usernameSeEnvia);
+                // console.log('Sent: %s to %s', message, usernameSeEnvia);
                 if (conexion.ws)
                     conexion.ws.send(message);
             }

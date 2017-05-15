@@ -4,7 +4,6 @@ require('../utils/passport');
 var utils = require('../utils/utils');
 var jwt = require('jwt-simple');
 
-
 var model = require('seraph-model');
 var confDB = require('../config/db')
 var db = require('seraph')({
