@@ -80,13 +80,12 @@ html, body {
     margin-left: 5px;
 }
 
-#div-hide-navegacion{
+#div-hide-navegacion {
     width: 10%;
     height: 3%;
     border: 3px solid transparent;
     margin-left: 5px;
 }
-
 
 .opcion-navegacion {
     font-size: 17px;
@@ -183,10 +182,11 @@ html, body {
 .conectado {
     animation: blink-animation 1.5s steps(5, start) infinite;
     -webkit-animation: blink-animation 1.5s steps(5, start) infinite;
-    color: #00FF00;"
+    color: #00FF00;
+"
 }
 
-.desconectado{
+.desconectado {
     color: #e70016;
 }
 
@@ -195,14 +195,12 @@ html, body {
         visibility: hidden;
     }
 }
+
 @-webkit-keyframes blink-animation {
     to {
         visibility: hidden;
     }
 }
-
-
-
 
 /* Módulos */
 
@@ -273,14 +271,52 @@ html, body {
     width: 100%;
     background-color: rgb(245, 215, 110);
     overflow: scroll;
+    overflow-x: hidden;
     padding-top: 2%;
 }
 
-#bottom-chat{
+.mensaje {
+    width: 100%;
+    display: inline-block;
+}
+
+.contenido-mensaje-propio {
+    float: right;
+    width: 50%;
+    display: inline-block;
+    background-color: #1b91ff;
+    border-radius: 12px;
+}
+
+.contenido-mensaje-remoto {
+    float: left;
+    width: 50%;
+    display: inline-block;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.contenido-mensaje-fichero-propio {
+    float: right;
+    width: 49%;
+    display: inline-block;
+    border-radius: 12px;
+    margin-right: 1%;
+}
+
+.contenido-mensaje-fichero-remoto {
+    float: left;
+    width: 49%;
+    display: inline-block;
+    border-radius: 12px;
+    margin-left: 1%;
+}
+
+#bottom-chat {
     height: 10%;
 }
 
-#texto-enviar{
+#texto-enviar {
     float: left;
     width: 74%;
     height: 100%;
@@ -288,13 +324,13 @@ html, body {
 
 }
 
-#boton-enviar{
+#boton-enviar {
     float: left;
     width: 13%;
     height: 100%;
 }
 
-#boton-adjuntar{
+#boton-adjuntar {
     float: left;
     width: 13%;
     height: 100%;
