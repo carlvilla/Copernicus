@@ -31,6 +31,13 @@ function ChatTextoManager(ws) {
             fichero: mensaje.fichero,
             contenido: mensaje.contenido
         }
+
+       /* if(tipo=="archivo"){
+            blob = new Blob([data], { type: 'application/vnd.ms-excel' })
+
+
+        }*/
+
         mensajes.push(mensajeAux);
     }
 
