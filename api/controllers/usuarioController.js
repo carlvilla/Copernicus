@@ -23,6 +23,13 @@ user.schema = {
     salt: {type: String}
 };
 
+/**
+ * Comprueba que las credenciales enviadas por el usuario son correctas. En el caso de serlo, se envía un token que
+ * lo identifica y que le permite el acceso sin volver a introducir los credenciales durante cierto tiempo.
+ *
+ * @param req
+ * @param res
+ */
 module.exports.login = function (req, res) {
 
     if (!req.body.username || !req.body.password) {
@@ -51,7 +58,16 @@ module.exports.login = function (req, res) {
     }
 };
 
+/**
+ * Registra a un nuevo usuario, creando un nuevo nodo de tipo 'Usuario' en el que se almacena los datos enviados.
+ * En el caso de la contraseña, se crea una hash y una salt a partir de ella, y se almacenan estos en vez de
+ * la contraseña.
+ *
+ * @param req
+ * @param res
+ */
 module.exports.register = function (req, res) {
+
     if (!req.body.username || !req.body.nombre || !req.body.apellidos || !req.body.email || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
             "message": "Todos los campos son obligatorios"
@@ -120,7 +136,7 @@ module.exports.profile = function (req, res) {
     user.where(predicate, function (err, people) {
         if (err) throw err;
         if (people.length == 0) {
-            utils.sendJSONresponse(res, 204, "");
+            utils.sendJSONresponse(res, 204, '');
         } else {
 
             //No queremos mostrar información sobre las credenciales del usuario o el id de la BD, por ello los
@@ -135,8 +151,131 @@ module.exports.profile = function (req, res) {
 
 };
 
-module.exports.users = function (req, res) {
+/**
+ * Devuelve los usuarios que tiene bloqueados el usuario que manda la petición
+ *
+ * @param req
+ * @param res
+ */
+module.exports.bloqueados = function (req, res) {
+    var username = utils.getUsername(req);
+
+    var query = "MATCH(u:Usuario{username:'" + username + "'})-[:Bloqueado]->(uB:Usuario) RETURN uB"
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            //Eliminamos datos sensibles, que no deseamos que otros usuarios puedan obtener.
+            result.forEach(function (person) {
+                delete person.hash;
+                delete person.salt;
+                delete person.id;
+            });
+
+            utils.sendJSONresponse(res, 200, result);
+        }
+    });
+
 };
+
+/**
+ * Crea una relación 'Bloqueado' entre el usuario que realiza la petición y el usuario cuyo username es enviado. También
+ * elimina la relación 'Contacto' que existía entre los usuarios y expulsa al usuario bloqueado de todas aquellas salas
+ * en las que el usuario que envió la petición es 'Admin'
+ *
+ * @param req
+ * @param res
+ */
+module.exports.bloquear = function (req, res) {
+
+    var username = utils.getUsername(req);
+    var usernameBloqueado = req.body.username;
+
+    var queryAddBloqueado = "MATCH(u:Usuario{username:'" + username + "'}),(uB:Usuario{username:'" + usernameBloqueado + "'}) " +
+        "CREATE (u)-[:Bloqueado]->(uB)"
+
+    db.query(queryAddBloqueado, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+
+            var queryRemoveContacto = "MATCH(u:Usuario{username:'" + username + "'})-[c:Contacto]-(uB:Usuario{username:'"
+                + usernameBloqueado + "'}) DELETE c"
+
+            db.query(queryRemoveContacto, function (err, result) {
+                console.log("Borrar contacto");
+                if (err) {
+                    utils.sendJSONresponse(res, 500, err);
+                } else {
+
+                    var queryFindAdmin = "MATCH(u:Usuario{username:'"+username+"'})," +
+                        "(uB:Usuario{username:'"+usernameBloqueado+"'}),(s:Sala) where (u)-[:Admin]->(s) " +
+                        "AND (uB)-[:Miembro | Moderador]-(s) return s";
+
+                    var queryRemoveMiembro = "MATCH(u:Usuario{username:'" + usernameBloqueado + "'})" +
+                        "-[r:Miembro | Moderador]->(sala:Sala) DELETE r RETURN sala";
+
+                    db.query(queryFindAdmin, function (err, result) {
+                        if (err) {
+                            utils.sendJSONresponse(res, 500, err);
+                        } else {
+
+                            result.forEach(function (sala) {
+                                db.query(queryRemoveMiembro, function(err, result){
+                                    console.log("Eliminando usuario de la sala "+sala.nombre);
+                                });
+                            });
+
+                            utils.sendJSONresponse(res, 204, result);
+
+                        }
+
+                    });
+                }
+
+
+            });
+
+
+        }
+    });
+
+}
+
+/**
+ * Elimina la relación "Bloqueado" entre los usuarios y vuelve a establecer la relación "Contacto"
+ *
+ * @param req
+ * @param res
+ */
+module.exports.desbloquear = function (req, res) {
+    var username = utils.getUsername(req);
+    var usernameBloqueado = req.body.username;
+
+    var queryEliminaBloqueo = "MATCH(u:Usuario{username:'" + username + "'})-[r:Bloqueado]->" +
+        "(uB:Usuario{username: '"+usernameBloqueado+"'}) DELETE r"
+
+    db.query(queryEliminaBloqueo, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+
+            var queryContacto = "MATCH(u1:Usuario{username:'" + username + "'})," +
+                " (u2:Usuario{username: '"+usernameBloqueado+"'}) CREATE (u1)-[:Contacto]->(u2)"
+
+            db.query(queryContacto, function (err, result){
+                if(err){
+                    utils.sendJSONresponse(res, 500, err);
+                }else{
+                    utils.sendJSONresponse(res, 204, '');
+                }
+            })
+
+
+        }
+    });
+}
 
 module.exports.delete = function (req, res) {
 };
