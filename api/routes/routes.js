@@ -8,8 +8,11 @@ var router = express.Router();
 //llamadas rest para gestionar usuarios
 router.post('/login', usuarioController.login);
 router.post('/register', usuarioController.register);
+router.post('/bloquearContacto', usuarioController.bloquear);
+router.post('/desbloquearContacto', usuarioController.desbloquear);
 router.get('/profile', usuarioController.profile);
 router.get('/validarUsername/:username', usuarioController.validarUsername);
+router.get('/contactosBloqueados', usuarioController.bloqueados);
 
 //llamadas rest para gestionar salas
 router.get('/salasParticipa', salaController.findSalasParticipa);

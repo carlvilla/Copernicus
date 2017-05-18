@@ -1,4 +1,4 @@
-<div class="modal" id="bloquearUsuario" tabindex="-1">
+<div class="modal" id="bloquearUsuario" ng-controller="bloquearContactoController" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,19 +9,24 @@
                 <div class="form-group">
                     <label for="username-solicitud-contacto">Nombre de usuario</label>
 
-                <!--    <angucomplete id ="username-solicitud-contacto"
+                    <angucomplete id="username-bloquear-contacto"
                                   placeholder="Nombre de usuario"
                                   pause="100"
                                   selectedobject="usuarioSeleccionado"
-                                  localdata="usuarios"
+                                  localdata="contactos"
                                   titlefield="username"
                                   searchfields="username"
                                   minlength="2"
-                                  inputclass="form-control"/>-->
+                                  inputclass="form-control"
+                                  disabled="contactos.lenght < 1"
+                    />
+
 
                 </div>
 
-                <div id="add-miembros-div" panel panel-default>
+                <button class="btn btn-primary" ng-click="bloquearContacto()">Bloquear contacto</button>
+
+                <div id="contactos-bloqueados-div" panel panel-default ng-show="contactosBloqueados.length > 0">
                     <h4><%=lang.usuariosBloqueados%></h4>
                     <div id="show-usuarios-bloqueados">
                         <table class="table table-bordered">
@@ -31,11 +36,11 @@
                                 <th>Apellidos</th>
                                 <th><%=lang.desbloquear%></th>
                             </tr>
-                            <tr>
-                                <td>Ejemploaidfbapubfd</td>
-                                <td>Ejemploadfadsf</td>
-                                <td>Ejemploafdfads Ejemplodafafd</td>
-                                <td><button class="btn btn-primary"><%=lang.desbloquear%></button></td>
+                            <tr ng-repeat="contacto in contactosBloqueados" id="contacto-bloqueado-"+contacto.username>
+                                <td>{{contacto.username}}</td>
+                                <td>{{contacto.nombre}}</td>
+                                <td>{{contacto.apellidos}}</td>
+                                <td><button class="btn btn-primary" ng-click="desbloquearContacto(contacto.username)"><%=lang.desbloquear%></button></td>
                             </tr>
 
 
