@@ -17,6 +17,8 @@ router.get('/contactosBloqueados', usuarioController.bloqueados);
 //llamadas rest para gestionar salas
 router.get('/salasParticipa', salaController.findSalasParticipa);
 router.get('/solicitudesSala', salaController.findSalasCandidato);
+router.get('/salasAdmin', salaController.findSalasAdmin);
+router.get('/salasModerador', salaController.findSalasModerador);
 router.post('/salas', salaController.checkParticipante);
 router.post('/createSala', salaController.createSala);
 router.post('/aceptarSolicitudSala', salaController.aceptarSolicitud);

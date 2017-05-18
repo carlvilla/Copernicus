@@ -32,12 +32,12 @@ webApp.controller('bloquearContactoController', function ($scope, $http, $window
             if (res.data != "") {
                 console.log("Actualizando contactos");
                 $scope.contactos = res.data;
-                $("#username-bloquear-contacto_value").prop("disabled",false);
-                $("#username-bloquear-contacto_value").prop("placeholder","Nombre de usuario");
+                $("#username-bloquear-contacto_value").prop("disabled", false);
+                $("#username-bloquear-contacto_value").prop("placeholder", "Nombre de usuario");
             }
-            else{
-                $("#username-bloquear-contacto_value").prop("disabled",true);
-                $("#username-bloquear-contacto_value").prop("placeholder","No dispones de contactos para bloquear");
+            else {
+                $("#username-bloquear-contacto_value").prop("disabled", true);
+                $("#username-bloquear-contacto_value").prop("placeholder", "No dispones de contactos para bloquear");
             }
         }
     }
@@ -74,7 +74,10 @@ webApp.controller('bloquearContactoController', function ($scope, $http, $window
             findContactosBloqueados();
             findContactos();
         }, error);
+    }
 
+    $scope.cerrarPantallaBloquear = function () {
+        $window.location.reload();
     }
 
 });
