@@ -168,3 +168,14 @@ listado-salas {
 .descripcion-sala{
     resize:none;
 }
+
+/* Bloquear contacto */
+#username-bloquear-contacto > .angucomplete-holder{
+    width: 70%;
+    float: left;
+    margin-right: 2%;
+}
+
+#btn-bloquear{
+    width: 25%;
+}

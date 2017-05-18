@@ -30,7 +30,6 @@ webApp.controller('salaController', function ($scope, $http, $window) {
 
 
     //Crear sala
-
     $scope.crearSala = function (sala) {
         $http({
             method: "POST",

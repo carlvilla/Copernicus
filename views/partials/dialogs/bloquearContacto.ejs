@@ -8,39 +8,42 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="username-solicitud-contacto">Nombre de usuario</label>
-
-                    <angucomplete id="username-bloquear-contacto"
-                                  placeholder="Nombre de usuario"
-                                  pause="100"
-                                  selectedobject="usuarioSeleccionado"
-                                  localdata="contactos"
-                                  titlefield="username"
-                                  searchfields="username"
-                                  minlength="2"
-                                  inputclass="form-control"
-                                  disabled="contactos.lenght < 1"
-                    />
-
+                    <div>
+                        <angucomplete id="username-bloquear-contacto"
+                                      placeholder="Nombre de usuario"
+                                      pause="100"
+                                      selectedobject="usuarioSeleccionado"
+                                      localdata="contactos"
+                                      titlefield="username"
+                                      searchfields="username"
+                                      minlength="2"
+                                      inputclass="form-control"
+                        />
+                    </div>
+                    <button id="btn-bloquear" class="btn btn-primary" ng-click="bloquearContacto()">Bloquear contacto
+                    </button>
 
                 </div>
 
-                <button class="btn btn-primary" ng-click="bloquearContacto()">Bloquear contacto</button>
 
                 <div id="contactos-bloqueados-div" panel panel-default ng-show="contactosBloqueados.length > 0">
-                    <h4><%=lang.usuariosBloqueados%></h4>
+                    <h4><%= lang.usuariosBloqueados %></h4>
                     <div id="show-usuarios-bloqueados">
                         <table class="table table-bordered">
                             <tr>
-                                <th><%=lang.username%></th>
+                                <th><%= lang.username %></th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
-                                <th><%=lang.desbloquear%></th>
+                                <th><%= lang.desbloquear %></th>
                             </tr>
-                            <tr ng-repeat="contacto in contactosBloqueados" id="contacto-bloqueado-"+contacto.username>
+                            <tr ng-repeat="contacto in contactosBloqueados" id="contacto-bloqueado-" +contacto.username>
                                 <td>{{contacto.username}}</td>
                                 <td>{{contacto.nombre}}</td>
                                 <td>{{contacto.apellidos}}</td>
-                                <td><button class="btn btn-primary" ng-click="desbloquearContacto(contacto.username)"><%=lang.desbloquear%></button></td>
+                                <td>
+                                    <button class="btn btn-primary"
+                                            ng-click="desbloquearContacto(contacto.username)"><%= lang.desbloquear %></button>
+                                </td>
                             </tr>
 
 
@@ -51,8 +54,9 @@
 
             </div>
             <div class="modal-footer">
-
-
+                <button class="btn btn-primary" type="button" data-dismiss="modal" ng-click="cerrarPantallaBloquear()">
+                    Cerrar
+                </button>
             </div>
         </div>
     </div>

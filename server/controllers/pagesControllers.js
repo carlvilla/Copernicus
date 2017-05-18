@@ -19,7 +19,8 @@ module.exports.index = function (req, res, next) {
             usernameNotAvailable: 'Este nombre de usuario ya está en uso',
             iniciarSesion: 'Iniciar sesión',
             loginError: 'Usuario y/o contraseña incorrectas',
-            about: "Sobre nosotros"
+            about: "Sobre nosotros",
+            paginaPersonal: 'Página personal'
         }
 
     });
@@ -53,7 +54,8 @@ module.exports.personalPage = function (req, res, next) {
             desbloquear: 'Desbloquear',
             username: 'Nombre de usuario',
             apellidos: 'Apellidos',
-            sinMensaje: 'Sin mensaje'
+            sinMensaje: 'Sin mensaje',
+            paginaPersonal: 'Página personal'
         }
 
     });
@@ -64,13 +66,25 @@ module.exports.chatroom = function (req, res, next) {
 
         lang: {
             participantes: 'Participantes',
-            servicios: 'Servicios',
+            servicios: 'Servicios'
 
         }
 
 
 
 
+    });
+}
+
+module.exports.manageRooms = function (req, res, next){
+    res.render('manageRooms', {
+        lang: {
+            gestionarSalas: 'Gestionar salas',
+            paginaPersonal: 'Página personal',
+            seleccionarSala: 'Seleccione una sala de los listados a la izquierda para editarla',
+            salasAdmin: 'Salas en las que es administrador',
+            salasModerador: 'Salas en las que es moderador'
+        }
     });
 }
 

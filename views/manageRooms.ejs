@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html ng-app="webApp">
+<head>
+    <title><%= lang.gestionarSalas %></title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+    <!-- Scripts y hojas de estilos compartidos -->
+    <% include partials/shared-head %>
+
+    <!-- Hojas de estilos y scripts -->
+    <link rel="stylesheet" href="/public/stylesheets/manageRooms.css">
+
+    <!-- Controladores-->
+    <script src='/public/javascripts/controllers/gestionarSalasController.js'></script>
+
+</head>
+<body ng-controller="gestionarSalasController">
+
+<!-- Cabecera -->
+<% include partials/header %>
+
+<div id="salas">
+    <label><%= lang.salasAdmin %>:</label>
+    <div id="salas-admin" class="menu-lateral well">
+        <button ng-repeat="sala in salasAdmin" class="list-group-item sala"
+                ng-click="mostrarInfoSala(sala.idSala, true)">
+            {{sala.nombre}}
+        </button>
+    </div>
+    <label><%= lang.salasModerador %>:</label>
+    <div id="salas-moderador" class="menu-lateral well">
+        <button ng-repeat="sala in salasModerador" class="list-group-item sala"
+                ng-click="mostrarInfoSala(sala.idSala, false)">
+            {{sala.nombre}}
+        </button>
+    </div>
+</div>
+
+<div id="editor-sala">
+    <div id="textoSalaNoSeleccionada" text-align="center" ng-show="salaSeleccionada == undefined">
+
+        <%= lang.seleccionarSala %>
+
+    </div>
+
+    <div id="informacion-sala" ng-show="salaSeleccionada != undefined">
+        <div id="datos-basicos">
+            <legend id="leyenda-info-sala">Información de la sala</legend>
+
+            <div id="nombre-sala">
+                <label id="label-nombre">Nombre:</label>
+                <input value="{{salaSeleccionada.nombre}}"/>
+            </div>
+
+            <div id="descripcion-sala">
+                <label id="label-descripcion">Descripción:</label>
+                <textarea id="textarea-descripcion">{{salaSeleccionada.descripcion}}</textarea>
+            </div>
+
+            <button id="btn-actualizar-datos-sala" class="btn btn-primary" type="button">Actualizar datos</button>
+
+        </div>
+
+        <legend id="leyenda-info-sala">Participantes de la sala</legend>
+
+        <div id="participantes">
+            <div>
+                <div>
+                    <angucomplete id="username-participante-sala"
+                                  placeholder="Nombre de usuario"
+                                  pause="100"
+                                  selectedobject="usuarioSeleccionado"
+                                  localdata="contactos"
+                                  titlefield="username"
+                                  searchfields="username"
+                                  minlength="2"
+                                  inputclass="form-control"
+                    />
+                </div>
+                <button class="btn btn-primary" type="button" id="btn-add-participante">Añadir contacto</button>
+            </div>
+
+            <div id="show-usuarios">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Nombre usuario</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Permisos</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <tr ng-repeat="participante in participantes">
+                        <td>{{participante.user.username}}</td>
+                        <td>{{participante.user.nombre}}</td>
+                        <td>{{participante.user.apellidos}}</td>
+                        <td>
+                            <select ng-model="contacto.permisos" ng-init="contacto.permisos = participante.user.permisos"
+                            ng-disabled="(!admin && participante.user.permisos!='Miembro') || (admin && participante.user.permisos=='Admin')">
+                                <option value="Miembro">Miembro</option>
+                                <option value="Moderador">Moderador</option>
+                                <option value="Admin" ng-show="false">Admin</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" type="button"
+                                    ng-click="eliminarSeleccionado(contacto.username)">Eliminar</button>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+
+
+            <div id="datos-basicos">
+                <legend id="leyenda-info-sala">Acciones peligrosas</legend>
+
+                <button id="btn-eliminar-sala" class="btn btn-danger" type="button">Eliminar sala</button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+
+
+</html>

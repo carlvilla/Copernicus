@@ -10,5 +10,6 @@ router.get('/profile', middleware.checkToken, ctrl.profile); //Página en la que
 router.get('/searchContacts', middleware.checkToken, ctrl.searchContacts); //Página donde podemos buscar nuevos contactos y enviar peticiones de contacto
 router.get('/chatroom', middleware.checkToken, ctrl.chatroom); //Sala de chat
 router.get('/personalPage', middleware.checkToken, ctrl.personalPage); //Página personal de cada usuario donde puede ver sus contactos y salas
+router.get('/manageRooms', middleware.checkToken, ctrl.manageRooms); //Página en la que se gestionan las salas y los participantes de las mismas
 
 module.exports = router;
