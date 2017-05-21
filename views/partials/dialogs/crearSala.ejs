@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Crear sala</h4>
+                <h4 class="modal-title">{{'CREAR_SALA' | translate}}</h4>
             </div>
 
             <form id="sala-form" name="salaForm" autocomplete="off" >
@@ -11,30 +11,28 @@
             <div class="modal-body">
                 <div class="form-group">
 
-                        <h4><%= lang.datosSala %></h4>
+                        <h4>{{'DATOS_SALA' | translate}}</h4>
                         <div id="datos-sala">
-                            <label for="nombre">Nombre</label>
+                            <label for="nombre">{{'NOMBRE' | translate}}</label>
                             <input class="form-control" id="nombre-crear-sala" ng-model="sala.nombre"
-                                   placeholder="Nombre sala" type="text">
-                            <label for="descripcion-crear-sala">Descripción (Opcional)</label>
+                                   placeholder="{{'NOMBRE_SALA' | translate}}" type="text">
+                            <label for="descripcion-crear-sala">{{'DESCRIPCION_OPCIONAL' | translate}}</label>
                             <input class="form-control" id="descripcion-crear-sala" ng-model="sala.descripcion"
-                                   placeholder="Descripción" type="text">
+                                   placeholder="{{'DESCRIPCION' | translate}}" type="text">
 
-                            <label for="checkbox-crear-sala">Indicar si solo el administrador puede abrir y cerrar
-                                servicios</label>
+                            <label for="checkbox-crear-sala">{{'ADMIN_ABRIR_CERRAR_SERVICIOS' | translate}}</label>
                             <input id="checkbox-crear-sala" ng-model="sala.modificarSoloAdmin" type="checkbox">
                         </div>
 
                         <div id="add-miembros-div" panel panel-default>
-                            <h4><%= lang.addMiembros %></h4>
+                            <h4>{{'ADD_MIEMBROS' | translate}}</h4>
                             <div id="buscar-contactos-crear-sala">
-                                <label for="username-crear-sala" id="username-crear-sala-label">Nombre de
-                                    usuario</label>
+                                <label for="username-crear-sala" id="username-crear-sala-label">{{'USERNAME' | translate}}</label>
 
                                 <div>
 
                                 <angucomplete id="username-crear-sala"
-                                              placeholder="Nombre de usuario"
+                                              placeholder="{{'USERNAME' | translate}}"
                                               pause="100"
                                               selectedobject="usuarioSeleccionado"
                                               localdata="contactos"
@@ -48,7 +46,7 @@
                                 </div>
 
                                 <button class="btn btn-primary" type="button"
-                                        ng-click="addContactoTabla()">Añadir contacto</button>
+                                        ng-click="addContactoTabla()">{{'ADD_CONTACTO' | translate}}</button>
 
 
                             </div>
@@ -57,11 +55,11 @@
                             <div id="show-usuarios" ng-show="contactosSeleccionados.length > 0">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th>Nombre usuario</th>
-                                        <th>Nombre</th>
-                                        <th>Apellidos</th>
-                                        <th>Permisos</th>
-                                        <th>Eliminar</th>
+                                        <th>{{'USERNAME' | translate}}</th>
+                                        <th>{{'NOMBRE' | translate}}</th>
+                                        <th>{{'APELLIDOS' | translate}}</th>
+                                        <th>{{'PERMISOS' | translate}}</th>
+                                        <th>{{'ELIMINAR' | translate}}</th>
                                     </tr>
 
                                     <tr ng-repeat="contacto in contactosSeleccionados">
@@ -70,13 +68,13 @@
                                         <td>{{contacto.apellidos}}</td>
                                         <td>
                                             <select ng-model="contacto.permisos" ng-init="contacto.permisos = 'Miembro'">
-                                                <option value="Miembro">Miembro</option>
-                                                <option value="Moderador">Moderador</option>
+                                                <option value="Miembro">{{'MIEMBRO' | translate}}</option>
+                                                <option value="Moderador">{{'MODERADOR' | translate}}</option>
                                             </select>
                                         </td>
                                         <td>
                                             <button class="btn btn-primary" type="button"
-                                                    ng-click="eliminarSeleccionado(contacto.username)">Eliminar</button>
+                                                    ng-click="eliminarSeleccionado(contacto.username)">{{'ELIMINAR' | translate}}</button>
                                         </td>
                                     </tr>
 
@@ -89,8 +87,8 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-primary" type="button" ng-click="crearSala(sala)">Crear sala</button>
-                <button class="btn btn-primary" type="button" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" type="button" ng-click="crearSala(sala)">{{'CREAR_SALA' | translate}}</button>
+                <button class="btn btn-primary" type="button" data-dismiss="modal">{{'CERRAR' | translate}}</button>
             </div>
 
             </form>

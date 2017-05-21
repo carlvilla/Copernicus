@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Solicitudes de salas</h4>
+                <h4 class="modal-title">{{'SOLICITUDES_SALAS' | translate}}</h4>
             </div>
             <div class="modal-body">
 
@@ -18,29 +18,29 @@
                     </div>
 
                     <div id="div-mensaje-solicitud">
-                        <textarea class="descripcion-sala" ng-show="!sala.descripcion" disabled="true"><%=lang.sinMensaje%></textarea>
+                        <textarea class="descripcion-sala" ng-show="!sala.descripcion" disabled="true">{{'SIN_MENSAJE' | translate}}</textarea>
                         <textarea class="descripcion-sala" ng-show="sala.descripcion" disabled="true">{{sala.descripcion}}</textarea>
                     </div>
 
                     <div id="botones-solicitud">
                         <button id="boton-aceptar-solicitud-sala" class="btn btn-primary"
-                                ng-click="aceptarSolicitud(sala.idSala)">Aceptar</button>
+                                ng-click="aceptarSolicitud(sala.idSala)">{{'ACEPTAR' | translate}}</button>
 
                         <button id="boton-ignorar-solicitud-sala" class="btn btn-primary"
-                                ng-click="ignorarSolicitud(sala.idSala)">Ignorar</button>
+                                ng-click="ignorarSolicitud(sala.idSala)">{{'IGNORAR' | translate}}</button>
 
                     </div>
 
                 </div>
 
                 <div ng-show="solicitudesSala.length == 0">
-                    <h4>No tienes ninguna solicitud pendiente</h4>
+                    <h4>{{'NO_SOLICITUDES' | translate}}</h4>
 
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal" ng-click="cerrarPantallaSolicitudes()">Cerrar</button>
+                <button class="btn btn-primary" data-dismiss="modal" ng-click="cerrarPantallaSolicitudes()">{{'CERRAR' | translate}}</button>
             </div>
         </div>
     </div>

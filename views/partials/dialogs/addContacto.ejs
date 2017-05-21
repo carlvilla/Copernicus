@@ -3,15 +3,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Añadir Usuario</h4>
+                <h4 class="modal-title">{{'ADD_USUARIO' | translate}}</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
                     <form autocomplete="off">
-                    <label for="username-solicitud-contacto">Nombre de usuario</label>
+                    <label for="username-solicitud-contacto">{{'USERNAME' | translate}}</label>
 
                     <angucomplete id="username-solicitud-contacto"
-                                  placeholder="Nombre de usuario"
+                                  placeholder="{{'USERNAME' | translate}}"
                                   pause="100"
                                   selectedobject="usuarioSeleccionado"
                                   localdata="usuarios"
@@ -26,14 +26,14 @@
                 </div>
 
                 <textarea id="mensaje-solicitud-contacto" ng-model="mensaje"
-                          placeholder="Mensaje enviado en la solicitud"></textarea>
+                          placeholder="{{'MENSAJE_ENVIADO_SOLICITUD' | translate}}"></textarea>
 
             </div>
             <div class="modal-footer">
                 <button data-dismiss="modal" class="btn btn-primary"
-                        ng-click="enviarSolicitudContacto()">Mandar solicitud de contacto
+                        ng-click="enviarSolicitudContacto()">{{'MANDAR_SOLICITUD_CONTACTO' | translate}}
                 </button>
-                <button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" data-dismiss="modal">{{'CERRAR' | translate}}</button>
             </div>
         </div>
     </div>
