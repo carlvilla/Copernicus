@@ -34,51 +34,51 @@
     <!-- Menu lateral -->
     <div class="menu-lateral well">
         <ul class="nav nav-list">
-            <li class="nav-header"><%= lang.contacts %></li>
+            <li class="nav-header">{{'CONTACTOS' | translate}}</li>
             <li>
                 <a data-target="#addUsuario" data-toggle="modal">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= lang.addContact %>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{'ADD_CONTACTO' | translate}}
                 </a>
             </li>
             <li>
                 <a data-target="#solicitudes-contacto" data-toggle="modal">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <%= lang.solicitudesContacto %>
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{'SOLICITUDES_CONTACTO' | translate}}
                     <span ng-hide="solicitudes.length < 1" class="badge badge-info">{{solicitudes.length}}</span>
                 </a>
             </li>
             <li>
                 <a data-target="#bloquearUsuario" data-toggle="modal">
                     <span class="glyphicon glyphicon-ban-circle" aria-hidden="true">
-                    </span> <%= lang.blockContact %>
+                    </span> {{'BLOQUEAR_CONTACTO' | translate}}
                 </a>
             </li>
-            <li class="nav-header"><%= lang.rooms %></li>
+            <li class="nav-header">{{'SALAS' | translate}}</li>
             <li>
                 <a data-target="#createRoom" data-toggle="modal">
                     <span class="glyphicon glyphicon-blackboard" aria-hidden="true">
-                    </span> <%= lang.createRoom %>
+                    </span> {{'CREAR_SALA' | translate}}
                 </a>
             </li>
             <li>
                 <a href="manageRooms">
-                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> <%= lang.manageRooms %>
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{'GESTIONAR_SALA' | translate}}
                 </a>
             </li>
             <li>
                 <a data-target="#solicitudes-salas" data-toggle="modal">
-                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> <%= lang.solicitudesSala %>
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> {{'SOLICITUDES_SALAS' | translate}}
                     <span ng-hide="solicitudesSala.length < 1" class="badge badge-info">{{solicitudesSala.length}}</span>
                 </a>
             </li>
-            <li class="nav-header"><%= lang.settings %></li>
+            <li class="nav-header">{{'AJUSTES' | translate}}</li>
             <li>
                 <a href="#">
-                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> <%= lang.accountSettings %>
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> {{'AJUSTES_CUENTA' | translate}}
                 </a>
             </li>
             <li class="nav-header">
                 <a ng-controller="logoutController" ng-click="logout()" href="index">
-                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <%= lang.logout %>
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {{'CERRAR_SESION' | translate}}
                 </a>
             </li>
         </ul>
@@ -87,8 +87,8 @@
 
     <!-- Listado contactos -->
     <div id="contenedor-listado-contactos" ng-controller="contactosController">
-        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left">
-                <%= lang.myContacts %>:</label> <input style="float:left; margin-bottom: 5px;" placeholder="Filtrar contactos"/></div>
+        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left">{{ 'CONTACTOS' | translate }}:
+            </label><input style="float:left; margin-bottom: 5px;" placeholder="{{'FILTRAR_CONTACTOS' | translate}}"/></div>
         <div id="contenedor2-listado-contactos">
             <div id="listado-contactos">
                 <button ng-repeat="contacto in contactos" class="list-group-item boton-listado">{{contacto.username}}
@@ -101,7 +101,7 @@
     <!-- Listado salas -->
     <div ng-controller="salaController" id="contenedor-listado-salas" class="btn-group-vertical">
         <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left;">
-                <%= lang.roomsAccess %>:</label><input style="float:left; margin-bottom: 5px;" placeholder="Filtrar salas"/></div>
+                {{'ACCESO_SALAS' | translate}}:</label><input style="float:left; margin-bottom: 5px;" placeholder="{{'FILTRAR_SALAS' | translate}}"/></div>
         <div id="contenedor2-listado-salas">
             <div id="listado-salas">
                 <button ng-repeat="sala in salas" ng-click="accederSala(sala.idSala)"

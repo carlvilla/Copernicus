@@ -3,14 +3,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Bloquear contacto</h4>
+                <h4 class="modal-title">{{'BLOQUEAR_CONTACTO' | translate}}</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="username-solicitud-contacto">Nombre de usuario</label>
+                    <label for="username-solicitud-contacto">{{'USERNAME' | translate}}</label>
                     <div>
                         <angucomplete id="username-bloquear-contacto"
-                                      placeholder="Nombre de usuario"
+                                      placeholder="{{'USERNAME' | translate}}"
                                       pause="100"
                                       selectedobject="usuarioSeleccionado"
                                       localdata="contactos"
@@ -20,21 +20,21 @@
                                       inputclass="form-control"
                         />
                     </div>
-                    <button id="btn-bloquear" class="btn btn-primary" ng-click="bloquearContacto()">Bloquear contacto
+                    <button id="btn-bloquear" class="btn btn-primary" ng-click="bloquearContacto()">
+                        {{'BLOQUEAR_CONTACTO' | translate}}
                     </button>
 
                 </div>
 
-
                 <div id="contactos-bloqueados-div" panel panel-default ng-show="contactosBloqueados.length > 0">
-                    <h4><%= lang.usuariosBloqueados %></h4>
+                    <h4>{{'USUARIOS_BLOQUEADOS' | translate}}</h4>
                     <div id="show-usuarios-bloqueados">
                         <table class="table table-bordered">
                             <tr>
-                                <th><%= lang.username %></th>
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th><%= lang.desbloquear %></th>
+                                <th>{{'USERNAME' | translate}}</th>
+                                <th>{{'NOMBRE' | translate}}</th>
+                                <th>{{'APELLIDOS' | translate}}</th>
+                                <th>{{'DESBLOQUEAR' | translate}}</th>
                             </tr>
                             <tr ng-repeat="contacto in contactosBloqueados" id="contacto-bloqueado-" +contacto.username>
                                 <td>{{contacto.username}}</td>
@@ -42,7 +42,9 @@
                                 <td>{{contacto.apellidos}}</td>
                                 <td>
                                     <button class="btn btn-primary"
-                                            ng-click="desbloquearContacto(contacto.username)"><%= lang.desbloquear %></button>
+                                            ng-click="desbloquearContacto(contacto.username)">{{'DESBLOQUEAR' |
+                                        translate}}
+                                    </button>
                                 </td>
                             </tr>
 
@@ -50,12 +52,10 @@
                         </table>
                     </div>
                 </div>
-
-
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" type="button" data-dismiss="modal" ng-click="cerrarPantallaBloquear()">
-                    Cerrar
+                    {{'CERRAR' | translate}}
                 </button>
             </div>
         </div>

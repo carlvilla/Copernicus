@@ -7,38 +7,13 @@ module.exports.index = function (req, res, next) {
 }
 
 module.exports.searchContacts = function (req, res, next) {
-    res.render('searchContacts', {});
+    res.render('searchContacts');
 }
 
 module.exports.personalPage = function (req, res, next) {
     console.log("Página personal");
     //console.log((req.headers["accept-language"]));
-    res.render('personalPage', {
-        lang: {
-            contacts: 'Contactos',
-            addContact: "Añadir contacto",
-            solicitudesContacto: "Solicitudes de contacto",
-            blockContact: 'Bloquear Contacto',
-            rooms: 'Salas',
-            createRoom: 'Crear sala',
-            manageRooms: 'Gestionar salas',
-            solicitudesSala: 'Solicitudes de salas',
-            settings: 'Ajustes',
-            accountSettings: 'Ajustes de la cuenta',
-            logout: 'Cerrar sesión',
-            myContacts: 'Mis Contactos',
-            roomsAccess: 'Acceso a salas',
-            addMiembros: 'Añadir miembros a la sala',
-            datosSala: 'Datos de la sala',
-            usuariosBloqueados: 'Usuarios bloqueados',
-            desbloquear: 'Desbloquear',
-            username: 'Nombre de usuario',
-            apellidos: 'Apellidos',
-            sinMensaje: 'Sin mensaje',
-            paginaPersonal: 'Página personal'
-        }
-
-    });
+    res.render('personalPage');
 }
 
 module.exports.chatroom = function (req, res, next) {
@@ -47,10 +22,7 @@ module.exports.chatroom = function (req, res, next) {
         lang: {
             participantes: 'Participantes',
             servicios: 'Servicios'
-
         }
-
-
     });
 }
 
