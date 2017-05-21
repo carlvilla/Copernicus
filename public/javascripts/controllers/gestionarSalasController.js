@@ -1,6 +1,8 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('gestionarSalasController', function ($scope, $http, $cookies, $window) {
+webApp.controller('gestionarSalasController', function ($scope, $http, growl) {
+
+    var idSalaSeleccionada;
 
     function error(res) {
         //console.log("Error al obtener las salas en las que el usuario es administrador o moderador");
@@ -21,6 +23,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $cookies,
     }, error)
 
     $scope.mostrarInfoSala = function (idSala, admin) {
+        idSalaSeleccionada = idSala;
         if (admin) {
             ($scope.salasAdmin).forEach(function (sala) {
                 if (sala.idSala == idSala) {
@@ -46,6 +49,22 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $cookies,
             $scope.participantes = res.data;
             $scope.admin = admin;
         }, error)
-
     };
+
+    var mostrarMensaje = function (res) {
+        growl.success("Datos de la sala actualizados", {ttl: 4000});
+    }
+
+    $scope.actualizarSala = function () {
+        $http({
+            method: "POST",
+            url: "api/actualizarSala",
+            data: {
+                idSala: idSalaSeleccionada,
+                nombre: $scope.salaSeleccionada.nombre,
+                descripcion: $scope.salaSeleccionada.descripcion
+            }
+        }).then(mostrarMensaje, error);
+    }
+
 });

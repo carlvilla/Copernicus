@@ -298,13 +298,29 @@ module.exports.participantesSala = function (req, res) {
                 person.user.permisos = person.rel.type;
                 delete person.rel;
             });
-
-            console.log(result);
-
             utils.sendJSONresponse(res, 200, result);
         }
     });
 };
+
+module.exports.actualizarDatos = function (req, res) {
+
+    var idSala = req.body.idSala;
+    var nombre = req.body.nombre;
+    var descripcion = req.body.descripcion;
+
+    var query = "MATCH(s:Sala{idSala:"+idSala+"}) SET s.nombre = '"+nombre+"', s.descripcion = '"+descripcion+"'";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            utils.sendJSONresponse(res, 204, "");
+        }
+    });
+
+}
+
 
 module.exports.findSalasMiembro = function (req, res) {
 

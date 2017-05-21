@@ -3,27 +3,7 @@ module.exports.about = function (req, res, next) {
 };
 
 module.exports.index = function (req, res, next) {
-    res.render('index', {
-        lang: {
-            registro: 'Registro',
-            olvido: "¿Olvidaste la contraseña?",
-            username: 'Usuario',
-            nombre: 'Nombre',
-            apellidos: 'Apellidos',
-            email: 'Correo electrónico',
-            pass: 'Contraseña',
-            passConf: 'Confirmar contraseña',
-            registrarse: 'Registrarse',
-            diffPass: 'Las contraseñas no coinciden',
-            comprobarUsername: 'Comprobando validez del nombre de usuario....',
-            usernameNotAvailable: 'Este nombre de usuario ya está en uso',
-            iniciarSesion: 'Iniciar sesión',
-            loginError: 'Usuario y/o contraseña incorrectas',
-            about: "Sobre nosotros",
-            paginaPersonal: 'Página personal'
-        }
-
-    });
+    res.render('index');
 }
 
 module.exports.searchContacts = function (req, res, next) {
@@ -71,8 +51,6 @@ module.exports.chatroom = function (req, res, next) {
         }
 
 
-
-
     });
 }
 
@@ -83,7 +61,8 @@ module.exports.manageRooms = function (req, res, next){
             paginaPersonal: 'Página personal',
             seleccionarSala: 'Seleccione una sala de los listados a la izquierda para editarla',
             salasAdmin: 'Salas en las que es administrador',
-            salasModerador: 'Salas en las que es moderador'
+            salasModerador: 'Salas en las que es moderador',
+            DATOS_ACTUALIZADOS: 'Datos de la sala actualizados'
         }
     });
 }

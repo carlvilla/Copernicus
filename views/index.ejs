@@ -15,6 +15,7 @@
     <!-- Controllers -->
     <script src='/public/javascripts/controllers/loginController.js'></script>
     <script src='/public/javascripts/controllers/registerController.js'></script>
+    <script src='/public/javascripts/controllers/langController.js'></script>
 
     <!--Directivas-->
     <script src='/public/javascripts/directives/usernameValidation.js'></script>
@@ -33,10 +34,10 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            <a class="active" id="login-form-link">Login</a>
+                            <a class="active" id="login-form-link" translate="LOGIN"></a>
                         </div>
                         <div class="col-xs-6">
-                            <a id="register-form-link"> <%= lang.registro %> </a>
+                            <a id="register-form-link" translate="REGISTRO"> </a>
                         </div>
                     </div>
                     <hr>
@@ -48,23 +49,22 @@
                             <form ng-submit="login()" id="login-form" style="display: block;">
                                 <div class="form-group">
                                     <input type="text" ng-model="credenciales.username" name="username-login" required id="username-login" tabindex="1"
-                                           class="form-control" placeholder=<%= lang.username %>>
+                                           class="form-control" placeholder="{{'USERNAME' | translate}}">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" ng-model="credenciales.password" name="password-login" required id="password-login" tabindex="2"
-                                           class="form-control" placeholder=<%= lang.pass %>>
+                                           class="form-control" placeholder="{{'PASS' | translate}}">
                                 </div>
 
                                 <!-- Error al iniciar sesión -->
-                                <div class="alert alert-danger" ng-if="loginError">
-                                    <%= lang.loginError %>
+                                <div class="alert alert-danger" ng-if="loginError" translate="LOGIN_ERROR">
                                 </div>
 
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <input type="submit" name="login-submit" id="login-submit" tabindex="4"
-                                                   class="btn btn-primary btn-block" value="<%= lang.iniciarSesion%>">
+                                                   class="btn btn-primary btn-block" value="{{'INICIAR_SESION' | translate}}">
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="text-center">
-                                                <a tabindex="5" class="forgot-password"><%= lang.olvido %></a>
+                                                <a tabindex="5" class="forgot-password" translate="OLVIDO"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -86,14 +86,14 @@
                                     <div class="form-group">
                                         <input type="text" ng-model='usuario.nombre' id="nombre" required minlength="3"
                                                maxlength="15" tabindex="1" class="form-control"
-                                               placeholder="<%= lang.nombre %>">
+                                               placeholder="{{'NOMBRE' | translate}}">
                                     </div>
 
                                     <div class="form-group">
                                         <input type="text" ng-model='usuario.apellidos' id="apellidos" required
                                                minlength="3"
                                                maxlength="35" tabindex="1" class="form-control"
-                                               placeholder="<%= lang.apellidos %>" value="">
+                                               placeholder="{{'APELLIDOS' | translate}}" value="">
                                     </div>
 
                                     <div class="form-group">
@@ -101,43 +101,41 @@
                                                id="username"
                                                minlength="3" maxlength="15" tabindex="1"
                                                ng-class="{error:messages.showError}"
-                                               class="form-control" placeholder="<%= lang.username %>">
+                                               class="form-control" placeholder="{{'USERNAME' | translate}}">
 
-                                        <div ng-if="registerForm.$pending.usernameAvailable"> <%= lang.comprobarUsername %></div>
-                                        <div ng-if="registerForm.$error.usernameAvailable"><%= lang.usernameNotAvailable %>
+                                        <div ng-if="registerForm.$pending.usernameAvailable" translate="COMPROBAR_USERNAME"></div>
+                                        <div ng-if="registerForm.$error.usernameAvailable" translate="USERNAME_NOT_AVAILABLE">
                                         </div>
 
                                     </div>
 
                                     <div class="form-group">
                                         <input type="email" ng-model='usuario.email' id="email" required tabindex="1"
-                                               class="form-control" placeholder="<%= lang.email %>" value="">
+                                               class="form-control" placeholder="{{'EMAIL' | translate}}" value="">
                                     </div>
 
                                     <div class="form-group">
                                         <input type="password" id="password" name="password"  ng-model='usuario.password'
                                                minlength="8" required
                                                class="form-control" tabindex="1"
-                                               placeholder="<%= lang.pass %>">
+                                               placeholder="{{'PASS' | translate}}">
                                     </div>
 
                                     <div class="form-group">
                                         <input type="password" id="confirmPassword" name="confirmPassword" ng-model="confirmPassword"
                                                password-validation="password" required
-                                               class="form-control" tabindex="1" placeholder="<%= lang.passConf %>">
+                                               class="form-control" tabindex="1" placeholder="{{'PASS_CONF' | translate}}">
                                     </div>
 
                                     <!-- Diferentes contraseñas -->
-                                    <div class="alert alert-warning" ng-show='registerForm.confirmPassword.$error.samepass'>
-                                        <%= lang.diffPass %>
+                                    <div class="alert alert-warning" ng-show='registerForm.confirmPassword.$error.samepass' translate="DIFF_PASS">
                                     </div>
 
 
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <button class="form-control btn-success" type="submit" id="register-submit">
-                                                    <%= lang.registrarse %> </button>
+                                                <button class="form-control btn-success" type="submit" id="register-submit" translate="REGISTRARSE"></button>
                                             </div>
                                         </div>
                                     </div>
