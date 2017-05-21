@@ -14,6 +14,7 @@
 
     <!-- Controladores-->
     <script src='/public/javascripts/controllers/gestionarSalasController.js'></script>
+    <script src='/public/javascripts/controllers/langController.js'></script>
 
 </head>
 <body ng-controller="gestionarSalasController">
@@ -51,15 +52,16 @@
 
             <div id="nombre-sala">
                 <label id="label-nombre">Nombre:</label>
-                <input value="{{salaSeleccionada.nombre}}"/>
+                <input ng-model="salaSeleccionada.nombre"/>
             </div>
 
             <div id="descripcion-sala">
                 <label id="label-descripcion">Descripción:</label>
-                <textarea id="textarea-descripcion">{{salaSeleccionada.descripcion}}</textarea>
+                <textarea id="textarea-descripcion" ng-model="salaSeleccionada.descripcion"></textarea>
             </div>
 
-            <button id="btn-actualizar-datos-sala" class="btn btn-primary" type="button">Actualizar datos</button>
+            <button id="btn-actualizar-datos-sala" class="btn btn-primary" type="button"
+            ng-click="actualizarSala()">Actualizar datos</button>
 
         </div>
 

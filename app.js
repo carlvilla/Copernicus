@@ -41,7 +41,12 @@ app.use('/angularAria', express.static(__dirname + '/bower_components/angular-ar
 app.use('/angularMaterial', express.static(__dirname + '/bower_components/angular-material/'));
 app.use('/angucomplete', express.static(__dirname + '/bower_components/angucomplete/'));
 app.use('/reveal.js', express.static(__dirname + '/bower_components/reveal.js/'));
-app.use('/ng-file-upload', express.static(__dirname + '/bower_components//ng-file-upload/'));
+app.use('/ng-file-upload', express.static(__dirname + '/bower_components/ng-file-upload/'));
+app.use('/growl', express.static(__dirname + '/bower_components/angular-growl-v2/build'));
+app.use('/angular-translate', express.static(__dirname + '/bower_components/angular-translate/'));
+app.use('/translate-storage', express.static(__dirname + '/bower_components/angular-translate-storage-cookie/'));
+
+
 
 app.use('/api',routesApi);
 app.use('/', routesServer);
