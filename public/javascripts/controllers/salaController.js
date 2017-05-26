@@ -89,7 +89,6 @@ webApp.controller('salaController', function ($scope, $http, $window) {
     findContactos();
 
 
-
     $scope.selectedSala = function () {
         return JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
     }

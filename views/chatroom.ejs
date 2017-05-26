@@ -15,7 +15,6 @@
 
     <link rel="stylesheet" href="/public/stylesheets/chatroom.css">
 
-
     <!-- Controladores y Managers -->
     <script src='/public/javascripts/managers/AsistentesManager.js'></script>
     <script src='/public/javascripts/managers/VideoChatManager.js'></script>
@@ -29,7 +28,6 @@
     <script src='/public/javascripts/controllers/presentacionController.js'></script>
     <script src='/public/javascripts/controllers/chatTextoController.js'></script>
     <script src='/public/javascripts/controllers/langController.js'></script>
-
 </head>
 <body>
 
@@ -43,18 +41,18 @@
 
 <div ng-controller='modulosController' id="myServiciosnav" class="sideServiciosnav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myServiciosnav');">&times;</a>
-    <h2 id="serviciosLabel">Servicios</h2>
-    <a ng-click="addModule('chatVideo')">Chat de video</a>
-    <a ng-click="addModule('chatTexto')">Chat de texto</a>
-    <a ng-click="addModule('presentaciones')">Presentaciones</a>
-    <a>Video y audio compartido</a>
-    <a ng-click="addModule('dibujo')">Dibujos</a>
+    <h2 id="serviciosLabel">{{'SERVICIOS' | translate}}</h2>
+    <a ng-click="addModule('chatVideo')">{{'CHAT_VIDEO' | translate}}</a>
+    <a ng-click="addModule('chatTexto')">{{'CHAT_TEXTO' | translate}}</a>
+    <a ng-click="addModule('presentaciones')">{{'PRESENTACIONES' | translate}}</a>
+    <a>{{'VIDEO_AUDIO_COMPARTIDO' | translate}}</a>
+    <a ng-click="addModule('dibujo')">{{'DIBUJOS' | translate}}</a>
 </div>
 
 <div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav">
     <a href="javascript:void(0)" class="closebtn"
        onclick="closeNav('myAsistentesnav'); ">&times;</a>
-    <h3 id="asistentesLabel"><%= lang.participantes %></h3>
+    <h3 id="asistentesLabel">{{'PARTICIPANTES' | translate}}</h3>
     <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}} <span class="conectado">•</span></a>
 </div>
 
@@ -72,8 +70,8 @@
 <span class="glyphicon glyphicon-chevron-left" id="esconder-navegacion" onclick="closeNavPrincipal(); "></span>
 </div>
 <div id="navegacion">
-    <span class="opcion-navegacion" onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); ">&#9776; <%= lang.servicios %></span>
-    <span class="opcion-navegacion" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776; <%= lang.participantes %></span>
+    <span class="opcion-navegacion" onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); ">&#9776;{{'SERVICIOS' | translate}}</span>
+    <span class="opcion-navegacion" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776;{{'PARTICIPANTES' | translate}}</span>
 </div>
 
 

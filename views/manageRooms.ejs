@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="webApp">
 <head>
-    <title><%= lang.gestionarSalas %></title>
+    <title>{{'GESTIONAR_SALAS' | translate}}</title>
 
     <meta charset="UTF-8">
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
@@ -23,14 +23,14 @@
 <% include partials/header %>
 
 <div id="salas">
-    <label><%= lang.salasAdmin %>:</label>
+    <label>{{'SALAS_ADMIN' | translate}}:</label>
     <div id="salas-admin" class="menu-lateral well">
         <button ng-repeat="sala in salasAdmin" class="list-group-item sala"
                 ng-click="mostrarInfoSala(sala.idSala, true)">
             {{sala.nombre}}
         </button>
     </div>
-    <label><%= lang.salasModerador %>:</label>
+    <label>{{'SALAS_MODERADOR' | translate}}:</label>
     <div id="salas-moderador" class="menu-lateral well">
         <button ng-repeat="sala in salasModerador" class="list-group-item sala"
                 ng-click="mostrarInfoSala(sala.idSala, false)">
@@ -41,31 +41,30 @@
 
 <div id="editor-sala">
     <div id="textoSalaNoSeleccionada" text-align="center" ng-show="salaSeleccionada == undefined">
-
-        <%= lang.seleccionarSala %>
-
+        {{'SELECCIONAR_SALA' | translate}}
     </div>
 
     <div id="informacion-sala" ng-show="salaSeleccionada != undefined">
         <div id="datos-basicos">
-            <legend id="leyenda-info-sala">Información de la sala</legend>
+            <legend id="leyenda-info-sala">{{'INFO_SALA' | translate}}</legend>
 
             <div id="nombre-sala">
-                <label id="label-nombre">Nombre:</label>
+                <label id="label-nombre">{{'NOMBRE' | translate}}:</label>
                 <input ng-model="salaSeleccionada.nombre"/>
             </div>
 
             <div id="descripcion-sala">
-                <label id="label-descripcion">Descripción:</label>
+                <label id="label-descripcion">{{'DESCRIPCION' | translate}}:</label>
                 <textarea id="textarea-descripcion" ng-model="salaSeleccionada.descripcion"></textarea>
             </div>
 
             <button id="btn-actualizar-datos-sala" class="btn btn-primary" type="button"
-            ng-click="actualizarSala()">Actualizar datos</button>
+                    ng-click="actualizarSala()">{{'ACTUALIZAR_DATOS' | translate}}
+            </button>
 
         </div>
 
-        <legend id="leyenda-info-sala">Participantes de la sala</legend>
+        <legend id="leyenda-info-sala">{{'PARTICIPANTES_SALA' | translate}}</legend>
 
         <div id="participantes">
             <div>
@@ -81,50 +80,57 @@
                                   inputclass="form-control"
                     />
                 </div>
-                <button class="btn btn-primary" type="button" id="btn-add-participante">Añadir contacto</button>
+                <button class="btn btn-primary" type="button" id="btn-add-participante">{{'ADD_CONTACTO' | translate}}
+                </button>
             </div>
 
             <div id="show-usuarios">
                 <table class="table table-bordered">
                     <tr>
-                        <th>Nombre usuario</th>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Permisos</th>
-                        <th>Acciones</th>
+                        <th>{{'USERNAME' | translate}}</th>
+                        <th>{{'NOMBRE' | translate}}</th>
+                        <th>{{'APELLIDOS' | translate}}</th>
+                        <th>{{'PERMISOS' | translate}}</th>
+                        <th>{{'ACCIONES' | translate}}</th>
                     </tr>
-                    <tr ng-repeat="participante in participantes">
+                    <tr ng-repeat="participante in participantes" id="datos-'{{participante.username}}'">
                         <td>{{participante.user.username}}</td>
                         <td>{{participante.user.nombre}}</td>
                         <td>{{participante.user.apellidos}}</td>
                         <td>
-                            <select ng-model="contacto.permisos" ng-init="contacto.permisos = participante.user.permisos"
-                            ng-disabled="(!admin && participante.user.permisos!='Miembro') || (admin && participante.user.permisos=='Admin')">
-                                <option value="Miembro">Miembro</option>
-                                <option value="Moderador">Moderador</option>
-                                <option value="Admin" ng-show="false">Admin</option>
+                            <select class="form-control" ng-model="contacto.permisos"
+                                    ng-init="contacto.permisos = participante.user.permisos"
+                                    ng-disabled="!admin || (participante.user.permisos=='Admin')">
+                                <option value="Miembro">{{'MIEMBRO' | translate}}</option>
+                                <option value="Moderador">{{'MODERADOR' | translate}}</option>
+                                <option value="Admin" ng-show="false">{{'ADMIN' | translate}}</option>
                             </select>
                         </td>
                         <td>
                             <button class="btn btn-primary" type="button"
-                                    ng-click="eliminarSeleccionado(contacto.username)">Eliminar</button>
+                                    ng-disabled="(!admin && participante.user.permisos!='Miembro')
+                                    || (admin && participante.user.permisos=='Admin')"
+                                    ng-click="eliminarUsuarioSeleccionado(participante.user)">
+                                {{'ELIMINAR' | translate}}
+                            </button>
                         </td>
                     </tr>
                 </table>
-                </div>
             </div>
+        </div>
 
 
-            <div id="datos-basicos">
-                <legend id="leyenda-info-sala">Acciones peligrosas</legend>
+        <div id="datos-basicos">
+            <legend id="leyenda-info-sala">{{'ACCIONES_PELIGROSAS' | translate}}</legend>
 
-                <button id="btn-eliminar-sala" class="btn btn-danger" type="button">Eliminar sala</button>
-
-            </div>
+            <button id="btn-eliminar-sala" class="btn btn-danger" type="button"
+                    ng-click="eliminarSala()">{{'ELIMINAR_SALA' | translate}}</button>
 
         </div>
 
     </div>
+
+</div>
 </div>
 
 

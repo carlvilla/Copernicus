@@ -321,6 +321,46 @@ module.exports.actualizarDatos = function (req, res) {
 
 }
 
+/**
+ * Elimina la relación entre el usuario y la sala especificados
+ *
+ * @param req
+ * @param res
+ */
+module.exports.eliminarUsuario = function(req, res){
+    var idSala = req.body.idSala;
+    var username = req.body.username;
+
+    var query = "MATCH(Sala{idSala:"+idSala+"})-[r]-(Usuario{username:'"+username+"'}) delete r";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            utils.sendJSONresponse(res, 204, "");
+        }
+    });
+}
+
+/**
+ * Elimina la sala cuyo ID es pasado como parámetro
+ *
+ * @param req
+ * @param res
+ */
+module.exports.eliminarSala = function(req, res){
+    var idSala = req.body.idSala;
+
+    var query = "OPTIONAL MATCH()-[r]->(s:Sala{idSala:"+idSala+"}) delete r,s";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            utils.sendJSONresponse(res, 204, "");
+        }
+    });
+}
 
 module.exports.findSalasMiembro = function (req, res) {
 
