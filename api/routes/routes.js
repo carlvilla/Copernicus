@@ -25,6 +25,8 @@ router.post('/aceptarSolicitudSala', salaController.aceptarSolicitud);
 router.post('/ignorarSolicitudSala', salaController.ignorarSolicitud);
 router.post('/participantesSala', salaController.participantesSala);
 router.post('/actualizarSala', salaController.actualizarDatos);
+router.post('/eliminarUsuarioSala', salaController.eliminarUsuario);
+router.post('/eliminarSala', salaController.eliminarSala)
 
 //llamadas rest para gestionar contactos
 router.get('/findPosiblesContactos', contactoController.findPosiblesContactos);

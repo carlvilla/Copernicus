@@ -43,8 +43,8 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "BLOQUEAR_CONTACTO": 'Bloquear contacto',
         "MANDAR_SOLICITUD_CONTACTO": 'Mandar solicitud de contacto',
         "CERRAR": 'Cerrar',
-        "DESCRIPCION_OPCIONAL": 'Descripcion (Opcional)',
-        "DESCRIPCION": 'Descripcion',
+        "DESCRIPCION_OPCIONAL": 'Descripción (Opcional)',
+        "DESCRIPCION": 'Descripción',
         "ADMIN_ABRIR_CERRAR_SERVICIOS": 'Indicar si solo el administrador puede abrir y cerrar servicios',
         "PERMISOS": 'Permisos',
         "ELIMINAR": 'Eliminar',
@@ -56,9 +56,27 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "MENSAJE_ENVIADO_SOLICITUD": 'Mensaje enviado en la solicitud',
         "NOMBRE_SALA": 'Nombre sala',
         "FILTRAR_CONTACTOS": 'Filtrar contactos',
-        "FILTRAR_SALAS": 'Filtrar sala'
-
-
+        "FILTRAR_SALAS": 'Filtrar sala',
+        "PARTICIPANTES": 'Participantes',
+        "SERVICIOS": 'Servicios',
+        "GESTIONAR_SALAS": 'Gestionar salas',
+        "SELECCIONAR_SALA": 'Seleccione una sala de los listados a la izquierda para editarla',
+        "SALAS_MODERADOR": 'Salas en las que es moderador',
+        "PAGINA_PERSONAL": 'Página personal',
+        "SALAS_ADMIN": 'Salas en las que es administrador',
+        "DATOS_ACTUALIZADOS": 'Datos de la sala actualizados',
+        "INFO_SALA": 'Información de la sala',
+        "ACTUALIZAR_DATOS":'Actualizar datos',
+        "PARTICIPANTES_SALA": 'Participantes de la sala',
+        "ACCIONES":'Acciones',
+        "ADMIN": 'Administrador',
+        "ACCIONES_PELIGROSAS": ' Acciones peligrosas',
+        "ELIMINAR_SALA": 'Eliminar sala',
+        "CHAT_VIDEO": 'Chat de video',
+        "CHAT_TEXTO": 'Chat de texto',
+        "PRESENTACIONES": 'Presentaciones',
+        "VIDEO_AUDIO_COMPARTIDO": 'Video y audio compartido',
+        "DIBUJOS": 'Dibujos'
     });
 
     $translateProvider.translations('en', {
@@ -114,7 +132,27 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "MENSAJE_ENVIADO_SOLICITUD": 'Message sent in the request',
         "NOMBRE_SALA": 'Room name',
         "FILTRAR_CONTACTOS": 'Filter contacts',
-        "FILTRAR_SALAS": 'Filter rooms'
+        "FILTRAR_SALAS": 'Filter rooms',
+        "PARTICIPANTES": 'Participants',
+        "SERVICIOS": 'Services',
+        "GESTIONAR_SALAS": 'Manage rooms',
+        "SELECCIONAR_SALA": 'Select a room from the lists at the left to edit it',
+        "SALAS_MODERADOR": 'Rooms where you are moderator',
+        "PAGINA_PERSONAL": 'Personal page',
+        "SALAS_ADMIN": 'Rooms where you are admin',
+        "DATOS_ACTUALIZADOS": 'Room updated',
+        "INFO_SALA": 'Room information',
+        "ACTUALIZAR_DATOS":'Update data',
+        "PARTICIPANTES_SALA": 'Participants of the room',
+        "ACCIONES":'Actions',
+        "ADMIN": 'Admin',
+        "ACCIONES_PELIGROSAS": ' Dangerous actions',
+        "ELIMINAR_SALA": 'Remove room',
+        "CHAT_VIDEO": 'Video chat',
+        "CHAT_TEXTO": 'Chat',
+        "PRESENTACIONES": 'Presentations',
+        "VIDEO_AUDIO_COMPARTIDO": 'Shared video and audio',
+        "DIBUJOS": 'Draws'
     })
 
 
