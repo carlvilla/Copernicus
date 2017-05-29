@@ -64,7 +64,7 @@
 
         </div>
 
-        <legend id="leyenda-info-sala">{{'PARTICIPANTES_SALA' | translate}}</legend>
+        <legend id="leyenda-info-sala">{{'USUARIOS_SALA' | translate}}</legend>
 
         <div id="participantes">
             <div>
@@ -80,12 +80,49 @@
                                   inputclass="form-control"
                     />
                 </div>
-                <button class="btn btn-primary" type="button" id="btn-add-participante">{{'ADD_CONTACTO' | translate}}
+                <button class="btn btn-primary" type="button" id="btn-add-participante"
+                        ng-click="addCandidato()">{{'ADD_USUARIO' | translate}}
                 </button>
             </div>
 
             <div id="show-usuarios">
-                <table class="table table-bordered">
+
+                <h5 ng-show="candidatos.length > 0">Invitaciones enviadas</h5>
+
+                <table ng-show="candidatos.length > 0" class="table table-bordered">
+                    <tr>
+                        <th>{{'USERNAME' | translate}}</th>
+                        <th>{{'NOMBRE' | translate}}</th>
+                        <th>{{'APELLIDOS' | translate}}</th>
+                        <th>{{'PERMISOS' | translate}}</th>
+                        <th>Estado</th>
+                        <th>{{'ACCIONES' | translate}}</th>
+                    </tr>
+                    <tr ng-repeat="candidato in candidatos" id="datos-'{{participante.username}}'">
+                        <td>{{candidato.user.username}}</td>
+                        <td>{{candidato.user.nombre}}</td>
+                        <td>{{candidato.user.apellidos}}</td>
+                        <td>
+                            <select class="form-control" ng-model="candidato.rel.properties.permisos"
+                                    ng-change="cambiarPermisosCandidato(candidato.user)">
+                                <option value="Miembro">{{'MIEMBRO' | translate}}</option>
+                                <option value="Moderador">{{'MODERADOR' | translate}}</option>
+                            </select>
+                        </td>
+                        <td>Todavía no ha aceptado la invitación</td>
+                        <td>
+                            <button class="btn btn-primary" type="button" ng-click="cancelarInvitacion(candidato.user)">
+                                Cancelar invitación
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <h5 ng-show="participantes">Participantes</h5>
+
+
+                <table ng-show="participantes" class="table table-bordered">
                     <tr>
                         <th>{{'USERNAME' | translate}}</th>
                         <th>{{'NOMBRE' | translate}}</th>
@@ -98,9 +135,10 @@
                         <td>{{participante.user.nombre}}</td>
                         <td>{{participante.user.apellidos}}</td>
                         <td>
-                            <select class="form-control" ng-model="contacto.permisos"
+                            <select class="form-control" ng-model="participante.user.permisos"
                                     ng-init="contacto.permisos = participante.user.permisos"
-                                    ng-disabled="!admin || (participante.user.permisos=='Admin')">
+                                    ng-disabled="!admin || (participante.user.permisos=='Admin')"
+                                    ng-change="cambiarPermisos(participante.user)">
                                 <option value="Miembro">{{'MIEMBRO' | translate}}</option>
                                 <option value="Moderador">{{'MODERADOR' | translate}}</option>
                                 <option value="Admin" ng-show="false">{{'ADMIN' | translate}}</option>
@@ -116,6 +154,8 @@
                         </td>
                     </tr>
                 </table>
+
+
             </div>
         </div>
 
@@ -124,7 +164,8 @@
             <legend id="leyenda-info-sala">{{'ACCIONES_PELIGROSAS' | translate}}</legend>
 
             <button id="btn-eliminar-sala" class="btn btn-danger" type="button"
-                    ng-click="eliminarSala()">{{'ELIMINAR_SALA' | translate}}</button>
+                    ng-click="eliminarSala()">{{'ELIMINAR_SALA' | translate}}
+            </button>
 
         </div>
 

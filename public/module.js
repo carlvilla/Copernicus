@@ -67,7 +67,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "DATOS_ACTUALIZADOS": 'Datos de la sala actualizados',
         "INFO_SALA": 'Información de la sala',
         "ACTUALIZAR_DATOS":'Actualizar datos',
-        "PARTICIPANTES_SALA": 'Participantes de la sala',
+        "USUARIOS_SALA": 'Usuarios de la sala',
         "ACCIONES":'Acciones',
         "ADMIN": 'Administrador',
         "ACCIONES_PELIGROSAS": ' Acciones peligrosas',
@@ -76,7 +76,15 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "CHAT_TEXTO": 'Chat de texto',
         "PRESENTACIONES": 'Presentaciones',
         "VIDEO_AUDIO_COMPARTIDO": 'Video y audio compartido',
-        "DIBUJOS": 'Dibujos'
+        "DIBUJOS": 'Dibujos',
+        "DATOS_SALA_ACTUALIZADOS": 'Datos de la sala actualizados',
+        "USUARIO_ADDED": 'Usuario añadido',
+        "USUARIO_ALREADY_ADDED": 'Usuario ya añadido',
+        "USUARIO_ELIMINADO": 'Usuario eliminado',
+        "PERMISOS_USUARIO_CAMBIADOS": 'Los permisos del usuario fueron modificados',
+        "SALA_ELIMINADA": 'Sala eliminada',
+        "INVITACION_ENVIADA": 'Invitación para unirse a la sala enviada',
+        "INVITACION_ELIMINADA": 'La invitación fue eliminada'
     });
 
     $translateProvider.translations('en', {
@@ -143,7 +151,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "DATOS_ACTUALIZADOS": 'Room updated',
         "INFO_SALA": 'Room information',
         "ACTUALIZAR_DATOS":'Update data',
-        "PARTICIPANTES_SALA": 'Participants of the room',
+        "USUARIOS_SALA": 'Users of the room',
         "ACCIONES":'Actions',
         "ADMIN": 'Admin',
         "ACCIONES_PELIGROSAS": ' Dangerous actions',
@@ -152,7 +160,15 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "CHAT_TEXTO": 'Chat',
         "PRESENTACIONES": 'Presentations',
         "VIDEO_AUDIO_COMPARTIDO": 'Shared video and audio',
-        "DIBUJOS": 'Draws'
+        "DIBUJOS": 'Draws',
+        "DATOS_SALA_ACTUALIZADOS": 'Room data updated',
+        "USUARIO_ADDED": 'User added',
+        "USUARIO_ALREADY_ADDED": 'User already added',
+        "USUARIO_ELIMINADO": 'User removed',
+        "PERMISOS_USUARIO_CAMBIADOS": "User permissions were changed",
+        "SALA_ELIMINADA": 'Room deleted',
+        "INVITACION_ENVIADA": 'Invitation to join the room sent',
+        "INVITACION_ELIMINADA": 'The invitation was deleted'
     })
 
 

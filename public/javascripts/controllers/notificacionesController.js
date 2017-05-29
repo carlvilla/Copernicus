@@ -19,6 +19,7 @@ webApp.controller('notificacionesController', function ($scope, $http) {
 
     function successSala(res) {
         $scope.solicitudesSala = res.data;
+        console.log($scope.solicitudesSala);
     }
 
     function error(err){

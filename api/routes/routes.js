@@ -26,7 +26,11 @@ router.post('/ignorarSolicitudSala', salaController.ignorarSolicitud);
 router.post('/participantesSala', salaController.participantesSala);
 router.post('/actualizarSala', salaController.actualizarDatos);
 router.post('/eliminarUsuarioSala', salaController.eliminarUsuario);
-router.post('/eliminarSala', salaController.eliminarSala)
+router.post('/eliminarSala', salaController.eliminarSala);
+router.post('/cambiarPermisos', salaController.cambiarPermisos);
+router.post('/cambiarPermisosCandidato', salaController.cambiarPermisosCandidato);
+router.post('/enviarInvitacion', salaController.invitacion);
+router.post('/candidatos', salaController.candidatos);
 
 //llamadas rest para gestionar contactos
 router.get('/findPosiblesContactos', contactoController.findPosiblesContactos);
