@@ -70,7 +70,7 @@
             <div>
                 <div>
                     <angucomplete id="username-participante-sala"
-                                  placeholder="Nombre de usuario"
+                                  placeholder="{{'USERNAME' | translate}}"
                                   pause="100"
                                   selectedobject="usuarioSeleccionado"
                                   localdata="contactos"
@@ -87,7 +87,7 @@
 
             <div id="show-usuarios">
 
-                <h5 ng-show="candidatos.length > 0">Invitaciones enviadas</h5>
+                <h5 ng-show="candidatos.length > 0" translate="INVITACIONES_ENVIADAS"></h5>
 
                 <table ng-show="candidatos.length > 0" class="table table-bordered">
                     <tr>
@@ -95,7 +95,7 @@
                         <th>{{'NOMBRE' | translate}}</th>
                         <th>{{'APELLIDOS' | translate}}</th>
                         <th>{{'PERMISOS' | translate}}</th>
-                        <th>Estado</th>
+                        <th>{{'ESTADO' | translate}}</th>
                         <th>{{'ACCIONES' | translate}}</th>
                     </tr>
                     <tr ng-repeat="candidato in candidatos" id="datos-'{{participante.username}}'">
@@ -104,12 +104,12 @@
                         <td>{{candidato.user.apellidos}}</td>
                         <td>
                             <select class="form-control" ng-model="candidato.rel.properties.permisos"
-                                    ng-change="cambiarPermisosCandidato(candidato.user)">
+                                    ng-change="cambiarPermisosCandidato(candidato)">
                                 <option value="Miembro">{{'MIEMBRO' | translate}}</option>
                                 <option value="Moderador">{{'MODERADOR' | translate}}</option>
                             </select>
                         </td>
-                        <td>Todavía no ha aceptado la invitación</td>
+                        <td translate="INVITACION_NO_ACEPTADA">Todavía no ha aceptado la invitación</td>
                         <td>
                             <button class="btn btn-primary" type="button" ng-click="cancelarInvitacion(candidato.user)">
                                 Cancelar invitación
@@ -119,7 +119,7 @@
                 </table>
 
 
-                <h5 ng-show="participantes">Participantes</h5>
+                <h5 ng-show="participantes" translate="PARTICIPANTES"></h5>
 
 
                 <table ng-show="participantes" class="table table-bordered">
@@ -160,7 +160,7 @@
         </div>
 
 
-        <div id="datos-basicos">
+        <div id="operaciones-peligrosas" ng-hide="!admin">
             <legend id="leyenda-info-sala">{{'ACCIONES_PELIGROSAS' | translate}}</legend>
 
             <button id="btn-eliminar-sala" class="btn btn-danger" type="button"
