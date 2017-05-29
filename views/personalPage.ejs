@@ -34,51 +34,51 @@
     <!-- Menu lateral -->
     <div class="menu-lateral well">
         <ul class="nav nav-list">
-            <li class="nav-header">{{'CONTACTOS' | translate}}</li>
+            <li class="nav-header" translate="CONTACTOS"></li>
             <li>
                 <a data-target="#addUsuario" data-toggle="modal">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{'ADD_CONTACTO' | translate}}
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span translate="ADD_CONTACTO"></span>
                 </a>
             </li>
             <li>
                 <a data-target="#solicitudes-contacto" data-toggle="modal">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{'SOLICITUDES_CONTACTO' | translate}}
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <span translate="SOLICITUDES_CONTACTO"></span>
                     <span ng-hide="solicitudes.length < 1" class="badge badge-info">{{solicitudes.length}}</span>
                 </a>
             </li>
             <li>
                 <a data-target="#bloquearUsuario" data-toggle="modal">
                     <span class="glyphicon glyphicon-ban-circle" aria-hidden="true">
-                    </span> {{'BLOQUEAR_CONTACTO' | translate}}
+                    </span> <span translate="BLOQUEAR_CONTACTO"></span>
                 </a>
             </li>
-            <li class="nav-header">{{'SALAS' | translate}}</li>
+            <li class="nav-header" translate="SALAS"></li>
             <li>
                 <a data-target="#createRoom" data-toggle="modal">
                     <span class="glyphicon glyphicon-blackboard" aria-hidden="true">
-                    </span> {{'CREAR_SALA' | translate}}
+                    </span> <span translate="CREAR_SALA"></span>
                 </a>
             </li>
             <li>
                 <a href="manageRooms">
-                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{'GESTIONAR_SALA' | translate}}
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> <span translate="GESTIONAR_SALA"></span>
                 </a>
             </li>
             <li>
                 <a data-target="#solicitudes-salas" data-toggle="modal">
-                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> {{'SOLICITUDES_SALAS' | translate}}
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> <span translate="SOLICITUDES_SALAS"></span>
                     <span ng-hide="solicitudesSala.length < 1" class="badge badge-info">{{solicitudesSala.length}}</span>
                 </a>
             </li>
-            <li class="nav-header">{{'AJUSTES' | translate}}</li>
+            <li class="nav-header" translate="AJUSTES"></li>
             <li>
                 <a href="#">
-                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> {{'AJUSTES_CUENTA' | translate}}
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> <span translate="AJUSTES_CUENTA"></span>
                 </a>
             </li>
             <li class="nav-header">
                 <a ng-controller="logoutController" ng-click="logout()" href="index">
-                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {{'CERRAR_SESION' | translate}}
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <span translate="CERRAR_SESION"></span>
                 </a>
             </li>
         </ul>
@@ -87,7 +87,7 @@
 
     <!-- Listado contactos -->
     <div id="contenedor-listado-contactos" ng-controller="contactosController">
-        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left">{{ 'CONTACTOS' | translate }}:
+        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left">  <span translate="CONTACTOS"/>
             </label><input style="float:left; margin-bottom: 5px;" placeholder="{{'FILTRAR_CONTACTOS' | translate}}"/></div>
         <div id="contenedor2-listado-contactos">
             <div id="listado-contactos">

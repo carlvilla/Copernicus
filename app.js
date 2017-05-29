@@ -31,6 +31,8 @@ app.use(favicon(path.join(__dirname, 'public','favicon.ico')));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist/'));
 app.use('/gridstack', express.static(__dirname + '/bower_components/gridstack/dist/'));
+app.use('/angular-translate', express.static(__dirname + '/bower_components/angular-translate/'));
+app.use('/translate-storage', express.static(__dirname + '/bower_components/angular-translate-storage-cookie/'));
 app.use('/knockout', express.static(__dirname + '/bower_components/knockout/dist/'));
 app.use('/lodash', express.static(__dirname + '/bower_components/lodash/dist/'));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
@@ -43,10 +45,6 @@ app.use('/angucomplete', express.static(__dirname + '/bower_components/angucompl
 app.use('/reveal.js', express.static(__dirname + '/bower_components/reveal.js/'));
 app.use('/ng-file-upload', express.static(__dirname + '/bower_components/ng-file-upload/'));
 app.use('/growl', express.static(__dirname + '/bower_components/angular-growl-v2/build'));
-app.use('/angular-translate', express.static(__dirname + '/bower_components/angular-translate/'));
-app.use('/translate-storage', express.static(__dirname + '/bower_components/angular-translate-storage-cookie/'));
-
-
 
 app.use('/api',routesApi);
 app.use('/', routesServer);
