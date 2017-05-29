@@ -84,7 +84,12 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PERMISOS_USUARIO_CAMBIADOS": 'Los permisos del usuario fueron modificados',
         "SALA_ELIMINADA": 'Sala eliminada',
         "INVITACION_ENVIADA": 'Invitación para unirse a la sala enviada',
-        "INVITACION_ELIMINADA": 'La invitación fue eliminada'
+        "INVITACION_ELIMINADA": 'La invitación fue eliminada',
+        "OPERACION_NO_AUTORIZADA": 'La operación no ha sido autorizada',
+        "INVITACIONES_ENVIADAS": 'Invitaciones enviadas',
+        "INVITACION_NO_ACEPTADA": 'Todavía no ha aceptado la invitación',
+        "CANCELAR_INVITACION": 'Cancelar invitación',
+        "ESTADO": 'Estado'
     });
 
     $translateProvider.translations('en', {
@@ -168,7 +173,12 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PERMISOS_USUARIO_CAMBIADOS": "User permissions were changed",
         "SALA_ELIMINADA": 'Room deleted',
         "INVITACION_ENVIADA": 'Invitation to join the room sent',
-        "INVITACION_ELIMINADA": 'The invitation was deleted'
+        "INVITACION_ELIMINADA": 'The invitation was deleted',
+        "OPERACION_NO_AUTORIZADA": 'Operation not authorised',
+        "INVITACIONES_ENVIADAS": 'Invitations sent',
+        "INVITACION_NO_ACEPTADA": 'Invitation not accepted yet',
+        "CANCELAR_INVITACION": 'Cancel invitation',
+        "ESTADO": 'State'
     })
 
 

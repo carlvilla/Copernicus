@@ -5,7 +5,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
         var idSalaSeleccionada;
 
         function error(res) {
-            //console.log("Error al obtener las salas en las que el usuario es administrador o moderador");
+            mostrarMensajeError($translate.instant('OPERACION_NO_AUTORIZADA'));
         }
 
         $http({
@@ -54,12 +54,17 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
                     data: {idSala: idSala}
                 }).then(function (res) {
                     $scope.candidatos = res.data;
+                    console.log($scope.candidatos);
                 }, error);
             }, error)
         };
 
         var mostrarMensaje = function (res) {
             growl.success(res, {ttl: 4000});
+        }
+
+        var mostrarMensajeError = function (res) {
+            growl.error(res, {ttl: 4000});
         }
 
 
@@ -90,7 +95,12 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
                     nombre: $scope.salaSeleccionada.nombre,
                     descripcion: $scope.salaSeleccionada.descripcion
                 }
-            }).then(mostrarMensaje($translate.instant('DATOS_SALA_ACTUALIZADOS')), error);
+            }).then(
+                function () {
+                    mostrarMensaje($translate.instant('DATOS_SALA_ACTUALIZADOS'))
+                }, error
+            )
+            ;
         }
 
         $scope.eliminarSala = function () {
@@ -130,20 +140,20 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
         }
 
 
-    $scope.cambiarPermisosCandidato = function (participante) {
-        $http({
-            method: "POST",
-            url: "api/cambiarPermisosCandidato",
-            data: {
-                idSala: idSalaSeleccionada,
-                username: participante.username,
-                permisos: participante.permisos,
-            }
-        }).then(function (res) {
-            mostrarMensaje($translate.instant("PERMISOS_USUARIO_CAMBIADOS"));
-        }, error)
+        $scope.cambiarPermisosCandidato = function (candidato) {
+            $http({
+                method: "POST",
+                url: "api/cambiarPermisosCandidato",
+                data: {
+                    idSala: idSalaSeleccionada,
+                    username: candidato.user.username,
+                    permisos: candidato.rel.properties.permisos,
+                }
+            }).then(function (res) {
+                mostrarMensaje($translate.instant("PERMISOS_USUARIO_CAMBIADOS"));
+            }, error)
 
-    }
+        }
 
 
         var added = function (usuario) {
@@ -173,7 +183,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
 
         $scope.addCandidato = function () {
             if ($scope.usuarioSeleccionado != undefined) {
-                var usuario = {user: $scope.usuarioSeleccionado.originalObject, rel:{properties:'Miembro'}};
+                var usuario = {user: $scope.usuarioSeleccionado.originalObject, rel: {properties: {permisos: 'Miembro'}}};
 
                 //Si el usuario no se incluyó todavía
                 if ($scope.contactosAdded.indexOf(usuario) == -1 && !added(usuario)) {
@@ -201,7 +211,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
 
         $scope.cancelarInvitacion = function (usuario) {
 
-            console.log("Cancelar invitación: "+usuario.username);
+            console.log("Cancelar invitación: " + usuario.username);
 
             $http({
                 method: "POST",
@@ -210,7 +220,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
                     idSala: idSalaSeleccionada,
                     username: usuario.username
                 }
-            }).then(function(){
+            }).then(function () {
                 $scope.candidatos.forEach(function (candidato) {
                     if (candidato.user.username == usuario.username) {
                         $scope.candidatos.splice($scope.candidatos.indexOf(candidato), 1);

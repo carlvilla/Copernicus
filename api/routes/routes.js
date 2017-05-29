@@ -3,6 +3,7 @@ var usuarioController = require('../controllers/usuarioController');
 var salaController = require('../controllers/salaController');
 var contactoController = require('../controllers/contactoController');
 
+var middleware = require('./middleware');
 var router = express.Router();
 
 //llamadas rest para gestionar usuarios
@@ -24,11 +25,11 @@ router.post('/createSala', salaController.createSala);
 router.post('/aceptarSolicitudSala', salaController.aceptarSolicitud);
 router.post('/ignorarSolicitudSala', salaController.ignorarSolicitud);
 router.post('/participantesSala', salaController.participantesSala);
-router.post('/actualizarSala', salaController.actualizarDatos);
+router.post('/actualizarSala', middleware.checkAdminOrModerador  ,salaController.actualizarDatos);
 router.post('/eliminarUsuarioSala', salaController.eliminarUsuario);
-router.post('/eliminarSala', salaController.eliminarSala);
-router.post('/cambiarPermisos', salaController.cambiarPermisos);
-router.post('/cambiarPermisosCandidato', salaController.cambiarPermisosCandidato);
+router.post('/eliminarSala',  middleware.checkAdmin  ,salaController.eliminarSala);
+router.post('/cambiarPermisos', middleware.checkAdmin, salaController.cambiarPermisos);
+router.post('/cambiarPermisosCandidato', middleware.checkAdminOrModerador ,salaController.cambiarPermisosCandidato);
 router.post('/enviarInvitacion', salaController.invitacion);
 router.post('/candidatos', salaController.candidatos);
 

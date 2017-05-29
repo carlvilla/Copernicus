@@ -393,7 +393,7 @@ module.exports.cambiarPermisosCandidato = function (req, res) {
     var permisos = req.body.permisos;
 
     var query = "MATCH(u:Usuario{username:'" + username + "'})-[r]->(s:Sala{idSala:" + idSala + "}) " +
-        "CREATE (u)-[r2:Candidato{permisos:" + permisos + "}]->(s) DELETE r";
+        "CREATE (u)-[r2:Candidato{permisos:'" + permisos + "'}]->(s) DELETE r";
 
     db.query(query, function (err, result) {
         if (err) {
