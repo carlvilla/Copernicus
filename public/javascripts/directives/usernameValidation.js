@@ -17,6 +17,7 @@ angular.module("webApp").directive("usernameValidation", function($http, $q){
                             scope.messages.showError = false;
                             model.$setValidity('usernameAvailable', true);
                             model.$setValidity('usernameNoSpaces', true);
+                            defer.resolve();
                         }else{
                             scope.messages.showError = true;
                             model.$setValidity('usernameAvailable', true);
@@ -34,6 +35,7 @@ angular.module("webApp").directive("usernameValidation", function($http, $q){
                     model.$setValidity('usernameAvailable', false);
                     defer.reject("Ha ocurrido un error");
                 }
+
 
                 return defer.promise;
             }
