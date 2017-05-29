@@ -24,7 +24,7 @@ var emailRegex = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&
 user.schema = {
     username: {type: String, required: true},
     nombre: {type: String, required: true},
-    apellidos: {type: String, required: true},
+    apellidos: {type: String},
     email: {type: String, match: emailRegex, required: true},
     hash: {type: String},
     salt: {type: String}
@@ -75,9 +75,9 @@ module.exports.login = function (req, res) {
  */
 module.exports.register = function (req, res) {
 
-    if (!req.body.username || !req.body.nombre || !req.body.apellidos || !req.body.email || !req.body.password) {
+    if (!req.body.username || !req.body.nombre || !req.body.email || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
-            "message": "Todos los campos son obligatorios"
+            "message": "Faltan campos obligatorios"
         });
         return;
     }

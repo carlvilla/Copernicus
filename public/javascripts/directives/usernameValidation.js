@@ -11,14 +11,20 @@ angular.module("webApp").directive("usernameValidation", function($http, $q){
                 $http.get("/api/validarUsername/" + username).then(success, error);
 
                 function success(res) {
+                    //El nombre de usuario no puede contener espacios
                     if (res.data.length == 0) {
-                        scope.messages.showError = false;
-                        model.$setValidity('usernameAvailable', true);
-                        defer.resolve();
+                        if(!(username.indexOf(' ') >= 0)) {
+                            scope.messages.showError = false;
+                            model.$setValidity('usernameAvailable', true);
+                            model.$setValidity('usernameNoSpaces', true);
+                        }else{
+                            scope.messages.showError = true;
+                            model.$setValidity('usernameAvailable', true);
+                            model.$setValidity('usernameNoSpaces', false);
+                        }
                     } else {
                         scope.messages.showError = true;
                         model.$setValidity('usernameAvailable', false);
-                        defer.reject("Este usuario ya está en uso");
                     }
                 }
 

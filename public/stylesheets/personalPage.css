@@ -64,6 +64,13 @@ listado-salas {
     text-align: center;
 }
 
+.foto-perfil {
+    width: 50px;
+    height: 50px;
+    margin-right: 2%;
+    border-radius: 50%;
+}
+
 /* Dialogs */
 
 /* Crear sala */
@@ -92,90 +99,89 @@ listado-salas {
     height: 150px;
 }
 
-#username-solicitud-contacto_value{
-    width: 100%;
+.mensaje-solicitud {
+    resize: none;
 }
 
-.mensaje-solicitud{
-    resize:none;
-}
-
-.solicitud-contacto{
+.solicitud-contacto {
     width: 100%;
-    overflow:auto;
+    overflow: auto;
     padding: 10px;
     margin-bottom: 10px;
     border: solid;
     border-width: 2px;
 }
 
-#datos-contacto-solicitud, #div-mensaje-solicitud, #botones-solicitud{
+#datos-contacto-solicitud, #div-mensaje-solicitud, #botones-solicitud {
     float: left;
     display: block;
 }
 
-#datos-contacto-solicitud{
+#datos-contacto-solicitud {
     width: 35%;
 }
 
-#div-mensaje-solicitud{
+#div-mensaje-solicitud {
     width: 40%;
     height: 100%;
     margin-left: 10px;
 }
 
-#mensaje-solicitud{
+#mensaje-solicitud {
     width: 100%;
 }
 
-
-#botones-solicitud{
+#botones-solicitud {
     width: 20%;
     text-align: center;
     margin-left: 10px;
 }
 
-#boton-aceptar-solicitud{
+#boton-aceptar-solicitud {
     margin-bottom: 5px;
     width: 70%;
 }
 
-#boton-ignorar-solicitud{
+#boton-ignorar-solicitud {
     width: 70%;
 }
 
-#username-solicitud{
+#username-solicitud {
     text-align: center;
     display: block;
 }
 
-#nombre-apellidos-solicitud{
+#nombre-apellidos-solicitud {
     text-align: center;
     display: block;
+}
+
+.angucomplete-row {
+    height: 50px;
 }
 
 /*Solicitudes sala*/
 
-.solicitud-sala{
+.solicitud-sala {
     width: 100%;
-    overflow:auto;
+    overflow: auto;
     padding: 10px;
     margin-bottom: 10px;
     border: solid;
     border-width: 2px;
 }
 
-.descripcion-sala{
-    resize:none;
+.descripcion-sala {
+    resize: none;
 }
 
 /* Bloquear contacto */
-#username-bloquear-contacto > .angucomplete-holder{
+#username-bloquear-contacto > .angucomplete-holder {
     width: 70%;
     float: left;
     margin-right: 2%;
 }
 
-#btn-bloquear{
+#btn-bloquear {
     width: 25%;
 }

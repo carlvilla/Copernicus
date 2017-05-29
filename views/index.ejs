@@ -90,7 +90,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" ng-model='usuario.apellidos' id="apellidos" required
+                                        <input type="text" ng-model='usuario.apellidos' id="apellidos"
                                                minlength="3"
                                                maxlength="35" tabindex="1" class="form-control"
                                                placeholder="{{'APELLIDOS' | translate}}" value="">
@@ -98,14 +98,15 @@
 
                                     <div class="form-group">
                                         <input type="text" username-validation required ng-model='usuario.username'
-                                               id="username"
+                                               id="username" ng-keypress="comprobarCaracter($event)"
                                                minlength="3" maxlength="15" tabindex="1"
                                                ng-class="{error:messages.showError}"
                                                class="form-control" placeholder="{{'USERNAME' | translate}} *">
 
                                         <div ng-if="registerForm.$pending.usernameAvailable" translate="COMPROBAR_USERNAME"></div>
-                                        <div ng-if="registerForm.$error.usernameAvailable" translate="USERNAME_NOT_AVAILABLE">
-                                        </div>
+                                        <div ng-if="registerForm.$error.usernameNoSpaces" translate="USERNAME_NO_ESPACIOS"></div>
+                                        <div ng-if="registerForm.$error.usernameAvailable" translate="USERNAME_NOT_AVAILABLE"></div>
+
 
                                     </div>
 
