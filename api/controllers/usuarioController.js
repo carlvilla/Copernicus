@@ -3,6 +3,7 @@ require('../utils/passport');
 
 var utils = require('../utils/utils');
 var jwt = require('jwt-simple');
+var cloudinary = require('cloudinary');
 
 var model = require('seraph-model');
 var confDB = require('../config/db')
@@ -10,6 +11,12 @@ var db = require('seraph')({
     server: confDB.db.server,
     user: confDB.db.user,
     pass: confDB.db.pass
+});
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET
 });
 
 var user = model(db, 'Usuario');
@@ -80,21 +87,38 @@ module.exports.register = function (req, res) {
     var apellidos = req.body.apellidos;
     var email = req.body.email;
     var credenciales = utils.setPassword(req.body.password);
+    var fotoPerfil = req.body.fotoPerfil;
+    var fotoPorDefecto = req.body.fotoPorDefecto;
 
-    user.save({
-        username: username, nombre: nombre, apellidos: apellidos, email: email, hash: credenciales.hash,
-        salt: credenciales.salt
-    }, function (err, node) {
-        var token;
-        if (err) {
-            utils.sendJSONresponse(res, 500, err);
-        } else {
-            token = utils.generateJwt(username, nombre);
-            utils.sendJSONresponse(res, 200, {
-                "token": token,
-                "username": username
-            });
-        }
+
+    cloudinary.uploader.upload(fotoPerfil, function (result) {
+
+        if(fotoPorDefecto)
+            fotoPerfil = 'http://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
+        else
+            fotoPerfil = result.url;
+
+
+        user.save({
+            username: username,
+            nombre: nombre,
+            apellidos: apellidos,
+            email: email,
+            foto: fotoPerfil,
+            hash: credenciales.hash,
+            salt: credenciales.salt
+        }, function (err, node) {
+            var token;
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                token = utils.generateJwt(username, nombre);
+                utils.sendJSONresponse(res, 200, {
+                    "token": token,
+                    "username": username
+                });
+            }
+        });
     });
 };
 
@@ -209,8 +233,8 @@ module.exports.bloquear = function (req, res) {
                     utils.sendJSONresponse(res, 500, err);
                 } else {
 
-                    var queryFindAdmin = "MATCH(u:Usuario{username:'"+username+"'})," +
-                        "(uB:Usuario{username:'"+usernameBloqueado+"'}),(s:Sala) where (u)-[:Admin]->(s) " +
+                    var queryFindAdmin = "MATCH(u:Usuario{username:'" + username + "'})," +
+                        "(uB:Usuario{username:'" + usernameBloqueado + "'}),(s:Sala) where (u)-[:Admin]->(s) " +
                         "AND (uB)-[:Miembro | Moderador]-(s) return s";
 
                     var queryRemoveMiembro = "MATCH(u:Usuario{username:'" + usernameBloqueado + "'})" +
@@ -222,8 +246,8 @@ module.exports.bloquear = function (req, res) {
                         } else {
 
                             result.forEach(function (sala) {
-                                db.query(queryRemoveMiembro, function(err, result){
-                                    console.log("Eliminando usuario de la sala "+sala.nombre);
+                                db.query(queryRemoveMiembro, function (err, result) {
+                                    console.log("Eliminando usuario de la sala " + sala.nombre);
                                 });
                             });
 
@@ -254,7 +278,7 @@ module.exports.desbloquear = function (req, res) {
     var usernameBloqueado = req.body.username;
 
     var queryEliminaBloqueo = "MATCH(u:Usuario{username:'" + username + "'})-[r:Bloqueado]->" +
-        "(uB:Usuario{username: '"+usernameBloqueado+"'}) DELETE r"
+        "(uB:Usuario{username: '" + usernameBloqueado + "'}) DELETE r"
 
     db.query(queryEliminaBloqueo, function (err, result) {
         if (err) {
@@ -262,12 +286,12 @@ module.exports.desbloquear = function (req, res) {
         } else {
 
             var queryContacto = "MATCH(u1:Usuario{username:'" + username + "'})," +
-                " (u2:Usuario{username: '"+usernameBloqueado+"'}) CREATE (u1)-[:Contacto]->(u2)"
+                " (u2:Usuario{username: '" + usernameBloqueado + "'}) CREATE (u1)-[:Contacto]->(u2)"
 
-            db.query(queryContacto, function (err, result){
-                if(err){
+            db.query(queryContacto, function (err, result) {
+                if (err) {
                     utils.sendJSONresponse(res, 500, err);
-                }else{
+                } else {
                     utils.sendJSONresponse(res, 204, '');
                 }
             })
