@@ -90,7 +90,8 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "INVITACION_NO_ACEPTADA": 'Todavía no ha aceptado la invitación',
         "CANCELAR_INVITACION": 'Cancelar invitación',
         "ESTADO": 'Estado',
-        "SELECCIONA_FOTO_PERFIL": 'Selecciona una foto de perfil'
+        "SELECCIONA_FOTO_PERFIL": 'Selecciona una foto de perfil',
+        "USERNAME_NO_ESPACIOS": 'El nombre de usuario no puede contener espacios'
     });
 
     $translateProvider.translations('en', {
@@ -180,7 +181,8 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "INVITACION_NO_ACEPTADA": 'Invitation not accepted yet',
         "CANCELAR_INVITACION": 'Cancel invitation',
         "ESTADO": 'State',
-        "SELECCIONA_FOTO_PERFIL": 'Select profile photo'
+        "SELECCIONA_FOTO_PERFIL": 'Select profile photo',
+        "USERNAME_NO_ESPACIOS": 'Username can not contain blanks'
 
     })
 

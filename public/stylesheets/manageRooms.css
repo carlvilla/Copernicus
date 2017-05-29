@@ -104,3 +104,7 @@ html, body {
 #btn-actualizar-datos-sala{
     margin-left: 3%;
 }
+
+.angucomplete-row {
+    height: 50px;
+}
