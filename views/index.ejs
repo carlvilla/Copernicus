@@ -127,6 +127,13 @@
                                                class="form-control" tabindex="1" placeholder="{{'PASS_CONF' | translate}}">
                                     </div>
 
+                                    <div>{{'SELECCIONA_FOTO_PERFIL' | translate}}:<input type="file" id="foto"></div>
+                                    <div ng-show="fotoPerfil">
+                                        <div class="cropArea">
+                                        <img-crop image="fotoPerfil" result-image="fotoRecortada"></img-crop>
+                                        </div>
+                                    </div>
+
                                     <!-- Diferentes contraseñas -->
                                     <div class="alert alert-warning" ng-show='registerForm.confirmPassword.$error.samepass' translate="DIFF_PASS">
                                     </div>

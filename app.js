@@ -15,6 +15,8 @@ var routesApi = require('./api/routes/routes');
 
 var app = express();
 
+app.use(bodyParser({limit: '50mb'}));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -44,6 +46,7 @@ app.use('/angularMaterial', express.static(__dirname + '/bower_components/angula
 app.use('/angucomplete', express.static(__dirname + '/bower_components/angucomplete/'));
 app.use('/reveal.js', express.static(__dirname + '/bower_components/reveal.js/'));
 app.use('/ng-file-upload', express.static(__dirname + '/bower_components/ng-file-upload/'));
+app.use('/ng-img-crop', express.static(__dirname + '/bower_components/ng-img-crop/compile/minified'));
 app.use('/growl', express.static(__dirname + '/bower_components/angular-growl-v2/build'));
 
 app.use('/api',routesApi);

@@ -1,5 +1,5 @@
 var webApp = angular.module('webApp', ['ngCookies', 'angular-websocket', 'angucomplete', 'ngFileUpload'
-    , 'angular-growl', 'pascalprecht.translate']);
+    , 'angular-growl', 'pascalprecht.translate', 'ngImgCrop']);
 
 webApp.config(['$translateProvider', function ($translateProvider) {
 
@@ -89,7 +89,8 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "INVITACIONES_ENVIADAS": 'Invitaciones enviadas',
         "INVITACION_NO_ACEPTADA": 'Todavía no ha aceptado la invitación',
         "CANCELAR_INVITACION": 'Cancelar invitación',
-        "ESTADO": 'Estado'
+        "ESTADO": 'Estado',
+        "SELECCIONA_FOTO_PERFIL": 'Selecciona una foto de perfil'
     });
 
     $translateProvider.translations('en', {
@@ -178,7 +179,9 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "INVITACIONES_ENVIADAS": 'Invitations sent',
         "INVITACION_NO_ACEPTADA": 'Invitation not accepted yet',
         "CANCELAR_INVITACION": 'Cancel invitation',
-        "ESTADO": 'State'
+        "ESTADO": 'State',
+        "SELECCIONA_FOTO_PERFIL": 'Select profile photo'
+
     })
 
 

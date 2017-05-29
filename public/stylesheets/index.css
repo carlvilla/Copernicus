@@ -136,3 +136,8 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 input.error.ng-invalid{
     border: 1px solid #e70016;
 }
+
+.cropArea {
+    overflow: hidden;
+    height:350px;
+}
