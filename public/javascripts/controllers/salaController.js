@@ -5,6 +5,10 @@ var webApp = angular.module('webApp');
 
 webApp.controller('salaController', function ($scope, $http, $window) {
 
+    $scope.foto;
+    $scope.fotoRecortada = '';
+    var fotoPorDefecto = true;
+
     $http({
         method: "GET",
         url: "api/salasParticipa"
@@ -31,6 +35,8 @@ webApp.controller('salaController', function ($scope, $http, $window) {
 
     //Crear sala
     $scope.crearSala = function (sala) {
+        sala.foto = $scope.fotoRecortada;
+        sala.fotoPorDefecto = fotoPorDefecto;
         $http({
             method: "POST",
             url: "api/createSala",
@@ -88,11 +94,6 @@ webApp.controller('salaController', function ($scope, $http, $window) {
 
     findContactos();
 
-
-    $scope.selectedSala = function () {
-        return JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
-    }
-
     //Fin crear sala
 
     //Solicitudes para unirse a sala
@@ -136,11 +137,23 @@ webApp.controller('salaController', function ($scope, $http, $window) {
 
     //Fin solicitudes para unirse a sala
 
+    var fotoSeleccionada = function (evt) {
+        fotoPorDefecto = false;
+        var file = evt.currentTarget.files[0];
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            $scope.$apply(function ($scope) {
+                $scope.foto = evt.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
+    };
+
+    angular.element(document.querySelector('#foto')).on('change', fotoSeleccionada);
 
     function error(res) {
         //console.log(res);
     }
-
 
 });
 

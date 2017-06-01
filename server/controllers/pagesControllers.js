@@ -1,5 +1,5 @@
 module.exports.about = function (req, res, next) {
-    res.render('about', {});
+    res.render('about');
 };
 
 module.exports.index = function (req, res, next) {
@@ -24,4 +24,8 @@ module.exports.manageRooms = function (req, res, next){
 
 module.exports.profile = function (req, res, next) {
     res.render('profile');
+}
+
+module.exports.profileSettings = function (req, res, next) {
+    res.render('profileSettings');
 }

@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('gestionarSalasController', function ($scope, $http, growl, $translate) {
+webApp.controller('gestionarSalasController', function ($scope, $http, $window, growl, $translate) {
 
         var idSalaSeleccionada;
 
@@ -24,6 +24,8 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
 
         $scope.mostrarInfoSala = function (idSala, admin) {
             idSalaSeleccionada = idSala;
+            $scope.foto = undefined;
+
             if (admin) {
                 ($scope.salasAdmin).forEach(function (sala) {
                     if (sala.idSala == idSala) {
@@ -54,13 +56,16 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
                     data: {idSala: idSala}
                 }).then(function (res) {
                     $scope.candidatos = res.data;
-                    console.log($scope.candidatos);
                 }, error);
             }, error)
         };
 
         var mostrarMensaje = function (res) {
             growl.success(res, {ttl: 4000});
+        }
+
+        var mostrarMensajeInfo = function (res) {
+            growl.info(res);
         }
 
         var mostrarMensajeError = function (res) {
@@ -87,17 +92,28 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
         }
 
         $scope.actualizarSala = function () {
+            if (fotoCambiada) {
+                mostrarMensajeInfo('Actualizando la sala...');
+            }
+
             $http({
                 method: "POST",
                 url: "api/actualizarSala",
                 data: {
                     idSala: idSalaSeleccionada,
                     nombre: $scope.salaSeleccionada.nombre,
-                    descripcion: $scope.salaSeleccionada.descripcion
+                    descripcion: $scope.salaSeleccionada.descripcion,
+                    foto: $scope.fotoRecortada,
+                    fotoCambiada: fotoCambiada
                 }
             }).then(
                 function () {
-                    mostrarMensaje($translate.instant('DATOS_SALA_ACTUALIZADOS'))
+                    mostrarMensaje($translate.instant('DATOS_SALA_ACTUALIZADOS'));
+
+                    if (fotoCambiada) {
+                        $window.location.reload();
+                    }
+
                 }, error
             )
             ;
@@ -248,5 +264,24 @@ webApp.controller('gestionarSalasController', function ($scope, $http, growl, $t
         }
 
         findContactos();
+
+        $scope.foto;
+        $scope.fotoRecortada = '';
+        var fotoCambiada = false;
+
+        var fotoSeleccionada = function (evt) {
+            fotoCambiada = true;
+            var file = evt.currentTarget.files[0];
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                $scope.$apply(function ($scope) {
+                    $scope.foto = evt.target.result;
+                });
+            };
+            reader.readAsDataURL(file);
+        };
+
+        angular.element(document.querySelector('#foto')).on('change', fotoSeleccionada);
+
     }
 );

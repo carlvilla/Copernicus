@@ -49,14 +49,14 @@ module.exports.checkSesion = function (req, res, next) {
 
     var token = req.cookies.token;
 
-    if(token) {
+    if (token) {
         try {
             var payload = jwt.decode(token, process.env.JWT_SECRET);
             if (payload.exp > moment().unix()) {
                 req.sub = payload.sub;
                 res.redirect('./personalPage');
             }
-        }catch(err){
+        } catch (err) {
             next();
         }
 

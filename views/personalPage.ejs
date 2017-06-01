@@ -22,7 +22,6 @@
     <script src='/public/javascripts/controllers/bloquearContactoController.js'></script>
     <script src='/public/javascripts/controllers/langController.js'></script>
 
-
 </head>
 <body>
 
@@ -72,7 +71,7 @@
             </li>
             <li class="nav-header" translate="AJUSTES"></li>
             <li>
-                <a href="#">
+                <a href="profileSettings">
                     <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> <span translate="AJUSTES_CUENTA"></span>
                 </a>
             </li>
@@ -108,6 +107,7 @@
             <div id="listado-salas">
                 <button ng-repeat="sala in salas" ng-click="accederSala(sala.idSala)"
                         class="list-group-item boton-listado">
+                    <img ng-src="{{sala.foto}}" class="foto-perfil">
                     {{sala.nombre}}
                 </button>
             </div>

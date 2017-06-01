@@ -91,6 +91,11 @@ listado-salas {
     margin-top: 20px;
 }
 
+.cropArea {
+    overflow: hidden;
+    height:350px;
+}
+
 /* Solicitud contacto */
 
 #mensaje-solicitud-contacto {
