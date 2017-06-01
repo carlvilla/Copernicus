@@ -284,7 +284,7 @@ function VideoChatManager(ws) {
 
     function errorMsg(msg, error) {
         if (typeof error !== 'undefined') {
-            console.error(error);
+            console.log(error);
         }
     }
 
@@ -480,9 +480,11 @@ function VideoChatManager(ws) {
         }
 
         videoLocal.pause();
-        referenciaStream.getTracks().forEach(function (track) {
-            track.stop();
-        });
+
+        if(referenciaStream)
+         referenciaStream.getTracks().forEach(function (track) {
+               track.stop();
+         });
 
     };
 
