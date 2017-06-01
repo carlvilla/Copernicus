@@ -140,4 +140,5 @@ input.error.ng-invalid{
 .cropArea {
     overflow: hidden;
     height:350px;
+    width: 150px;
 }

@@ -28,6 +28,7 @@
         <button ng-repeat="sala in salasAdmin" class="list-group-item sala"
                 ng-click="mostrarInfoSala(sala.idSala, true)">
             {{sala.nombre}}
+            <img class="foto-sala" ng-src="{{sala.foto}}">
         </button>
     </div>
     <label>{{'SALAS_MODERADOR' | translate}}:</label>
@@ -35,6 +36,7 @@
         <button ng-repeat="sala in salasModerador" class="list-group-item sala"
                 ng-click="mostrarInfoSala(sala.idSala, false)">
             {{sala.nombre}}
+            <img class="foto-sala" ng-src="{{sala.foto}}">
         </button>
     </div>
 </div>
@@ -56,6 +58,14 @@
             <div id="descripcion-sala">
                 <label id="label-descripcion">{{'DESCRIPCION' | translate}}:</label>
                 <textarea id="textarea-descripcion" ng-model="salaSeleccionada.descripcion"></textarea>
+            </div>
+
+            <div id="foto-sala">
+                <label id="label-foto">{{'FOTO_SALA' | translate}}: <input type="file" id="foto"></label>
+                <img ng-show="!foto" class="foto-info" ng-src="{{salaSeleccionada.foto}}">
+                <div ng-show="foto" class="cropArea">
+                    <img-crop image="foto" result-image="fotoRecortada"></img-crop>
+                </div>
             </div>
 
             <button id="btn-actualizar-datos-sala" class="btn btn-primary" type="button"
@@ -119,9 +129,7 @@
                     </tr>
                 </table>
 
-
                 <h5 ng-show="participantes" translate="PARTICIPANTES"></h5>
-
 
                 <table ng-show="participantes" class="table table-bordered">
                     <tr>
@@ -159,7 +167,6 @@
 
             </div>
         </div>
-
 
         <div id="operaciones-peligrosas" ng-hide="!admin">
             <legend id="leyenda-info-sala">{{'ACCIONES_PELIGROSAS' | translate}}</legend>

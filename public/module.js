@@ -91,7 +91,11 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "CANCELAR_INVITACION": 'Cancelar invitación',
         "ESTADO": 'Estado',
         "SELECCIONA_FOTO_PERFIL": 'Selecciona una foto de perfil',
-        "USERNAME_NO_ESPACIOS": 'El nombre de usuario no puede contener espacios'
+        "USERNAME_NO_ESPACIOS": 'El nombre de usuario no puede contener espacios',
+        "FOTO_SALA": 'Foto de la sala',
+        "FOTO_PERFIL": 'Foto de perfil',
+        "AJUSTES_CUENTA": 'Ajustes cuenta',
+        "ELIMINAR_CUENTA": 'Eliminar cuenta'
     });
 
     $translateProvider.translations('en', {
@@ -182,7 +186,11 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "CANCELAR_INVITACION": 'Cancel invitation',
         "ESTADO": 'State',
         "SELECCIONA_FOTO_PERFIL": 'Select profile photo',
-        "USERNAME_NO_ESPACIOS": 'Username can not contain blanks'
+        "USERNAME_NO_ESPACIOS": 'Username can not contain blanks',
+        "FOTO_SALA": 'Photo of the room',
+        "FOTO_PERFIL": 'Profile photo',
+        "AJUSTES_CUENTA": 'Account settings',
+        "ELIMINAR_CUENTA": 'Delete account'
 
     })
 

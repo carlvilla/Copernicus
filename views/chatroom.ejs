@@ -21,7 +21,7 @@
     <script src='/public/javascripts/managers/PresentacionManager.js'></script>
     <script src='/public/javascripts/managers/ChatTextoManager.js'></script>
 
-    <script src='/public/javascripts/controllers/salaController.js'></script>
+    <script src='/public/javascripts/controllers/accesoSalaController.js'></script>
     <script src='/public/javascripts/controllers/asistentesController.js'></script>
     <script src='/public/javascripts/controllers/modulosController.js'></script>
     <script src='/public/javascripts/controllers/videoChatController.js'></script>
@@ -31,10 +31,11 @@
 </head>
 <body>
 
-<nav ng-controller="salaController" class="navbar navbar-default navbar-static-top">
+<nav ng-controller="accesoSalaController" class="navbar navbar-default navbar-static-top">
     <div class="navbar-header">
         <h5 id="enlaceHome"><a href="personalPage"><span class="glyphicon glyphicon-menu-left"></span>Home</a></h5>
-        <h4 id="nombreSala">{{selectedSala().nombre}}</h4>
+        <img ng-src="{{selectedSala.foto}}" class="foto-sala"/>
+        <span id="nombreSala">{{selectedSala.nombre}}</span>
     </div>
 </nav>
 

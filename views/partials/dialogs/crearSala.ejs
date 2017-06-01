@@ -84,7 +84,18 @@
                             </div>
                         </div>
 
+
                 </div>
+
+                <h4>{{'FOTO_SALA' | translate}}</h4>
+                <input type="file" id="foto"/>
+
+                <div ng-show="foto">
+                    <div class="cropArea">
+                        <img-crop image="foto" result-image="fotoRecortada"></img-crop>
+                    </div>
+                </div>
+
             </div>
 
             <div class="modal-footer">

@@ -3,6 +3,7 @@
  */
 var utils = require('../utils/utils');
 var jwt = require('jwt-simple');
+var cloudinary = require('cloudinary');
 
 var model = require('seraph-model');
 var confDB = require('../config/db')
@@ -29,73 +30,81 @@ sala.schema = {
 module.exports.createSala = function (req, res) {
 
     var username = utils.getUsername(req);
+    var sala = req.body.sala;
+    var descripcion = sala.descripcion;
+    var fotoPorDefecto = sala.fotoPorDefecto;
 
-    var sala = req.body.sala.nombre;
-
-    var descripcion
-
-    if (!req.body.sala.descripcion == undefined)
-        descripcion = req.body.sala.descripcion;
-    else {
+    if (descripcion == undefined)
         descripcion = "";
-    }
 
-    var usuarios = req.body.usuarios;
+    var foto;
 
-    var idSala;
+    cloudinary.uploader.upload(sala.foto, function (result) {
 
-    console.log("Creando sala: " + sala);
-
-    //Obtenemos el último idSala utilizado. Este id es necesario para identificar de forma unequivoca una sala
-    var queryLastSalaID = "match(s:Sala) with s.idSala as id return id order by id desc limit 1";
-    db.query(queryLastSalaID, function (err, result) {
-        //Si no existe ninguna sala, se crea la primera con el id 1
-        if (result[0] != null)
-            idSala = parseInt(result[0].id) + 1;
+        if (fotoPorDefecto)
+            foto = 'http://res.cloudinary.com/videoconference/image/upload/v1496244474/sala.jpg';
         else
-            idSala = 1;
+            foto = result.url;
 
-        //Creamos la sala
-        var querySala = "CREATE(s:Sala{idSala:" + idSala + ", nombre:'" + sala + "', descripcion:'" + descripcion + "'})"
-        db.query(querySala, function (err, result) {
-            if (err) {
-                //Error al crear la sala
-                utils.sendJSONresponse(res, 500, err);
-            }
-            else {
+        var usuarios = req.body.usuarios;
 
-                //Relacionamos los usuarios elegidos con la sala con una la relación pasada en el atributo permiso del
-                //usuario
-                if (usuarios.length > 0) {
-                    var queryUsuario;
-                    usuarios.forEach(function (usuario) {
-                        queryUsuario = "MATCH(u:Usuario{username:'" + usuario.username + "'}),(s:Sala{idSala:" + idSala
-                            + "}) CREATE(u)-[:Candidato{permisos:'" + usuario.permisos + "'}]->(s)";
-                        db.query(queryUsuario, function (err, result) {
-                            if (err) {
-                                utils.sendJSONresponse(res, 500, err);
-                            }
-                        });
+        var idSala;
 
-                    })
+        console.log("Creando sala: " + sala);
+
+        //Obtenemos el último idSala utilizado. Este id es necesario para identificar de forma unequivoca una sala
+        var queryLastSalaID = "match(s:Sala) with s.idSala as id return id order by id desc limit 1";
+        db.query(queryLastSalaID, function (err, result) {
+            //Si no existe ninguna sala, se crea la primera con el id 1
+            if (result[0] != null)
+                idSala = parseInt(result[0].id) + 1;
+            else
+                idSala = 1;
+
+            //Creamos la sala
+            var querySala = "CREATE(s:Sala{idSala:" + idSala + ", nombre:'" + sala.nombre + "', descripcion:'"
+                + descripcion + "', foto:'" + foto + "'})";
+
+            db.query(querySala, function (err, result) {
+                if (err) {
+                    //Error al crear la sala
+                    utils.sendJSONresponse(res, 500, err);
                 }
+                else {
 
-                //Relacionamos el creador de la sala con la sala con una relación de tipo Admin
-                var queryAdmin = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
-                    + "}) CREATE(u)-[:Admin]->(s)";
+                    //Relacionamos los usuarios elegidos con la sala con una la relación pasada en el atributo permiso del
+                    //usuario
+                    if (usuarios.length > 0) {
+                        var queryUsuario;
+                        usuarios.forEach(function (usuario) {
+                            queryUsuario = "MATCH(u:Usuario{username:'" + usuario.username + "'}),(s:Sala{idSala:" + idSala
+                                + "}) CREATE(u)-[:Candidato{permisos:'" + usuario.permisos + "'}]->(s)";
+                            db.query(queryUsuario, function (err, result) {
+                                if (err) {
+                                    utils.sendJSONresponse(res, 500, err);
+                                }
+                            });
 
-                db.query(queryAdmin, function (err, result) {
-                    if (err) {
-                        utils.sendJSONresponse(res, 500, err);
-                    } else {
-                        utils.sendJSONresponse(res, 204, "");
+                        })
                     }
-                });
+
+                    //Relacionamos el creador de la sala con la sala con una relación de tipo Admin
+                    var queryAdmin = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
+                        + "}) CREATE(u)-[:Admin]->(s)";
+
+                    db.query(queryAdmin, function (err, result) {
+                        if (err) {
+                            utils.sendJSONresponse(res, 500, err);
+                        } else {
+                            utils.sendJSONresponse(res, 204, "");
+                        }
+                    });
 
 
-            }
+                }
+            });
+
         });
-
     });
 
 }
@@ -316,16 +325,32 @@ module.exports.actualizarDatos = function (req, res) {
     var idSala = req.body.idSala;
     var nombre = req.body.nombre;
     var descripcion = req.body.descripcion;
+    var fotoCambiada = req.body.fotoCambiada;
+    var foto = req.body.foto;
 
-    var query = "MATCH(s:Sala{idSala:" + idSala + "}) SET s.nombre = '" + nombre + "', s.descripcion = '" + descripcion + "'";
+    var ejecutarQuery = function (query) {
+        db.query(query, function (err, result) {
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                utils.sendJSONresponse(res, 204, "");
+            }
+        });
+    }
 
-    db.query(query, function (err, result) {
-        if (err) {
-            utils.sendJSONresponse(res, 500, err);
-        } else {
-            utils.sendJSONresponse(res, 204, "");
-        }
-    });
+    if (fotoCambiada) {
+        //Si la foto se modificó, cambiamos la url de la foto de la sala
+        cloudinary.uploader.upload(foto, function (result) {
+            var query = "MATCH(s:Sala{idSala:" + idSala + "}) SET s.nombre = '" + nombre + "', s.descripcion = '"
+                + descripcion + "', s.foto = '" + result.url + "'";
+            ejecutarQuery(query);
+        });
+    } else {
+        //Si la foto no se modificó, solo cambiamos el nombre y descripción de la sala
+        var query = "MATCH(s:Sala{idSala:" + idSala + "}) SET s.nombre = '" + nombre + "', s.descripcion = '" + descripcion + "'";
+        ejecutarQuery(query);
+    }
+
 
 }
 
