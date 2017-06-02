@@ -97,7 +97,7 @@ module.exports.register = function (req, res) {
 
     cloudinary.uploader.upload(fotoPerfil, function (result) {
 
-        if(fotoPorDefecto)
+        if (fotoPorDefecto)
             fotoPerfil = 'http://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
         else
             fotoPerfil = result.url;
@@ -305,5 +305,127 @@ module.exports.desbloquear = function (req, res) {
     });
 }
 
-module.exports.delete = function (req, res) {
+/**
+ * Modificar contraseña del usuario
+ *
+ * @param req
+ * @param res
+ */
+module.exports.modificarPass = function (req, res) {
+
+    var username = utils.getUsername(req);
+
+    passport.authenticate('local', function (err, usuario, info) {
+        var token;
+        if (err) {
+            utils.sendJSONresponse(res, 404, "pass");
+            return;
+        }
+
+        if (usuario) {
+            var credenciales = utils.setPassword(req.body.passwordNueva);
+            var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.hash = '" + credenciales.hash + "', u.salt = '" + credenciales.salt + "'";
+
+            console.log(query);
+
+            db.query(query, function (err, result) {
+                if (err) {
+                    utils.sendJSONresponse(res, 500, "pass");
+                } else {
+                    utils.sendJSONresponse(res, 204, "");
+                }
+            });
+
+        } else {
+            utils.sendJSONresponse(res, 401, "pass");
+        }
+
+    })(req, res);
+
+}
+
+/**
+ * Modificar datos del usuario
+ *
+ * @param req
+ * @param res
+ */
+module.exports.modificarDatos = function (req, res) {
+
+    var username = utils.getUsername(req);
+    var usuario = req.body.usuario;
+    var nombre = usuario.nombre;
+    var apellidos = usuario.apellidos;
+    var email = usuario.email;
+    var fotoCambiada = req.body.fotoCambiada;
+    var foto = req.body.foto;
+
+    if (!nombre) {
+        utils.sendJSONresponse(res, 500, "nombre");
+        return;
+    } else if (apellidos && apellidos.length > 35) {
+        utils.sendJSONresponse(res, 500, "apellidos");
+        return;
+    } else if (!email.match(emailRegex)) {
+        utils.sendJSONresponse(res, 500, "email");
+        return;
+    }
+
+    var ejecutarQuery = function (query) {
+        db.query(query, function (err, result) {
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                utils.sendJSONresponse(res, 204, "");
+            }
+        });
+    }
+
+    if (fotoCambiada) {
+        //Si la foto se modificó, cambiamos la url de la foto de la sala
+        cloudinary.uploader.upload(foto, function (result) {
+            var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.nombre = '" + nombre + "', u.apellidos = '"
+                + apellidos + "', u.email = '" + email + "', u.foto = '" + result.url + "'";
+            ejecutarQuery(query);
+        });
+    } else {
+        //Si la foto no se modificó, solo cambiamos el nombre y descripción de la sala
+        var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.nombre = '" + nombre + "', u.apellidos = '"
+            + apellidos + "', u.email = '" + email + "'";
+
+        console.log(query);
+        ejecutarQuery(query);
+    }
+}
+
+/**
+ * Eliminar la cuenta del usuario. Esto implica eliminar todas las salas en las que es administrador y sus relaciones,
+ * y todas las relaciones que tiene con otros usuario o salas
+ *
+ * @param req
+ * @param res
+ */
+module.exports.eliminarCuenta = function (req, res) {
+    var username = utils.getUsername(req);
+
+    //Eliminar salas Admin con relaciones
+    var queryAdmin = "MATCH (u:Usuario{username:'" + username + "'})-[r:Admin]->(s:Sala)-[rs]-(Usuario) DELETE rs, r, s";
+
+    db.query(queryAdmin, function (err, result) {
+        if (err) {
+            console.log(err);
+            utils.sendJSONresponse(res, 500, "cuenta");
+        } else {
+            var queryUsuario = "MATCH (u:Usuario{username:'" + username + "'})-[r]-() DELETE r, u";
+
+            db.query(queryUsuario, function (err, result) {
+                if (err) {
+                    utils.sendJSONresponse(res, 500, "cuenta");
+                } else {
+                    utils.sendJSONresponse(res, 204, '');
+                }
+            })
+        }
+    })
+
 };

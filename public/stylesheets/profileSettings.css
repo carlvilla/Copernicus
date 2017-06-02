@@ -17,8 +17,15 @@
 
 .seccion {
     float: left;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+#div-datos{
     width: 30%;
+}
+
+#div-foto{
+    width: 65%;
 }
 
 #label-foto {
@@ -39,4 +46,8 @@ input[type='file'] {
 .foto {
     width: 150px;
     height: 150px;
+}
+
+#div-actualizar{
+    clear: both;
 }

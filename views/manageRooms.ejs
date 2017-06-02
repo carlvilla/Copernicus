@@ -61,7 +61,8 @@
             </div>
 
             <div id="foto-sala">
-                <label id="label-foto">{{'FOTO_SALA' | translate}}: <input type="file" id="foto"></label>
+                <label id="label-foto">{{'FOTO_SALA' | translate}}:
+                    <input type="file" id="foto" accept="image/jpeg, image/x-png, image/gif" ></label>
                 <img ng-show="!foto" class="foto-info" ng-src="{{salaSeleccionada.foto}}">
                 <div ng-show="foto" class="cropArea">
                     <img-crop image="foto" result-image="fotoRecortada"></img-crop>

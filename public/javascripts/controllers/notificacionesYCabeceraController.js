@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('notificacionesController', function ($scope, $http) {
+webApp.controller('notificacionesYCabeceraController', function ($scope, $http) {
 
     $http({
         method: "GET",
@@ -12,6 +12,17 @@ webApp.controller('notificacionesController', function ($scope, $http) {
         url: "api/solicitudesSala"
     }).then(successSala, error);
 
+    $http({
+        method: "GET",
+        url: "api/profile"
+    }).then(success);
+
+    function success(res) {
+        if(res.data[0])
+            $scope.usuario = res.data[0];
+        else
+            $scope.usuario = undefined;
+    }
 
     function successSolicitudes(res) {
         $scope.solicitudes = res.data;
@@ -19,7 +30,6 @@ webApp.controller('notificacionesController', function ($scope, $http) {
 
     function successSala(res) {
         $scope.solicitudesSala = res.data;
-        console.log($scope.solicitudesSala);
     }
 
     function error(err){

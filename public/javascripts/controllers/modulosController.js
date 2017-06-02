@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('modulosController', function ($scope, $compile) {
+webApp.controller('modulosController', function ($scope, growl, $compile, $translate) {
 
     //Primero cargamos los htmls de los módulos
     //Es necesario hacer esto en primer lugar, no se puede cargar el html una vez se va a añadir ya que no se cargará
@@ -11,7 +11,6 @@ webApp.controller('modulosController', function ($scope, $compile) {
     var htmlChatTexto;
 
     var modulosMostrados = [];
-
 
     $.get("/modulos/chatVideo.ejs", function (html) {
         htmlChatVideo = html;
@@ -74,7 +73,7 @@ webApp.controller('modulosController', function ($scope, $compile) {
                     };
 
                 }else{
-                    console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
+                    mostrarMensajeInfo($translate.instant('CHAT_VIDEO_UTILIZANDO'));
                     return;
                 }
 
@@ -97,7 +96,7 @@ webApp.controller('modulosController', function ($scope, $compile) {
                     };
 
                 }else{
-                    console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
+                    mostrarMensajeInfo($translate.instant('CHAT_TEXTO_UTILIZANDO'));
                     return;
                 }
 
@@ -110,7 +109,7 @@ webApp.controller('modulosController', function ($scope, $compile) {
                 if(!contains(modulosMostrados,"presentaciones")){
                     modulosMostrados.push("presentaciones");
                 }else{
-                    console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
+                    mostrarMensajeInfo($translate.instant('PRESENTACIONES_UTILIZANDO'));
                     return;
                 }
 
@@ -123,7 +122,7 @@ webApp.controller('modulosController', function ($scope, $compile) {
                 if(!contains(modulosMostrados,"dibujo")){
                     modulosMostrados.push("dibujo");
                 }else{
-                    console.log("No se ha podido añadir el módulo "+modulo+", ya que existe uno en pantalla");
+                    mostrarMensajeInfo($translate.instant('DIBUJOS_UTILIZANDO'));
                     return;
                 }
 
@@ -151,13 +150,17 @@ webApp.controller('modulosController', function ($scope, $compile) {
         return false;
     }
 
+    var mostrarMensajeInfo = function (res) {
+        growl.info(res, {ttl: 4000});
+    }
+
 
     $scope.eliminarModulo = function (modulo){
-        console.log("Borrando módulo: "+modulo);
-        console.log(modulosMostrados);
         modulosMostrados.splice(modulo, 1);
-        console.log(modulosMostrados);
         grid.removeWidget($('#'+modulo));
     };
+
+
+
 
 });

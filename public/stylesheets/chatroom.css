@@ -337,13 +337,17 @@ html, body {
     height: 100%;
 }
 
-.foto-sala{
+.foto-sala {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin: 2px;
     margin-right: 15px;
     float: right;
+}
+
+.servicio {
+    cursor: pointer;
 }
 
 /* Cambios bootstrap */

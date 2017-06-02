@@ -49,7 +49,7 @@ webApp.controller('salaController', function ($scope, $http, $window) {
         }).then(successCrear, error);
     }
 
-    var successCrear = function(res){
+    var successCrear = function (res) {
         $window.location.href = '/personalPage';
     }
 
@@ -106,7 +106,7 @@ webApp.controller('salaController', function ($scope, $http, $window) {
         $scope.solicitudesSala = res.data;
     }
 
-    $scope.aceptarSolicitud = function(idSala){
+    $scope.aceptarSolicitud = function (idSala) {
 
         $http({
             method: "POST",
@@ -114,12 +114,12 @@ webApp.controller('salaController', function ($scope, $http, $window) {
             data: {'idSala': idSala}
         });
 
-        $("#solicitud-de-"+idSala).remove();
+        $("#solicitud-de-" + idSala).remove();
 
     }
 
 
-    $scope.ignorarSolicitud = function(idSala){
+    $scope.ignorarSolicitud = function (idSala) {
 
         $http({
             method: "POST",
@@ -127,11 +127,11 @@ webApp.controller('salaController', function ($scope, $http, $window) {
             data: {'idSala': idSala}
         });
 
-        $("#solicitud-de-"+idSala).remove();
+        $("#solicitud-de-" + idSala).remove();
 
     }
 
-    $scope.cerrarPantallaSolicitudes = function(){
+    $scope.cerrarPantallaSolicitudes = function () {
         $window.location.reload();
     }
 

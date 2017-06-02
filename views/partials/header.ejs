@@ -8,6 +8,14 @@
                 <li class="active"><a href="index" translate="PAGINA_PRINCIPAL"></a></li>
             </ul>
 
+            <ul ng-controller="notificacionesYCabeceraController" ng-hide="!usuario" class="nav navbar-nav navbar-right" style="margin-top: 0.7%; margin-right: 4%">
+                <li class="active">
+                    <button style="background: none; border: none">{{usuario.username}}<img height="30" width="30" style="margin-left: 5px; border-radius: 50%; border:solid; border-width: 0.5px" ng-src="{{usuario.foto}}">
+                    </button>
+                </li>
+
+            </ul>
+
             <ul class="nav navbar-nav navbar-right" style="margin-top: 1%; margin-right: 4%">
                 <li class="active" ng-controller="langController">
                     <button ng-click="cambiarLenguaje('es')" style="background: none; border: none"><img height="20" width="30" src="/public/fotos/spain.png">
@@ -20,6 +28,8 @@
                 </li>
 
             </ul>
+
+
 
         </div>
     </div>
