@@ -46,38 +46,41 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div ng-controller='loginController'>
-                            <form ng-submit="login()" id="login-form" style="display: block;">
-                                <div class="form-group">
-                                    <input type="text" ng-model="credenciales.username" name="username-login" required id="username-login" tabindex="1"
-                                           class="form-control" placeholder="{{'USERNAME' | translate}}">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" ng-model="credenciales.password" name="password-login" required id="password-login" tabindex="2"
-                                           class="form-control" placeholder="{{'PASS' | translate}}">
-                                </div>
-
-                                <!-- Error al iniciar sesión -->
-                                <div class="alert alert-danger" ng-if="loginError" translate="LOGIN_ERROR">
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4"
-                                                   class="btn btn-primary btn-block" value="{{'INICIAR_SESION' | translate}}">
-                                        </div>
+                                <form ng-submit="login()" id="login-form" style="display: block;">
+                                    <div class="form-group">
+                                        <input type="text" ng-model="credenciales.username" name="username-login"
+                                               required id="username-login" tabindex="1"
+                                               class="form-control" placeholder="{{'USERNAME' | translate}}">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="text-center">
-                                                <a tabindex="5" class="forgot-password" translate="OLVIDO"></a>
+                                    <div class="form-group">
+                                        <input type="password" ng-model="credenciales.password" name="password-login"
+                                               required id="password-login" tabindex="2"
+                                               class="form-control" placeholder="{{'PASS' | translate}}">
+                                    </div>
+
+                                    <!-- Error al iniciar sesión -->
+                                    <div class="alert alert-danger" ng-if="loginError" translate="LOGIN_ERROR">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4"
+                                                       class="btn btn-primary btn-block"
+                                                       value="{{'INICIAR_SESION' | translate}}">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="text-center">
+                                                    <a tabindex="5" class="forgot-password" translate="OLVIDO"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <div ng-controller='registerController'>
                                 <form id="register-form" name="registerForm" ng-submit="registrar(usuario)"
@@ -91,7 +94,6 @@
 
                                     <div class="form-group">
                                         <input type="text" ng-model='usuario.apellidos' id="apellidos"
-                                               minlength="3"
                                                maxlength="35" tabindex="1" class="form-control"
                                                placeholder="{{'APELLIDOS' | translate}}" value="">
                                     </div>
@@ -103,9 +105,12 @@
                                                ng-class="{error:messages.showError}"
                                                class="form-control" placeholder="{{'USERNAME' | translate}} *">
 
-                                        <div ng-if="registerForm.$pending.usernameAvailable" translate="COMPROBAR_USERNAME"></div>
-                                        <div ng-if="registerForm.$error.usernameNoSpaces" translate="USERNAME_NO_ESPACIOS"></div>
-                                        <div ng-if="registerForm.$error.usernameAvailable" translate="USERNAME_NOT_AVAILABLE"></div>
+                                        <div ng-if="registerForm.$pending.usernameAvailable"
+                                             translate="COMPROBAR_USERNAME"></div>
+                                        <div ng-if="registerForm.$error.usernameNoSpaces"
+                                             translate="USERNAME_NO_ESPACIOS"></div>
+                                        <div ng-if="registerForm.$error.usernameAvailable"
+                                             translate="USERNAME_NOT_AVAILABLE"></div>
 
                                     </div>
 
@@ -115,33 +120,41 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" id="password" name="password"  ng-model='usuario.password'
+                                        <input type="password" id="password" name="password" ng-model='usuario.password'
                                                minlength="8" required
                                                class="form-control" tabindex="1"
                                                placeholder="{{'PASS' | translate}} *">
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" id="confirmPassword" name="confirmPassword" ng-model="confirmPassword"
+                                        <input type="password" id="confirmPassword" name="confirmPassword"
+                                               ng-model="confirmPassword"
                                                password-validation="password" required
-                                               class="form-control" tabindex="1" placeholder="{{'PASS_CONF' | translate}} *">
+                                               class="form-control" tabindex="1"
+                                               placeholder="{{'PASS_CONF' | translate}} *">
                                     </div>
 
-                                    <div>{{'SELECCIONA_FOTO_PERFIL' | translate}}:<input type="file" id="foto"></div>
+                                    <div>{{'SELECCIONA_FOTO_PERFIL' | translate}}:
+                                        <input type="file" id="foto" accept="image/jpeg, image/x-png, image/gif"></div>
                                     <div ng-show="fotoPerfil">
                                         <div class="cropArea">
-                                        <img-crop image="fotoPerfil" result-image="fotoRecortada"></img-crop>
+                                            <img-crop image="fotoPerfil" result-image="fotoRecortada"></img-crop>
                                         </div>
                                     </div>
 
                                     <!-- Diferentes contraseñas -->
-                                    <div class="alert alert-warning" ng-show='registerForm.confirmPassword.$error.samepass' translate="DIFF_PASS">
+                                    <div class="alert alert-warning"
+                                         ng-show='registerForm.confirmPassword.$error.samepass'
+                                         translate="DIFF_PASS">
                                     </div>
 
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <button class="form-control btn-success" type="submit" id="register-submit" translate="REGISTRARSE"></button>
+                                                <button ng-disabled="registerForm.confirmPassword.$error.samepass"
+                                                        class="form-control btn-success" type="submit"
+                                                        id="register-submit"
+                                                        translate="REGISTRARSE"></button>
                                             </div>
                                         </div>
                                     </div>

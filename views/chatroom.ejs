@@ -31,6 +31,8 @@
 </head>
 <body>
 
+<div growl></div>
+
 <nav ng-controller="accesoSalaController" class="navbar navbar-default navbar-static-top">
     <div class="navbar-header">
         <h5 id="enlaceHome"><a href="personalPage"><span class="glyphicon glyphicon-menu-left"></span>Home</a></h5>
@@ -43,11 +45,11 @@
 <div ng-controller='modulosController' id="myServiciosnav" class="sideServiciosnav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myServiciosnav');">&times;</a>
     <h2 id="serviciosLabel">{{'SERVICIOS' | translate}}</h2>
-    <a ng-click="addModule('chatVideo')">{{'CHAT_VIDEO' | translate}}</a>
-    <a ng-click="addModule('chatTexto')">{{'CHAT_TEXTO' | translate}}</a>
-    <a ng-click="addModule('presentaciones')">{{'PRESENTACIONES' | translate}}</a>
-    <a>{{'VIDEO_AUDIO_COMPARTIDO' | translate}}</a>
-    <a ng-click="addModule('dibujo')">{{'DIBUJOS' | translate}}</a>
+    <a class="servicio" ng-click="addModule('chatVideo')">{{'CHAT_VIDEO' | translate}}</a>
+    <a class="servicio" ng-click="addModule('chatTexto')">{{'CHAT_TEXTO' | translate}}</a>
+    <a class="servicio" ng-click="addModule('presentaciones')">{{'PRESENTACIONES' | translate}}</a>
+    <a class="servicio" >{{'VIDEO_AUDIO_COMPARTIDO' | translate}}</a>
+    <a class="servicio" ng-click="addModule('dibujo')">{{'DIBUJOS' | translate}}</a>
 </div>
 
 <div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav">

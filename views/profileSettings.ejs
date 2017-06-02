@@ -12,9 +12,13 @@
     <!-- Hojas de estilos y scripts -->
     <link rel="stylesheet" href="/public/stylesheets/profileSettings.css">
 
-    <!-- Controladores-->
+    <!-- Controladores -->
     <script src='/public/javascripts/controllers/langController.js'></script>
     <script src='/public/javascripts/controllers/ajustesCuentaController.js'></script>
+
+    <!-- Directivas -->
+    <script src='/public/javascripts/directives/passwordValidation.js'></script>
+    <script src='/public/javascripts/directives/confirmAction.js'></script>
 
 </head>
 <body ng-controller="ajustesCuentaController">
@@ -24,69 +28,96 @@
 
 <div class="contenedor-inputs">
 
-    <div class="seccion">
-        <h4 class="Subhead-heading" style="color: #3A539B">Modificar datos de la cuenta</h4>
-        <div class="div-input">
-            <label>Nombre:</label>
-            <input ng-value="usuario.nombre">
-        </div>
+    <div class="form-group">
+        <form ng-submit="actualizar()">
+            <div class="seccion" id="div-datos">
+                <h4 class="Subhead-heading" style="color: #3A539B" translate="MODIFICAR_DATOS_CUENTA"></h4>
+                <div class="div-input">
+                    <label>{{'NOMBRE' | translate}}:</label>
+                    <input id="nombre" tabindex="1" minlength="3" maxlength="15" ng-model="usuario.nombre">
+                </div>
 
-        <div class="div-input">
-            <label>Apellidos:</label>
-            <input ng-value="usuario.apellidos">
-        </div>
+                <div class="div-input">
+                    <label>{{'APELLIDOS' | translate}}:</label>
+                    <input maxlength="35" ng-model="usuario.apellidos">
+                </div>
 
-        <div class="div-input">
-            <label>Correo:</label>
-            <input ng-value="usuario.email">
-        </div>
-    </div>
-
-    <div class="seccion">
-        <h4 style="color: #3A539B">Modificar foto de perfil</h4>
-        <div class="div-input">
-            <label id="label-foto">{{'FOTO_PERFIL' | translate}}: <input type="file" id="foto-input"/></label>
-            <img ng-show="!foto" class="foto" ng-src="{{usuario.foto}}">
-            <div ng-show="foto" class="cropArea">
-                <img-crop image="foto" result-image="fotoRecortada"></img-crop>
+                <div class="div-input">
+                    <label>{{'EMAIL' | translate}}:</label>
+                    <input ng-model="usuario.email">
+                </div>
             </div>
-        </div>
+
+            <div class="seccion" id="div-foto">
+                <h4 style="color: #3A539B" translate="CAMBIAR_FOTO"></h4>
+                <div class="div-input">
+                    <label id="label-foto">{{'FOTO_PERFIL' | translate}}:
+                        <input type="file" id="foto-input" accept="image/jpeg, image/x-png, image/gif"></label>
+                    <img ng-show="!foto" class="foto" ng-src="{{usuario.foto}}">
+                    <div ng-show="foto" class="cropArea">
+                        <img-crop image="foto" result-image="fotoRecortada"></img-crop>
+                    </div>
+                </div>
+            </div>
+
+            <div id="div-actualizar">
+                <button class="btn btn-info" type="submit"
+                >{{'ACTUALIZAR_DATOS' | translate}}
+                </button>
+            </div>
+        </form>
     </div>
+
+
+</div>
+
+<div class="contenedor-inputs">
 
     <div class="seccion">
-        <h4 style="color: #3A539B">Modificar contraseña</h4>
+        <h4 style="color: #3A539B" translate="CAMBIAR_PASS"></h4>
+        <form id="pass-form" name="passForm" ng-submit="actualizarPass()">
+            <div class="div-input">
+                <label>{{'PASS_ACTUAL' | translate}}:</label>
+                <input minlength="8" required type="password" ng-model="pass.old" placeholder="Contraseña actual">
+            </div>
 
-        <div class="div-input">
-            <label>Contraseña actual:</label>
-            <input placeholder="Contraseña actual">
-        </div>
+            <div class="div-input">
+                <label>{{'PASS_NUEVA' | translate}}:</label>
+                <input required minlength="8" required type="password" name="password" id="password" ng-model="pass.new"
+                       placeholder="Contraseña">
+            </div>
 
-        <div class="div-input">
-            <label>Nueva Contraseña:</label>
-            <input placeholder="Contraseña">
-        </div>
+            <div class="div-input">
+                <label>{{'PASS_NUEVA_REPETIR' | translate}}:</label>
+                <input required type="password" name="confirmPassword" password-validation="password"
+                       ng-model="pass.newConf"
+                       placeholder="Repetir contraseña">
+            </div>
 
-        <div class="div-input">
-            <label>Repetir Contraseña:</label>
-            <input placeholder="Repetir contraseña">
-        </div>
+            <div class="alert alert-warning" ng-show='passForm.confirmPassword.$error.samepass'
+                 translate="DIFF_PASS">
+
+            </div>
+            <div id="div-actualizar">
+                <button ng-disabled="passForm.confirmPassword.$error.samepass"
+                        class="btn btn-info" type="submit">{{'ACTUALIZAR_PASS' | translate}}
+                </button>
+            </div>
+        </form>
     </div>
 
-    <button class="btn btn-info" type="button"
-            ng-click="actualizar()">{{'ACTUALIZAR_DATOS' | translate}}
-    </button>
 
 </div>
 
 
-
 <div class="contenedor-inputs">
 
-<div class="seccion">
+    <div class="seccion">
         <h4 style="color: #3A539B" translate="ACCIONES_PELIGROSAS"></h4>
 
         <button id="btn-eliminar-sala" class="btn btn-danger" type="button"
-                ng-click="eliminarCuenta()">{{'ELIMINAR_CUENTA' | translate}}
+                confirmed-click="eliminarCuenta()" ng-confirm-click="{{'ESTA_SEGURO_ELIMINAR_CUENTA?' | translate}}">
+            {{'ELIMINAR_CUENTA' | translate}}
         </button>
     </div>
 </div>
