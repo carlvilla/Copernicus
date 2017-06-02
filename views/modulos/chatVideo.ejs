@@ -9,8 +9,25 @@
             <a class="fullScreenModule" data-bind="">
                 <span class="glyphicon glyphicon-fullscreen"></span></a>
 
-            <div>
-                <input type='checkbox' id='muteVideoconferenceCheckbox'> Silenciar </input>
+            <div id="opciones">
+                <div class="opcion-videochat">
+                    <span ng-show="!silenciado"><i class="fa fa-microphone"></i></span>
+                    <span ng-show="silenciado"><i class="fa fa-microphone-slash"></i></span>
+                <label class="switch">
+                    <input ng-click="cambiar()" id="opcion-microfono" ng-model="silenciado" type="checkbox" id='muteVideoconferenceCheckbox'/>
+                    <div class="slider round"></div>
+                </label>
+                </div>
+                <div class="opcion-videochat">
+                    <i ng-show="!mute" class="fa fa-volume-up"></i>
+                    <i ng-show="mute" class="fa fa-volume-off"></i>
+
+                    <label class="switch">
+                        <input ng-click="setMuted()" ng-model="mute" type="checkbox" id='muteVideoconferenceCheckbox'/>
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+
             </div>
 
             <video style="width:50%; height:50%; float:left;" id="localVideo" autoplay></video>
