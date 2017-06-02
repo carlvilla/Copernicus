@@ -21,6 +21,13 @@ sala.schema = {
     descripcion: {type: String}
 };
 
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET,
+    secure: true
+});
+
 /**
  * Crea una sala con la información pasada y la relaciona con los usuarios pasados en la petición
  *
@@ -42,9 +49,9 @@ module.exports.createSala = function (req, res) {
     cloudinary.uploader.upload(sala.foto, function (result) {
 
         if (fotoPorDefecto)
-            foto = 'http://res.cloudinary.com/videoconference/image/upload/v1496244474/sala.jpg';
+            foto = 'https://res.cloudinary.com/videoconference/image/upload/v1496244474/sala.jpg';
         else
-            foto = result.url;
+            foto = result.secure_url;
 
         var usuarios = req.body.usuarios;
 
@@ -342,7 +349,7 @@ module.exports.actualizarDatos = function (req, res) {
         //Si la foto se modificó, cambiamos la url de la foto de la sala
         cloudinary.uploader.upload(foto, function (result) {
             var query = "MATCH(s:Sala{idSala:" + idSala + "}) SET s.nombre = '" + nombre + "', s.descripcion = '"
-                + descripcion + "', s.foto = '" + result.url + "'";
+                + descripcion + "', s.foto = '" + result.secure_url + "'";
             ejecutarQuery(query);
         });
     } else {

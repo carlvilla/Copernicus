@@ -16,7 +16,8 @@ var db = require('seraph')({
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
     api_key: process.env.CLOUD_API_KEY,
-    api_secret: process.env.CLOUD_API_SECRET
+    api_secret: process.env.CLOUD_API_SECRET,
+    secure: true
 });
 
 var user = model(db, 'Usuario');
@@ -98,9 +99,9 @@ module.exports.register = function (req, res) {
     cloudinary.uploader.upload(fotoPerfil, function (result) {
 
         if (fotoPorDefecto)
-            fotoPerfil = 'http://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
+            fotoPerfil = 'https://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
         else
-            fotoPerfil = result.url;
+            fotoPerfil = result.secure_url;
 
 
         user.save({
@@ -385,7 +386,7 @@ module.exports.modificarDatos = function (req, res) {
         //Si la foto se modificó, cambiamos la url de la foto de la sala
         cloudinary.uploader.upload(foto, function (result) {
             var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.nombre = '" + nombre + "', u.apellidos = '"
-                + apellidos + "', u.email = '" + email + "', u.foto = '" + result.url + "'";
+                + apellidos + "', u.email = '" + email + "', u.foto = '" + result.secure_url + "'";
             ejecutarQuery(query);
         });
     } else {
