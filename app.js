@@ -48,6 +48,7 @@ app.use('/reveal.js', express.static(__dirname + '/bower_components/reveal.js/')
 app.use('/ng-file-upload', express.static(__dirname + '/bower_components/ng-file-upload/'));
 app.use('/ng-img-crop', express.static(__dirname + '/bower_components/ng-img-crop/compile/minified'));
 app.use('/growl', express.static(__dirname + '/bower_components/angular-growl-v2/build'));
+app.use('/font-awesome', express.static(__dirname + '/bower_components/font-awesome'));
 
 app.use('/api',routesApi);
 app.use('/', routesServer);

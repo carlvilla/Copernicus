@@ -252,13 +252,7 @@ function VideoChatManager(ws) {
 
 
     this.setMuted = function (mute) {
-        muted = mute;
-        if (muted) { //mute myself
-            theStream.getAudioTracks()[0].enabled = false;
-        }
-        else {
-            theStream.getAudioTracks()[0].enabled = true;
-        }
+        
         remotes.forEach(function (remote) { //mute others
             remote.video.muted = mute;
         });
@@ -487,7 +481,6 @@ function VideoChatManager(ws) {
          });
 
     };
-
 
     function sendData(operacion) {
         ws.send(JSON.stringify(
