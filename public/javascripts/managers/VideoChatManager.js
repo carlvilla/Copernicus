@@ -261,6 +261,10 @@ function VideoChatManager(ws) {
         referenciaStream.getAudioTracks()[0].enable = mute;
     };
 
+    this.setVideo = function (video){
+        referenciaStream.getVideoTracks()[0].enabled = video;
+    }
+
 
     this.isMuted = function () {
         return muted;
