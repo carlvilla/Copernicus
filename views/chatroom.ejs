@@ -57,18 +57,9 @@
        onclick="closeNav('myAsistentesnav'); ">&times;</a>
     <h3 id="asistentesLabel">{{'PARTICIPANTES' | translate}}</h3>
     <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}} <span class="conectado">•</span></a>
+    <a ng-show="asistentes.length == 0" translate="{{'NO_PARTICIPANTES' | translate}}"></a>
 </div>
 
-<!-- Mostrar información de usuario seleccionado en panel de asistentes conectados
-<div id="Contactonav" class="sideContactonav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav('Contactonav'); resetNavContacto();">&times;</a>
-    <h2 id="ContactoLabel">Información David</h2>
-    <p>Username: david1</p>
-    <p>nombre: David</p>
-    <p>apellido: Villa</p>
-    <p>email: david@gmail.com</p>
-</div>
--->
 <div id="div-hide-navegacion">
 <span class="glyphicon glyphicon-chevron-left" id="esconder-navegacion" onclick="closeNavPrincipal(); "></span>
 </div>
@@ -76,7 +67,6 @@
     <span class="opcion-navegacion" onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); ">&#9776;{{'SERVICIOS' | translate}}</span>
     <span class="opcion-navegacion" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776;{{'PARTICIPANTES' | translate}}</span>
 </div>
-
 
 <!-- MÓDULOS -->
 
