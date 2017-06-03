@@ -252,10 +252,13 @@ function VideoChatManager(ws) {
 
 
     this.setMuted = function (mute) {
-        
-        remotes.forEach(function (remote) { //mute others
+        remotes.forEach(function (remote) {
             remote.video.muted = mute;
         });
+    };
+
+    this.setMutedMicrophone = function (mute) {
+        referenciaStream.getAudioTracks()[0].enabled = mute;
     };
 
 
@@ -475,10 +478,10 @@ function VideoChatManager(ws) {
 
         videoLocal.pause();
 
-        if(referenciaStream)
-         referenciaStream.getTracks().forEach(function (track) {
-               track.stop();
-         });
+        if (referenciaStream)
+            referenciaStream.getTracks().forEach(function (track) {
+                track.stop();
+            });
 
     };
 

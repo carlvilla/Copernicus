@@ -11,10 +11,11 @@
 
             <div id="opciones">
                 <div class="opcion-videochat">
-                    <span ng-show="!silenciado"><i class="fa fa-microphone"></i></span>
-                    <span ng-show="silenciado"><i class="fa fa-microphone-slash"></i></span>
+                    <span ng-show="!muteMicrophone"><i class="fa fa-microphone"></i></span>
+                    <span ng-show="muteMicrophone"><i class="fa fa-microphone-slash"></i></span>
                 <label class="switch">
-                    <input ng-click="cambiar()" id="opcion-microfono" ng-model="silenciado" type="checkbox" id='muteVideoconferenceCheckbox'/>
+                    <input ng-click="setMutedMicrophone()" id="opcion-microfono" ng-model="muteMicrophone"
+                           type="checkbox" id='muteVideoconferenceCheckbox'/>
                     <div class="slider round"></div>
                 </label>
                 </div>

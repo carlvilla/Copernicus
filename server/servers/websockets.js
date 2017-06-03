@@ -324,7 +324,7 @@ module.exports = function (server) {
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username == usernameSeEnvia) {
                 // console.log('Sent: %s to %s', message, usernameSeEnvia);
-                if (conexion.ws)
+                if (conexion.ws && conexion.ws.readyState == ws.OPEN)
                     conexion.ws.send(message);
             }
         });

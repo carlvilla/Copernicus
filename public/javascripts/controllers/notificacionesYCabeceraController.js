@@ -1,24 +1,26 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('notificacionesYCabeceraController', function ($scope, $http) {
+webApp.controller('notificacionesYCabeceraController', function ($scope, $http, $cookies) {
 
-    $http({
-        method: "GET",
-        url: "api/solicitudesContacto"
-    }).then(successSolicitudes, error);
+    if ($cookies.get('token')) {
+        $http({
+            method: "GET",
+            url: "api/solicitudesContacto"
+        }).then(successSolicitudes, error);
 
-    $http({
-        method: "GET",
-        url: "api/solicitudesSala"
-    }).then(successSala, error);
+        $http({
+            method: "GET",
+            url: "api/solicitudesSala"
+        }).then(successSala, error);
 
-    $http({
-        method: "GET",
-        url: "api/profile"
-    }).then(success);
+        $http({
+            method: "GET",
+            url: "api/profile"
+        }).then(success);
+    }
 
     function success(res) {
-        if(res.data[0])
+        if (res.data[0])
             $scope.usuario = res.data[0];
         else
             $scope.usuario = undefined;
@@ -32,7 +34,7 @@ webApp.controller('notificacionesYCabeceraController', function ($scope, $http) 
         $scope.solicitudesSala = res.data;
     }
 
-    function error(err){
+    function error(err) {
         //console.log(err);
     }
 
