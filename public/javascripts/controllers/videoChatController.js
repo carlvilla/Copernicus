@@ -15,11 +15,19 @@ webApp.controller('videoChatController', function ($scope, $rootScope, webSocket
         webSocketService.videoChatManager.setDisconnected();
     }
 
-    $scope.silenciado = false;
+    $scope.muteMicrophone = false;
     $scope.mute = false;
 
     $scope.setMuted = function(){
         webSocketService.videoChatManager.setMuted($scope.mute);
+    }
+
+    $scope.setMuted = function(){
+        webSocketService.videoChatManager.setMuted($scope.mute);
+    }
+
+    $scope.setMutedMicrophone = function(){
+        webSocketService.videoChatManager.setMutedMicrophone($scope.muteMicrophone);
     }
 
 

@@ -5,7 +5,6 @@ webApp.controller('bloquearContactoController', function ($scope, $http, $window
     $scope.usuarioSeleccionado;
 
     var success = function (res) {
-        console.log("Actualizando");
         $scope.contactosBloqueados = res.data;
     }
 
@@ -30,7 +29,6 @@ webApp.controller('bloquearContactoController', function ($scope, $http, $window
 
         function success(res) {
             if (res.data != "") {
-                console.log("Actualizando contactos");
                 $scope.contactos = res.data;
                 $("#username-bloquear-contacto_value").prop("disabled", false);
                 $("#username-bloquear-contacto_value").prop("placeholder", "Nombre de usuario");
