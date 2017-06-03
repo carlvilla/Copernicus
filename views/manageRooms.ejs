@@ -16,6 +16,9 @@
     <script src='/public/javascripts/controllers/gestionarSalasController.js'></script>
     <script src='/public/javascripts/controllers/langController.js'></script>
 
+    <!-- Directivas -->
+    <script src='/public/javascripts/directives/confirmAction.js'></script>
+
 </head>
 <body ng-controller="gestionarSalasController">
 
@@ -173,9 +176,10 @@
             <legend id="leyenda-info-sala">{{'ACCIONES_PELIGROSAS' | translate}}</legend>
 
             <button id="btn-eliminar-sala" class="btn btn-danger" type="button"
-                    ng-click="eliminarSala()">{{'ELIMINAR_SALA' | translate}}
-            </button>
+                    confirmed-click="eliminarSala()" ng-confirm-click="{{'ESTA_SEGURO_ELIMINAR_SALA?' | translate}}">
 
+                {{'ELIMINAR_SALA' | translate}}
+            </button>
         </div>
 
     </div>

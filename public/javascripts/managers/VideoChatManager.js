@@ -266,11 +266,6 @@ function VideoChatManager(ws) {
     }
 
 
-    this.isMuted = function () {
-        return muted;
-    };
-
-
     function handleError(error) {
         if (error.name === 'ConstraintNotSatisfiedError') {
             errorMsg('The resolution ' + constraints.video.width.exact + 'x' +

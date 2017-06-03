@@ -110,6 +110,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PASS_ERRONEO": 'No se ha autorizado la modificación de la contraseña',
         "ESTA_SEGURO_?": '¿Está seguro?',
         "ESTA_SEGURO_ELIMINAR_CUENTA?": '¿Está seguro de que quiere eliminar su cuenta? Esta acción no se puede deshacer.',
+        "ESTA_SEGURO_ELIMINAR_SALA?": '¿Está seguro de que quiere eliminar esta sala? Esta acción no se puede deshacer.',
         "CUENTA_ERRONEO": 'Se ha producido un error eliminando la cuenta',
         "MODIFICAR_DATOS_CUENTA": 'Modificar datos de la cuenta',
         "CAMBIAR_FOTO": 'Cambiar foto de perfil',
@@ -117,6 +118,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PASS_ACTUAL": 'Contraseña actual',
         "PASS_NUEVA": 'Nueva Contraseña',
         "PASS_NUEVA_REPETIR": 'Repetir Contraseña',
+        "NO_PARTICIPANTES": 'No hay participantes conectados'
     });
 
     $translateProvider.translations('en', {
@@ -226,6 +228,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PASS_ERRONEO": 'Password modification not allowed',
         "ESTA_SEGURO_?": 'Are you sure?',
         "ESTA_SEGURO_ELIMINAR_CUENTA?": 'Are you sure you want to delete your account? This action cannot be undone.',
+        "ESTA_SEGURO_ELIMINAR_SALA?": 'Are you sure you want to delete this room? This action cannot be undone.',
         "CUENTA_ERRONEO": 'There was an error deleting the account',
         "MODIFICAR_DATOS_CUENTA": 'Change account data',
         "CAMBIAR_FOTO": 'Change profile photo',
@@ -233,6 +236,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PASS_ACTUAL": 'Current password',
         "PASS_NUEVA": 'New password',
         "PASS_NUEVA_REPETIR": 'Repeat password',
+        "NO_PARTICIPANTES": 'There is no online participants'
     })
 
 
