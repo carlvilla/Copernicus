@@ -29,6 +29,16 @@
                     </label>
                 </div>
 
+                <div class="opcion-videochat">
+                    <i ng-show="!video" class="fa fa-eye"></i>
+                    <i ng-show="video" class="fa fa-eye-slash"></i>
+
+                    <label class="switch">
+                        <input ng-click="stopVideo()" ng-model="video" type="checkbox" id='stopVideo'/>
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+
             </div>
 
             <video style="width:50%; height:50%; float:left;" id="localVideo" autoplay></video>
