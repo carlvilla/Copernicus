@@ -1,16 +1,24 @@
 <div id="dibujo" ng-controller="dibujosController" class="modulo">
 
-    <div class="grid-stack-item-content mover-modulo">
-        <div>
-            <i class="fa fa-hand-paper-o"></i>
-        </div>
-    </div>
 
-    <div id="div-dibujo">
+    <div>
+
+        <div class="grid-stack-item-content mover-modulo">
+            <div>
+                <i class="fa fa-hand-paper-o"></i>
+            </div>
+        </div>
 
         <a ng-click="eliminarModulo('dibujo');" class="closeModule">
             <span class="glyphicon glyphicon-remove"></span>
         </a>
+
+
+    </div>
+
+
+    <div id="div-dibujo">
+
 
         <div id="botonera">
 
@@ -39,6 +47,8 @@
             </button>
 
         </div>
+
+
 
 
         <canvas id="area-dibujo"></canvas>

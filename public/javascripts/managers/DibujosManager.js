@@ -4,6 +4,8 @@ function DibujosManager(ws) {
     var sala;
     var canvas;
 
+    var figuraSeleccionda;
+
     this.inicializarModulo = function (usernameParam, salaParam) {
         canvas = new fabric.Canvas('area-dibujo');
 
@@ -19,10 +21,28 @@ function DibujosManager(ws) {
                 mensaje = {
                     figura: figura,
                     accion: 'add'
-                }
+                };
 
                 sendData(mensaje);
             }
+
+        });
+
+
+        canvas.on('object:selected', function (ev) {
+            figuraSeleccionda = ev.target;
+        });
+
+
+        canvas.on('object:moving', function (ev) {
+            mensaje = {
+                figura: ev.target,
+                idFiguraOriginal: figuraSeleccionda.id,
+                accion: 'move'
+            };
+
+            sendData(mensaje);
+
 
         });
 
@@ -32,20 +52,21 @@ function DibujosManager(ws) {
 
     this.addCirculo = function () {
         var figura = {
-            tipo: 'circulo',
+            tipo: 'circle',
 
             datos: {
                 radius: 10,
                 fill: 'blue',
                 left: 15,
-                top: 15
+                top: 15,
+                id: new Date().getTime()
             }
         };
 
         mensaje = {
             figura: figura,
             accion: 'add'
-        }
+        };
 
         sendData(mensaje);
         this.accion(mensaje);
@@ -54,21 +75,22 @@ function DibujosManager(ws) {
 
     this.addRectangulo = function () {
         var figura = {
-            tipo: 'rectangulo',
+            tipo: 'rect',
 
             datos: {
                 width: 40,
                 height: 20,
                 fill: 'blue',
                 left: 25,
-                top: 25
+                top: 25,
+                id: new Date().getTime()
             }
         };
 
         mensaje = {
             figura: figura,
             accion: 'add'
-        }
+        };
 
         sendData(mensaje);
         this.accion(mensaje);
@@ -77,21 +99,21 @@ function DibujosManager(ws) {
 
     this.addTriangulo = function () {
         var figura = {
-            tipo: 'triangulo',
-
+            tipo: 'triangle',
             datos: {
                 width: 30,
                 height: 30,
                 fill: 'blue',
                 left: 35,
-                top: 35
+                top: 35,
+                id: new Date().getTime()
             }
         };
 
         mensaje = {
             figura: figura,
             accion: 'add'
-        }
+        };
 
         sendData(mensaje);
         this.accion(mensaje);
@@ -115,52 +137,81 @@ function DibujosManager(ws) {
 
     this.accion = function (mensaje) {
 
-        var fig;
-
         switch (mensaje.accion) {
 
             case 'add':
+                addFigura(mensaje);
+                break;
 
-                switch (mensaje.figura.tipo) {
-                    case 'circulo':
-                        fig = new fabric.Circle(mensaje.figura.datos);
-                        break;
+            case 'move':
 
-                    case 'rectangulo':
-                        fig = new fabric.Rect(mensaje.figura.datos);
-                        break;
+                var figura = mensaje.figura;
 
-                    case 'triangulo':
-                        fig = new fabric.Triangle(mensaje.figura.datos);
-                        break;
+                figura.id = mensaje.idFiguraOriginal;
 
-                    case 'dibujo':
-                        var dibujo = mensaje.figura.datos;
-                        var fig = new fabric.Path();
+                var men = {
+                    figura: {
+                        tipo: figura.type,
+                        datos: figura,
+                        idFiguraOriginal: figura.id
+                    }
+                };
 
-
-                        //Copiamos los valores del dibujo que acabamos de hacer
-                        // en el dibujo que se va a mostrar al usuario
-                        for(var n in dibujo) fig[n]=dibujo[n];
-
-                        break;
-
-
-                }
-
-                canvas.add(fig);
+                removeFigura(men);
+                addFigura(men);
 
                 break;
 
             case 'clear':
                 canvas.clear();
-
                 break;
+        }
+    };
 
+    function removeFigura(mensaje) {
+
+        var objects = canvas.getObjects();
+
+        for (var i = 0, len = canvas.getObjects().length; i < len; i++) {
+            if (objects[i]['id'] == mensaje.figura.idFiguraOriginal) {
+                canvas.remove(objects[i]);
+            }
         }
 
+    }
 
-    };
+    function addFigura(mensaje) {
+
+        var figura;
+
+        switch (mensaje.figura.tipo) {
+            case 'circle':
+                figura = new fabric.Circle(mensaje.figura.datos);
+                break;
+
+            case 'rect':
+                figura = new fabric.Rect(mensaje.figura.datos);
+                break;
+
+            case 'triangle':
+                figura = new fabric.Triangle(mensaje.figura.datos);
+                break;
+
+            case 'dibujo':
+                var dibujo = mensaje.figura.datos;
+                var figura = new fabric.Path();
+
+
+                //Copiamos los valores del dibujo que acabamos de hacer
+                // en el dibujo que se va a mostrar al usuario
+                for (var n in dibujo) figura[n] = dibujo[n];
+
+                break;
+        }
+        if (canvas)
+            canvas.add(figura);
+
+    }
 
     function sendData(mensaje) {
         ws.send(JSON.stringify(
@@ -170,6 +221,7 @@ function DibujosManager(ws) {
                     'username': username,
                     'sala': sala,
                     'figura': mensaje.figura,
+                    'idFiguraOriginal': mensaje.idFiguraOriginal,
                     'accion': mensaje.accion
                 }
 
