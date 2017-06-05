@@ -222,7 +222,7 @@ html, body {
     height: 100%;
 }
 
-.grid-stack-item-content {
+.modulo {
     color: #2c3e50;
     text-align: center;
     height: 100%;
@@ -250,12 +250,12 @@ html, body {
     -moz-transform: rotateY(180deg);
 }
 
-.opcion-videochat{
+.opcion-videochat {
     width: 60px;
     display: inline-block;
 }
 
-#opciones{
+#opciones {
     margin-top: 1%;
 }
 
@@ -266,7 +266,9 @@ html, body {
     height: 34px;
 }
 
-.switch input {display:none;}
+.switch input {
+    display: none;
+}
 
 .slider {
     position: absolute;
@@ -415,6 +417,24 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 
+/* Módulo Dibujos */
+
+#div-dibujo {
+    width: 100%;
+    height: 90%;
+    margin-top: 5%;
+}
+
+.canvas-container, .upper-canvas, .canvas-container {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#area-dibujo {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 /* Cambios bootstrap */
 
 .navbar {
@@ -426,6 +446,9 @@ input:checked + .slider:before {
     width: 100%;
 }
 
+.mover-modulo {
+    height: 5%;
+}
 
 
 
