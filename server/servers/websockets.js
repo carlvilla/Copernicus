@@ -180,7 +180,7 @@ module.exports = function (server) {
          */
         broadcast = function (message, usuarioAccion, sala) {
             connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
-                    if (conexion.usuario.username != usuarioAccion.username) {
+                    if (conexion.usuario.username != usuarioAccion) {
                         if (conexion.ws.readyState == ws.OPEN) {
                             console.log("Enviando mensaje a webSocketService");
                             conexion.ws.send(message);

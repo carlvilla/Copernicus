@@ -422,7 +422,6 @@ input:checked + .slider:before {
 #div-dibujo {
     width: 100%;
     height: 90%;
-    margin-top: 5%;
 }
 
 .canvas-container, .upper-canvas, .canvas-container {
@@ -448,6 +447,7 @@ input:checked + .slider:before {
 
 .mover-modulo {
     height: 5%;
+    background: antiquewhite;
 }
 
 

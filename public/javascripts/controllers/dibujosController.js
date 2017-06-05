@@ -2,7 +2,7 @@ var webApp = angular.module('webApp');
 
 webApp.controller('dibujosController', function ($scope, $rootScope, webSocketService) {
 
-    var username = $rootScope.usuario
+    var username = $rootScope.usuario.username;
     var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
 
     webSocketService.dibujosManager.inicializarModulo(username, sala);
