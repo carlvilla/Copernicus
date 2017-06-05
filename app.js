@@ -49,6 +49,7 @@ app.use('/ng-file-upload', express.static(__dirname + '/bower_components/ng-file
 app.use('/ng-img-crop', express.static(__dirname + '/bower_components/ng-img-crop/compile/minified'));
 app.use('/growl', express.static(__dirname + '/bower_components/angular-growl-v2/build'));
 app.use('/font-awesome', express.static(__dirname + '/bower_components/font-awesome'));
+app.use('/fabric.js', express.static(__dirname + '/bower_components/fabric.js/dist'));
 
 app.use('/api',routesApi);
 app.use('/', routesServer);

@@ -159,6 +159,10 @@ module.exports = function (server) {
                         broadcast(message, obj.data.username, sala);
                         break;
 
+                    case "dibujos":
+                        broadcast(message, obj.data.username, sala);
+                        break;
+
                     default:
                         console.log('Mensaje erróneo');
                         break;
@@ -176,7 +180,7 @@ module.exports = function (server) {
          */
         broadcast = function (message, usuarioAccion, sala) {
             connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
-                    if (conexion.usuario.username != usuarioAccion) {
+                    if (conexion.usuario.username != usuarioAccion.username) {
                         if (conexion.ws.readyState == ws.OPEN) {
                             console.log("Enviando mensaje a webSocketService");
                             conexion.ws.send(message);

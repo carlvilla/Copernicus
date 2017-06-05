@@ -29,6 +29,7 @@
     "angular-translate": "^2.15.1",
     "angular-translate-storage-cookie": "^2.15.1",
     "ng-img-crop": "ngImgCrop#^0.3.2",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "fabric.js": "fabric#^1.7.11"
   }
 }
