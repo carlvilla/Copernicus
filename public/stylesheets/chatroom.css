@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     width: 100%;
+    min-width: 1030px;
 }
 
 #enlaceHome {
@@ -62,24 +63,15 @@ html, body {
     margin-left: 50px;
 }
 
-#main {
-    transition: margin-left .5s;
-    display: block;
-    height: 100vh;
-    width: 65%;
-    float: left;
-    margin: 5px;
-}
-
 #navegacion {
-    width: 10%;
+    width: 15%;
     height: 90%;
     float: left;
     display: block;
     background-color: #f8f8f8;
     border: 3px solid transparent;
-    min-width: 120px;
-    margin-left: 5px;
+    min-width: 155px;
+    position: fixed;
 }
 
 #div-hide-navegacion {
@@ -90,9 +82,11 @@ html, body {
 }
 
 .opcion-navegacion {
-    font-size: 17px;
+    font-size: 18px;
     cursor: pointer;
     display: block;
+    padding: 10px;
+
 }
 
 #esconder-navegacion {
@@ -206,15 +200,20 @@ html, body {
 
 /* Módulos */
 
-.mover-modulo {
+.mover-modulo-div {
     height: 5%;
     background: antiquewhite;
 }
 
+.mover-modulo{
+    margin-left: 15px;
+}
+
 #contenedorGridStack {
-    float: left;
+    float: right;
     width: 85%;
     height: 90%;
+
 }
 
 .grid-stack {
@@ -243,8 +242,7 @@ html, body {
 }
 
 .closeModule {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 2px;
 }
 
 /* Módulo videoChat */
@@ -322,15 +320,16 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-/* Módulo Presentaciones*/
+/*Módulo Presentaciones*/
 
 #presentacion {
-    height: 100%;
+    height: 95%;
     width: 100%;
 }
 
-#presentacionDropzone {
-
+#presentacion-frame{
+    height: 100%;
+    width: 100%;
 }
 
 /* Módulo chatTexto */
@@ -378,7 +377,6 @@ input:checked + .slider:before {
     float: right;
     width: 49%;
     display: inline-block;
-    border-radius: 12px;
     margin-right: 1%;
 }
 
@@ -452,6 +450,7 @@ input:checked + .slider:before {
 
 .navbar-header {
     width: 100%;
+    min-width: 300px;
 }
 
 

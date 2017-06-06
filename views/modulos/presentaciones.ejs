@@ -1,16 +1,24 @@
 <div id="presentaciones" ng-controller="presentacionController" class="modulo">
-    <div class="grid-stack-item-content">
 
-        <a ng-click="eliminarModulo('presentaciones');" class="closeModule">
-            <span class="glyphicon glyphicon-remove"></span>
-        </a>
+    <div>
 
-        <a class="fullScreenModule" data-bind="">
-            <span class="glyphicon glyphicon-fullscreen"></span></a>
 
-        <!-- <div id="presentacionDropzone" options="dzOptions" methods="dzMethods" class="dropzone" callbacks="dzCallbacks" ng-dropzone></div>-->
+        <div class="grid-stack-item-content mover-modulo-div">
+            <div>
+                <i class="fa fa-hand-paper-o mover-modulo"></i>
 
-        <iframe id="presentacion" src="/public/presentaciones/ejemplo.html" allowfullscreen="true"/>
+                <a ng-click="eliminarModulo('presentaciones');" class="closeModule">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
 
+                <div><button type="file" ngf-select="uploadFiles($file, $invalidFiles)" ngf-max-size="5MB"
+                             class="btn btn-default btn-sm" translate="CAMBIAR_PRESENTACION"></button></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="presentacion">
+        <iframe id="presentacion-frame" ngf-src="presentacion" allowfullscreen="true"/>
     </div>
 </div>

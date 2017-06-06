@@ -11,10 +11,10 @@ function PresentacionManager(ws){
 
         presentacion.onload = function () {
             reveal = presentacion.contentWindow.Reveal;
+            console.log(reveal);
             reveal.addEventListener('slidechanged', actualizarAsistentes);
         }
     }
-
 
      this.setUsuario = function (username) {
         usernameUsuario = username;
