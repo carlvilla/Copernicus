@@ -206,6 +206,11 @@ html, body {
 
 /* Módulos */
 
+.mover-modulo {
+    height: 5%;
+    background: antiquewhite;
+}
+
 #contenedorGridStack {
     float: left;
     width: 85%;
@@ -443,11 +448,6 @@ input:checked + .slider:before {
 
 .navbar-header {
     width: 100%;
-}
-
-.mover-modulo {
-    height: 5%;
-    background: antiquewhite;
 }
 
 
