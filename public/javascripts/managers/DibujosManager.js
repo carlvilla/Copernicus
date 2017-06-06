@@ -8,19 +8,24 @@ function DibujosManager(ws) {
 
     this.inicializarModulo = function (usernameParam, salaParam) {
         canvas = new fabric.Canvas('area-dibujo');
+        canvas.selection = false;
 
         canvas.on('mouse:up', function (options) {
             if (canvas.isDrawingMode) {
+
                 var numObjetos = canvas.getObjects().length - 1;
 
                 var figura = {
-                    tipo: 'dibujo',
+                    tipo: 'path',
                     datos: canvas.getObjects()[numObjetos]
                 }
 
+                figura.datos.id = new Date().getTime();
+
                 mensaje = {
                     figura: figura,
-                    accion: 'add'
+                    accion: 'add',
+                    idFiguraOriginal: figura.datos.id
                 };
 
                 sendData(mensaje);
@@ -173,7 +178,8 @@ function DibujosManager(ws) {
         var objects = canvas.getObjects();
 
         for (var i = 0, len = canvas.getObjects().length; i < len; i++) {
-            if (objects[i]['id'] == mensaje.figura.idFiguraOriginal) {
+
+            if (objects[i] != undefined && objects[i]['id'] == mensaje.figura.idFiguraOriginal) {
                 canvas.remove(objects[i]);
             }
         }
@@ -197,10 +203,12 @@ function DibujosManager(ws) {
                 figura = new fabric.Triangle(mensaje.figura.datos);
                 break;
 
-            case 'dibujo':
+            case 'path':
                 var dibujo = mensaje.figura.datos;
+
                 var figura = new fabric.Path();
 
+                figura.id = mensaje.idFiguraOriginal;
 
                 //Copiamos los valores del dibujo que acabamos de hacer
                 // en el dibujo que se va a mostrar al usuario
@@ -214,13 +222,16 @@ function DibujosManager(ws) {
     }
 
     function sendData(mensaje) {
+
+        var figura = mensaje.figura;
+
         ws.send(JSON.stringify(
             {
                 'seccion': 'dibujos',
                 'data': {
                     'username': username,
                     'sala': sala,
-                    'figura': mensaje.figura,
+                    'figura': figura,
                     'idFiguraOriginal': mensaje.idFiguraOriginal,
                     'accion': mensaje.accion
                 }

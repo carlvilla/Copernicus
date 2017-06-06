@@ -25,7 +25,6 @@ angular.module('webApp')
 
 
         ws.onMessage(function (message) {
-            console.log("webSocketService");
             if (utils.IsJsonString(message.data)) {
                 var obj = JSON.parse(message.data);
                 switch (obj.seccion) {
