@@ -258,7 +258,7 @@ function VideoChatManager(ws) {
     };
 
     this.setMutedMicrophone = function (mute) {
-        referenciaStream.getAudioTracks()[0].enable = mute;
+        referenciaStream.getAudioTracks()[0].enabled = mute;
     };
 
     this.setVideo = function (video){
