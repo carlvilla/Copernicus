@@ -1,8 +1,6 @@
 <div id="dibujo" ng-controller="dibujosController" class="modulo">
 
-
     <div>
-
         <div class="grid-stack-item-content mover-modulo">
             <div>
                 <i class="fa fa-hand-paper-o"></i>
@@ -12,44 +10,36 @@
         <a ng-click="eliminarModulo('dibujo');" class="closeModule">
             <span class="glyphicon glyphicon-remove"></span>
         </a>
-
-
     </div>
-
 
     <div id="div-dibujo">
 
-
         <div id="botonera">
 
-            <button ng-click="addCirculo()">
+            <button ng-click="addCirculo()" class="opcion-dibujo">
                 <icon class="fa fa-circle"></icon>
             </button>
 
-            <button ng-click="addRectangulo()">
+            <button ng-click="addRectangulo()" class="opcion-dibujo">
                 <icon class="fa fa-stop"></icon>
             </button>
 
-            <button ng-click="addTriangulo()">
+            <button ng-click="addTriangulo()" class="opcion-dibujo">
                 <icon class="fa fa-caret-up"></icon>
             </button>
 
-            <button ng-click="dibujar()">
-                Lápiz
+            <button ng-click="dibujar()" class="opcion-dibujo">
+                <icon class="fa fa-pencil"></icon>
             </button>
 
-            <button ng-click="seleccionar()">
-                Selección
+            <button ng-click="seleccionar()" class="opcion-dibujo">
+                <icon class="fa fa-hand-pointer-o"></icon>
             </button>
 
-            <button ng-click="borrar()">
-                Borrar todo
+            <button ng-click="borrar()" translate="BORRAR_TODO" class="opcion-dibujo">
             </button>
 
         </div>
-
-
-
 
         <canvas id="area-dibujo"></canvas>
 

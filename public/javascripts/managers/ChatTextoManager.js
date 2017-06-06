@@ -39,6 +39,13 @@ function ChatTextoManager(ws) {
         }*/
 
         mensajes.push(mensajeAux);
+
+
+        $("#mensajes").animate({
+            scrollTop: $("#fin-mensajes").offset().top - $("#mensajes").offset().top + $("#mensajes").scrollTop()
+        }, 500);
+
+
     }
 
 

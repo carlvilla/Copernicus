@@ -118,7 +118,8 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PASS_ACTUAL": 'Contraseña actual',
         "PASS_NUEVA": 'Nueva Contraseña',
         "PASS_NUEVA_REPETIR": 'Repetir Contraseña',
-        "NO_PARTICIPANTES": 'No hay participantes conectados'
+        "NO_PARTICIPANTES": 'No hay participantes conectados',
+        "BORRAR_TODO": 'Borrar todo'
     });
 
     $translateProvider.translations('en', {
@@ -236,7 +237,8 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PASS_ACTUAL": 'Current password',
         "PASS_NUEVA": 'New password',
         "PASS_NUEVA_REPETIR": 'Repeat password',
-        "NO_PARTICIPANTES": 'There is no online participants'
+        "NO_PARTICIPANTES": 'There is no online participants',
+        "BORRAR_TODO": 'Clear all'
     })
 
 

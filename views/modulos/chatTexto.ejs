@@ -1,10 +1,8 @@
 <div id="chatTexto" ng-controller="chatTextoController" class="modulo">
+    <a ng-click="eliminarModulo('chatTexto');" class="closeModule">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
     <div class="grid-stack-item-content">
-
-        <a ng-click="eliminarModulo('chatTexto');" class="closeModule">
-            <span class="glyphicon glyphicon-remove"></span>
-        </a>
-
         <div id="chat">
             <div id="mensajes">
             <span ng-repeat="mensaje in mensajes">
@@ -72,9 +70,12 @@
                         <a ng-href="{{mensaje.contenido}}" download="{{mensaje.fichero}}">{{mensaje.fichero}}</a>
                     </div>
                 </div>
-
-
             </span>
+
+
+                <div style="width: 100%;
+    display: inline-block;" id="fin-mensajes"></div>
+
             </div>
 
             <div id="bottom-chat">
