@@ -336,14 +336,18 @@ input:checked + .slider:before {
 /* Módulo chatTexto */
 
 #chat {
-    height: 100%;
+    margin-top: 5%;
+    height: 95%;
     width: 100%;
+}
+
+#chatTexto{
+    background-color: rgb(245, 215, 110);
 }
 
 #mensajes {
     height: 85%;
     width: 100%;
-    background-color: rgb(245, 215, 110);
     overflow: scroll;
     overflow-x: hidden;
     padding-top: 2%;

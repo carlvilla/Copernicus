@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/videoChatController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/videoChatController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/managers/VideoChatManager.js" afterPath="$PROJECT_DIR$/public/javascripts/managers/VideoChatManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/managers/ChatTextoManager.js" afterPath="$PROJECT_DIR$/public/javascripts/managers/ChatTextoManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/module.js" afterPath="$PROJECT_DIR$/public/module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/chatroom.css" afterPath="$PROJECT_DIR$/public/stylesheets/chatroom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/modulos/chatTexto.ejs" afterPath="$PROJECT_DIR$/views/modulos/chatTexto.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/modulos/dibujo.ejs" afterPath="$PROJECT_DIR$/views/modulos/dibujo.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,31 +31,63 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="chatVideo.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/modulos/chatVideo.ejs">
+      <file leaf-file-name="dibujo.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/modulos/dibujo.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="55" lean-forward="false" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+            <state relative-caret-position="270">
+              <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="videoChatController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/videoChatController.js">
+      <file leaf-file-name="module.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/module.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+            <state relative-caret-position="267">
+              <caret line="240" column="29" lean-forward="false" selection-start-line="240" selection-start-column="29" selection-end-line="240" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoChatManager.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideoChatManager.js">
+      <file leaf-file-name="chatroom.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/chatroom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="265" column="5" lean-forward="true" selection-start-line="265" selection-start-column="5" selection-end-line="265" selection-end-column="5" />
+            <state relative-caret-position="252">
+              <caret line="357" column="26" lean-forward="true" selection-start-line="356" selection-start-column="4" selection-end-line="357" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chatTextoController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/chatTextoController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chatTexto.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/modulos/chatTexto.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="76" column="46" lean-forward="false" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatTextoManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/managers/ChatTextoManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -70,9 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mod</find>
-      <find>border</find>
-      <find>mover-modulo</find>
       <find>canvas-con</find>
       <find>borde</find>
       <find>datos</find>
@@ -96,10 +128,13 @@
       <find>console.log</find>
       <find>div-dibu</find>
       <find>mover</find>
-      <find>dibujo</find>
       <find>console.</find>
       <find>console</find>
       <find>audio</find>
+      <find>getAudi</find>
+      <find>dibujo</find>
+      <find>#chat</find>
+      <find>scroll</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -123,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/partials/dialogs/bloquearContacto.ejs" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/registerController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/directives/usernameValidation.js" />
@@ -158,22 +192,23 @@
         <option value="$PROJECT_DIR$/public/javascripts/controllers/notificacionesYCabeceraController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/bloquearContactoController.js" />
         <option value="$PROJECT_DIR$/views/manageRooms.ejs" />
-        <option value="$PROJECT_DIR$/public/module.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/ajustesCuentaController.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/modulos/chatTexto.ejs" />
         <option value="$PROJECT_DIR$/views/modulos/presentaciones.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/dibujosController.js" />
         <option value="$PROJECT_DIR$/server/servers/websockets.js" />
         <option value="$PROJECT_DIR$/public/javascripts/util/fabricExtension.js" />
         <option value="$PROJECT_DIR$/views/chatroom.ejs" />
-        <option value="$PROJECT_DIR$/views/modulos/dibujo.ejs" />
-        <option value="$PROJECT_DIR$/public/stylesheets/chatroom.css" />
         <option value="$PROJECT_DIR$/public/javascripts/services/webSocketService.js" />
         <option value="$PROJECT_DIR$/public/javascripts/managers/DibujosManager.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/videoChatController.js" />
         <option value="$PROJECT_DIR$/views/modulos/chatVideo.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/managers/VideoChatManager.js" />
+        <option value="$PROJECT_DIR$/public/module.js" />
+        <option value="$PROJECT_DIR$/views/modulos/dibujo.ejs" />
+        <option value="$PROJECT_DIR$/public/stylesheets/chatroom.css" />
+        <option value="$PROJECT_DIR$/public/javascripts/managers/ChatTextoManager.js" />
+        <option value="$PROJECT_DIR$/views/modulos/chatTexto.ejs" />
       </list>
     </option>
   </component>
@@ -469,6 +504,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebApp_Videoconferencias" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebApp_Videoconferencias" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="managers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1165,7 +1222,7 @@
       <workItem from="1496187853721" duration="51726000" />
       <workItem from="1496437394468" duration="19824000" />
       <workItem from="1496615747898" duration="37142000" />
-      <workItem from="1496749283553" duration="1439000" />
+      <workItem from="1496749283553" duration="4324000" />
     </task>
     <servers />
   </component>
@@ -1202,7 +1259,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="734684000" />
+    <option name="totallyTimeSpent" value="737569000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1293,13 +1350,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="182" column="18" lean-forward="false" selection-start-line="182" selection-start-column="18" selection-end-line="182" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/registerController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -1318,6 +1368,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
           <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1325,6 +1376,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
           <caret line="38" column="14" lean-forward="false" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1382,6 +1434,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="141" column="17" lean-forward="false" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1403,6 +1456,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1215">
           <caret line="81" column="1" lean-forward="true" selection-start-line="81" selection-start-column="1" selection-end-line="81" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,6 +1479,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="2828" column="12" lean-forward="false" selection-start-line="2828" selection-start-column="12" selection-end-line="2828" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1499,13 +1554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="238" column="25" lean-forward="false" selection-start-line="238" selection-start-column="9" selection-end-line="238" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/personalPage.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1319">
@@ -1541,20 +1589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/ChatTextoManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/modulos/chatTexto.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="56" lean-forward="false" selection-start-line="0" selection-start-column="56" selection-end-line="0" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/modulos/presentaciones.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1575,22 +1609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/chatroom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3165">
-          <caret line="211" column="1" lean-forward="false" selection-start-line="211" selection-start-column="1" selection-end-line="211" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/modulos/dibujo.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1645,9 +1663,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideoChatManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="265" column="5" lean-forward="true" selection-start-line="265" selection-start-column="5" selection-end-line="265" selection-end-column="5" />
+        <state relative-caret-position="320">
+          <caret line="270" column="27" lean-forward="false" selection-start-line="270" selection-start-column="27" selection-end-line="270" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/chatroom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="357" column="26" lean-forward="true" selection-start-line="356" selection-start-column="4" selection-end-line="357" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/modulos/dibujo.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="240" column="29" lean-forward="false" selection-start-line="240" selection-start-column="29" selection-end-line="240" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/chatTextoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/ChatTextoManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/modulos/chatTexto.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="76" column="46" lean-forward="false" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
