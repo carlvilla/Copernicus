@@ -3,7 +3,7 @@
  */
 var webApp = angular.module('webApp');
 
-webApp.controller('salaController', function ($scope, $http, $window) {
+webApp.controller('salaController', function ($scope, $rootScope ,$http, $window) {
 
     $scope.foto;
     $scope.fotoRecortada = '';
@@ -31,7 +31,6 @@ webApp.controller('salaController', function ($scope, $http, $window) {
         window.sessionStorage.setItem("salaSeleccionada", JSON.stringify(res.data[0]));
         $window.location.href = '/chatroom';
     }
-
 
     //Crear sala
     $scope.crearSala = function (sala) {

@@ -1,7 +1,6 @@
 function openNav(nav) {
-    document.getElementById(nav).style.width = "180px";
+    document.getElementById(nav).style.width = "15%";
     document.getElementById("myAsistentesnav").style.marginLeft = "0px";
-  //  document.getElementById("Contactonav").style.width = "0px";
 }
 
 function resetNavContacto() {
@@ -9,6 +8,7 @@ function resetNavContacto() {
 }
 
 function closeNav(nav) {
+    document.getElementById(nav).style.minWidth = "0px";
     document.getElementById(nav).style.width = "0";
 }
 
@@ -25,10 +25,3 @@ function closeNavPrincipal(){
         contenedorGridStack.style.width = "100%";
 
 }
-
-function informacion() {
-   // document.getElementById("Contactonav").style.width = "180px";
-
-}
-
-

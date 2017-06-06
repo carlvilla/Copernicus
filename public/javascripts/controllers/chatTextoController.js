@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller("chatTextoController", function ($scope, $rootScope, webSocketService) {
+webApp.controller("chatTextoController", function ($scope, $rootScope, webSocketService, growl, $translate) {
 
     var usuario = $rootScope.usuario;
 
@@ -35,7 +35,13 @@ webApp.controller("chatTextoController", function ($scope, $rootScope, webSocket
 
         var fr = new FileReader();
 
-        fr.readAsDataURL(file);
+        if (file)
+            fr.readAsDataURL(file);
+        else {
+            console.log(errFiles);
+            if (errFiles[0] && errFiles[0].$error == 'maxSize')
+                growl.error($translate.instant('FICHERO_SIZE_MAXIMO'), {ttl: 5000});
+        }
 
         fr.onloadend = function () {
 
@@ -71,15 +77,9 @@ webApp.controller("chatTextoController", function ($scope, $rootScope, webSocket
                         fichero: file.name,
                         contenido: fr.result
                     });
-                })
-
+                });
             }
-            ;
-
-
         };
-
-
     }
 
 });

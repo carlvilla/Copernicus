@@ -119,7 +119,11 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PASS_NUEVA": 'Nueva Contraseña',
         "PASS_NUEVA_REPETIR": 'Repetir Contraseña',
         "NO_PARTICIPANTES": 'No hay participantes conectados',
-        "BORRAR_TODO": 'Borrar todo'
+        "BORRAR_TODO": 'Borrar todo',
+        "FICHERO_SIZE_MAXIMO": 'Solo se pueden enviar ficheros de hasta 10MB',
+        "PRESENTACION_SIZE_MAXIMO": 'La presentación no puede ser mayor de 5MB',
+        "CAMBIAR_PRESENTACION": 'Cambiar presentación',
+        "FICHERO_NO_VALIDO": 'El fichero enviado no es válido'
     });
 
     $translateProvider.translations('en', {
@@ -238,7 +242,12 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PASS_NUEVA": 'New password',
         "PASS_NUEVA_REPETIR": 'Repeat password',
         "NO_PARTICIPANTES": 'There is no online participants',
-        "BORRAR_TODO": 'Clear all'
+        "BORRAR_TODO": 'Clear all',
+        "FICHERO_SIZE_MAXIMO": 'Files cannot be larger than 10MB',
+        "PRESENTACION_SIZE_MAXIMO": 'The presentation cannot be larger than 5MB',
+        "CAMBIAR_PRESENTACION": 'Change presentation',
+        "FICHERO_NO_VALIDO": 'The file sent is not valid'
+
     })
 
 
