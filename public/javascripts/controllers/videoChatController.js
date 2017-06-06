@@ -23,10 +23,6 @@ webApp.controller('videoChatController', function ($scope, $rootScope, webSocket
         webSocketService.videoChatManager.setMuted($scope.mute);
     }
 
-    $scope.setMuted = function(){
-        webSocketService.videoChatManager.setMuted($scope.mute);
-    }
-
     $scope.setMutedMicrophone = function(){
         webSocketService.videoChatManager.setMutedMicrophone(!$scope.muteMicrophone);
     }
