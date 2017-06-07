@@ -3,7 +3,7 @@
  */
 var webApp = angular.module('webApp');
 
-webApp.controller('salaController', function ($scope, $rootScope ,$http, $window, growl, $translate) {
+webApp.controller('salaController', function ($scope, $rootScope, $http, $window, growl, $translate) {
 
     $scope.foto;
     $scope.fotoRecortada = '';
@@ -65,13 +65,13 @@ webApp.controller('salaController', function ($scope, $rootScope ,$http, $window
         }
     }
 
-    function comprobarLimiteSala(){
+    function comprobarLimiteSala() {
         //El límite es 8 personas, pero se comprueba que no haya más de 7 porque la octava persona es el usuario
         //que crea la sala
-        if($scope.contactosSeleccionados.length == 7){
+        if ($scope.contactosSeleccionados.length == 7) {
             growl.info($translate.instant("LIMITE_SALA"));
             return false;
-        }else{
+        } else {
             return true;
         }
     }
@@ -124,7 +124,7 @@ webApp.controller('salaController', function ($scope, $rootScope ,$http, $window
             data: {'idSala': idSala}
         });
 
-        $("#solicitud-de-" + idSala).remove();
+        eliminarSolicitud(idSala);
 
     }
 
@@ -137,15 +137,23 @@ webApp.controller('salaController', function ($scope, $rootScope ,$http, $window
             data: {'idSala': idSala}
         });
 
-        $("#solicitud-de-" + idSala).remove();
+        eliminarSolicitud(idSala);
 
+    }
+
+    var eliminarSolicitud = function (idSala) {
+        $scope.solicitudesSala.every(function (solicitud) {
+            if (solicitud.idSala == idSala) {
+                $scope.solicitudesSala.splice($scope.solicitudesSala.indexOf(solicitud), 1);
+                return false;
+            }
+            return true;
+        });
     }
 
     $scope.cerrarPantallaSolicitudes = function () {
         $window.location.reload();
     }
-
-    //Fin solicitudes para unirse a sala
 
     var fotoSeleccionada = function (evt) {
         fotoPorDefecto = false;

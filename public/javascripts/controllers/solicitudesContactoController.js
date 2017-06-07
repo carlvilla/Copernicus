@@ -23,10 +23,9 @@ webApp.controller('solicitudesContactoController', function ($scope, $http, $win
             data: {'usernameAceptado': usernameMandoSolicitud}
         });
 
-        $("#solicitud-de-"+usernameMandoSolicitud).remove();
+        eliminarSolicitud(usernameMandoSolicitud);
 
     }
-
 
     $scope.ignorarSolicitud = function(usernameMandoSolicitud){
 
@@ -36,8 +35,18 @@ webApp.controller('solicitudesContactoController', function ($scope, $http, $win
             data: {'usernameIgnorado': usernameMandoSolicitud}
         });
 
-        $("#solicitud-de-"+usernameMandoSolicitud).remove();
+        eliminarSolicitud(usernameMandoSolicitud);
 
+    }
+
+    var eliminarSolicitud = function (username) {
+        $scope.solicitudes.every(function (solicitud) {
+            if (solicitud.contacto.username == username) {
+                $scope.solicitudes.splice($scope.solicitudes.indexOf(solicitud), 1);
+                return false;
+            }
+            return true;
+        });
     }
 
     $scope.cerrarPantallaSolicitudes = function(){

@@ -7,40 +7,56 @@
             </div>
             <div class="modal-body">
 
-                <div id="solicitud-de-{{solicitud.contacto.username}}" class="solicitud-contacto" ng-repeat="solicitud in solicitudes">
+                <div ng-show="solicitudes.length > 0">
+                    <h5 translate="EXPLICACION_SOLICITUDES_CONTACTO"></h5>
+                </div>
 
-                <div id="datos-contacto-solicitud">
-                    <label id="username-solicitud">{{solicitud.contacto.username}}</label>
-                    <div id="nombre-apellidos-solicitud">
-                    <label id="nombre-solicitud">{{solicitud.contacto.nombre}}</label>
-                    <label id="apellidos-solicitud">{{solicitud.contacto.apellidos}}</label>
+                <div id="solicitud-de-{{solicitud.contacto.username}}" class="solicitud-contacto"
+                     ng-repeat="solicitud in solicitudes">
+
+                    <div class="info-solicitud-contacto">
+                        <div id="datos-contacto-solicitud">
+                            <img class="foto-solicitud-contacto" width="60px" height="60px"
+                                 ngf-src="solicitud.contacto.foto"/>
+                            <label id="username-solicitud">{{solicitud.contacto.username}}</label>
+                            <div id="nombre-apellidos-solicitud">
+                                <label id="nombre-solicitud">{{solicitud.contacto.nombre}}</label>
+                                <label id="apellidos-solicitud">{{solicitud.contacto.apellidos}}</label>
+                            </div>
+                        </div>
+
+                        <div id="div-mensaje-solicitud">
+                            <textarea class="mensaje-solicitud" ng-show="!solicitud.solicitud.properties.mensaje"
+                                      disabled="true">{{'SIN_MENSAJES' | translate}}</textarea>
+                            <textarea class="mensaje-solicitud" ng-show="solicitud.solicitud.properties.mensaje"
+                                      disabled="true">{{solicitud.solicitud.properties.mensaje}}</textarea>
+                        </div>
+
                     </div>
-                </div>
 
-                <div id="div-mensaje-solicitud">
-                    <textarea class="mensaje-solicitud" ng-show="!solicitud.solicitud.properties.mensaje" disabled="true">{{'SIN_MENSAJES' | translate}}</textarea>
-                    <textarea class="mensaje-solicitud" ng-show="solicitud.solicitud.properties.mensaje" disabled="true">{{solicitud.solicitud.properties.mensaje}}</textarea>
-                </div>
+                    <div id="botones-solicitud">
+                        <button id="boton-aceptar-solicitud" class="btn btn-primary"
+                                ng-click="aceptarSolicitud(solicitud.contacto.username)">{{'ACEPTAR' | translate}}
+                        </button>
 
-                <div id="botones-solicitud">
-                    <button id="boton-aceptar-solicitud" class="btn btn-primary"
-                            ng-click="aceptarSolicitud(solicitud.contacto.username)">{{'ACEPTAR' | translate}}</button>
+                        <button id="boton-ignorar-solicitud" class="btn btn-default"
+                                ng-click="ignorarSolicitud(solicitud.contacto.username)">{{'IGNORAR' | translate}}
+                        </button>
 
-                    <button id="boton-ignorar-solicitud" class="btn btn-primary"
-                            ng-click="ignorarSolicitud(solicitud.contacto.username)">{{'IGNORAR' | translate}}</button>
+                    </div>
 
-                </div>
 
                 </div>
 
                 <div ng-show="solicitudes.length == 0">
-                    <h4>{{'NO_SOLICITUDES' | translate}}</h4>
-
+                    <h4 translate="NO_SOLICITUDES"></h4>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal" ng-click="cerrarPantallaSolicitudes()">{{'CERRAR' | translate}}</button>
+                <button class="btn btn-primary" data-dismiss="modal" ng-click="cerrarPantallaSolicitudes()">{{'CERRAR' |
+                    translate}}
+                </button>
             </div>
         </div>
     </div>

@@ -31,7 +31,7 @@ body {
     display: inline-block;
 }
 
-#listado-contactos {
+#listado-contactos, #listado-salas {
     overflow: scroll;
     width: 100%;
     height: 100%;
@@ -106,6 +106,8 @@ listado-salas {
 
 .mensaje-solicitud {
     resize: none;
+    width: 100%;
+    height: 72px;
 }
 
 .solicitud-contacto {
@@ -123,37 +125,32 @@ listado-salas {
 }
 
 #datos-contacto-solicitud {
-    width: 35%;
+    width: 55%;
 }
 
 #div-mensaje-solicitud {
-    width: 40%;
-    height: 100%;
-    margin-left: 10px;
+    width: 45%;
+    height: 100%
 }
 
 #mensaje-solicitud {
     width: 100%;
 }
 
-#botones-solicitud {
-    width: 20%;
-    text-align: center;
-    margin-left: 10px;
-}
-
 #boton-aceptar-solicitud {
     margin-bottom: 5px;
-    width: 70%;
+    width: 100%;
 }
 
 #boton-ignorar-solicitud {
-    width: 70%;
+    width: 100%;
 }
 
 #username-solicitud {
     text-align: center;
     display: block;
+    color: #00b3ee;
+
 }
 
 #nombre-apellidos-solicitud {
@@ -165,6 +162,23 @@ listado-salas {
     height: 50px;
 }
 
+.foto-solicitud-contacto{
+    float: left;
+    border-radius: 50%;
+}
+
+.info-solicitud-contacto{
+    width: 85%;
+    overflow: auto;
+    display: inline-block;
+}
+
+#botones-solicitud {
+    width: 14%;
+    float: right;
+}
+
+
 /*Solicitudes sala*/
 
 .solicitud-sala {
@@ -173,11 +187,35 @@ listado-salas {
     padding: 10px;
     margin-bottom: 10px;
     border: solid;
-    border-width: 2px;
+    border-width: 1px;
+}
+
+.foto-sala{
+    border-radius: 50%;
 }
 
 .descripcion-sala {
     resize: none;
+}
+
+.datos-sala{
+    width:50%;
+    display: inline-block;
+    text-align: center;
+}
+
+.botones-solicitud-sala{
+    float: right;
+    width:50%;
+    margin-top: 2%;
+}
+
+#boton-aceptar-solicitud-sala{
+    margin-right: 20px;
+    width: 90px;
+}
+#boton-ignorar-solicitud-sala{
+    width: 90px;
 }
 
 /* Bloquear contacto */
