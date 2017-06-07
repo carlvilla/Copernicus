@@ -198,7 +198,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
         $scope.contactosAdded = [];
 
         $scope.addCandidato = function () {
-            if ($scope.usuarioSeleccionado != undefined) {
+            if ($scope.usuarioSeleccionado != undefined && comprobarLimiteSala()) {
                 var usuario = {user: $scope.usuarioSeleccionado.originalObject, rel: {properties: {permisos: 'Miembro'}}};
 
                 //Si el usuario no se incluyó todavía
@@ -224,6 +224,24 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
                 }
             }
         };
+
+    /**
+     * Comprueba si se alcanzó el límite de personas en una sala
+     *
+     * @returns {boolean}
+     */
+    function comprobarLimiteSala() {
+
+        console.log()
+
+            if (($scope.participantes.length + $scope.candidatos.length) == 8) {
+                growl.info($translate.instant("LIMITE_SALA"));
+                return false;
+            } else {
+                return true;
+            }
+        }
+
 
         $scope.cancelarInvitacion = function (usuario) {
 
