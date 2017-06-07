@@ -123,7 +123,8 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "FICHERO_SIZE_MAXIMO": 'Solo se pueden enviar ficheros de hasta 10MB',
         "PRESENTACION_SIZE_MAXIMO": 'La presentación no puede ser mayor de 5MB',
         "CAMBIAR_PRESENTACION": 'Cambiar presentación',
-        "FICHERO_NO_VALIDO": 'El fichero enviado no es válido'
+        "FICHERO_NO_VALIDO": 'El fichero enviado no es válido',
+        "LIMITE_SALA": 'No puede haber más de 8 contactos en una sala'
     });
 
     $translateProvider.translations('en', {
@@ -246,7 +247,8 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "FICHERO_SIZE_MAXIMO": 'Files cannot be larger than 10MB',
         "PRESENTACION_SIZE_MAXIMO": 'The presentation cannot be larger than 5MB',
         "CAMBIAR_PRESENTACION": 'Change presentation',
-        "FICHERO_NO_VALIDO": 'The file sent is not valid'
+        "FICHERO_NO_VALIDO": 'The file sent is not valid',
+        "LIMITE_SALA": 'There can be no more than 8 people in a room'
 
     })
 

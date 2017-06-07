@@ -3,7 +3,7 @@
  */
 var webApp = angular.module('webApp');
 
-webApp.controller('salaController', function ($scope, $rootScope ,$http, $window) {
+webApp.controller('salaController', function ($scope, $rootScope ,$http, $window, growl, $translate) {
 
     $scope.foto;
     $scope.fotoRecortada = '';
@@ -56,12 +56,23 @@ webApp.controller('salaController', function ($scope, $rootScope ,$http, $window
     $scope.contactosSeleccionados = [];
 
     $scope.addContactoTabla = function () {
-        if ($scope.usuarioSeleccionado != undefined) {
+        if ($scope.usuarioSeleccionado != undefined && comprobarLimiteSala()) {
             var usuario = $scope.usuarioSeleccionado.originalObject;
 
             //Si el usuario no se incluyó todavía
             if ($scope.contactosSeleccionados.indexOf(usuario) == -1)
                 $scope.contactosSeleccionados.push(usuario);
+        }
+    }
+
+    function comprobarLimiteSala(){
+        //El límite es 8 personas, pero se comprueba que no haya más de 7 porque la octava persona es el usuario
+        //que crea la sala
+        if($scope.contactosSeleccionados.length == 7){
+            growl.info($translate.instant("LIMITE_SALA"));
+            return false;
+        }else{
+            return true;
         }
     }
 
