@@ -124,7 +124,9 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PRESENTACION_SIZE_MAXIMO": 'La presentación no puede ser mayor de 5MB',
         "CAMBIAR_PRESENTACION": 'Cambiar presentación',
         "FICHERO_NO_VALIDO": 'El fichero enviado no es válido',
-        "LIMITE_SALA": 'No puede haber más de 8 contactos en una sala'
+        "LIMITE_SALA": 'No puede haber más de 8 contactos en una sala',
+        "EXPLICACION_SOLICITUDES_SALA": 'Indique si desea unirse a las siguientes salas o ignorar las solicitudes',
+        "EXPLICACION_SOLICITUDES_CONTACTO": 'Indique si desea agregar a las siguientes personas o ignorar sus solicitudes'
     });
 
     $translateProvider.translations('en', {
@@ -248,7 +250,9 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "PRESENTACION_SIZE_MAXIMO": 'The presentation cannot be larger than 5MB',
         "CAMBIAR_PRESENTACION": 'Change presentation',
         "FICHERO_NO_VALIDO": 'The file sent is not valid',
-        "LIMITE_SALA": 'There can be no more than 8 people in a room'
+        "LIMITE_SALA": 'There can be no more than 8 people in a room',
+        "EXPLICACION_SOLICITUDES_SALA": 'Indicate if you want to join the following rooms or ignore the requests',
+        "EXPLICACION_SOLICITUDES_CONTACTO": 'Indicate if you want to add the following people or ignore their requests'
 
     })
 

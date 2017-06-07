@@ -7,40 +7,41 @@
             </div>
             <div class="modal-body">
 
+
+                <div ng-show="solicitudesSala.length > 0">
+                    <h5 translate="EXPLICACION_SOLICITUDES_SALA"></h5>
+                </div>
+
+
                 <div id="solicitud-de-{{sala.idSala}}" class="solicitud-sala" ng-repeat="sala in solicitudesSala">
 
-                    <div id="datos-sala-solicitud">
-                        <label id="username-sala">{{sala.nombre}}</label>
-                        <div id="nombre-apellidos-sala">
-               <!--             <label id="nombre-sala">{{solicitud.contacto.nombre}}</label>
-                            <label id="apellidos-sala">{{solicitud.contacto.apellidos}}</label>-->
-                        </div>
+                    <div class="datos-sala">
+                        <label id="nombre-sala">{{sala.nombre}}</label>
+                        <img class="foto-sala" width="60px" height="60px" ngf-src="sala.foto"/>
                     </div>
 
-                    <div id="div-mensaje-solicitud">
-                        <textarea class="descripcion-sala" ng-show="!sala.descripcion" disabled="true">{{'SIN_MENSAJE' | translate}}</textarea>
-                        <textarea class="descripcion-sala" ng-show="sala.descripcion" disabled="true">{{sala.descripcion}}</textarea>
-                    </div>
-
-                    <div id="botones-solicitud">
+                    <div class="botones-solicitud-sala">
                         <button id="boton-aceptar-solicitud-sala" class="btn btn-primary"
-                                ng-click="aceptarSolicitud(sala.idSala)">{{'ACEPTAR' | translate}}</button>
+                                ng-click="aceptarSolicitud(sala.idSala)">{{'ACEPTAR' | translate}}
+                        </button>
 
-                        <button id="boton-ignorar-solicitud-sala" class="btn btn-primary"
-                                ng-click="ignorarSolicitud(sala.idSala)">{{'IGNORAR' | translate}}</button>
+                        <button id="boton-ignorar-solicitud-sala" class="btn btn-default"
+                                ng-click="ignorarSolicitud(sala.idSala)">{{'IGNORAR' | translate}}
+                        </button>
 
                     </div>
 
                 </div>
 
                 <div ng-show="solicitudesSala.length == 0">
-                    <h4>{{'NO_SOLICITUDES' | translate}}</h4>
-
+                    <h4 translate="NO_SOLICITUDES"></h4>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal" ng-click="cerrarPantallaSolicitudes()">{{'CERRAR' | translate}}</button>
+                <button class="btn btn-primary" data-dismiss="modal" ng-click="cerrarPantallaSolicitudes()">{{'CERRAR' |
+                    translate}}
+                </button>
             </div>
         </div>
     </div>
