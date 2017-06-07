@@ -49,12 +49,11 @@ webApp.controller('modulosController', function ($scope, growl, $compile, $trans
 
     $scope.addModule = function (modulo) {
 
-        //Por el momento solo se pueden utilizar 4 módulos simultáneamente
+        //Solo se pueden utilizar 4 módulos simultáneamente
         if(modulosMostrados.length > 3){
+            mostrarMensajeInfo($translate.instant('MAX_SERVICIOS'));
             return;
         }
-
-        console.log("Añadiendo módulo: "+modulo);
 
         switch (modulo) {
             case "chatVideo":
@@ -135,7 +134,6 @@ webApp.controller('modulosController', function ($scope, growl, $compile, $trans
         grid.addWidget($(moduloSeleccionado),
             0, 0, node.width, node.height, true, node.minWidth, node.maxWidth, node.minWidth, node.maxHeight);
 
-
         $compile('#'+modulo)($scope);
     };
 
@@ -156,7 +154,7 @@ webApp.controller('modulosController', function ($scope, growl, $compile, $trans
 
 
     $scope.eliminarModulo = function (modulo){
-        modulosMostrados.splice(modulo, 1);
+        modulosMostrados.splice(modulosMostrados.indexOf(modulo), 1);
         grid.removeWidget($('#'+modulo));
     };
 

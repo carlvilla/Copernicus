@@ -8,6 +8,7 @@ webApp.controller('salaController', function ($scope, $rootScope, $http, $window
     $scope.foto;
     $scope.fotoRecortada = '';
     var fotoPorDefecto = true;
+    var sizeMaxFoto = 8000000; //8MB
 
     $http({
         method: "GET",
@@ -156,15 +157,24 @@ webApp.controller('salaController', function ($scope, $rootScope, $http, $window
     }
 
     var fotoSeleccionada = function (evt) {
-        fotoPorDefecto = false;
-        var file = evt.currentTarget.files[0];
-        var reader = new FileReader();
-        reader.onload = function (evt) {
-            $scope.$apply(function ($scope) {
-                $scope.foto = evt.target.result;
-            });
-        };
-        reader.readAsDataURL(file);
+
+        var size = document.getElementById('foto').files[0].size;
+
+        if (size < sizeMaxFoto) {
+            fotoPorDefecto = false;
+            var file = evt.currentTarget.files[0];
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                $scope.$apply(function ($scope) {
+                    $scope.foto = evt.target.result;
+                });
+            };
+            reader.readAsDataURL(file);
+        }
+        else {
+            growl.error($translate.instant("FOTO_SIZE_MAXIMO"), {ttl: 5000});
+        }
+
     };
 
     angular.element(document.querySelector('#foto')).on('change', fotoSeleccionada);

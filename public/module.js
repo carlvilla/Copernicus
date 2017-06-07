@@ -100,6 +100,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "CHAT_TEXTO_UTILIZANDO": 'El servicio de chat de texto está siendo utilizado',
         "PRESENTACIONES_UTILIZANDO": 'El servicio de presentaciones está siendo utilizado',
         "DIBUJOS_UTILIZANDO": 'El servicio de dibujos está siendo utilizado',
+        "MAX_SERVICIOS": 'No se pueden utilizar más de 4 servicios simultáneamente',
         "ACTUALIZAR_PASS": 'Actualizar contraseña',
         "DATOS_ACTUALIZADOS_CORRECTAMENTE": 'Datos actualizados correctamente',
         "NOMBRE_ERRONEO": 'El nombre solo puede tener entre 2 y 15 carácteres',
@@ -126,7 +127,9 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "FICHERO_NO_VALIDO": 'El fichero enviado no es válido',
         "LIMITE_SALA": 'No puede haber más de 8 contactos en una sala',
         "EXPLICACION_SOLICITUDES_SALA": 'Indique si desea unirse a las siguientes salas o ignorar las solicitudes',
-        "EXPLICACION_SOLICITUDES_CONTACTO": 'Indique si desea agregar a las siguientes personas o ignorar sus solicitudes'
+        "EXPLICACION_SOLICITUDES_CONTACTO": 'Indique si desea agregar a las siguientes personas o ignorar sus solicitudes',
+        "FOTO_SIZE_MAXIMO": 'El tamaño máximo de la fotografía es de 8MB',
+        "SOBRE_NOSOTROS": 'Sobre nosotros'
     });
 
     $translateProvider.translations('en', {
@@ -226,6 +229,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "CHAT_TEXTO_UTILIZANDO": 'Chat is being used',
         "PRESENTACIONES_UTILIZANDO": 'Presentations is being used',
         "DIBUJOS_UTILIZANDO": 'Draws is being used',
+        "MAX_SERVICIOS": 'No more than 4 services can be used simultaneously',
         "ACTUALIZAR_PASS": 'Update password',
         "DATOS_ACTUALIZADOS_CORRECTAMENTE": 'Correctly updated data',
         "NOMBRE_ERRONEO": 'The name can only be between 2 and 15 characters',
@@ -252,10 +256,10 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "FICHERO_NO_VALIDO": 'The file sent is not valid',
         "LIMITE_SALA": 'There can be no more than 8 people in a room',
         "EXPLICACION_SOLICITUDES_SALA": 'Indicate if you want to join the following rooms or ignore the requests',
-        "EXPLICACION_SOLICITUDES_CONTACTO": 'Indicate if you want to add the following people or ignore their requests'
-
+        "EXPLICACION_SOLICITUDES_CONTACTO": 'Indicate if you want to add the following people or ignore their requests',
+        "FOTO_SIZE_MAXIMO": 'The photo cannot be larger than 8MB',
+        "SOBRE_NOSOTROS": 'About us'
     })
-
 
     $translateProvider.preferredLanguage('es');
     $translateProvider.useSanitizeValueStrategy('escaped');

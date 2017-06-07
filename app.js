@@ -15,13 +15,12 @@ var routesApi = require('./api/routes/routes');
 
 var app = express();
 
-app.use(bodyParser({limit: '50mb'}));
+app.use(bodyParser.json({ limit: '50mb', extended: false }));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 

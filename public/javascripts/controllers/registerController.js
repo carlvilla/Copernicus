@@ -3,13 +3,14 @@
  */
 var webApp = angular.module('webApp');
 
-webApp.controller('registerController', function ($scope, $http, $window, $cookies) {
+webApp.controller('registerController', function ($scope, $http, $window, $cookies, growl, $translate) {
     $scope.messages = {};
     $scope.messages.showError = false;
 
     $scope.fotoPerfil;
     $scope.fotoRecortada = '';
     var fotoPorDefecto = true;
+    var sizeMaxFoto = 8000000; //8MB
 
     $scope.registrar = function (usuario) {
         usuario.fotoPerfil = $scope.fotoRecortada;
@@ -22,15 +23,22 @@ webApp.controller('registerController', function ($scope, $http, $window, $cooki
     }
 
     var fotoSeleccionada = function (evt) {
-        fotoPorDefecto = false;
-        var file = evt.currentTarget.files[0];
-        var reader = new FileReader();
-        reader.onload = function (evt) {
-            $scope.$apply(function ($scope) {
-                $scope.fotoPerfil = evt.target.result;
-            });
-        };
-        reader.readAsDataURL(file);
+        var size = document.getElementById('foto').files[0].size;
+
+        if(size < sizeMaxFoto) {
+            var file = evt.currentTarget.files[0];
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                $scope.$apply(function ($scope) {
+                    $scope.fotoPerfil = evt.target.result;
+                });
+
+                fotoPorDefecto = false;
+            };
+            reader.readAsDataURL(file);
+        }else{
+            growl.error($translate.instant("FOTO_SIZE_MAXIMO"),{ttl:5000});
+        }
     };
 
     angular.element(document.querySelector('#foto')).on('change', fotoSeleccionada);
