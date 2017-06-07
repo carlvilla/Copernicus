@@ -181,7 +181,7 @@ module.exports = function (server) {
         broadcast = function (message, usuarioAccion, sala) {
             connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
                     if (conexion.usuario.username != usuarioAccion) {
-                        if (conexion.ws.readyState == ws.OPEN) {
+                        if (conexion.ws.readyState == 1) {
                             console.log("Enviando mensaje a webSocketService");
                             conexion.ws.send(message);
                         }
@@ -310,11 +310,8 @@ module.exports = function (server) {
     getUsuarios = function (usernameEnvia, sala) {
         var usuarios = [];
         console.log("Obtener usuarios");
-
-        //  console.log(connections);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username != usernameEnvia) {
-                console.log(conexion);
                 if (conexion.videoChat && conexion.videoChat.disponible)
                     usuarios.push(conexion.usuario.username);
             }
@@ -325,6 +322,7 @@ module.exports = function (server) {
 
 
     enviarA = function (message, usernameSeEnvia, sala) {
+        console.log("Enviando mensaje a "+usernameSeEnvia);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username == usernameSeEnvia) {
                 if (conexion.ws && conexion.ws.readyState == 1)

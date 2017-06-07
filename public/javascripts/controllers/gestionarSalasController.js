@@ -225,14 +225,14 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
             }
         };
 
-    /**
-     * Comprueba si se alcanzó el límite de personas en una sala
-     *
-     * @returns {boolean}
-     */
-    function comprobarLimiteSala() {
+        /**
+         * Comprueba si se alcanzó el límite de personas en una sala
+         *
+         * @returns {boolean}
+         */
+        function comprobarLimiteSala() {
 
-        console.log()
+            console.log()
 
             if (($scope.participantes.length + $scope.candidatos.length) == 8) {
                 growl.info($translate.instant("LIMITE_SALA"));
@@ -286,17 +286,28 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
         $scope.foto;
         $scope.fotoRecortada = '';
         var fotoCambiada = false;
+        var sizeMaxFoto = 8000000; //8MB
 
         var fotoSeleccionada = function (evt) {
-            fotoCambiada = true;
-            var file = evt.currentTarget.files[0];
-            var reader = new FileReader();
-            reader.onload = function (evt) {
-                $scope.$apply(function ($scope) {
-                    $scope.foto = evt.target.result;
-                });
-            };
-            reader.readAsDataURL(file);
+
+            var size = document.getElementById('foto').files[0].size;
+
+            if (size < sizeMaxFoto) {
+                fotoCambiada = true;
+                var file = evt.currentTarget.files[0];
+                var reader = new FileReader();
+                reader.onload = function (evt) {
+                    $scope.$apply(function ($scope) {
+                        $scope.foto = evt.target.result;
+                    });
+                };
+                reader.readAsDataURL(file);
+
+            } else {
+                growl.error($translate.instant("FOTO_SIZE_MAXIMO"), {ttl: 5000});
+            }
+
+
         };
 
         angular.element(document.querySelector('#foto')).on('change', fotoSeleccionada);

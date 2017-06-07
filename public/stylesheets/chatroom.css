@@ -100,46 +100,6 @@ html, body {
     text-align: center;
 }
 
-#servicio1 {
-    height: 50vh;
-    width: 41%;
-    border-size: 2px;
-    border-style: solid;
-    border-color: black;
-    float: left;
-    text-align: center;
-}
-
-#servicio2 {
-    height: 50vh;
-    width: 41%;
-    border-size: 2px;
-    border-style: solid;
-    border-color: black;
-    float: left;
-    text-align: center;
-}
-
-#servicio3 {
-    height: 50vh;
-    width: 41%;
-    border-size: 2px;
-    border-style: solid;
-    border-color: black;
-    float: left;
-    text-align: center;
-}
-
-#servicio4 {
-    height: 50vh;
-    width: 41%;
-    border-size: 1px;
-    border-style: solid;
-    border-color: black;
-    float: left;
-    text-align: center;
-}
-
 .contenedorExterior {
     display: table;
     width: 100px;
@@ -422,6 +382,10 @@ input:checked + .slider:before {
 
 .servicio {
     cursor: pointer;
+}
+
+.servicio:hover {
+    background-color: #0b93d5;
 }
 
 /* Módulo Dibujos */

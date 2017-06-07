@@ -135,8 +135,10 @@
                                     </div>
 
                                     <div>{{'SELECCIONA_FOTO_PERFIL' | translate}}:
-                                        <input type="file" id="foto" accept="image/jpeg, image/x-png, image/gif"></div>
-                                    <div ng-show="fotoPerfil">
+                                        <input type="file" id="foto" accept="image/jpeg, image/x-png, image/gif"/>
+                                    </div>
+
+                                        <div ng-show="fotoPerfil">
                                         <div class="cropArea">
                                             <img-crop image="fotoPerfil" result-image="fotoRecortada"></img-crop>
                                         </div>
