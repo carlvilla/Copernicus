@@ -1,45 +1,97 @@
-function PresentacionManager(ws){
+function PresentacionManager(ws) {
 
-    var presentacion;
+    var scope;
     var reveal;
     var usernameUsuario;
     var sala;
 
-    this.start = function (salaParam) {
-        presentacion = document.getElementById("presentacion");
+    var presentacion;
+
+    this.start = function (salaParam, scopeParam) {
+        var iframe = document.getElementById('presentacion-frame');
+        scope = scopeParam;
         sala = salaParam;
 
-        presentacion.onload = function () {
-            reveal = presentacion.contentWindow.Reveal;
-            console.log(reveal);
-            reveal.addEventListener('slidechanged', actualizarAsistentes);
-        }
-    }
+    };
 
-     this.setUsuario = function (username) {
+    this.setUsuario = function (username) {
         usernameUsuario = username;
     }
 
-    this.actualizarPresentacion = function(info){
-        reveal.slide(info.indexh, info.indexv);
+    this.actualizarPresentacion = function (mensaje) {
+
+        switch (mensaje.accion) {
+            case 'mover':
+
+                var mover = {
+                    indexh: mensaje.indexh,
+                    indexv: mensaje.indexv,
+                };
+
+                reveal.slide(mover);
+
+                break;
+
+            case 'cambiar':
+
+                var ifr = document.getElementById('presentacion-frame');
+
+                if (ifr)
+                    ifr.src = mensaje.presentacion;
+                else{
+                    console.log("Holaiudbw")
+                    presentacion = mensaje.presentacion;
+                }
+
+                break;
+
+        }
     }
 
-    var actualizarAsistentes = function (evento) {
-        sendData(evento.indexh, evento.indexv)
+    var actualizarAsistentes = function (info) {
+
+        console.log("HOLAAAAA");
+
+        var mensaje = {
+            indexh: info.indexh,
+            indexv: info.indexv,
+            accion: 'mover'
+        };
+
+        sendData(mensaje);
+    };
+
+    this.cambiarPresentacion = function (presentacionParam) {
+
+        var mensaje = {
+            accion: 'cambiar',
+            presentacion: presentacionParam
+        };
+
+        var ifr = document.getElementById('presentacion-frame');
+
+        if (ifr)
+            ifr.src = presentacionParam;
+
+        sendData(mensaje);
+
     }
 
-    function sendData(indexh, indexv) {
+    function sendData(mensaje) {
         ws.send(JSON.stringify(
             {
                 'seccion': 'presentacion',
                 'data': {
-                    'indexh': indexh,
-                    'indexv': indexv,
+                    'indexh': mensaje.indexh,
+                    'indexv': mensaje.indexv,
+                    'accion': mensaje.accion,
+                    'presentacion': mensaje.presentacion,
                     'username': usernameUsuario,
                     'sala': sala
                 }
 
             }));
     }
+
 
 }

@@ -18,13 +18,11 @@ webApp.service('utils', function ($http, $window) {
     }
 
     function checkParticipante(idSala) {
-        console.log(idSala);
         $http({
             method: "POST",
             url: "api/salas",
             data: angular.toJson({idSala: idSala})
         }).then(function (res) {
-            console.log("Autorizado")
         }, noAutorizado);
     }
 

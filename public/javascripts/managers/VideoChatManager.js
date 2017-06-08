@@ -261,7 +261,7 @@ function VideoChatManager(ws) {
         referenciaStream.getAudioTracks()[0].enabled = mute;
     };
 
-    this.setVideo = function (video){
+    this.setVideo = function (video) {
         referenciaStream.getVideoTracks()[0].enabled = video;
     }
 
@@ -396,25 +396,58 @@ function VideoChatManager(ws) {
 
             //Actualizamos las dimensiones del video local y de los videos remotos
             if (videosActualizar.length == 2) {
+                console.log(2);
                 videoLocal.style.width = "50%";
                 videoLocal.style.height = "50%";
 
                 videosActualizar[0].style.width = "50%";
                 videosActualizar[0].style.height = "50%";
 
-                videosActualizar[1].style.width = "100%";
+                videosActualizar[1].style.width = "50%";
                 videosActualizar[1].style.height = "50%";
 
 
             } else if (videosActualizar.length == 1) {
+                console.log(1);
                 videoLocal.style.width = "50%";
                 videoLocal.style.height = "100%";
 
                 videosActualizar[0].style.width = "50%";
                 videosActualizar[0].style.height = "100%";
+
+            } else if (videosActualizar.length == 3) {
+                console.log(3);
+                videoLocal.style.width = "50%";
+                videoLocal.style.height = "50%";
+
+                videosActualizar[0].style.width = "50%";
+                videosActualizar[0].style.height = "50%";
+
+                videosActualizar[1].style.width = "50%";
+                videosActualizar[1].style.height = "50%";
+
+                videosActualizar[2].style.width = "50%";
+                videosActualizar[2].style.height = "50%";
+            } else {
+                //A partir de 4 personas utilizando el chat de video,
+                //se pasa a una conversación solo por voz
+                videoLocal.style.width = "0%";
+                videoLocal.style.height = "0%";
+                videoRemoto1.pause();
+
+                videosActualizar[0].style.width = "0%";
+                videosActualizar[0].style.height = "0%";
+                videosActualizar[0].pause();
+
+                videosActualizar[1].style.width = "0%";
+                videosActualizar[1].style.height = "0%";
+                videosActualizar[1].pause();
+
+                videosActualizar[2].style.width = "0%";
+                videosActualizar[2].style.height = "0%";
+                videosActualizar[2].pause();
             }
-
-
+            
         }
 
     }
