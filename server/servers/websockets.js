@@ -40,7 +40,7 @@ module.exports = function (server) {
                                 'sala': sala
                             }
 
-                            console.log("Añadiendo usuario");
+                            console.log("Añadiendo usuario: "+obj.data.username);
 
                             var addUser = true;
 
@@ -150,6 +150,7 @@ module.exports = function (server) {
 
 
                     case "presentacion":
+                        console.log("Presentacion Web");
                         broadcast(message, obj.data.username, sala);
                         break;
 
@@ -180,9 +181,11 @@ module.exports = function (server) {
          */
         broadcast = function (message, usuarioAccion, sala) {
             connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
+                console.log(conexion.usuario.username);
                     if (conexion.usuario.username != usuarioAccion) {
                         if (conexion.ws.readyState == 1) {
                             console.log("Enviando mensaje a webSocketService");
+                            console.log(conexion.usuario.username);
                             conexion.ws.send(message);
                         }
                         else {
