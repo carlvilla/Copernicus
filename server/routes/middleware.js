@@ -38,11 +38,6 @@ module.exports.checkToken = function (req, res, next) {
     }
 };
 
-module.exports.checkPerteneceSala = function (req, res, next) {
-    console.log("Comprobando que pertenece a la sala");
-    console.log(req);
-};
-
 /**
  * Comprueba si el usuario está autenticado. En el caso de que esté autenticado
  * correctamente se le redirigirá a la página personal.

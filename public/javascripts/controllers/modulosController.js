@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('modulosController', function ($scope, growl, $compile, $translate) {
+webApp.controller('modulosController', function ($scope, utils, $compile, $translate) {
 
     //Primero cargamos los htmls de los módulos
     //Es necesario hacer esto en primer lugar, no se puede cargar el html una vez se va a añadir ya que no se cargará
@@ -51,7 +51,7 @@ webApp.controller('modulosController', function ($scope, growl, $compile, $trans
 
         //Solo se pueden utilizar 4 módulos simultáneamente
         if(modulosMostrados.length > 3){
-            mostrarMensajeInfo($translate.instant('MAX_SERVICIOS'));
+            utils.mensajeInfo($translate.instant('MAX_SERVICIOS'));
             return;
         }
 
@@ -72,7 +72,7 @@ webApp.controller('modulosController', function ($scope, growl, $compile, $trans
                     };
 
                 }else{
-                    mostrarMensajeInfo($translate.instant('CHAT_VIDEO_UTILIZANDO'));
+                    utils.mensajeInfo($translate.instant('CHAT_VIDEO_UTILIZANDO'));
                     return;
                 }
 
@@ -95,7 +95,7 @@ webApp.controller('modulosController', function ($scope, growl, $compile, $trans
                     };
 
                 }else{
-                    mostrarMensajeInfo($translate.instant('CHAT_TEXTO_UTILIZANDO'));
+                    utils.mensajeInfo($translate.instant('CHAT_TEXTO_UTILIZANDO'));
                     return;
                 }
 
@@ -108,7 +108,7 @@ webApp.controller('modulosController', function ($scope, growl, $compile, $trans
                 if(!contains(modulosMostrados,"presentaciones")){
                     modulosMostrados.push("presentaciones");
                 }else{
-                    mostrarMensajeInfo($translate.instant('PRESENTACIONES_UTILIZANDO'));
+                    utils.mensajeInfo($translate.instant('PRESENTACIONES_UTILIZANDO'));
                     return;
                 }
 
@@ -121,7 +121,7 @@ webApp.controller('modulosController', function ($scope, growl, $compile, $trans
                 if(!contains(modulosMostrados,"dibujo")){
                     modulosMostrados.push("dibujo");
                 }else{
-                    mostrarMensajeInfo($translate.instant('DIBUJOS_UTILIZANDO'));
+                    utils.mensajeInfo($translate.instant('DIBUJOS_UTILIZANDO'));
                     return;
                 }
 
@@ -147,11 +147,6 @@ webApp.controller('modulosController', function ($scope, growl, $compile, $trans
         }
         return false;
     }
-
-    var mostrarMensajeInfo = function (res) {
-        growl.info(res, {ttl: 4000});
-    }
-
 
     $scope.eliminarModulo = function (modulo){
         modulosMostrados.splice(modulosMostrados.indexOf(modulo), 1);

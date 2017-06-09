@@ -3,7 +3,7 @@
  */
 var webApp = angular.module('webApp');
 
-webApp.controller('registerController', function ($scope, $http, $window, $cookies, growl, $translate) {
+webApp.controller('registerController', function ($scope, $http, $window, $cookies, utils, $translate) {
     $scope.messages = {};
     $scope.messages.showError = false;
 
@@ -37,7 +37,7 @@ webApp.controller('registerController', function ($scope, $http, $window, $cooki
             };
             reader.readAsDataURL(file);
         }else{
-            growl.error($translate.instant("FOTO_SIZE_MAXIMO"),{ttl:5000});
+            utils.mensajeError($translate.instant("FOTO_SIZE_MAXIMO"));
         }
     };
 

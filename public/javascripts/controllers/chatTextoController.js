@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller("chatTextoController", function ($scope, $rootScope, webSocketService, growl, $translate) {
+webApp.controller("chatTextoController", function ($scope, $rootScope, webSocketService, utils, $translate) {
 
     var usuario = $rootScope.usuario;
 
@@ -40,7 +40,7 @@ webApp.controller("chatTextoController", function ($scope, $rootScope, webSocket
         else {
             console.log(errFiles);
             if (errFiles[0] && errFiles[0].$error == 'maxSize')
-                growl.error($translate.instant('FICHERO_SIZE_MAXIMO'), {ttl: 5000});
+                utils.mensajeError($translate.instant('FICHERO_SIZE_MAXIMO'));
         }
 
         fr.onloadend = function () {

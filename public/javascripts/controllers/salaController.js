@@ -3,21 +3,24 @@
  */
 var webApp = angular.module('webApp');
 
-webApp.controller('salaController', function ($scope, $rootScope, $http, $window, growl, $translate) {
+webApp.controller('salaController', function ($scope, $rootScope, $http, $window, utils, $translate) {
 
     $scope.foto;
     $scope.fotoRecortada = '';
     var fotoPorDefecto = true;
     var sizeMaxFoto = 8000000; //8MB
 
+    //Atributo necesario para el filtrado de sala
+    var todasSalas;
+
     $http({
         method: "GET",
         url: "api/salasParticipa"
     }).then(success, error)
 
-
     function success(res) {
         $scope.salas = res.data;
+        todasSalas = res.data;
     }
 
     $scope.accederSala = function (idSala) {
@@ -35,18 +38,24 @@ webApp.controller('salaController', function ($scope, $rootScope, $http, $window
 
     //Crear sala
     $scope.crearSala = function (sala) {
-        sala.foto = $scope.fotoRecortada;
-        sala.fotoPorDefecto = fotoPorDefecto;
-        $http({
-            method: "POST",
-            url: "api/createSala",
-            data: angular.toJson(
-                {
-                    "sala": sala,
-                    "usuarios": $scope.contactosSeleccionados
-                }
-            )
-        }).then(successCrear, error);
+        if (sala && sala.nombre) {
+            utils.mensajeInfoSinTiempo($translate.instant("CREANDO_SALA"));
+
+            sala.foto = $scope.fotoRecortada;
+            sala.fotoPorDefecto = fotoPorDefecto;
+            $http({
+                method: "POST",
+                url: "api/createSala",
+                data: angular.toJson(
+                    {
+                        "sala": sala,
+                        "usuarios": $scope.contactosSeleccionados
+                    }
+                )
+            }).then(successCrear, error);
+        } else {
+            utils.mensajeError($translate.instant("NOMBRE_SALA_OBLIGATORIO"));
+        }
     }
 
     var successCrear = function (res) {
@@ -70,7 +79,7 @@ webApp.controller('salaController', function ($scope, $rootScope, $http, $window
         //El límite es 8 personas, pero se comprueba que no haya más de 7 porque la octava persona es el usuario
         //que crea la sala
         if ($scope.contactosSeleccionados.length == 7) {
-            growl.info($translate.instant("LIMITE_SALA"));
+            utils.mensajeInfo($translate.instant("LIMITE_SALA"));
             return false;
         } else {
             return true;
@@ -157,7 +166,6 @@ webApp.controller('salaController', function ($scope, $rootScope, $http, $window
     }
 
     var fotoSeleccionada = function (evt) {
-
         var size = document.getElementById('foto').files[0].size;
 
         if (size < sizeMaxFoto) {
@@ -172,7 +180,7 @@ webApp.controller('salaController', function ($scope, $rootScope, $http, $window
             reader.readAsDataURL(file);
         }
         else {
-            growl.error($translate.instant("FOTO_SIZE_MAXIMO"), {ttl: 5000});
+            utils.mensajeError($translate.instant("FOTO_SIZE_MAXIMO"));
         }
 
     };
@@ -182,6 +190,15 @@ webApp.controller('salaController', function ($scope, $rootScope, $http, $window
     function error(res) {
         //console.log(res);
     }
+
+    $scope.filtrar = function () {
+        $scope.salas = todasSalas.filter(function (sala) {
+            var nombreSala = sala.nombre.toLowerCase();
+            var stringFiltrar = $('#input-filtrar-salas').val().toLowerCase();
+            return nombreSala.indexOf(stringFiltrar) !== -1;
+        });
+    }
+
 
 });
 

@@ -34,12 +34,14 @@
             <li class="nav-header" translate="CONTACTOS"></li>
             <li>
                 <a data-target="#addUsuario" data-toggle="modal">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span translate="ADD_CONTACTO"></span>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span
+                            translate="ADD_CONTACTO"></span>
                 </a>
             </li>
             <li>
                 <a data-target="#solicitudes-contacto" data-toggle="modal">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <span translate="SOLICITUDES_CONTACTO"></span>
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <span
+                            translate="SOLICITUDES_CONTACTO"></span>
                     <span ng-hide="solicitudes.length < 1" class="badge badge-info">{{solicitudes.length}}</span>
                 </a>
             </li>
@@ -58,24 +60,29 @@
             </li>
             <li>
                 <a href="manageRooms">
-                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> <span translate="GESTIONAR_SALA"></span>
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> <span
+                            translate="GESTIONAR_SALA"></span>
                 </a>
             </li>
             <li>
                 <a data-target="#solicitudes-salas" data-toggle="modal">
-                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> <span translate="SOLICITUDES_SALAS"></span>
-                    <span ng-hide="solicitudesSala.length < 1" class="badge badge-info">{{solicitudesSala.length}}</span>
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> <span
+                            translate="SOLICITUDES_SALAS"></span>
+                    <span ng-hide="solicitudesSala.length < 1"
+                          class="badge badge-info">{{solicitudesSala.length}}</span>
                 </a>
             </li>
             <li class="nav-header" translate="AJUSTES"></li>
             <li>
                 <a href="profileSettings">
-                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> <span translate="AJUSTES_CUENTA"></span>
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> <span
+                            translate="AJUSTES_CUENTA"></span>
                 </a>
             </li>
             <li class="nav-header">
                 <a ng-controller="logoutController" ng-click="logout()" href="index">
-                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <span translate="CERRAR_SESION"></span>
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <span
+                            translate="CERRAR_SESION"></span>
                 </a>
             </li>
         </ul>
@@ -84,23 +91,33 @@
 
     <!-- Listado contactos -->
     <div id="contenedor-listado-contactos" ng-controller="contactosController">
-        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left">  <span translate="CONTACTOS"/>
-            </label><input style="float:left; margin-bottom: 5px;" placeholder="{{'FILTRAR_CONTACTOS' | translate}}"/></div>
+        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left"> <span
+                        translate="CONTACTOS"/>
+            </label><input id="input-filtrar-contactos" style="float:left; margin-bottom: 5px;"
+                           placeholder="{{'FILTRAR_CONTACTOS' | translate}}" ng-keyup="filtrar()"/></div>
         <div id="contenedor2-listado-contactos">
             <div id="listado-contactos">
-                <button ng-repeat="contacto in contactos" class="list-group-item boton-listado">
+                <button ng-repeat="contacto in contactos" class="list-group-item boton-listado"
+                        data-target="#datosContacto" data-toggle="modal" ng-click="mostrarContacto(contacto.username)">
                     <img ng-src="{{contacto.foto}}" class="foto-perfil">
                     {{contacto.username}}
                 </button>
             </div>
         </div>
+
+        <!-- Dialog para mostrar los datos del contacto -->
+        <% include partials/dialogs/datosContacto.ejs %>
+
     </div>
     <!-- Fin listado contactos -->
 
     <!-- Listado salas -->
     <div ng-controller="salaController" id="contenedor-listado-salas" class="btn-group-vertical">
         <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left;">
-                {{'ACCESO_SALAS' | translate}}:</label><input style="float:left; margin-bottom: 5px;" placeholder="{{'FILTRAR_SALAS' | translate}}"/></div>
+                {{'ACCESO_SALAS' | translate}}:</label><input id="input-filtrar-salas"
+                                                              style="float:left; margin-bottom: 5px;"
+                                                              ng-keyup="filtrar()"
+                                                              placeholder="{{'FILTRAR_SALAS' | translate}}"/></div>
         <div id="contenedor2-listado-salas">
             <div id="listado-salas">
                 <button ng-repeat="sala in salas" ng-click="accederSala(sala.idSala)"

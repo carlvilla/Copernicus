@@ -1,11 +1,11 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('gestionarSalasController', function ($scope, $http, $window, growl, $translate) {
+webApp.controller('gestionarSalasController', function ($scope, $http, $window, utils, $translate) {
 
         var idSalaSeleccionada;
 
         function error(res) {
-            mostrarMensajeError($translate.instant('OPERACION_NO_AUTORIZADA'));
+            utils.mensajeError($translate.instant('OPERACION_NO_AUTORIZADA'));
         }
 
         $http({
@@ -60,19 +60,6 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
             }, error)
         };
 
-        var mostrarMensaje = function (res) {
-            growl.success(res, {ttl: 4000});
-        }
-
-        var mostrarMensajeInfo = function (res) {
-            growl.info(res);
-        }
-
-        var mostrarMensajeError = function (res) {
-            growl.error(res, {ttl: 4000});
-        }
-
-
         $scope.eliminarUsuarioSeleccionado = function (usuario) {
             $http({
                 method: "POST",
@@ -85,7 +72,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
                 $scope.participantes.forEach(function (participante) {
                     if (participante.user.username == usuario.username) {
                         $scope.participantes.splice($scope.participantes.indexOf(participante), 1);
-                        mostrarMensaje($translate.instant('USUARIO_ELIMINADO'));
+                        utils.mensajeSuccess($translate.instant('USUARIO_ELIMINADO'));
                     }
                 })
             });
@@ -93,7 +80,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
 
         $scope.actualizarSala = function () {
             if (fotoCambiada) {
-                mostrarMensajeInfo('Actualizando la sala...');
+                utils.mensajeInfo($translate.instant('ACTUALIZANDO_SALA'));
             }
 
             $http({
@@ -108,7 +95,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
                 }
             }).then(
                 function () {
-                    mostrarMensaje($translate.instant('DATOS_SALA_ACTUALIZADOS'));
+                    utils.mensajeSuccess($translate.instant('DATOS_SALA_ACTUALIZADOS'));
 
                     if (fotoCambiada) {
                         $window.location.reload();
@@ -132,7 +119,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
                         $scope.salasAdmin.splice($scope.salasAdmin.indexOf(sala), 1);
                         $scope.salaSeleccionada = undefined;
                         idSalaSeleccionada = undefined;
-                        mostrarMensaje($translate.instant("SALA_ELIMINADA"));
+                        utils.mensajeSuccess($translate.instant("SALA_ELIMINADA"));
                         return false;
                     }
                     return true;
@@ -150,7 +137,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
                     permisos: participante.permisos,
                 }
             }).then(function (res) {
-                mostrarMensaje($translate.instant("PERMISOS_USUARIO_CAMBIADOS"));
+                utils.mensajeSuccess($translate.instant("PERMISOS_USUARIO_CAMBIADOS"));
             }, error)
 
         }
@@ -166,7 +153,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
                     permisos: candidato.rel.properties.permisos,
                 }
             }).then(function (res) {
-                mostrarMensaje($translate.instant("PERMISOS_USUARIO_CAMBIADOS"));
+                utils.mensajeSuccess($translate.instant("PERMISOS_USUARIO_CAMBIADOS"));
             }, error)
 
         }
@@ -216,11 +203,10 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
                     $scope.contactosAdded.push(usuario);
                     $scope.candidatos.push(usuario);
 
-                    mostrarMensaje($translate.instant("INVITACION_ENVIADA"));
-
+                    utils.mensajeSuccess($translate.instant("INVITACION_ENVIADA"));
 
                 } else {
-                    mostrarMensaje($translate.instant("USUARIO_ALREADY_ADDED"));
+                    utils.mensajeInfo($translate.instant("USUARIO_ALREADY_ADDED"));
                 }
             }
         };
@@ -235,7 +221,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
             console.log()
 
             if (($scope.participantes.length + $scope.candidatos.length) == 8) {
-                growl.info($translate.instant("LIMITE_SALA"));
+                utils.mensajeInfo($translate.instant("LIMITE_SALA"));
                 return false;
             } else {
                 return true;
@@ -258,7 +244,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
                 $scope.candidatos.forEach(function (candidato) {
                     if (candidato.user.username == usuario.username) {
                         $scope.candidatos.splice($scope.candidatos.indexOf(candidato), 1);
-                        mostrarMensaje($translate.instant('INVITACION_ELIMINADA'));
+                        utils.mensajeSuccess($translate.instant('INVITACION_ELIMINADA'));
                     }
                 })
             }, error)
@@ -304,7 +290,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
                 reader.readAsDataURL(file);
 
             } else {
-                growl.error($translate.instant("FOTO_SIZE_MAXIMO"), {ttl: 5000});
+                utils.mensajeError($translate.instant("FOTO_SIZE_MAXIMO"));
             }
 
 

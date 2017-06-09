@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('ajustesCuentaController', function ($scope, $http, $window, growl, $translate, $cookies) {
+webApp.controller('ajustesCuentaController', function ($scope, $http, $window, utils, $translate, $cookies) {
 
     $scope.usuario;
     $scope.pass;
@@ -34,7 +34,7 @@ webApp.controller('ajustesCuentaController', function ($scope, $http, $window, g
             };
             reader.readAsDataURL(file);
         } else {
-            growl.error($translate.instant("FOTO_SIZE_MAXIMO"), {ttl: 5000});
+            utils.mensajeError($translate.instant("FOTO_SIZE_MAXIMO"));
         }
     };
 
@@ -80,12 +80,12 @@ webApp.controller('ajustesCuentaController', function ($scope, $http, $window, g
     }
 
     var mensajeExitoDatos = function (res) {
-        growl.success($translate.instant('DATOS_ACTUALIZADOS_CORRECTAMENTE'), {ttl: 5000});
+        utils.mensajeSuccess($translate.instant('DATOS_ACTUALIZADOS_CORRECTAMENTE'));
         $window.location.reload();
     };
 
     var mensajeExitoPass = function (res) {
-        growl.success($translate.instant('PASS_MODIFICADA'), {ttl: 5000});
+        utils.mensajeSuccess($translate.instant('PASS_MODIFICADA'));
     };
 
     var mensajeError = function (res) {
@@ -94,23 +94,23 @@ webApp.controller('ajustesCuentaController', function ($scope, $http, $window, g
 
         switch (res.data) {
             case 'nombre':
-                growl.error($translate.instant('NOMBRE_ERRONEO'), {ttl: 5000});
+                utils.mensajeError($translate.instant('NOMBRE_ERRONEO'));
                 break;
 
             case 'apellidos':
-                growl.error($translate.instant('APELLIDOS_ERRONEO'), {ttl: 5000});
+                utils.mensajeError($translate.instant('APELLIDOS_ERRONEO'));
                 break;
 
             case 'email':
-                growl.error($translate.instant('EMAIL_ERRONEO'), {ttl: 5000});
+                utils.mensajeError($translate.instant('EMAIL_ERRONEO'));
                 break;
 
             case 'pass':
-                growl.error($translate.instant('PASS_ERRONEO'), {ttl: 5000});
+                utils.mensajeError($translate.instant('PASS_ERRONEO'));
                 break;
 
             case 'cuenta':
-                growl.error($translate.instant('CUENTA_ERRONEO'), {ttl: 5000});
+                utils.mensajeError($translate.instant('CUENTA_ERRONEO'));
                 break;
         }
     };

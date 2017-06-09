@@ -447,7 +447,7 @@ function VideoChatManager(ws) {
                 videosActualizar[2].style.height = "0%";
                 videosActualizar[2].pause();
             }
-            
+
         }
 
     }
