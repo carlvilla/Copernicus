@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.controller('presentacionController', function ($scope, $rootScope, webSocketService, growl, $translate) {
+webApp.controller('presentacionController', function ($scope, $rootScope, webSocketService, utils, $translate) {
 
     //Id de la sala a la que se accedió
     var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
@@ -16,7 +16,7 @@ webApp.controller('presentacionController', function ($scope, $rootScope, webSoc
             fr.readAsDataURL(file);
         else {
             if (errFiles[0] && errFiles[0].$error == 'maxSize')
-                growl.error($translate.instant('PRESENTACION_SIZE_MAXIMO'), {ttl: 5000});
+                utils.mensajeError($translate.instant('PRESENTACION_SIZE_MAXIMO'));
             return;
         }
 
@@ -28,7 +28,7 @@ webApp.controller('presentacionController', function ($scope, $rootScope, webSoc
                     break;
 
                 default:
-                    growl.error($translate.instant('FICHERO_NO_VALIDO'), {ttl: 5000});
+                    utils.mensajeError($translate.instant('FICHERO_NO_VALIDO'));
                     break;
             }
         }

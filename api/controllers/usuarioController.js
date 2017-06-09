@@ -304,7 +304,34 @@ module.exports.desbloquear = function (req, res) {
 
         }
     });
-}
+};
+
+/**
+ *
+ *
+ * @param req
+ * @param res
+ */
+module.exports.datosUsuario = function (req, res) {
+
+    var username = req.body.username;
+
+    var query = "MATCH(u:Usuario{username:'" + username + "'}) RETURN u";
+
+    db.query(query, function (err, result) {
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                //Eliminamos datos sensibles, que no deseamos que otros usuarios puedan obtener.
+                delete result[0].hash;
+                delete result[0].salt;
+                delete result[0].id;
+
+                utils.sendJSONresponse(res, 200, result[0]);
+            }
+        }
+    );
+};
 
 /**
  * Modificar contraseña del usuario

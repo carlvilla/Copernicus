@@ -54,7 +54,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "IGNORAR": 'Ignorar',
         "NO_SOLICITUDES": 'No tienes solicitudes pendientes',
         "MENSAJE_ENVIADO_SOLICITUD": 'Mensaje enviado en la solicitud',
-        "NOMBRE_SALA": 'Nombre sala',
+        "NOMBRE_SALA": 'Nombre de la sala',
         "FILTRAR_CONTACTOS": 'Filtrar contactos',
         "FILTRAR_SALAS": 'Filtrar sala',
         "PARTICIPANTES": 'Participantes',
@@ -129,7 +129,13 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "EXPLICACION_SOLICITUDES_SALA": 'Indique si desea unirse a las siguientes salas o ignorar las solicitudes',
         "EXPLICACION_SOLICITUDES_CONTACTO": 'Indique si desea agregar a las siguientes personas o ignorar sus solicitudes',
         "FOTO_SIZE_MAXIMO": 'El tamaño máximo de la fotografía es de 8MB',
-        "SOBRE_NOSOTROS": 'Sobre nosotros'
+        "SOBRE_NOSOTROS": 'Sobre nosotros',
+        "INFORMACION_CONTACTO": 'Información sobre el contacto',
+        "ERROR_BLOQUEAR_CONTACTO": 'Hubo un error al bloquear el contacto',
+        "USUARIO_BLOQUEADO": 'El usuario fue bloqueado',
+        "NOMBRE_SALA_OBLIGATORIO": 'Es necesario proporcionar un nombre para la sala',
+        "ACTUALIZANDO_SALA": 'Actualizando la sala...',
+        "CREANDO_SALA": 'Creando la sala...'
     });
 
     $translateProvider.translations('en', {
@@ -258,7 +264,14 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "EXPLICACION_SOLICITUDES_SALA": 'Indicate if you want to join the following rooms or ignore the requests',
         "EXPLICACION_SOLICITUDES_CONTACTO": 'Indicate if you want to add the following people or ignore their requests',
         "FOTO_SIZE_MAXIMO": 'The photo cannot be larger than 8MB',
-        "SOBRE_NOSOTROS": 'About us'
+        "SOBRE_NOSOTROS": 'About us',
+        "INFORMACION_CONTACTO": 'Contact information',
+        "ERROR_BLOQUEAR_CONTACTO": 'There was an error blocking the contact',
+        "USUARIO_BLOQUEADO": 'The user was blocked',
+        "NOMBRE_SALA_OBLIGATORIO": 'It is necessary a room name',
+        "CREANDO_SALA": 'Creating the room...',
+        "ACTUALIZANDO_SALA": 'Updating the room...',
+
     })
 
     $translateProvider.preferredLanguage('es');

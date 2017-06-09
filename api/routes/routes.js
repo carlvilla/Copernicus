@@ -11,6 +11,7 @@ router.post('/login', usuarioController.login);
 router.post('/register', usuarioController.register);
 router.post('/bloquearContacto', usuarioController.bloquear);
 router.post('/desbloquearContacto', usuarioController.desbloquear);
+router.post('/datosUsuario', usuarioController.datosUsuario);
 router.post('/modificarPass', usuarioController.modificarPass);
 router.post('/modificarDatos', usuarioController.modificarDatos);
 router.post('/eliminarCuenta', usuarioController.eliminarCuenta);

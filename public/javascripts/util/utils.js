@@ -1,6 +1,6 @@
 var webApp = angular.module('webApp');
 
-webApp.service('utils', function ($http, $window) {
+webApp.service('utils', function ($http, $window, growl) {
 
     function IsJsonString(str) {
         try {
@@ -31,11 +31,43 @@ webApp.service('utils', function ($http, $window) {
         $window.location.href = '/';
     }
 
+    //Mensajes Growl
+
+    function mensajeSuccess(mensaje) {
+        growl.success(mensaje, {ttl: 5000});
+    };
+
+    function mensajeInfo(mensaje) {
+        growl.info(mensaje, {ttl: 5000});
+    };
+
+    function mensajeError(mensaje) {
+        growl.error(mensaje, {ttl: 5000});
+    };
+
+    function mensajeSuccessSinTiempo(mensaje) {
+        growl.success(mensaje);
+    };
+
+    function mensajeInfoSinTiempo(mensaje) {
+        growl.info(mensaje);
+    };
+
+    function mensajeErrorSinTiempo(mensaje) {
+        growl.error(mensaje);
+    };
+
 
     var methods = {
         IsJsonString: IsJsonString,
         checkIdSalaExists: checkIdSalaExists,
-        checkParticipante: checkParticipante
+        checkParticipante: checkParticipante,
+        mensajeSuccess: mensajeSuccess,
+        mensajeInfo: mensajeInfo,
+        mensajeError: mensajeError,
+        mensajeSuccessSinTiempo: mensajeSuccessSinTiempo,
+        mensajeInfoSinTiempo: mensajeInfoSinTiempo,
+        mensajeErrorSinTiempo: mensajeErrorSinTiempo
     };
     return methods;
 

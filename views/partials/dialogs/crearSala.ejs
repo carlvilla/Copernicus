@@ -11,12 +11,12 @@
             <div class="modal-body">
                 <div class="form-group">
 
-                        <h4>{{'DATOS_SALA' | translate}}</h4>
+                        <h4 class="titulo titulo-crear-sala" translate="DATOS_SALA"></h4>
                         <div id="datos-sala">
                             <label for="nombre">{{'NOMBRE' | translate}}</label>
                             <input class="form-control" id="nombre-crear-sala" ng-model="sala.nombre"
-                                   placeholder="{{'NOMBRE_SALA' | translate}}" type="text">
-                            <label for="descripcion-crear-sala">{{'DESCRIPCION_OPCIONAL' | translate}}</label>
+                                   placeholder="{{'NOMBRE_SALA' | translate}} *" type="text">
+                            <label for="descripcion-crear-sala">{{'DESCRIPCION' | translate}}</label>
                             <input class="form-control" id="descripcion-crear-sala" ng-model="sala.descripcion"
                                    placeholder="{{'DESCRIPCION' | translate}}" type="text">
 
@@ -25,7 +25,7 @@
                         </div>
 
                         <div id="add-miembros-div" panel panel-default>
-                            <h4>{{'ADD_MIEMBROS' | translate}}</h4>
+                            <h4 class="titulo titulo-crear-sala" translate="ADD_MIEMBROS"></h4>
                             <div id="buscar-contactos-crear-sala">
                                 <label for="username-crear-sala" id="username-crear-sala-label">{{'USERNAME' | translate}}</label>
 
@@ -87,7 +87,7 @@
 
                 </div>
 
-                <h4>{{'FOTO_SALA' | translate}}</h4>
+                <h4 class="titulo titulo-crear-sala" translate="FOTO_SALA"></h4>
                 <input type="file" id="foto"/>
 
                 <div ng-show="foto">

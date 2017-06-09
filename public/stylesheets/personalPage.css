@@ -73,6 +73,24 @@ listado-salas {
 
 /* Dialogs */
 
+/* Mostrar datos contacto */
+.datos-contacto {
+    width: 65%;
+    display: inline-block;
+}
+
+.foto-contacto {
+    width: 30%;
+    float: left;
+    border-radius: 50%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+.titulo {
+    border-bottom: 1px solid black
+}
+
 /* Crear sala */
 #username-crear-sala-label {
     display: inherit;
@@ -88,12 +106,18 @@ listado-salas {
 }
 
 #show-usuarios, #buscar-contactos-crear-sala, #datos-sala {
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .cropArea {
     overflow: hidden;
-    height:350px;
+    height: 350px;
+}
+
+.titulo-crear-sala{
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 /* Solicitud contacto */
@@ -162,12 +186,12 @@ listado-salas {
     height: 50px;
 }
 
-.foto-solicitud-contacto{
+.foto-solicitud-contacto {
     float: left;
     border-radius: 50%;
 }
 
-.info-solicitud-contacto{
+.info-solicitud-contacto {
     width: 85%;
     overflow: auto;
     display: inline-block;
@@ -177,7 +201,6 @@ listado-salas {
     width: 14%;
     float: right;
 }
-
 
 /*Solicitudes sala*/
 
@@ -190,7 +213,7 @@ listado-salas {
     border-width: 1px;
 }
 
-.foto-sala{
+.foto-sala {
     border-radius: 50%;
 }
 
@@ -198,23 +221,24 @@ listado-salas {
     resize: none;
 }
 
-.datos-sala{
-    width:50%;
+.datos-sala {
+    width: 50%;
     display: inline-block;
     text-align: center;
 }
 
-.botones-solicitud-sala{
+.botones-solicitud-sala {
     float: right;
-    width:50%;
+    width: 50%;
     margin-top: 2%;
 }
 
-#boton-aceptar-solicitud-sala{
+#boton-aceptar-solicitud-sala {
     margin-right: 20px;
     width: 90px;
 }
-#boton-ignorar-solicitud-sala{
+
+#boton-ignorar-solicitud-sala {
     width: 90px;
 }
 
