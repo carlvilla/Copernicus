@@ -27,6 +27,7 @@
 
 <div id="salas">
     <label>{{'SALAS_ADMIN' | translate}}:</label>
+    <input id="filtrar-admin" placeholder="{{'FILTRAR_SALAS' | translate}}" ng-keyup="filtrarAdmin()"/>
     <div id="salas-admin" class="menu-lateral well">
         <button ng-repeat="sala in salasAdmin" class="list-group-item sala"
                 ng-click="mostrarInfoSala(sala.idSala, true)">
@@ -35,6 +36,7 @@
         </button>
     </div>
     <label>{{'SALAS_MODERADOR' | translate}}:</label>
+    <input id="filtrar-moderador" placeholder="{{'FILTRAR_SALAS' | translate}}" ng-keyup="filtrarModerador()"/>
     <div id="salas-moderador" class="menu-lateral well">
         <button ng-repeat="sala in salasModerador" class="list-group-item sala"
                 ng-click="mostrarInfoSala(sala.idSala, false)">

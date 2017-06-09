@@ -2,7 +2,7 @@ var webApp = angular.module('webApp');
 
 webApp.controller('contactosController', function ($scope, $http, $window, utils, $translate) {
 
-    //Atributo necesario para el filtrado de contactos
+    //Variable necesario para el filtrado de contactos
     var todosContactos;
 
     $http({
