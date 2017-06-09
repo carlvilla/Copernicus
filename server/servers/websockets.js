@@ -164,6 +164,10 @@ module.exports = function (server) {
                         broadcast(message, obj.data.username, sala);
                         break;
 
+                    case "radio":
+                        broadcast(message, obj.data.username, sala);
+                        break;
+
                     default:
                         console.log('Mensaje erróneo');
                         break;

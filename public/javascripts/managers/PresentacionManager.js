@@ -39,7 +39,6 @@ function PresentacionManager(ws) {
                 if (ifr)
                     ifr.src = mensaje.presentacion;
                 else{
-                    console.log("Holaiudbw")
                     presentacion = mensaje.presentacion;
                 }
 
@@ -49,9 +48,6 @@ function PresentacionManager(ws) {
     }
 
     var actualizarAsistentes = function (info) {
-
-        console.log("HOLAAAAA");
-
         var mensaje = {
             indexh: info.indexh,
             indexv: info.indexv,

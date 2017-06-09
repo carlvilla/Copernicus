@@ -1,5 +1,5 @@
 angular.module('webApp')
-    .factory('webSocketService', function ($websocket, utils) {
+    .factory('webSocketService', function ($websocket, utils, $translate) {
         if (!window.WebSocket) {
             console.log("WebSockets no están soportados con este navegador");
         }
@@ -11,6 +11,7 @@ angular.module('webApp')
         var presentacionManager = new PresentacionManager(ws);
         var chatTextoManager = new ChatTextoManager(ws);
         var dibujosManager = new DibujosManager(ws);
+        var radioManager = new RadioManager(ws, utils, $translate);
 
         ws.onOpen(function () {
             console.log("Abriendo webSocketService");
@@ -53,8 +54,11 @@ angular.module('webApp')
                         break;
 
                     case "chatTexto":
-                        console.log("Añadiendo mensaje");
                         chatTextoManager.addMensaje(obj.data);
+                        break;
+
+                    case "radio":
+                        radioManager.cambiarEmisoraRemoto(obj.data.url, obj.data.username);
                         break;
                 }
             }
@@ -65,7 +69,8 @@ angular.module('webApp')
             videoChatManager: videoChatManager,
             presentacionManager: presentacionManager,
             chatTextoManager: chatTextoManager,
-            dibujosManager: dibujosManager
+            dibujosManager: dibujosManager,
+            radioManager: radioManager
         };
         return methods;
     });
