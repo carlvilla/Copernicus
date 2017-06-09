@@ -12,7 +12,7 @@
     <!-- Hojas de estilos y scripts -->
     <link rel="stylesheet" href="/public/stylesheets/personalPage.css">
 
-    <!-- Controladores-->
+    <script src='/public/javascripts/directives/tooltip.js'></script>
     <script src='/public/javascripts/controllers/contactosController.js'></script>
     <script src='/public/javascripts/controllers/salaController.js'></script>
     <script src='/public/javascripts/controllers/addContactoController.js'></script>
@@ -121,13 +121,14 @@
         <div id="contenedor2-listado-salas">
             <div id="listado-salas">
                 <button ng-repeat="sala in salas" ng-click="accederSala(sala.idSala)"
-                        class="list-group-item boton-listado">
+                        class="list-group-item boton-listado" tooltip data-original-title="{{sala.descripcion}}">
                     <img ng-src="{{sala.foto}}" class="foto-perfil">
                     {{sala.nombre}}
                 </button>
             </div>
         </div>
     </div>
+
     <!-- Fin listado salas -->
 
     <!-- Dialogs -->
