@@ -98,6 +98,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "ELIMINAR_CUENTA": 'Eliminar cuenta',
         "CHAT_VIDEO_UTILIZANDO": 'El servicio de chat de video está siendo utilizado',
         "CHAT_TEXTO_UTILIZANDO": 'El servicio de chat de texto está siendo utilizado',
+        "RADIO_UTILIZANDO": 'La radio está siendo utilizada',
         "PRESENTACIONES_UTILIZANDO": 'El servicio de presentaciones está siendo utilizado',
         "DIBUJOS_UTILIZANDO": 'El servicio de dibujos está siendo utilizado',
         "MAX_SERVICIOS": 'No se pueden utilizar más de 4 servicios simultáneamente',
@@ -135,7 +136,12 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "USUARIO_BLOQUEADO": 'El usuario fue bloqueado',
         "NOMBRE_SALA_OBLIGATORIO": 'Es necesario proporcionar un nombre para la sala',
         "ACTUALIZANDO_SALA": 'Actualizando la sala...',
-        "CREANDO_SALA": 'Creando la sala...'
+        "CREANDO_SALA": 'Creando la sala...',
+        "RADIO": 'Radio',
+        "VOLUMEN": 'Volumen',
+        "INDICAR_URL": 'Indique la URL de una radio/canción para reproducirla',
+        "CAMBIO_EMISORA": 'Emisora cambiada por ',
+        "URL_NO_VALIDA": 'URL no válida'
     });
 
     $translateProvider.translations('en', {
@@ -233,6 +239,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "ELIMINAR_CUENTA": 'Delete account',
         "CHAT_VIDEO_UTILIZANDO": 'Video chat is being used',
         "CHAT_TEXTO_UTILIZANDO": 'Chat is being used',
+        "RADIO_UTILIZANDO": 'Radio is being used',
         "PRESENTACIONES_UTILIZANDO": 'Presentations is being used',
         "DIBUJOS_UTILIZANDO": 'Draws is being used',
         "MAX_SERVICIOS": 'No more than 4 services can be used simultaneously',
@@ -271,7 +278,11 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "NOMBRE_SALA_OBLIGATORIO": 'It is necessary a room name',
         "CREANDO_SALA": 'Creating the room...',
         "ACTUALIZANDO_SALA": 'Updating the room...',
-
+        "RADIO": 'Radio',
+        "VOLUMEN": 'Volume',
+        "INDICAR_URL": 'Enter a URL for a radio/song to play it',
+        "CAMBIO_EMISORA": 'Broadcasting was changed by ',
+        "URL_NO_VALIDA": 'Invalid URL'
     })
 
     $translateProvider.preferredLanguage('es');

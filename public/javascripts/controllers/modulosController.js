@@ -9,6 +9,7 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
     var htmlPresentaciones;
     var htmlDibujo;
     var htmlChatTexto;
+    var htmlRadio;
 
     var modulosMostrados = [];
 
@@ -26,6 +27,10 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
 
     $.get("/modulos/dibujo.ejs", function (html) {
         htmlDibujo = html;
+    });
+
+    $.get("/modulos/radio.ejs", function (html) {
+        htmlRadio = html;
     });
 
 
@@ -122,6 +127,29 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
                     modulosMostrados.push("dibujo");
                 }else{
                     utils.mensajeInfo($translate.instant('DIBUJOS_UTILIZANDO'));
+                    return;
+                }
+
+                break;
+
+
+            case "radio":
+                moduloSeleccionado = htmlRadio;
+
+                if(!contains(modulosMostrados,"radio")){
+                    modulosMostrados.push("radio");
+
+                    node = {
+                        width: 3,
+                        height: 1,
+                        minWidth: 3,
+                        maxWidth: 3,
+                        minHeight: 1,
+                        maxHeight: 1
+                    };
+
+                }else{
+                    utils.mensajeInfo($translate.instant('RADIO_UTILIZANDO'));
                     return;
                 }
 

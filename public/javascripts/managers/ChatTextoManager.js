@@ -4,7 +4,6 @@ function ChatTextoManager(ws) {
     var usernameUsuario;
     var sala;
 
-
     this.setUsuario = function (username) {
         usernameUsuario = username;
     }
@@ -64,7 +63,6 @@ function ChatTextoManager(ws) {
     }
 
     this.sendArchivo = function (file, contenido, tipo) {
-        console.log("Enviar archivo");
         var fr = new FileReader();
 
         ws.send(JSON.stringify({

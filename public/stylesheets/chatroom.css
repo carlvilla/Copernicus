@@ -405,6 +405,36 @@ input:checked + .slider:before {
     height: 100% !important;
 }
 
+/* radio */
+#play, #refrescar{
+    background: none;
+    border: none;
+}
+
+#play{
+    float: left;
+    outline:none;
+}
+
+#volumen{
+    width: 100%;
+}
+
+#contenido-radio{
+    margin-top: 50px;
+}
+
+#control-volumen{
+    margin-top: 10px;
+    margin-right: 50px;
+    float: right;
+}
+
+/* Necesario para evitar que se muestre el icono para modificar el tamaño del módulo*/
+#radio .ui-resizable-handle{
+    visibility: hidden;
+}
+
 /* Cambios bootstrap */
 
 .navbar {
