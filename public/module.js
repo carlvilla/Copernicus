@@ -56,7 +56,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "MENSAJE_ENVIADO_SOLICITUD": 'Mensaje enviado en la solicitud',
         "NOMBRE_SALA": 'Nombre de la sala',
         "FILTRAR_CONTACTOS": 'Filtrar contactos',
-        "FILTRAR_SALAS": 'Filtrar sala',
+        "FILTRAR_SALAS": 'Filtrar salas',
         "PARTICIPANTES": 'Participantes',
         "SERVICIOS": 'Servicios',
         "GESTIONAR_SALAS": 'Gestionar salas',

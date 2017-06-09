@@ -10,7 +10,7 @@ webApp.controller('salaController', function ($scope, $rootScope, $http, $window
     var fotoPorDefecto = true;
     var sizeMaxFoto = 8000000; //8MB
 
-    //Atributo necesario para el filtrado de sala
+    //Variable necesario para el filtrado de sala
     var todasSalas;
 
     $http({
