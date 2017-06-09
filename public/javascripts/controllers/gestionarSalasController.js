@@ -31,7 +31,7 @@ webApp.controller('gestionarSalasController', function ($scope, $http, $window, 
     $scope.mostrarInfoSala = function (idSala, admin) {
         idSalaSeleccionada = idSala;
         $scope.foto = undefined;
-        
+
         if (admin) {
             ($scope.salasAdmin).forEach(function (sala) {
                 if (sala.idSala == idSala) {
