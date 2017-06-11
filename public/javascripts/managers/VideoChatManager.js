@@ -145,6 +145,8 @@ function VideoChatManager(ws) {
 
             if (!videoRemoto1.username) {
 
+                console.log("Videoremoto1");
+
                 //Associate the remote video element with the retrieved stream
                 videoRemoto1.src = window.URL.createObjectURL(event.stream);
                 //videoRemote.className = 'videoRemote';
@@ -171,6 +173,8 @@ function VideoChatManager(ws) {
             }
             else if (!videoRemoto2.username) {
 
+                console.log("Videoremoto2");
+
                 //Associate the remote video element with the retrieved stream
                 videoRemoto2.src = window.URL.createObjectURL(event.stream);
                 //videoRemote.className = 'videoRemote';
@@ -184,8 +188,10 @@ function VideoChatManager(ws) {
                 videoRemoto1.style.width = "50%";
                 videoRemoto1.style.height = "50%";
 
-                videoRemoto2.style.width = "100%";
+                videoRemoto2.style.width = "50%";
                 videoRemoto2.style.height = "50%";
+                videoRemoto2.style.marginLeft = "25%";
+                videoRemoto2.style.marginRight = "25%";
 
                 videoRemoto2.username = (username);
 
@@ -199,6 +205,8 @@ function VideoChatManager(ws) {
 
 
             } else if (!videoRemoto3.username) {
+
+                console.log("Videoremoto3");
 
                 //Associate the remote video element with the retrieved stream
                 videoRemoto3.src = window.URL.createObjectURL(event.stream);
@@ -221,6 +229,9 @@ function VideoChatManager(ws) {
                 });
 
             } else {
+
+                console.log("Más de 4");
+
                 //Si hay más de 4 participantes de momento si quita el video y solo se utiliza audio
                 videoLocal.stop();
                 videoRemoto1.stop();
