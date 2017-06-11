@@ -1,4 +1,4 @@
-angular.module('webApp').directive('tooltip', [function () {
+angular.module('copernicus').directive('tooltip', [function () {
     return {
         restrict:'A',
         link: function(scope, element, attrs)

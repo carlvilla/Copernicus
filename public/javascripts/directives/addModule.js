@@ -1,5 +1,5 @@
-webApp = angular.module('webApp');
+copernicus = angular.module('copernicus');
 
-webApp.directive('addModule', function () {
+copernicus.directive('addModule', function () {
 
 });

@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('accesoSalaController', function ($scope, $rootScope, utils) {
+copernicus.controller('accesoSalaController', function ($scope, $rootScope, utils) {
 
     var selectedSala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
 

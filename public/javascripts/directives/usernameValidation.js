@@ -1,4 +1,4 @@
-angular.module("webApp").directive("usernameValidation", function($http, $q){
+angular.module("copernicus").directive("usernameValidation", function($http, $q){
 
     return {
         restrict: 'AE',

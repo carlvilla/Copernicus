@@ -1,4 +1,4 @@
-angular.module("webApp").directive("passwordValidation",[function () {
+angular.module("copernicus").directive("passwordValidation",[function () {
     return {
             require: 'ngModel',
             link: function (scope, elem, attrs, ctrl) {

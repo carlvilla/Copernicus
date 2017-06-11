@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller("chatTextoController", function ($scope, $rootScope, webSocketService, utils, $translate) {
+copernicus.controller("chatTextoController", function ($scope, $rootScope, webSocketService, utils, $translate) {
 
     var usuario = $rootScope.usuario;
 

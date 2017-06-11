@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WebApp_Videoconferencias.iml" filepath="$PROJECT_DIR$/WebApp_Videoconferencias.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Copernicus.iml" filepath="$PROJECT_DIR$/Copernicus.iml" />
     </modules>
   </component>
 </project>

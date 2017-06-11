@@ -1,9 +1,9 @@
 /**
  * Created by carlosvillablanco on 20/02/2017.
  */
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('registerController', function ($scope, $http, $window, $cookies, utils, $translate) {
+copernicus.controller('registerController', function ($scope, $http, $window, $cookies, utils, $translate) {
     $scope.messages = {};
     $scope.messages.showError = false;
 

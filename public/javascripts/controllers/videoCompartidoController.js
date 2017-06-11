@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('videoCompartidoController', function ($scope, $rootScope, webSocketService) {
+copernicus.controller('videoCompartidoController', function ($scope, $rootScope, webSocketService) {
 
     //Username del usuario de esta sesión
     var username = $rootScope.usuario.username;

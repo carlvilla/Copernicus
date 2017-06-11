@@ -1,9 +1,9 @@
 /**
  * Created by carlosvillablanco on 26/03/2017.
  */
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('logoutController', function($scope, $cookies){
+copernicus.controller('logoutController', function($scope, $cookies){
 
     $scope.logout = function(){
         $cookies.remove('token');

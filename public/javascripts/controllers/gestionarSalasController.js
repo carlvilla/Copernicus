@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('gestionarSalasController', function ($scope, $http, $window, utils, $translate) {
+copernicus.controller('gestionarSalasController', function ($scope, $http, $window, utils, $translate) {
 
     var idSalaSeleccionada;
 

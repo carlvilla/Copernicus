@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('contactosController', function ($scope, $http, $window, utils, $translate) {
+copernicus.controller('contactosController', function ($scope, $http, $window, utils, $translate) {
 
     //Variable necesario para el filtrado de contactos
     var todosContactos;

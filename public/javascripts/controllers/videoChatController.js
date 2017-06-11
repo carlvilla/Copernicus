@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('videoChatController', function ($scope, $rootScope, webSocketService) {
+copernicus.controller('videoChatController', function ($scope, $rootScope, webSocketService) {
 
     //Usuario almacenado por asistentesController en el rootScope
     webSocketService.videoChatManager.setUsuario($rootScope.usuario);

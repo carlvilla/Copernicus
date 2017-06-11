@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.service('utils', function ($http, $window, growl) {
+copernicus.service('utils', function ($http, $window, growl) {
 
     function IsJsonString(str) {
         try {

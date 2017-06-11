@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('notificacionesYCabeceraController', function ($scope, $http, $cookies) {
+copernicus.controller('notificacionesYCabeceraController', function ($scope, $http, $cookies) {
 
     if ($cookies.get('token')) {
         $http({

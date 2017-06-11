@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('presentacionController', function ($scope, $rootScope, webSocketService, utils, $translate) {
+copernicus.controller('presentacionController', function ($scope, $rootScope, webSocketService, utils, $translate) {
 
     //Id de la sala a la que se accedió
     var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;

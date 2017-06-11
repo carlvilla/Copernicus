@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('asistentesController', function ($scope, $http, $cookies, $rootScope, webSocketService) {
+copernicus.controller('asistentesController', function ($scope, $http, $cookies, $rootScope, webSocketService) {
 
     $http({
         method: "GET",

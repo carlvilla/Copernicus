@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('dibujosController', function ($scope, $rootScope, webSocketService) {
+copernicus.controller('dibujosController', function ($scope, $rootScope, webSocketService) {
 
     var username = $rootScope.usuario.username;
     var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;

@@ -1,11 +1,11 @@
-var webApp = angular.module('webApp', ['ngCookies', 'angular-websocket', 'angucomplete', 'ngFileUpload'
+var copernicus = angular.module('copernicus', ['ngCookies', 'angular-websocket', 'angucomplete', 'ngFileUpload'
     , 'angular-growl', 'pascalprecht.translate', 'ngImgCrop',
     "ngSanitize",
     "com.2fdevs.videogular",
     "com.2fdevs.videogular.plugins.controls",
     "info.vietnamcode.nampnq.videogular.plugins.youtube"]);
 
-webApp.config(['$translateProvider', function ($translateProvider) {
+copernicus.config(['$translateProvider', function ($translateProvider) {
 
     $translateProvider.translations('es', {
         "PAGINA_PRINCIPAL": "Página Principal",
