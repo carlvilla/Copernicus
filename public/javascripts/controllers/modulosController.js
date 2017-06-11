@@ -10,6 +10,7 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
     var htmlDibujo;
     var htmlChatTexto;
     var htmlRadio;
+    var htmlVideoCompartido;
 
     var modulosMostrados = [];
 
@@ -33,6 +34,9 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
         htmlRadio = html;
     });
 
+    $.get("/modulos/videoCompartido.ejs", function (html) {
+        htmlVideoCompartido = html;
+    });
 
     var options = {
         float:true
@@ -80,9 +84,7 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
                     utils.mensajeInfo($translate.instant('CHAT_VIDEO_UTILIZANDO'));
                     return;
                 }
-
                 break;
-
 
             case "chatTexto":
                 moduloSeleccionado = htmlChatTexto;
@@ -103,9 +105,7 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
                     utils.mensajeInfo($translate.instant('CHAT_TEXTO_UTILIZANDO'));
                     return;
                 }
-
                 break;
-
 
             case "presentaciones":
                 moduloSeleccionado = htmlPresentaciones;
@@ -116,8 +116,6 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
                     utils.mensajeInfo($translate.instant('PRESENTACIONES_UTILIZANDO'));
                     return;
                 }
-
-
                 break;
 
             case "dibujo":
@@ -129,9 +127,28 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
                     utils.mensajeInfo($translate.instant('DIBUJOS_UTILIZANDO'));
                     return;
                 }
-
                 break;
 
+            case "videoCompartido":
+                moduloSeleccionado = htmlVideoCompartido;
+
+                if(!contains(modulosMostrados,"videoCompartido")){
+                    modulosMostrados.push("videoCompartido");
+
+                    node = {
+                        width: 5,
+                        height: 5,
+                        minWidth: 4,
+                        maxWidth: 8,
+                        minHeight: 4,
+                        maxHeight: 7
+                    };
+
+                }else{
+                    utils.mensajeInfo($translate.instant('VIDEO_COMPARTIDO_UTILIZANDO'));
+                    return;
+                }
+                break;
 
             case "radio":
                 moduloSeleccionado = htmlRadio;
@@ -152,7 +169,6 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
                     utils.mensajeInfo($translate.instant('RADIO_UTILIZANDO'));
                     return;
                 }
-
                 break;
 
             default:

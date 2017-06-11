@@ -29,6 +29,12 @@
     "angular-translate-storage-cookie": "^2.15.1",
     "ng-img-crop": "ngImgCrop#^0.3.2",
     "font-awesome": "^4.7.0",
-    "fabric.js": "fabric#^1.7.11"
+    "fabric.js": "fabric#^1.7.11",
+    "videogular": "^1.4.4",
+    "videogular-controls": "^1.4.4",
+    "bower-videogular-youtube": "videogular-youtube#^2.0.6",
+    "videogular-themes-default": "^1.4.4",
+    "angular-sanitize": "^1.6.4",
+    "videogular-buffering": "^1.4.4"
   }
 }

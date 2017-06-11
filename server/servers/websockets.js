@@ -40,7 +40,7 @@ module.exports = function (server) {
                                 'sala': sala
                             }
 
-                            console.log("Añadiendo usuario: "+obj.data.username);
+                            console.log("Añadiendo usuario: " + obj.data.username);
 
                             var addUser = true;
 
@@ -168,10 +168,13 @@ module.exports = function (server) {
                         broadcast(message, obj.data.username, sala);
                         break;
 
+                    case "video":
+                        broadcast(message, obj.data.username, sala);
+                        break;
+
                     default:
                         console.log('Mensaje erróneo');
                         break;
-
                 }
             }
         });
@@ -185,7 +188,7 @@ module.exports = function (server) {
          */
         broadcast = function (message, usuarioAccion, sala) {
             connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
-                console.log(conexion.usuario.username);
+                    console.log(conexion.usuario.username);
                     if (conexion.usuario.username != usuarioAccion) {
                         if (conexion.ws.readyState == 1) {
                             console.log("Enviando mensaje a webSocketService");
@@ -329,7 +332,7 @@ module.exports = function (server) {
 
 
     enviarA = function (message, usernameSeEnvia, sala) {
-        console.log("Enviando mensaje a "+usernameSeEnvia);
+        console.log("Enviando mensaje a " + usernameSeEnvia);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username == usernameSeEnvia) {
                 if (conexion.ws && conexion.ws.readyState == 1)
