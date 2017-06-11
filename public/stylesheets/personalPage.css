@@ -252,3 +252,12 @@ listado-salas {
 #btn-bloquear {
     width: 25%;
 }
+
+/* Bootstrap */
+.navbar-brand{
+    margin-left: -40px !important;
+}
+
+.active{
+    padding-left: 5px;
+}

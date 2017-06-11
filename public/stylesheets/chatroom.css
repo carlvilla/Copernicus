@@ -461,5 +461,14 @@ input:checked + .slider:before {
     min-width: 300px;
 }
 
+/* Bootstrap */
+.navbar-brand{
+    margin-left: 30px !important;
+}
+
+.active{
+    padding-left: 5px;
+}
+
 
 
