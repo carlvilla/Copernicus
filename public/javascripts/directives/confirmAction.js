@@ -1,4 +1,4 @@
-angular.module("webApp").directive('ngConfirmClick', [function($translate){
+angular.module("copernicus").directive('ngConfirmClick', [function($translate){
         return {
             link: function (scope, element, attr) {
                 var msg = attr.ngConfirmClick;

@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('radioController', function ($scope, $rootScope, webSocketService) {
+copernicus.controller('radioController', function ($scope, $rootScope, webSocketService) {
 
     //Usuario almacenado en el rootScope
     var usuario = $rootScope.usuario;

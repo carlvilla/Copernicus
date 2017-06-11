@@ -1,4 +1,4 @@
-angular.module('webApp')
+angular.module('copernicus')
     .factory('webSocketService', function ($websocket, utils, $translate) {
         if (!window.WebSocket) {
             console.log("WebSockets no están soportados con este navegador");

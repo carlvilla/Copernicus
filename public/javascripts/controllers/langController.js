@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('langController', function ($scope, $translate) {
+copernicus.controller('langController', function ($scope, $translate) {
     $scope.cambiarLenguaje = function (key) {
         $translate.use(key);
     }

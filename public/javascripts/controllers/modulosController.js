@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('modulosController', function ($scope, utils, $compile, $translate) {
+copernicus.controller('modulosController', function ($scope, utils, $compile, $translate) {
 
     //Primero cargamos los htmls de los módulos
     //Es necesario hacer esto en primer lugar, no se puede cargar el html una vez se va a añadir ya que no se cargará

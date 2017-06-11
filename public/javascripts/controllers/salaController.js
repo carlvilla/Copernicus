@@ -1,9 +1,9 @@
 /**
  * Created by carlosvillablanco on 24/03/2017.
  */
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('salaController', function ($scope, $rootScope, $http, $window, utils, $translate) {
+copernicus.controller('salaController', function ($scope, $rootScope, $http, $window, utils, $translate) {
 
     $scope.foto;
     $scope.fotoRecortada = '';

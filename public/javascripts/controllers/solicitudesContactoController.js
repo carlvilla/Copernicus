@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('solicitudesContactoController', function ($scope, $http, $window) {
+copernicus.controller('solicitudesContactoController', function ($scope, $http, $window) {
 
     $http({
         method: "GET",

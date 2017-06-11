@@ -2,9 +2,9 @@
  * Created by carlosvillablanco on 19/04/2017.
  */
 
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('solicitudContactoController', function ($scope, $http) {
+copernicus.controller('solicitudContactoController', function ($scope, $http) {
 
     $scope.usuarios = {};
 

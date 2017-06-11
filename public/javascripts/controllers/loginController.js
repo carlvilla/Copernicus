@@ -1,9 +1,9 @@
 /**
  * Created by carlosvillablanco on 29/02/2017.
  */
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('loginController', function($scope, $http, $cookies, $window){
+copernicus.controller('loginController', function($scope, $http, $cookies, $window){
 
     $scope.loginError = false;
 

@@ -1,6 +1,6 @@
-var webApp = angular.module('webApp');
+var copernicus = angular.module('copernicus');
 
-webApp.controller('bloquearContactoController', function ($scope, $http, $window) {
+copernicus.controller('bloquearContactoController', function ($scope, $http, $window) {
 
     $scope.usuarioSeleccionado;
 

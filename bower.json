@@ -1,12 +1,12 @@
 {
-  "name": "webApp-videoconferencias",
-  "description": "Aplicación de videoconferencias",
+  "name": "copernicus",
+  "description": "Plataforma de comunicaciones",
   "main": "",
   "authors": [
     "Carlos Villa <uo236851@uniovi.es>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/carlvilla/WebApp_Videoconferencias",
+  "homepage": "https://github.com/carlvilla/Copernicus",
   "private": true,
   "ignore": [
     "**/.*",
