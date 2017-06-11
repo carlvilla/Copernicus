@@ -13,7 +13,7 @@ deploy:
   provider: heroku
   api_key:
     secure: 7dd91c82-8298-4b15-a764-b427a5ec64ea
-  app: web-app-videoconferencias
+  app: copernicus-platform
   skip_cleanup: true
 
 script:
