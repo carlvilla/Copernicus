@@ -1,5 +1,9 @@
 var webApp = angular.module('webApp', ['ngCookies', 'angular-websocket', 'angucomplete', 'ngFileUpload'
-    , 'angular-growl', 'pascalprecht.translate', 'ngImgCrop']);
+    , 'angular-growl', 'pascalprecht.translate', 'ngImgCrop',
+    "ngSanitize",
+    "com.2fdevs.videogular",
+    "com.2fdevs.videogular.plugins.controls",
+    "info.vietnamcode.nampnq.videogular.plugins.youtube"]);
 
 webApp.config(['$translateProvider', function ($translateProvider) {
 
@@ -75,7 +79,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "CHAT_VIDEO": 'Chat de video',
         "CHAT_TEXTO": 'Chat de texto',
         "PRESENTACIONES": 'Presentaciones',
-        "VIDEO_AUDIO_COMPARTIDO": 'Video y audio compartido',
+        "VIDEO_COMPARTIDO": 'Video compartido',
         "DIBUJOS": 'Dibujos',
         "DATOS_SALA_ACTUALIZADOS": 'Datos de la sala actualizados',
         "USUARIO_ADDED": 'Usuario añadido',
@@ -96,11 +100,12 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "FOTO_PERFIL": 'Foto de perfil',
         "AJUSTES_CUENTA": 'Ajustes cuenta',
         "ELIMINAR_CUENTA": 'Eliminar cuenta',
-        "CHAT_VIDEO_UTILIZANDO": 'El servicio de chat de video está siendo utilizado',
-        "CHAT_TEXTO_UTILIZANDO": 'El servicio de chat de texto está siendo utilizado',
+        "CHAT_VIDEO_UTILIZANDO": 'El chat de video está siendo utilizado',
+        "CHAT_TEXTO_UTILIZANDO": 'El chat de texto está siendo utilizado',
         "RADIO_UTILIZANDO": 'La radio está siendo utilizada',
         "PRESENTACIONES_UTILIZANDO": 'El servicio de presentaciones está siendo utilizado',
         "DIBUJOS_UTILIZANDO": 'El servicio de dibujos está siendo utilizado',
+        "VIDEO_COMPARTIDO_UTILIZANDO": 'El video compartido está siendo utilizado',
         "MAX_SERVICIOS": 'No se pueden utilizar más de 4 servicios simultáneamente',
         "ACTUALIZAR_PASS": 'Actualizar contraseña',
         "DATOS_ACTUALIZADOS_CORRECTAMENTE": 'Datos actualizados correctamente',
@@ -141,7 +146,9 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "VOLUMEN": 'Volumen',
         "INDICAR_URL": 'Indique la URL de una radio/canción para reproducirla',
         "CAMBIO_EMISORA": 'Emisora cambiada por ',
-        "URL_NO_VALIDA": 'URL no válida'
+        "URL_NO_VALIDA": 'URL no válida',
+        "CAMBIO_VIDEO": 'Video cambiado por ',
+        "URL_VIDEO": 'URL del video'
     });
 
     $translateProvider.translations('en', {
@@ -216,7 +223,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "CHAT_VIDEO": 'Video chat',
         "CHAT_TEXTO": 'Chat',
         "PRESENTACIONES": 'Presentations',
-        "VIDEO_AUDIO_COMPARTIDO": 'Shared video and audio',
+        "VIDEO_COMPARTIDO": 'Shared video',
         "DIBUJOS": 'Draws',
         "DATOS_SALA_ACTUALIZADOS": 'Room data updated',
         "USUARIO_ADDED": 'User added',
@@ -242,6 +249,7 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "RADIO_UTILIZANDO": 'Radio is being used',
         "PRESENTACIONES_UTILIZANDO": 'Presentations is being used',
         "DIBUJOS_UTILIZANDO": 'Draws is being used',
+        "VIDEO_COMPARTIDO_UTILIZANDO": 'Shared video is being used',
         "MAX_SERVICIOS": 'No more than 4 services can be used simultaneously',
         "ACTUALIZAR_PASS": 'Update password',
         "DATOS_ACTUALIZADOS_CORRECTAMENTE": 'Correctly updated data',
@@ -282,7 +290,9 @@ webApp.config(['$translateProvider', function ($translateProvider) {
         "VOLUMEN": 'Volume',
         "INDICAR_URL": 'Enter a URL for a radio/song to play it',
         "CAMBIO_EMISORA": 'Broadcasting was changed by ',
-        "URL_NO_VALIDA": 'Invalid URL'
+        "URL_NO_VALIDA": 'Invalid URL',
+        "CAMBIO_VIDEO": 'Video was changed by ',
+        "URL_VIDEO": 'Video URL'
     })
 
     $translateProvider.preferredLanguage('es');

@@ -12,6 +12,7 @@ angular.module('webApp')
         var chatTextoManager = new ChatTextoManager(ws);
         var dibujosManager = new DibujosManager(ws);
         var radioManager = new RadioManager(ws, utils, $translate);
+        var videoCompartidoManager = new VideoCompartidoManager(ws, utils, $translate);
 
         ws.onOpen(function () {
             console.log("Abriendo webSocketService");
@@ -60,6 +61,11 @@ angular.module('webApp')
                     case "radio":
                         radioManager.cambiarEmisoraRemoto(obj.data.url, obj.data.username);
                         break;
+
+                    case "video":
+                        videoCompartidoManager.cambiarVideoRemoto(obj.data.url, obj.data.username);
+                        break;
+
                 }
             }
         });
@@ -70,7 +76,8 @@ angular.module('webApp')
             presentacionManager: presentacionManager,
             chatTextoManager: chatTextoManager,
             dibujosManager: dibujosManager,
-            radioManager: radioManager
+            radioManager: radioManager,
+            videoCompartidoManager: videoCompartidoManager
         };
         return methods;
     });

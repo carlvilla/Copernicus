@@ -435,6 +435,17 @@ input:checked + .slider:before {
     visibility: hidden;
 }
 
+/* Video compartido */
+
+#contenido-video-compartido{
+    height: 90%;
+    width: 100%;
+}
+
+.input-url{
+    width: 40%;
+}
+
 /* Cambios bootstrap */
 
 .navbar {
