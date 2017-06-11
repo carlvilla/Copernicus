@@ -145,5 +145,14 @@ input[type='file'] {
     margin-bottom: 2px;
 }
 
+/* Bootstrap */
+.navbar-brand{
+    margin-left: -40px !important;
+}
+
+.active{
+    padding-left: 5px;
+}
+
 
 

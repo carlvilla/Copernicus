@@ -6,21 +6,6 @@ a {
   color: #00B7FF;
 }
 
-.login {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -150px 0 0 -150px;
-    width:300px;
-    height:300px;
-
-}
-
-.login p{
-    font-size: 11px;
-    padding-top: 7px;
-}
-
 input {
     width: 100%;
     margin-bottom: 10px;
@@ -33,8 +18,6 @@ input {
     border-radius: 4px;
 
 }
-input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(140 ,12,124,0.2); }
-
 
 .panel-login {
     border-color: #ccc;
@@ -42,6 +25,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
     box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
 }
+
 .panel-login>.panel-heading {
     color: #00415d;
     background-color: #fff;
@@ -57,10 +41,12 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     -moz-transition: all 0.1s linear;
     transition: all 0.1s linear;
 }
+
 .panel-login>.panel-heading a.active{
     color: #029f5b;
     font-size: 18px;
 }
+
 .panel-login>.panel-heading hr{
     margin-top: 10px;
     margin-bottom: 0px;
@@ -72,6 +58,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
     background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
 }
+
 .panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
     height: 45px;
     border: 1px solid #ddd;
@@ -80,6 +67,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     -moz-transition: all 0.1s linear;
     transition: all 0.1s linear;
 }
+
 .panel-login input:hover,
 .panel-login input:focus {
     outline:none;
@@ -88,6 +76,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     box-shadow: none;
     border-color: #ccc;
 }
+
 .btn-login {
     background-color: #59B2E0;
     outline: none;
@@ -99,16 +88,19 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     text-transform: uppercase;
     border-color: #59B2E6;
 }
+
 .btn-login:hover,
 .btn-login:focus {
     color: #fff;
     background-color: #53A3CD;
     border-color: #53A3CD;
 }
+
 .forgot-password {
     text-decoration: underline;
     color: #888;
 }
+
 .forgot-password:hover,
 .forgot-password:focus {
     text-decoration: underline;
@@ -126,6 +118,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     text-transform: uppercase;
     border-color: #1CB94A;
 }
+
 .btn-register:hover,
 .btn-register:focus {
     color: #fff;
@@ -140,4 +133,13 @@ input.error.ng-invalid{
 .cropArea {
     overflow: hidden;
     height:350px;
+}
+
+/* Bootstrap */
+.navbar-brand{
+    margin-left: -40px !important;
+}
+
+.active{
+    padding-left: 5px;
 }

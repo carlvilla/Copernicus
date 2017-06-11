@@ -51,3 +51,12 @@ input[type='file'] {
 #div-actualizar{
     clear: both;
 }
+
+/* Bootstrap */
+.navbar-brand{
+    margin-left: -40px !important;
+}
+
+.active{
+    padding-left: 5px;
+}

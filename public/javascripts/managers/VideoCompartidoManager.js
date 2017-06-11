@@ -16,7 +16,6 @@ function VideoCompartidoManager(ws, utils, $translate) {
         if (copiaUrl) {
             scope.url = copiaUrl;
         }
-
     };
 
     this.setAPI = function (APIParam) {
@@ -24,6 +23,8 @@ function VideoCompartidoManager(ws, utils, $translate) {
     }
 
     this.cambiarVideo = function (url) {
+        console.log(API);
+
         API.stop();
         scope.url = url;
         copiaUrl = url;

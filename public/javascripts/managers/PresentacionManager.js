@@ -12,6 +12,9 @@ function PresentacionManager(ws) {
         scope = scopeParam;
         sala = salaParam;
 
+        if (presentacion)
+            iframe.src = presentacion;
+
     };
 
     this.setUsuario = function (username) {
@@ -21,17 +24,6 @@ function PresentacionManager(ws) {
     this.actualizarPresentacion = function (mensaje) {
 
         switch (mensaje.accion) {
-            case 'mover':
-
-                var mover = {
-                    indexh: mensaje.indexh,
-                    indexv: mensaje.indexv,
-                };
-
-                reveal.slide(mover);
-
-                break;
-
             case 'cambiar':
 
                 var ifr = document.getElementById('presentacion-frame');
@@ -43,19 +35,8 @@ function PresentacionManager(ws) {
                 }
 
                 break;
-
         }
     }
-
-    var actualizarAsistentes = function (info) {
-        var mensaje = {
-            indexh: info.indexh,
-            indexv: info.indexv,
-            accion: 'mover'
-        };
-
-        sendData(mensaje);
-    };
 
     this.cambiarPresentacion = function (presentacionParam) {
 

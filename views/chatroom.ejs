@@ -42,7 +42,11 @@
 
 <nav ng-controller="accesoSalaController" class="navbar navbar-default navbar-static-top">
     <div class="navbar-header">
-        <h5 id="enlaceHome"><a href="personalPage"><span class="glyphicon glyphicon-menu-left"></span>Home</a></h5>
+
+        <a class="navbar-brand" href="index">
+            <img width="145px" height="17px" src="/public/fotos/logo.png">
+        </a>
+
         <img ng-src="{{selectedSala.foto}}" class="foto-sala"/>
         <span id="nombreSala">{{selectedSala.nombre}}</span>
     </div>
@@ -63,12 +67,13 @@
     <a href="javascript:void(0)" class="closebtn"
        onclick="closeNav('myAsistentesnav'); ">&times;</a>
     <h3 id="asistentesLabel">{{'PARTICIPANTES' | translate}}</h3>
-    <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}} <span class="conectado">•</span></a>
+    <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}} <span
+                class="conectado">•</span></a>
     <a ng-show="asistentes.length == 0" translate="{{'NO_PARTICIPANTES' | translate}}"></a>
 </div>
 
 <div id="div-hide-navegacion">
-<span class="glyphicon glyphicon-chevron-left" id="esconder-navegacion" onclick="closeNavPrincipal(); "></span>
+    <span class="glyphicon glyphicon-chevron-left" id="esconder-navegacion" onclick="closeNavPrincipal(); "></span>
 </div>
 <div id="navegacion">
     <span class="opcion-navegacion" onclick="openNav('myServiciosnav'); closeNav('myAsistentesnav'); ">&#9776; {{'SERVICIOS' | translate}}</span>

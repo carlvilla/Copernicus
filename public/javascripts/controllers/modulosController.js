@@ -42,21 +42,22 @@ webApp.controller('modulosController', function ($scope, utils, $compile, $trans
         float:true
     };
 
-    //Valores por defecto
-    var node = {
-        width: 5,
-        height: 5,
-        minWidth: 3,
-        maxWidth: 8,
-        minHeight: 3,
-        maxHeight: 8
-    };
 
     $('.grid-stack').gridstack(options);
 
     var grid = $('.grid-stack').data('gridstack');
 
     $scope.addModule = function (modulo) {
+
+        //Valores por defecto
+        var node = {
+            width: 5,
+            height: 5,
+            minWidth: 3,
+            maxWidth: 8,
+            minHeight: 3,
+            maxHeight: 8
+        };
 
         //Solo se pueden utilizar 4 módulos simultáneamente
         if(modulosMostrados.length > 3){
