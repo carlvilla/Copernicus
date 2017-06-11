@@ -1,5 +1,7 @@
 function openNav(nav) {
     document.getElementById(nav).style.width = "15%";
+    document.getElementById(nav).style.zIndex = "3";
+
     document.getElementById("myAsistentesnav").style.marginLeft = "0px";
 }
 

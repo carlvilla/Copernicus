@@ -72,6 +72,7 @@ html, body {
     border: 3px solid transparent;
     min-width: 155px;
     position: fixed;
+    margin-top: 25px;
 }
 
 #div-hide-navegacion {
@@ -79,6 +80,8 @@ html, body {
     height: 3%;
     border: 3px solid transparent;
     margin-left: 5px;
+    position: fixed;
+    z-index: 2;
 }
 
 .opcion-navegacion {
