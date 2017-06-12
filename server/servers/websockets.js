@@ -59,6 +59,7 @@ module.exports = function (server) {
                                 obtenerInformacionAsistentes(ws, obj.data.username, sala);
                             }
 
+                            console.log("Número de usuario: "+connections.length);
 
                         }
                         else if (obj.data.operacion == "disconnected") {

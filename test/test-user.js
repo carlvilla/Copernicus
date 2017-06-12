@@ -206,7 +206,7 @@ describe('Tests de usuarios', function () {
             })
 
     });
-
+/*
     describe('Bloquear usuarios', function () {
         it('Deberia bloquear al usuario2', function (done) {
             request(url)
@@ -223,8 +223,6 @@ describe('Tests de usuarios', function () {
                 })
         })
     });
-
-
-
+*/
 });
 

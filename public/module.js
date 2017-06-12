@@ -1,10 +1,6 @@
 var copernicus = angular.module('copernicus', ['ngCookies', 'angular-websocket', 'angucomplete', 'ngFileUpload'
-    , 'angular-growl', 'pascalprecht.translate', 'ngImgCrop',
-    'youtube-embed',
-    "ngSanitize",
-    "com.2fdevs.videogular",
-    "com.2fdevs.videogular.plugins.controls",
-    "info.vietnamcode.nampnq.videogular.plugins.youtube"]);
+    , 'angular-growl', 'pascalprecht.translate', 'ngImgCrop', "ngSanitize", "com.2fdevs.videogular",
+    "com.2fdevs.videogular.plugins.controls", 'youtube-embed']);
 
 copernicus.config(['$translateProvider', function ($translateProvider) {
 
