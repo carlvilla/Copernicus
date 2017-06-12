@@ -76,7 +76,7 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "ADMIN": 'Administrador',
         "ACCIONES_PELIGROSAS": ' Acciones peligrosas',
         "ELIMINAR_SALA": 'Eliminar sala',
-        "CHAT_VIDEO": 'Chat de video',
+        "CHAT_VIDEO": 'Videollamada',
         "CHAT_TEXTO": 'Chat de texto',
         "PRESENTACIONES": 'Presentaciones',
         "VIDEO_COMPARTIDO": 'Video compartido',
