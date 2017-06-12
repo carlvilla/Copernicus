@@ -92,6 +92,17 @@ module.exports.register = function (req, res) {
     var fotoPerfil = req.body.fotoPerfil;
     var fotoPorDefecto = req.body.fotoPorDefecto;
 
+    //Comprueba que el nombre de usuario no esté en uso
+    var predicate = {username: username};
+
+    user.where(predicate, function (err, people) {
+        if (err) throw err;
+        if (!people.length == 0) {
+            utils.sendJSONresponse(res, 403, "");
+            return;
+        }
+    });
+
 
     cloudinary.uploader.upload(fotoPerfil, function (result) {
 
@@ -237,7 +248,7 @@ module.exports.bloquear = function (req, res) {
 
                     var queryFindAdmin = "MATCH(u:Usuario{username:'" + username + "'})," +
                         "(uB:Usuario{username:'" + usernameBloqueado + "'}),(s:Sala) where (u)-[:Admin]->(s) " +
-                        "AND (uB)-[:Miembro | Moderador]-(s) return s";
+                        "AND (uB)-[:Miembro | Moderador]-(s) RETURN s";
 
                     var queryRemoveMiembro = "MATCH(u:Usuario{username:'" + usernameBloqueado + "'})" +
                         "-[r:Miembro | Moderador]->(sala:Sala) DELETE r RETURN sala";

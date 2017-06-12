@@ -37,11 +37,11 @@ describe('Tests de usuarios', function () {
      */
     describe('Registro de usuarios', function () {
 
-        it('El nombre de usuario no debería estar cogido', function (done) {
+        it('El nombre de usuario debería estar disponible', function (done) {
             var username = 'nombreUsuario';
 
             request(url)
-                .get('/api/validarUsername:'+username)
+                .get('/api/validarUsername/' + username)
                 .end(function (err, res) {
                     if (err) {
                         throw err;
@@ -54,59 +54,76 @@ describe('Tests de usuarios', function () {
                 });
         }),
 
-        it('Debería registrar correctamente un usuario', function (done) {
+            it('Debería registrar correctamente un usuario', function (done) {
 
-            var usuario = {
-                'nombre': 'Usuario',
-                'apellidos': 'ApellidosUsuario',
-                'username': 'nombreUsuario',
-                'email': 'usuario@email.com',
-                'password': 'passwordtest'
-            }
+                var usuario = {
+                    'nombre': 'Usuario',
+                    'apellidos': 'ApellidosUsuario',
+                    'username': 'nombreUsuario',
+                    'email': 'usuario@email.com',
+                    'password': 'passwordtest'
+                }
 
-            request(url)
-                .post('/api/register')
-                .send(usuario)
-                .end(function (err, res) {
-                    if (err) {
-                        throw err;
-                    }
+                request(url)
+                    .post('/api/register')
+                    .send(usuario)
+                    .end(function (err, res) {
+                        if (err) {
+                            throw err;
+                        }
 
-                    res.status.should.be.equal(200);
+                        res.status.should.be.equal(200);
 
-                    should.exist(res.body.token);//Comprobar que existe cookie de sesión
+                        should.exist(res.body.token);//Comprobar que existe cookie de sesión
 
-                    done();
+                        done();
 
-                });
-        }),
+                    });
+            }),
 
-        it('No debería registrar correctamente con estos datos', function (done) {
+            it('El nombre de usuario debería estar disponible', function (done) {
+                var username = 'nombreUsuario';
 
-            var usuario = {
-                'nombre': 'Usuario',
-                'apellidos': 'ApellidosUsuario',
-                'username': 'nombreUsuario',
-                'email': 'usuario@email.com',
-                'password': 'passwordtest'
-            }
+                request(url)
+                    .get('/api/validarUsername/' + username)
+                    .end(function (err, res) {
+                        if (err) {
+                            throw err;
+                        }
 
-            request(url)
-                .post('/api/register')
-                .send(usuario)
-                .end(function (err, res) {
-                    if (err) {
-                        throw err;
-                    }
+                        res.status.should.be.equal(200);
 
-                    res.status.should.be.equal(200);
+                        done();
 
-                    should.exist(res.body.token);//Comprobar que existe cookie de sesión
+                    });
+            }),
 
-                    done();
+            it('No debería registrar correctamente con estos datos ya que el nombre de usuario está en uso', function (done) {
 
-                });
-        })
+                var usuario = {
+                    'nombre': 'Usuario',
+                    'apellidos': 'ApellidosUsuario',
+                    'username': 'nombreUsuario',
+                    'email': 'usuario@email.com',
+                    'password': 'passwordtest'
+                }
+
+                request(url)
+                    .post('/api/register')
+                    .send(usuario)
+                    .end(function (err, res) {
+                        if (err) {
+                            throw err;
+                        }
+
+                        res.status.should.be.equal(403);
+
+                        should.exist(res.body.token);//Comprobar que existe cookie de sesión
+
+                        done();
+
+                    });
+            })
 
 
     });
@@ -134,27 +151,27 @@ describe('Tests de usuarios', function () {
                 })
         }),
 
-        it('No deberiamos logearnos con estos credenciales', function (done) {
+            it('No deberiamos logearnos con estos credenciales', function (done) {
 
-            var credenciales = {
-                'username': 'nombreUsuario',
-                'password': 'passwordErronea'
-            }
+                var credenciales = {
+                    'username': 'nombreUsuario',
+                    'password': 'passwordErronea'
+                }
 
-            request(url)
-                .post('/api/login')
-                .send(credenciales)
-                .end(function (err, res) {
-                    if (err) {
-                        throw err;
-                    }
+                request(url)
+                    .post('/api/login')
+                    .send(credenciales)
+                    .end(function (err, res) {
+                        if (err) {
+                            throw err;
+                        }
 
-                    res.status.should.be.equal(401);
-                    should.not.exists(res.body.token);
-                    done();
+                        res.status.should.be.equal(401);
+                        should.not.exists(res.body.token);
+                        done();
 
-                })
-        })
+                    })
+            })
 
     });
 
