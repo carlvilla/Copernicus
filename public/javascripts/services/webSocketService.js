@@ -63,7 +63,7 @@ angular.module('copernicus')
                         break;
 
                     case "video":
-                        videoCompartidoManager.cambiarVideoRemoto(obj.data.url, obj.data.username);
+                        videoCompartidoManager.cambiarVideoRemoto(obj.data.url,  obj.data.youtube, obj.data.username);
                         break;
 
                 }

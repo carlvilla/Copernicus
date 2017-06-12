@@ -1,5 +1,6 @@
 var copernicus = angular.module('copernicus', ['ngCookies', 'angular-websocket', 'angucomplete', 'ngFileUpload'
     , 'angular-growl', 'pascalprecht.translate', 'ngImgCrop',
+    'youtube-embed',
     "ngSanitize",
     "com.2fdevs.videogular",
     "com.2fdevs.videogular.plugins.controls",
@@ -148,7 +149,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "CAMBIO_EMISORA": 'Emisora cambiada por ',
         "URL_NO_VALIDA": 'URL no válida',
         "CAMBIO_VIDEO": 'Video cambiado por ',
-        "URL_VIDEO": 'URL del video'
+        "URL_VIDEO": 'URL del video',
+        "CAMBIAR": 'Cambiar'
     });
 
     $translateProvider.translations('en', {
@@ -292,7 +294,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "CAMBIO_EMISORA": 'Broadcasting was changed by ',
         "URL_NO_VALIDA": 'Invalid URL',
         "CAMBIO_VIDEO": 'Video was changed by ',
-        "URL_VIDEO": 'Video URL'
+        "URL_VIDEO": 'Video URL',
+        "CAMBIAR": 'Change'
     })
 
     $translateProvider.preferredLanguage('es');

@@ -226,6 +226,9 @@ module.exports.bloqueados = function (req, res) {
 module.exports.bloquear = function (req, res) {
 
     var username = utils.getUsername(req);
+
+    console.log(username);
+
     var usernameBloqueado = req.body.username;
 
     var queryAddBloqueado = "MATCH(u:Usuario{username:'" + username + "'}),(uB:Usuario{username:'" + usernameBloqueado + "'}) " +

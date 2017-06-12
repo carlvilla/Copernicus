@@ -10,7 +10,7 @@
 
             <div>
                 <input class="input-url" placeholder="{{'URL_VIDEO' | translate}}" ng-model="urlCambiar">
-                <button ng-click="cambiarVideo()">Cambiar</button>
+                <button ng-click="cambiarVideo()">{{'CAMBIAR' | translate}}</button>
             </div>
 
         </div>
@@ -18,23 +18,30 @@
     </div>
 
     <div id="contenido-video-compartido">
-        <videogular vg-theme="themeUrl" vg-player-ready="onPlayerReady($API)">
-            <vg-media id="video-compartido-media" vg-src="url" vg-youtube="rel=1;showinfo=1"></vg-media>
-            <vg-controls vg-autohide="true" vg-autohide-time="1000">
-                <vg-play-pause-button></vg-play-pause-button>
-                <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-                <vg-scrub-bar>
-                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                </vg-scrub-bar>
-                <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-                <vg-volume>
-                    <vg-mute-button></vg-mute-button>
-                    <vg-volume-bar></vg-volume-bar>
-                </vg-volume>
-                <vg-fullscreen-button></vg-fullscreen-button>
-            </vg-controls>
-        </videogular>
 
+        <div ng-hide="youtube">
+            <videogular vg-theme="themeUrl" vg-player-ready="onPlayerReady($API)">
+                <vg-media id="video-compartido-media" vg-src="url" vg-youtube="rel=1;showinfo=1"></vg-media>
+                <vg-controls vg-autohide="true" vg-autohide-time="1000">
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                        <vg-volume-bar></vg-volume-bar>
+                    </vg-volume>
+                    <vg-fullscreen-button></vg-fullscreen-button>
+                </vg-controls>
+            </videogular>
+
+        </div>
+
+        <div ng-show="youtube" id="video-youtube">
+            <youtube-video video-url="url"></youtube-video>
+        </div>
 
     </div>
 </div>
