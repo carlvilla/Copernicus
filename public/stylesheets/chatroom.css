@@ -445,6 +445,11 @@ input:checked + .slider:before {
     width: 100%;
 }
 
+#video-youtube{
+    height: 90%;
+    width: 100%;
+}
+
 .input-url{
     width: 40%;
 }

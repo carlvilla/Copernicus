@@ -6,7 +6,10 @@ function VideoCompartidoManager(ws, utils, $translate) {
 
     var API;
 
+    //Variables necesarias en el caso de que se cambió la URL, pero el usuario no tiene
+    //abierto el servicio de video compartido
     var copiaUrl;
+    var copiaYoutube;
 
     this.inicializar = function ($scope, usernameParam, salaParam) {
         scope = $scope;
@@ -15,7 +18,9 @@ function VideoCompartidoManager(ws, utils, $translate) {
 
         if (copiaUrl) {
             scope.url = copiaUrl;
+            scope.youtube = copiaYoutube;
         }
+
     };
 
     this.setAPI = function (APIParam) {
@@ -23,26 +28,32 @@ function VideoCompartidoManager(ws, utils, $translate) {
     }
 
     this.cambiarVideo = function (url) {
-        console.log(API);
-
-        API.stop();
+        //  API.stop();
         scope.url = url;
         copiaUrl = url;
         sendData(url);
     };
 
-    this.cambiarVideoRemoto = function (url, username) {
+    this.cambiarVideoRemoto = function (url, youtube, username) {
         if (scope) {
-            API.stop();
+            if (!youtube) {
+                API.stop();
+            }
+            scope.youtube = youtube;
             scope.url = url;
             copiaUrl = url;
         }
         else {
+            copiaYoutube = youtube;
             copiaUrl = url;
         }
 
         utils.mensajeInfo($translate.instant('CAMBIO_VIDEO') + username);
     };
+
+    this.setYoutube = function (boolean) {
+        scope.youtube = boolean;
+    }
 
     function sendData(url) {
         ws.send(JSON.stringify(
@@ -51,7 +62,8 @@ function VideoCompartidoManager(ws, utils, $translate) {
                 'data': {
                     'username': username,
                     'sala': sala,
-                    'url': url
+                    'url': url,
+                    'youtube': scope.youtube
                 }
             }));
     };

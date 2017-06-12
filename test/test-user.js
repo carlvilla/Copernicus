@@ -9,8 +9,6 @@ var db = require('seraph')({
     pass: confDB.db.pass
 });
 
-console.log(db);
-
 var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
