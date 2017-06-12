@@ -81,7 +81,7 @@ describe('Tests de usuarios', function () {
                     });
             }),
 
-            it('El nombre de usuario debería estar disponible', function (done) {
+            it('El nombre de usuario no debería de estar disponible', function (done) {
                 var username = 'nombreUsuario';
 
                 request(url)

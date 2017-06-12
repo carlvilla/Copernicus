@@ -99,40 +99,39 @@ module.exports.register = function (req, res) {
         if (err) throw err;
         if (!people.length == 0) {
             utils.sendJSONresponse(res, 403, "");
-            return;
+        } else {
+            cloudinary.uploader.upload(fotoPerfil, function (result) {
+
+                if (fotoPorDefecto)
+                    fotoPerfil = 'https://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
+                else
+                    fotoPerfil = result.secure_url;
+
+
+                user.save({
+                    username: username,
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    email: email,
+                    foto: fotoPerfil,
+                    hash: credenciales.hash,
+                    salt: credenciales.salt
+                }, function (err, node) {
+                    var token;
+                    if (err) {
+                        utils.sendJSONresponse(res, 500, err);
+                    } else {
+                        token = utils.generateJwt(username, nombre);
+                        utils.sendJSONresponse(res, 200, {
+                            "token": token,
+                            "username": username
+                        });
+                    }
+                });
+            });
         }
     });
 
-
-    cloudinary.uploader.upload(fotoPerfil, function (result) {
-
-        if (fotoPorDefecto)
-            fotoPerfil = 'https://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
-        else
-            fotoPerfil = result.secure_url;
-
-
-        user.save({
-            username: username,
-            nombre: nombre,
-            apellidos: apellidos,
-            email: email,
-            foto: fotoPerfil,
-            hash: credenciales.hash,
-            salt: credenciales.salt
-        }, function (err, node) {
-            var token;
-            if (err) {
-                utils.sendJSONresponse(res, 500, err);
-            } else {
-                token = utils.generateJwt(username, nombre);
-                utils.sendJSONresponse(res, 200, {
-                    "token": token,
-                    "username": username
-                });
-            }
-        });
-    });
 };
 
 /**
