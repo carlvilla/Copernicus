@@ -50,15 +50,10 @@ app.use('/growl', express.static(__dirname + '/bower_components/angular-growl-v2
 app.use('/font-awesome', express.static(__dirname + '/bower_components/font-awesome'));
 app.use('/fabric.js', express.static(__dirname + '/bower_components/fabric.js/dist'));
 app.use('/angular-youtube-mb', express.static(__dirname + '/bower_components/angular-youtube-mb'));
-
-
 app.use('/videogular', express.static(__dirname + '/bower_components/videogular'));
 app.use('/videogular-controls', express.static(__dirname + '/bower_components/videogular-controls'));
-app.use('/videogular-youtube', express.static(__dirname + '/bower_components/bower-videogular-youtube'));
 app.use('/videogular-themes', express.static(__dirname + '/bower_components/videogular-themes-default'));
 app.use('/angular-sanitize', express.static(__dirname + '/bower_components/angular-sanitize'));
-app.use('/videogular-overlay-play', express.static(__dirname + '/bower_components/videogular-overlay-play'));
-app.use('/videogular-buffering', express.static(__dirname + '/bower_components/videogular-buffering'));
 
 app.use('/api',routesApi);
 app.use('/', routesServer);

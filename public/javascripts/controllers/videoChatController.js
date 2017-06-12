@@ -9,8 +9,6 @@ copernicus.controller('videoChatController', function ($scope, $rootScope, webSo
     //Id de la sala a la que se accedió
     var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
 
-    console.log(sala);
-
     webSocketService.videoChatManager.start(sala);
 
     $scope.cerrarModulo = function () {
