@@ -118,8 +118,6 @@ describe('Tests de usuarios', function () {
 
                         res.status.should.be.equal(403);
 
-                        should.exist(res.body.token);//Comprobar que existe cookie de sesión
-
                         done();
 
                     });
