@@ -9,6 +9,8 @@ var db = require('seraph')({
     pass: confDB.db.pass
 });
 
+console.log(db);
+
 var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
@@ -23,6 +25,13 @@ describe('Tests de usuarios', function () {
 
     //Preparamos la base de datos antes de realizar los tests
     before(function () {
+        db.query(deleteDBQuery, function (err, result) {
+            if (err) throw err;
+        });
+    });
+
+    //Borramos la base de datos después de realizar los tests
+    after(function () {
         db.query(deleteDBQuery, function (err, result) {
             if (err) throw err;
         });
@@ -54,12 +63,12 @@ describe('Tests de usuarios', function () {
                 });
         }),
 
-            it('Debería registrar correctamente un usuario', function (done) {
+            it('Debería registrar correctamente a usuario1', function (done) {
 
                 var usuario = {
                     'nombre': 'Usuario',
                     'apellidos': 'ApellidosUsuario',
-                    'username': 'nombreUsuario',
+                    'username': 'usuario1',
                     'email': 'usuario@email.com',
                     'password': 'passwordtest'
                 }
@@ -81,8 +90,35 @@ describe('Tests de usuarios', function () {
                     });
             }),
 
+            it('Debería registrar correctamente a usuario2', function (done) {
+
+            var usuario = {
+                'nombre': 'Usuario',
+                'apellidos': 'ApellidosUsuario',
+                'username': 'usuario2',
+                'email': 'usuario@email.com',
+                'password': 'passwordtest'
+            }
+
+            request(url)
+                .post('/api/register')
+                .send(usuario)
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(200);
+
+                    should.exist(res.body.token);//Comprobar que existe cookie de sesión
+
+                    done();
+
+                });
+        }),
+
             it('El nombre de usuario no debería de estar disponible', function (done) {
-                var username = 'nombreUsuario';
+                var username = 'usuario1';
 
                 request(url)
                     .get('/api/validarUsername/' + username)
@@ -103,7 +139,7 @@ describe('Tests de usuarios', function () {
                 var usuario = {
                     'nombre': 'Usuario',
                     'apellidos': 'ApellidosUsuario',
-                    'username': 'nombreUsuario',
+                    'username': 'usuario1',
                     'email': 'usuario@email.com',
                     'password': 'passwordtest'
                 }
@@ -130,7 +166,7 @@ describe('Tests de usuarios', function () {
         it('Deberiamos logearnos con estos credenciales', function (done) {
 
             var credenciales = {
-                'username': 'nombreUsuario',
+                'username': 'usuario1',
                 'password': 'passwordtest'
             }
 
@@ -152,7 +188,7 @@ describe('Tests de usuarios', function () {
             it('No deberiamos logearnos con estos credenciales', function (done) {
 
                 var credenciales = {
-                    'username': 'nombreUsuario',
+                    'username': 'usuario1',
                     'password': 'passwordErronea'
                 }
 
@@ -172,6 +208,24 @@ describe('Tests de usuarios', function () {
             })
 
     });
+
+    describe('Bloquear usuarios', function () {
+        it('Deberia bloquear al usuario2', function (done) {
+            request(url)
+                .post('/api/bloquearContacto')
+                .send({'username': 'usuario2'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+    });
+
 
 
 });
