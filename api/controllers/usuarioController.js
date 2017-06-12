@@ -77,15 +77,12 @@ module.exports.login = function (req, res) {
 module.exports.register = function (req, res) {
 
     if (!req.body.username || !req.body.nombre || !req.body.email || !req.body.password) {
-        console.log("Mal");
-
         utils.sendJSONresponse(res, 400, {
             "message": "Faltan campos obligatorios"
         });
+
         return;
     }
-
-    console.log("Hola");
 
     var username = req.body.username;
     var nombre = req.body.nombre;

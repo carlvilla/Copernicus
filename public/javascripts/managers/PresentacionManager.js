@@ -5,10 +5,16 @@ function PresentacionManager(ws) {
     var usernameUsuario;
     var sala;
 
+    var iframe;
     var presentacion;
 
     this.start = function (salaParam, scopeParam) {
-        var iframe = document.getElementById('presentacion-frame');
+        iframe = document.getElementById('presentacion-frame');
+
+        iframe.onload = function () {
+            Reveal.addEventListener('slidechanged', actualizarAsistentes);
+        }
+
         scope = scopeParam;
         sala = salaParam;
 
@@ -16,6 +22,10 @@ function PresentacionManager(ws) {
             iframe.src = presentacion;
 
     };
+
+    var actualizarAsistentes = function (evento) {
+        console.log("Hola");
+    }
 
     this.setUsuario = function (username) {
         usernameUsuario = username;
@@ -26,11 +36,9 @@ function PresentacionManager(ws) {
         switch (mensaje.accion) {
             case 'cambiar':
 
-                var ifr = document.getElementById('presentacion-frame');
-
-                if (ifr)
-                    ifr.src = mensaje.presentacion;
-                else{
+                if (iframe)
+                    iframe.src = mensaje.presentacion;
+                else {
                     presentacion = mensaje.presentacion;
                 }
 
@@ -45,10 +53,9 @@ function PresentacionManager(ws) {
             presentacion: presentacionParam
         };
 
-        var ifr = document.getElementById('presentacion-frame');
 
-        if (ifr)
-            ifr.src = presentacionParam;
+        if (iframe)
+            iframe.src = presentacionParam;
 
         sendData(mensaje);
 

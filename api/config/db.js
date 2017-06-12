@@ -7,8 +7,8 @@ if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'test') {
         server: url.protocol + '//' + url.host,
         user: url.auth.split(':')[0],
         pass: url.auth.split(':')[1]
-
     };
+
 }
 
 else{
