@@ -187,9 +187,6 @@ describe('Tests de usuarios', function () {
                     res.status.should.be.equal(200);
                     should.exist(res.body.token);
 
-                    console.log(res.body.token);
-
-
                     done();
 
                 })
