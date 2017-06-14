@@ -206,11 +206,14 @@ describe('Tests de usuarios', function () {
             })
 
     });
-/*
+
     describe('Bloquear usuarios', function () {
         it('Deberia bloquear al usuario2', function (done) {
             request(url)
                 .post('/api/bloquearContacto')
+                .set('Cookie', ['token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiO' +
+                'nsidXNlcm5hbWUiOiJ1c3VhcmlvMSIsIm5vbWJyZSI6IlVzdWFyaW8ifSwiaWF0IjoxNDk3N' +
+                'DU3MTE4LCJleHAiOjE0OTc1NDM1MTh9.jX8toFWm4ZGzQpl1514_L9loVLu1DoL9UTTZbmpmRnk'])
                 .send({'username': 'usuario2'})
                 .end(function (err, res) {
                     if (err) {
@@ -223,6 +226,6 @@ describe('Tests de usuarios', function () {
                 })
         })
     });
-*/
+
 });
 
