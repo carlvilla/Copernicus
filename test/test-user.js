@@ -231,6 +231,24 @@ describe('Tests de usuarios', function () {
                 })
         })
 
+        it('Deberia devolver un usuario bloqueado para usuario1', function (done) {
+            request(url)
+                .post('/api/contactosBloqueados')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(200);
+                    assert(res.data.length, 1);
+
+                    done();
+
+                })
+        })
+
+
         it('Deberia desbloquear al usuario2', function (done) {
             request(url)
                 .post('/api/desbloquearContacto')
@@ -246,6 +264,24 @@ describe('Tests de usuarios', function () {
 
                 })
         })
+
+        it('Deberia devolver 0 usuarios bloqueados para usuario1', function (done) {
+            request(url)
+                .post('/api/bloquearContacto')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'username': 'usuario2'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(200);
+                    assert(res.data.length, 0);
+                    done();
+
+                })
+        })
+
 
     });
 
@@ -285,7 +321,7 @@ describe('Tests de usuarios', function () {
                         throw err;
                     }
 
-                    res.status.should.be.equal(404);
+                    res.status.should.be.equal(401);
                     done();
 
                 })
