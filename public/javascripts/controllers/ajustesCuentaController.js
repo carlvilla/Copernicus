@@ -1,6 +1,6 @@
 var copernicus = angular.module('copernicus');
 
-copernicus.controller('ajustesCuentaController', function ($scope, $http, $window, utils, $translate, $cookies) {
+copernicus.controller('ajustesCuentaController', function ($scope, $http, $window, utils, growl, $translate, $cookies) {
 
     $scope.usuario;
     $scope.pass;

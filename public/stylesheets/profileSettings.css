@@ -31,6 +31,7 @@
 #label-foto {
     vertical-align: top;
     width: 10%;
+    display: inline;
     min-width: 75px;
 }
 
@@ -44,8 +45,11 @@ input[type='file'] {
 }
 
 .foto {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+    margin-left: 20%;
+    margin-top: 1%;
+
 }
 
 #div-actualizar{
