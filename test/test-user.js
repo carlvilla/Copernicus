@@ -18,6 +18,14 @@ var url = 'http://localhost:8080';
 
 var deleteDBQuery = "MATCH (n) DETACH DELETE n";
 
+var tokenUsuario1 = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiO" +
+"nsidXNlcm5hbWUiOiJ1c3VhcmlvMSIsIm5vbWJyZSI6IlVzdWFyaW8ifSwiaWF0IjoxNDk3N" +
+"DU3MTE4LCJleHAiOjE0OTc1NDM1MTh9.jX8toFWm4ZGzQpl1514_L9loVLu1DoL9UTTZbmpmRnk";
+
+var tokenUsuario2 = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOnsidXNlc" +
+    "m5hbWUiOiJ1c3VhcmlvMiIsIm5vbWJyZSI6IlVzdWFyaW8ifSwiaWF0IjoxNDk3NDU3NzM1" +
+    "LCJleHAiOjE0OTc1NDQxMzV9.twkc0WL8iKtkBKL8caQnn8ff2ojMltFs-yWD6Hb83vI"
+
 
 describe('Tests de usuarios', function () {
 
@@ -164,7 +172,7 @@ describe('Tests de usuarios', function () {
         it('Deberiamos logearnos con estos credenciales', function (done) {
 
             var credenciales = {
-                'username': 'usuario1',
+                'username': 'usuario2',
                 'password': 'passwordtest'
             }
 
@@ -178,6 +186,10 @@ describe('Tests de usuarios', function () {
 
                     res.status.should.be.equal(200);
                     should.exist(res.body.token);
+
+                    console.log(res.body.token);
+
+
                     done();
 
                 })
@@ -207,13 +219,11 @@ describe('Tests de usuarios', function () {
 
     });
 
-    describe('Bloquear usuarios', function () {
+    describe('Bloquear y desbloquear usuarios', function () {
         it('Deberia bloquear al usuario2', function (done) {
             request(url)
                 .post('/api/bloquearContacto')
-                .set('Cookie', ['token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiO' +
-                'nsidXNlcm5hbWUiOiJ1c3VhcmlvMSIsIm5vbWJyZSI6IlVzdWFyaW8ifSwiaWF0IjoxNDk3N' +
-                'DU3MTE4LCJleHAiOjE0OTc1NDM1MTh9.jX8toFWm4ZGzQpl1514_L9loVLu1DoL9UTTZbmpmRnk'])
+                .set('Cookie', ['token = '+ tokenUsuario1])
                 .send({'username': 'usuario2'})
                 .end(function (err, res) {
                     if (err) {
@@ -225,6 +235,23 @@ describe('Tests de usuarios', function () {
 
                 })
         })
+
+        it('Deberia desbloquear al usuario2', function (done) {
+            request(url)
+                .post('/api/desbloquearContacto')
+                .set('Cookie', ['token = '+ tokenUsuario1])
+                .send({'username': 'usuario2'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
     });
 
 });

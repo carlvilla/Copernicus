@@ -227,8 +227,6 @@ module.exports.bloquear = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    console.log(username);
-
     var usernameBloqueado = req.body.username;
 
     var queryAddBloqueado = "MATCH(u:Usuario{username:'" + username + "'}),(uB:Usuario{username:'" + usernameBloqueado + "'}) " +
@@ -243,7 +241,6 @@ module.exports.bloquear = function (req, res) {
                 + usernameBloqueado + "'}) DELETE c"
 
             db.query(queryRemoveContacto, function (err, result) {
-                console.log("Borrar contacto");
                 if (err) {
                     utils.sendJSONresponse(res, 500, err);
                 } else {
@@ -262,7 +259,6 @@ module.exports.bloquear = function (req, res) {
 
                             result.forEach(function (sala) {
                                 db.query(queryRemoveMiembro, function (err, result) {
-                                    console.log("Eliminando usuario de la sala " + sala.nombre);
                                 });
                             });
 
