@@ -32,6 +32,9 @@ function VideoCompartidoManager(ws, utils, $translate) {
         scope.url = url;
         copiaUrl = url;
         sendData(url);
+
+        utils.mensajeInfo($translate.instant('PREPARANDO_VIDEO'));
+
     };
 
     this.cambiarVideoRemoto = function (url, youtube, username) {
