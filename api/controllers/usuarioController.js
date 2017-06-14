@@ -358,7 +358,8 @@ module.exports.modificarPass = function (req, res) {
 
         if (usuario) {
             var credenciales = utils.setPassword(req.body.passwordNueva);
-            var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.hash = '" + credenciales.hash + "', u.salt = '" + credenciales.salt + "'";
+            var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.hash = '"
+                + credenciales.hash + "', u.salt = '" + credenciales.salt + "'";
 
             console.log(query);
 
