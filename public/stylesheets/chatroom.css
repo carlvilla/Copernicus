@@ -392,6 +392,13 @@ input:checked + .slider:before {
     background-color: #0b93d5;
 }
 
+.recibido{
+    background-color: lightskyblue;
+    float: right;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
 /* Módulo Dibujos */
 
 #div-dibujo {
