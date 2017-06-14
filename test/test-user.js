@@ -18,13 +18,8 @@ var url = 'http://localhost:8080';
 
 var deleteDBQuery = "MATCH (n) DETACH DELETE n";
 
-var tokenUsuario1 = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiO" +
-"nsidXNlcm5hbWUiOiJ1c3VhcmlvMSIsIm5vbWJyZSI6IlVzdWFyaW8ifSwiaWF0IjoxNDk3N" +
-"DU3MTE4LCJleHAiOjE0OTc1NDM1MTh9.jX8toFWm4ZGzQpl1514_L9loVLu1DoL9UTTZbmpmRnk";
-
-var tokenUsuario2 = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOnsidXNlc" +
-    "m5hbWUiOiJ1c3VhcmlvMiIsIm5vbWJyZSI6IlVzdWFyaW8ifSwiaWF0IjoxNDk3NDU3NzM1" +
-    "LCJleHAiOjE0OTc1NDQxMzV9.twkc0WL8iKtkBKL8caQnn8ff2ojMltFs-yWD6Hb83vI"
+var tokenUsuario1;
+var tokenUsuario2;
 
 
 describe('Tests de usuarios', function () {
@@ -90,6 +85,7 @@ describe('Tests de usuarios', function () {
                         res.status.should.be.equal(200);
 
                         should.exist(res.body.token);//Comprobar que existe cookie de sesión
+                        tokenUsuario1 = res.body.token;
 
                         done();
 
@@ -117,6 +113,8 @@ describe('Tests de usuarios', function () {
                     res.status.should.be.equal(200);
 
                     should.exist(res.body.token);//Comprobar que existe cookie de sesión
+
+                    tokenUsuario2 = res.body.token;
 
                     done();
 
