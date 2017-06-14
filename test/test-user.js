@@ -94,32 +94,32 @@ describe('Tests de usuarios', function () {
 
             it('Debería registrar correctamente a usuario2', function (done) {
 
-            var usuario = {
-                'nombre': 'Usuario',
-                'apellidos': 'ApellidosUsuario',
-                'username': 'usuario2',
-                'email': 'usuario@email.com',
-                'password': 'passwordtest'
-            }
+                var usuario = {
+                    'nombre': 'Usuario',
+                    'apellidos': 'ApellidosUsuario',
+                    'username': 'usuario2',
+                    'email': 'usuario@email.com',
+                    'password': 'passwordtest'
+                }
 
-            request(url)
-                .post('/api/register')
-                .send(usuario)
-                .end(function (err, res) {
-                    if (err) {
-                        throw err;
-                    }
+                request(url)
+                    .post('/api/register')
+                    .send(usuario)
+                    .end(function (err, res) {
+                        if (err) {
+                            throw err;
+                        }
 
-                    res.status.should.be.equal(200);
+                        res.status.should.be.equal(200);
 
-                    should.exist(res.body.token);//Comprobar que existe cookie de sesión
+                        should.exist(res.body.token);//Comprobar que existe cookie de sesión
 
-                    tokenUsuario2 = res.body.token;
+                        tokenUsuario2 = res.body.token;
 
-                    done();
+                        done();
 
-                });
-        }),
+                    });
+            }),
 
             it('El nombre de usuario no debería de estar disponible', function (done) {
                 var username = 'usuario1';
@@ -218,7 +218,7 @@ describe('Tests de usuarios', function () {
         it('Deberia bloquear al usuario2', function (done) {
             request(url)
                 .post('/api/bloquearContacto')
-                .set('Cookie', ['token = '+ tokenUsuario1])
+                .set('Cookie', ['token = ' + tokenUsuario1])
                 .send({'username': 'usuario2'})
                 .end(function (err, res) {
                     if (err) {
@@ -234,7 +234,7 @@ describe('Tests de usuarios', function () {
         it('Deberia desbloquear al usuario2', function (done) {
             request(url)
                 .post('/api/desbloquearContacto')
-                .set('Cookie', ['token = '+ tokenUsuario1])
+                .set('Cookie', ['token = ' + tokenUsuario1])
                 .send({'username': 'usuario2'})
                 .end(function (err, res) {
                     if (err) {
@@ -249,5 +249,47 @@ describe('Tests de usuarios', function () {
 
     });
 
+
+    describe('Cambiar contraseña', function () {
+        it('Deberia cambiar la contraseña al usuario1', function (done) {
+            request(url)
+                .post('/api/modificarPass')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({
+                    'username': 'usuario1',
+                    'password': 'passwordtest',
+                    'passwordNueva': 'passCambiada'
+                })
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+        it('No deberia cambiar la contraseña al usuario1', function (done) {
+            request(url)
+                .post('/api/modificarPass')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({
+                    'username': 'usuario1',
+                    'password': 'passwordIncorrecta',
+                    'passwordNueva': 'nuevaPassword'
+                })
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(404);
+                    done();
+
+                })
+        })
+    });
 });
 
