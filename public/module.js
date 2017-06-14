@@ -65,6 +65,7 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "SALAS_MODERADOR": 'Salas en las que es moderador',
         "PAGINA_PERSONAL": 'Página personal',
         "SALAS_ADMIN": 'Salas en las que es administrador',
+        "SALAS_MIEMBRO": 'Salas en las que es miembro',
         "DATOS_ACTUALIZADOS": 'Datos de la sala actualizados',
         "INFO_SALA": 'Información de la sala',
         "ACTUALIZAR_DATOS":'Actualizar datos',
@@ -146,7 +147,10 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "URL_NO_VALIDA": 'URL no válida',
         "CAMBIO_VIDEO": 'Video cambiado por ',
         "URL_VIDEO": 'URL del video',
-        "CAMBIAR": 'Cambiar'
+        "CAMBIAR": 'Cambiar',
+        "SALIR_SALA": 'Salir de la sala',
+        "SALIO_SALA": 'Ha salido de la sala correctamente',
+        "ESTA_SEGURO_SALIR_SALA?": '¿Estás seguro de que quieres salir de esta sala? Esta acción no se puede deshacer.'
     });
 
     $translateProvider.translations('en', {
@@ -210,6 +214,7 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "SALAS_MODERADOR": 'Rooms where you are moderator',
         "PAGINA_PERSONAL": 'Personal page',
         "SALAS_ADMIN": 'Rooms where you are admin',
+        "SALAS_MIEMBRO": 'Rooms where you are member',
         "DATOS_ACTUALIZADOS": 'Room updated',
         "INFO_SALA": 'Room information',
         "ACTUALIZAR_DATOS":'Update data',
@@ -291,7 +296,11 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "URL_NO_VALIDA": 'Invalid URL',
         "CAMBIO_VIDEO": 'Video was changed by ',
         "URL_VIDEO": 'Video URL',
-        "CAMBIAR": 'Change'
+        "CAMBIAR": 'Change',
+        "SALIR_SALA": 'Leave room',
+        "SALIO_SALA": 'You left the room successfully',
+        "ESTA_SEGURO_SALIR_SALA?": 'Are you sure you want to leave this room? This action cannot be undone.'
+
     })
 
     $translateProvider.preferredLanguage('es');

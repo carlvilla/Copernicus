@@ -7,6 +7,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     //Variables necesarias para realizar el filtado de salas
     var todasSalasAdmin;
     var todasSalasModerador;
+    var todasSalasMiembro;
 
     function error(res) {
         utils.mensajeError($translate.instant('OPERACION_NO_AUTORIZADA'));
@@ -28,23 +29,45 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         todasSalasModerador = res.data;
     }, error)
 
-    $scope.mostrarInfoSala = function (idSala, admin) {
+    $http({
+        method: "GET",
+        url: "api/salasMiembro"
+    }).then(function (res) {
+        $scope.salasMiembro = res.data;
+        todasSalasMiembro = res.data;
+    }, error)
+
+
+    $scope.mostrarInfoSala = function (idSala, permisos) {
         idSalaSeleccionada = idSala;
         $scope.foto = undefined;
 
-        if (admin) {
-            ($scope.salasAdmin).forEach(function (sala) {
-                if (sala.idSala == idSala) {
-                    $scope.salaSeleccionada = sala;
-                }
-            })
 
-        } else {
-            $scope.salasModerador.forEach(function (sala) {
-                if (sala.idSala == idSala) {
-                    $scope.salaSeleccionada = sala;
-                }
-            })
+        switch (permisos) {
+            case 'admin':
+                ($scope.salasAdmin).forEach(function (sala) {
+                    if (sala.idSala == idSala) {
+                        $scope.salaSeleccionada = sala;
+                    }
+                });
+                break;
+
+            case 'moderador':
+                $scope.salasModerador.forEach(function (sala) {
+                    if (sala.idSala == idSala) {
+                        $scope.salaSeleccionada = sala;
+                    }
+                });
+                break;
+
+            case 'miembro':
+                $scope.salasMiembro.forEach(function (sala) {
+                    if (sala.idSala == idSala) {
+                        $scope.salaSeleccionada = sala;
+                    }
+                });
+                break;
+
         }
 
         $http({
@@ -53,8 +76,19 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
             data: {idSala: idSala}
         }).then(function (res) {
             $scope.participantes = res.data;
-            $scope.admin = admin;
 
+            if (permisos == 'admin') {
+                $scope.admin = true;
+                $scope.miembro = false;
+            }
+            else {
+                $scope.admin = false;
+                if (permisos == 'miembro') {
+                    $scope.miembro = true;
+                }else{
+                    $scope.miembro = false;
+                }
+            }
 
             $http({
                 method: "POST",
@@ -112,6 +146,19 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         ;
     }
 
+    $scope.salirSala = function () {
+        $http({
+            method: "POST",
+            url: "api/eliminarUsuarioSala",
+            data: {
+                idSala: idSalaSeleccionada,
+            }
+        }).then(function (res) {
+            utils.mensajeSuccess($translate.instant("SALIO_SALA"));
+            $window.location.reload();
+        }, error);
+    };
+
     $scope.eliminarSala = function () {
         $http({
             method: "POST",
@@ -121,14 +168,8 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
             }
         }).then(function (res) {
             $scope.salasAdmin.every(function (sala) {
-                if (sala.idSala == idSalaSeleccionada) {
-                    $scope.salasAdmin.splice($scope.salasAdmin.indexOf(sala), 1);
-                    $scope.salaSeleccionada = undefined;
-                    idSalaSeleccionada = undefined;
-                    utils.mensajeSuccess($translate.instant("SALA_ELIMINADA"));
-                    return false;
-                }
-                return true;
+                utils.mensajeSuccess($translate.instant("SALA_ELIMINADA"));
+                $window.location.reload();
             });
         }, error);
     };
@@ -317,6 +358,14 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         $scope.salasModerador = todasSalasModerador.filter(function (sala) {
             var nombreSala = sala.nombre.toLowerCase();
             var stringFiltrar = $('#filtrar-moderador').val().toLowerCase();
+            return nombreSala.indexOf(stringFiltrar) !== -1;
+        });
+    }
+
+    $scope.filtrarMiembro = function () {
+        $scope.salasMiembro = todasSalasMiembro.filter(function (sala) {
+            var nombreSala = sala.nombre.toLowerCase();
+            var stringFiltrar = $('#filtrar-miembro').val().toLowerCase();
             return nombreSala.indexOf(stringFiltrar) !== -1;
         });
     }

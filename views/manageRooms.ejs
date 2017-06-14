@@ -26,24 +26,38 @@
 <% include partials/header %>
 
 <div id="salas">
-    <label>{{'SALAS_ADMIN' | translate}}:</label>
+
+    <label class="label-salas">{{'SALAS_ADMIN' | translate}}:</label>
     <input id="filtrar-admin" placeholder="{{'FILTRAR_SALAS' | translate}}" ng-keyup="filtrarAdmin()"/>
     <div id="salas-admin" class="menu-lateral well">
         <button ng-repeat="sala in salasAdmin" class="list-group-item sala"
-                ng-click="mostrarInfoSala(sala.idSala, true)">
+                ng-click="mostrarInfoSala(sala.idSala, 'admin')">
             {{sala.nombre}}
             <img class="foto-sala" ng-src="{{sala.foto}}">
         </button>
     </div>
-    <label>{{'SALAS_MODERADOR' | translate}}:</label>
+
+    <label class="label-salas">{{'SALAS_MODERADOR' | translate}}:</label>
     <input id="filtrar-moderador" placeholder="{{'FILTRAR_SALAS' | translate}}" ng-keyup="filtrarModerador()"/>
     <div id="salas-moderador" class="menu-lateral well">
         <button ng-repeat="sala in salasModerador" class="list-group-item sala"
-                ng-click="mostrarInfoSala(sala.idSala, false)">
+                ng-click="mostrarInfoSala(sala.idSala, 'moderador')">
             {{sala.nombre}}
             <img class="foto-sala" ng-src="{{sala.foto}}">
         </button>
     </div>
+
+    <label class="label-salas">{{'SALAS_MIEMBRO' | translate}}:</label>
+    <input id="filtrar-miembro" placeholder="{{'FILTRAR_SALAS' | translate}}" ng-keyup="filtrarMiembro()"/>
+    <div id="salas-miembro" class="menu-lateral well">
+        <button ng-repeat="sala in salasMiembro" class="list-group-item sala"
+                ng-click="mostrarInfoSala(sala.idSala, 'miembro')">
+            {{sala.nombre}}
+            <img class="foto-sala" ng-src="{{sala.foto}}">
+        </button>
+    </div>
+
+
 </div>
 
 <div id="editor-sala">
@@ -52,7 +66,7 @@
     </div>
 
     <div id="informacion-sala" ng-show="salaSeleccionada != undefined">
-        <div id="datos-basicos">
+        <div id="datos-basicos" ng-show="miembro == false">
             <legend id="leyenda-info-sala">{{'INFO_SALA' | translate}}</legend>
 
             <div id="nombre-sala">
@@ -67,7 +81,7 @@
 
             <div id="foto-sala">
                 <label id="label-foto">{{'FOTO_SALA' | translate}}:
-                    <input type="file" id="foto" accept="image/jpeg, image/x-png, image/gif" ></label>
+                    <input type="file" id="foto" accept="image/jpeg, image/x-png, image/gif"></label>
                 <img ng-show="!foto" class="foto-info" ng-src="{{salaSeleccionada.foto}}">
                 <div ng-show="foto" class="cropArea">
                     <img-crop image="foto" result-image="fotoRecortada"></img-crop>
@@ -83,7 +97,7 @@
         <legend id="leyenda-info-sala">{{'USUARIOS_SALA' | translate}}</legend>
 
         <div id="participantes">
-            <div>
+            <div ng-show="miembro == false">
                 <div>
                     <angucomplete id="username-participante-sala"
                                   placeholder="{{'USERNAME' | translate}}"
@@ -113,7 +127,7 @@
                         <th>{{'APELLIDOS' | translate}}</th>
                         <th>{{'PERMISOS' | translate}}</th>
                         <th>{{'ESTADO' | translate}}</th>
-                        <th>{{'ACCIONES' | translate}}</th>
+                        <th ng-show="miembro == false">{{'ACCIONES' | translate}}</th>
                     </tr>
                     <tr ng-repeat="candidato in candidatos" id="datos-'{{participante.username}}'">
                         <td>{{candidato.user.username}}</td>
@@ -121,13 +135,14 @@
                         <td>{{candidato.user.apellidos}}</td>
                         <td>
                             <select class="form-control" ng-model="candidato.rel.properties.permisos"
-                                    ng-change="cambiarPermisosCandidato(candidato)">
+                                    ng-change="cambiarPermisosCandidato(candidato)"
+                                    ng-disabled="miembro == true">
                                 <option value="Miembro">{{'MIEMBRO' | translate}}</option>
                                 <option value="Moderador">{{'MODERADOR' | translate}}</option>
                             </select>
                         </td>
                         <td translate="INVITACION_NO_ACEPTADA">Todavía no ha aceptado la invitación</td>
-                        <td>
+                        <td ng-show="miembro == false">
                             <button class="btn btn-primary" type="button" ng-click="cancelarInvitacion(candidato.user)">
                                 Cancelar invitación
                             </button>
@@ -143,7 +158,7 @@
                         <th>{{'NOMBRE' | translate}}</th>
                         <th>{{'APELLIDOS' | translate}}</th>
                         <th>{{'PERMISOS' | translate}}</th>
-                        <th>{{'ACCIONES' | translate}}</th>
+                        <th ng-show="miembro == false">{{'ACCIONES' | translate}}</th>
                     </tr>
                     <tr ng-repeat="participante in participantes" id="datos-'{{participante.username}}'">
                         <td>{{participante.user.username}}</td>
@@ -159,7 +174,7 @@
                                 <option value="Admin" ng-show="false">{{'ADMIN' | translate}}</option>
                             </select>
                         </td>
-                        <td>
+                        <td ng-show="miembro == false">
                             <button class="btn btn-primary" type="button"
                                     ng-disabled="(!admin && participante.user.permisos!='Miembro')
                                     || (admin && participante.user.permisos=='Admin')"
@@ -174,14 +189,24 @@
             </div>
         </div>
 
-        <div id="operaciones-peligrosas" ng-hide="!admin">
+        <div id="operaciones-peligrosas">
             <legend id="leyenda-info-sala">{{'ACCIONES_PELIGROSAS' | translate}}</legend>
 
-            <button id="btn-eliminar-sala" class="btn btn-danger" type="button"
-                    confirmed-click="eliminarSala()" ng-confirm-click="{{'ESTA_SEGURO_ELIMINAR_SALA?' | translate}}">
 
+            <button id="btn-salir-sala" class="btn btn-danger" type="button"
+                    confirmed-click="salirSala()" ng-confirm-click="{{'ESTA_SEGURO_SALIR_SALA?' | translate}}"
+                    ng-show="admin == false">
+                {{'SALIR_SALA' | translate}}
+            </button>
+
+
+            <button id="btn-eliminar-sala" class="btn btn-danger" type="button"
+                    confirmed-click="eliminarSala()" ng-confirm-click="{{'ESTA_SEGURO_ELIMINAR_SALA?' | translate}}"
+                    ng-hide="!admin">
                 {{'ELIMINAR_SALA' | translate}}
             </button>
+
+
         </div>
 
     </div>

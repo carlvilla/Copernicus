@@ -235,6 +235,26 @@ module.exports.findSalasModerador = function (req, res) {
         }
     });
 
+}/**
+ * Devuelve las salas en las que el usuario es miembro. Esto es, que no es ni administrador ni moderador
+ *
+ * @param req
+ * @param res
+ */
+module.exports.findSalasMiembro = function (req, res) {
+    var username = utils.getUsername(req);
+
+    var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala)where (u)-" +
+        "[:Miembro]->(s) return s";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            utils.sendJSONresponse(res, 200, result);
+        }
+    });
+
 }
 
 module.exports.aceptarSolicitud = function (req, res) {
@@ -370,6 +390,12 @@ module.exports.actualizarDatos = function (req, res) {
 module.exports.eliminarUsuario = function (req, res) {
     var idSala = req.body.idSala;
     var username = req.body.username;
+
+    //En el caso de que no se pase un usuario significa que es el usuario que envía la petición cuya
+    //relación con la sala debe de ser eliminada
+    if(!username){
+        username = utils.getUsername(req);
+    }
 
     var query = "MATCH(Sala{idSala:" + idSala + "})-[r]-(Usuario{username:'" + username + "'}) delete r";
 
