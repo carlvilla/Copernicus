@@ -15,7 +15,6 @@ var request = require('supertest');
 
 var url = 'http://localhost:8080';
 
-
 var deleteDBQuery = "MATCH (n) DETACH DELETE n";
 
 var tokenUsuario1;
@@ -26,13 +25,6 @@ describe('Tests de usuarios', function () {
 
     //Preparamos la base de datos antes de realizar los tests
     before(function () {
-        db.query(deleteDBQuery, function (err, result) {
-            if (err) throw err;
-        });
-    });
-
-    //Borramos la base de datos después de realizar los tests
-    after(function () {
         db.query(deleteDBQuery, function (err, result) {
             if (err) throw err;
         });
@@ -233,7 +225,7 @@ describe('Tests de usuarios', function () {
 
         it('Deberia devolver un usuario bloqueado para usuario1', function (done) {
             request(url)
-                .post('/api/contactosBloqueados')
+                .post('/api/bloqueados')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .end(function (err, res) {
                     if (err) {
@@ -247,7 +239,6 @@ describe('Tests de usuarios', function () {
 
                 })
         })
-
 
         it('Deberia desbloquear al usuario2', function (done) {
             request(url)
@@ -267,7 +258,7 @@ describe('Tests de usuarios', function () {
 
         it('Deberia devolver 0 usuarios bloqueados para usuario1', function (done) {
             request(url)
-                .post('/api/bloquearContacto')
+                .post('/api/bloqueados')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .send({'username': 'usuario2'})
                 .end(function (err, res) {
@@ -284,7 +275,6 @@ describe('Tests de usuarios', function () {
 
 
     });
-
 
     describe('Cambiar contraseña', function () {
         it('Deberia cambiar la contraseña al usuario1', function (done) {

@@ -144,6 +144,8 @@ module.exports.validarUsername = function (req, res) {
 
     var predicate = {username: req.params.username};
 
+    console.log(db);
+
     user.where(predicate, function (err, people) {
         if (err) throw err;
         if (people.length == 0) {
@@ -361,8 +363,6 @@ module.exports.modificarPass = function (req, res) {
             var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.hash = '"
                 + credenciales.hash + "', u.salt = '" + credenciales.salt + "'";
 
-            console.log(query);
-
             db.query(query, function (err, result) {
                 if (err) {
                     utils.sendJSONresponse(res, 500, "pass");
@@ -428,7 +428,6 @@ module.exports.modificarDatos = function (req, res) {
         var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.nombre = '" + nombre + "', u.apellidos = '"
             + apellidos + "', u.email = '" + email + "'";
 
-        console.log(query);
         ejecutarQuery(query);
     }
 }

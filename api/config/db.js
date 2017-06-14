@@ -1,8 +1,8 @@
 var config = {};
 
 if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'test') {
-    var url = require('url').parse(process.env.GRAPHENEDB_URL);
 
+    var url = require('url').parse(process.env.GRAPHENEDB_URL);
     config = {
         server: url.protocol + '//' + url.host,
         user: url.auth.split(':')[0],
