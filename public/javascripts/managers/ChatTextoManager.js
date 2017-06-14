@@ -1,4 +1,4 @@
-function ChatTextoManager(ws) {
+function ChatTextoManager(ws, utils, $translate) {
 
     var mensajes = [];
     var usernameUsuario;
@@ -31,22 +31,32 @@ function ChatTextoManager(ws) {
             contenido: mensaje.contenido
         }
 
-       /* if(tipo=="archivo"){
-            blob = new Blob([data], { type: 'application/vnd.ms-excel' })
-
-
-        }*/
-
         mensajes.push(mensajeAux);
-
 
         $("#mensajes").animate({
             scrollTop: $("#fin-mensajes").offset().top - $("#mensajes").offset().top + $("#mensajes").scrollTop()
-        }, 500);
-
-
+        }, 300);
     }
 
+    this.mensajeRecibido = function (feedback) {
+
+        if (feedback.mensaje.tipoMensaje == 'texto') {
+            ($(".feedback-" + usernameUsuario)[0]).append(feedback.mensaje.participantes + " √");
+        }
+
+        else {
+            if (feedback.mensaje == 1) {
+                utils.mensajeInfo($translate.instant('FICHERO_ENVIADO_FEEDBACK')
+                    + feedback.mensaje.participantes + " " + $translate.instant('USUARIO'));
+            } else {
+                utils.mensajeInfo($translate.instant('FICHERO_ENVIADO_FEEDBACK') +
+                    feedback.mensaje.participantes + " " + $translate.instant('USUARIOS'));
+            }
+        }
+
+        ($(".feedback-" + usernameUsuario)).removeClass('feedback-' + usernameUsuario);
+
+    }
 
     function sendData(mensaje) {
         ws.send(JSON.stringify(

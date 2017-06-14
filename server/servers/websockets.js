@@ -59,7 +59,7 @@ module.exports = function (server) {
                                 obtenerInformacionAsistentes(ws, obj.data.username, sala);
                             }
 
-                            console.log("Número de usuario: "+connections.length);
+                            console.log("Número de usuario: " + connections.length);
 
                         }
                         else if (obj.data.operacion == "disconnected") {
@@ -149,16 +149,17 @@ module.exports = function (server) {
 
                         break;
 
-
                     case "presentacion":
                         console.log("Presentacion Web");
                         broadcast(message, obj.data.username, sala);
                         break;
 
-
                     case "chatTexto":
-                        console.log("Enviado: " + sala);
-                        broadcast(message, obj.data.username, sala);
+                        feedBack(broadcast(message, obj.data.username, sala), sala, 'chatTexto',
+                            {
+                                'participantes': (connections.filter(filtrarPorSala(sala)).length - 1),
+                                'tipoMensaje': obj.data.tipo
+                            });
                         break;
 
                     case "dibujos":
@@ -188,6 +189,9 @@ module.exports = function (server) {
          * @param usuarioAccion
          */
         broadcast = function (message, usuarioAccion, sala) {
+
+            var conexionUsuarioEnvia;
+
             connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
                     console.log(conexion.usuario.username);
                     if (conexion.usuario.username != usuarioAccion) {
@@ -199,9 +203,13 @@ module.exports = function (server) {
                         else {
                             console.log("Error: El estado del cliente es " + ws.readyState);
                         }
+                    } else {
+                        conexionUsuarioEnvia = conexion;
                     }
                 }
             );
+
+            return conexionUsuarioEnvia;
         };
 
         /**
@@ -238,13 +246,39 @@ module.exports = function (server) {
         desconectarUsuario = function (usuarioAccion, sala) {
 
             var conexiones = connections.filter(filtrarPorSala(sala));
-
             for (var i = 0; i < connections.length; i++) {
                 if (connections[i].usuario.username == usuarioAccion && connections[i].sala == sala) {
                     connections.splice(i, 1);
                     break;
                 }
             }
+        };
+
+        /**
+         * Devuelve información al usuario que mandó información a otros
+         *
+         * @param usuarioAccion
+         */
+        feedBack = function (conexion, sala, seccion, mensaje) {
+            console.log("Feedback");
+            var message = {
+                'seccion': seccion,
+                'data': {
+                    'tipo': 'feedback',
+                    'username': conexion.usuario.username,
+                    'mensaje': mensaje
+                }
+            };
+
+            if (conexion.ws.readyState == 1) {
+                console.log("Enviando mensaje a webSocketService");
+                conexion.ws.send(JSON.stringify(message));
+            }
+
+            else {
+                console.log("Error: El estado del cliente es " + ws.readyState);
+            }
+
         };
     });
 
@@ -343,4 +377,5 @@ module.exports = function (server) {
     };
 
 
-};
+}
+;

@@ -9,6 +9,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "REGISTRO": 'Registro',
         "LOGIN": 'Iniciar Sesión',
         "OLVIDO": "¿Olvidaste la contraseña?",
+        "USUARIO": "usuario",
+        "USUARIOS": "usuarios",
         "USERNAME": 'Nombre de usuario',
         "NOMBRE": 'Nombre',
         "APELLIDOS": 'Apellidos',
@@ -150,7 +152,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "CAMBIAR": 'Cambiar',
         "SALIR_SALA": 'Salir de la sala',
         "SALIO_SALA": 'Ha salido de la sala correctamente',
-        "ESTA_SEGURO_SALIR_SALA?": '¿Estás seguro de que quieres salir de esta sala? Esta acción no se puede deshacer.'
+        "ESTA_SEGURO_SALIR_SALA?": '¿Estás seguro de que quieres salir de esta sala? Esta acción no se puede deshacer.',
+        "FICHERO_ENVIADO_FEEDBACK": 'Fichero enviado a '
     });
 
     $translateProvider.translations('en', {
@@ -158,6 +161,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "REGISTRO": 'Sign up',
         "LOGIN": 'Login',
         "OLVIDO": "Did you forget your password?",
+        "USUARIO": "user",
+        "USUARIOS": "users",
         "USERNAME": 'Username',
         "NOMBRE": 'Name',
         "APELLIDOS": 'Surname',
@@ -299,7 +304,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "CAMBIAR": 'Change',
         "SALIR_SALA": 'Leave room',
         "SALIO_SALA": 'You left the room successfully',
-        "ESTA_SEGURO_SALIR_SALA?": 'Are you sure you want to leave this room? This action cannot be undone.'
+        "ESTA_SEGURO_SALIR_SALA?": 'Are you sure you want to leave this room? This action cannot be undone.',
+        "FICHERO_ENVIADO_FEEDBACK": 'File sent to '
 
     })
 

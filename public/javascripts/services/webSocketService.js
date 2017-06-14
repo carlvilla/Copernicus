@@ -9,7 +9,7 @@ angular.module('copernicus')
         var asistentesManager = new AsistentesManager(ws);
         var videoChatManager = new VideoChatManager(ws);
         var presentacionManager = new PresentacionManager(ws);
-        var chatTextoManager = new ChatTextoManager(ws);
+        var chatTextoManager = new ChatTextoManager(ws, utils, $translate);
         var dibujosManager = new DibujosManager(ws);
         var radioManager = new RadioManager(ws, utils, $translate);
         var videoCompartidoManager = new VideoCompartidoManager(ws, utils, $translate);
@@ -29,6 +29,7 @@ angular.module('copernicus')
         ws.onMessage(function (message) {
             if (utils.IsJsonString(message.data)) {
                 var obj = JSON.parse(message.data);
+
                 switch (obj.seccion) {
 
                     case "asistentes":
@@ -55,7 +56,12 @@ angular.module('copernicus')
                         break;
 
                     case "chatTexto":
-                        chatTextoManager.addMensaje(obj.data);
+                        if (obj.data.tipo != "feedback") {
+                            chatTextoManager.addMensaje(obj.data);
+                        }
+                        else {
+                            chatTextoManager.mensajeRecibido(obj.data);
+                        }
                         break;
 
                     case "radio":
@@ -63,7 +69,7 @@ angular.module('copernicus')
                         break;
 
                     case "video":
-                        videoCompartidoManager.cambiarVideoRemoto(obj.data.url,  obj.data.youtube, obj.data.username);
+                        videoCompartidoManager.cambiarVideoRemoto(obj.data.url, obj.data.youtube, obj.data.username);
                         break;
 
                 }

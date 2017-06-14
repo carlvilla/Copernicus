@@ -53,6 +53,7 @@
                 <div class="mensaje" ng-show="usernameUsuario == mensaje.username && mensaje.tipo == 'texto'">
                     <div class="contenido-mensaje-propio">
                         {{mensaje.mensaje}}
+                        <span class="feedback-{{mensaje.username}} recibido"></span>
                     </div>
                 </div>
 
