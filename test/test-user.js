@@ -233,9 +233,7 @@ describe('Tests de usuarios', function () {
                     }
 
                     res.status.should.be.equal(200);
-                    console.log(res.data);
-                    assert(res.data.length, 1);
-
+                    assert(res.body.length, 1);
                     done();
 
                 })
@@ -267,7 +265,7 @@ describe('Tests de usuarios', function () {
                     }
 
                     res.status.should.be.equal(200);
-                    assert(res.data, undefined);
+                    assert(res.body.length, 0);
                     done();
 
                 })
