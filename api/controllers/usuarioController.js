@@ -144,8 +144,6 @@ module.exports.validarUsername = function (req, res) {
 
     var predicate = {username: req.params.username};
 
-    console.log(db);
-
     user.where(predicate, function (err, people) {
         if (err) throw err;
         if (people.length == 0) {
