@@ -50,7 +50,6 @@ describe('Tests de usuarios', function () {
                     }
 
                     res.status.should.be.equal(204);
-
                     done();
 
                 });
@@ -265,7 +264,8 @@ describe('Tests de usuarios', function () {
                     }
 
                     res.status.should.be.equal(200);
-                    assert(res.body.length, 0);
+                    console.log(res.body.length);
+                    assert.equal(res.body.length, 0)
                     done();
 
                 })

@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test-user.js" afterPath="$PROJECT_DIR$/test/test-user.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,8 +38,18 @@
       <file leaf-file-name="test-user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/test-user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-93">
-              <caret line="242" column="24" lean-forward="true" selection-start-line="242" selection-start-column="24" selection-end-line="242" selection-end-column="24" />
+            <state relative-caret-position="229">
+              <caret line="267" column="52" lean-forward="false" selection-start-line="267" selection-start-column="52" selection-end-line="267" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="103" lean-forward="false" selection-start-line="8" selection-start-column="103" selection-end-line="8" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -96,7 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>usuariosB,</find>
       <find>usuariosB</find>
       <find>usuariosBlo</find>
       <find>usuariosBloq</find>
@@ -126,6 +136,7 @@
       <find>contactosBloq</find>
       <find>contactosBloqu</find>
       <find>contactosBloque</find>
+      <find>EL NOM</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -173,7 +184,6 @@
         <option value="$PROJECT_DIR$/views/modulos/presentaciones.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/managers/PresentacionManager.js" />
         <option value="$PROJECT_DIR$/test/test-salas.js" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/views/chatroom.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/videoCompartidoController.js" />
         <option value="$PROJECT_DIR$/views/modulos/videoCompartido.ejs" />
@@ -201,6 +211,7 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/api/config/db.js" />
         <option value="$PROJECT_DIR$/api/controllers/usuarioController.js" />
+        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/test/test-user.js" />
       </list>
     </option>
@@ -1182,44 +1193,44 @@
       <workItem from="1497356922805" duration="5345000" />
       <workItem from="1497391617521" duration="714000" />
       <workItem from="1497423874558" duration="33917000" />
-      <workItem from="1497482521242" duration="3955000" />
+      <workItem from="1497482521242" duration="5067000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 24s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 02h 54m 18s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 25s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 02h 54m 23s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 27s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 02h 54m 25s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 30s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 02h 54m 35s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 32s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 03h 07m 47s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 02h 25m 30s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 03h 11m 28s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 02h 26m 11s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 03h 11m 40s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 02h 26m 13s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 03h 11m 44s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 02h 26m 15s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 03h 11m 47s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 02h 26m 18s.xml">
+    <history-entry file="test_test-user_js - 2017.06.15 at 03h 11m 48s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="900949000" />
+    <option name="totallyTimeSpent" value="902061000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1697,14 +1708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="103" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/config/db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1753,10 +1756,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="103" lean-forward="false" selection-start-line="8" selection-start-column="103" selection-end-line="8" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/test-user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="242" column="24" lean-forward="true" selection-start-line="242" selection-start-column="24" selection-end-line="242" selection-end-column="24" />
+        <state relative-caret-position="229">
+          <caret line="267" column="52" lean-forward="false" selection-start-line="267" selection-start-column="52" selection-end-line="267" selection-end-column="52" />
           <folding />
         </state>
       </provider>
