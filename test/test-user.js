@@ -233,6 +233,7 @@ describe('Tests de usuarios', function () {
                     }
 
                     res.status.should.be.equal(200);
+                    console.log(res);
                     assert(res.data.length, 1);
 
                     done();

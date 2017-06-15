@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test-user.js" afterPath="$PROJECT_DIR$/test/test-user.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,8 +38,8 @@
       <file leaf-file-name="test-user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/test-user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-952">
-              <caret line="254" column="0" lean-forward="true" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+            <state relative-caret-position="243">
+              <caret line="235" column="37" lean-forward="true" selection-start-line="235" selection-start-column="37" selection-end-line="235" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -77,7 +78,7 @@
       <file leaf-file-name="usuarioController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/controllers/usuarioController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="-276">
               <caret line="165" column="34" lean-forward="true" selection-start-line="165" selection-start-column="34" selection-end-line="165" selection-end-column="34" />
               <folding />
             </state>
@@ -96,20 +97,15 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>usuario</find>
-      <find>usuariosB,o</find>
       <find>usuariosB,</find>
       <find>usuariosB</find>
       <find>usuariosBlo</find>
       <find>usuariosBloq</find>
       <find>usuariosBloqu</find>
       <find>usuariosBloque</find>
-      <find>c</find>
       <find>contact</find>
       <find>contactosB</find>
       <find>contactosBlo</find>
-      <find>contactosBloq</find>
-      <find>contactosBloque</find>
       <find>contactosBloquea</find>
       <find>contactosBloquead</find>
       <find>contactosBloqueado</find>
@@ -124,8 +120,13 @@
       <find>console.log()</find>
       <find>console.log(d)</find>
       <find>console.log(db)</find>
-      <find>createSala</find>
       <find>sala</find>
+      <find>createSala</find>
+      <find>c</find>
+      <find>contactos</find>
+      <find>contactosBloq</find>
+      <find>contactosBloqu</find>
+      <find>contactosBloque</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -1182,26 +1183,11 @@
       <workItem from="1497356922805" duration="5345000" />
       <workItem from="1497391617521" duration="714000" />
       <workItem from="1497423874558" duration="33917000" />
-      <workItem from="1497482521242" duration="2778000" />
+      <workItem from="1497482521242" duration="3016000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 07s.xml">
-      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 16s.xml">
-      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 19s.xml">
-      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 21s.xml">
-      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 22s.xml">
-      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 24s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -1217,9 +1203,24 @@
     <history-entry file="test_test-user_js - 2017.06.15 at 01h 39m 32s.xml">
       <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="test_test-user_js - 2017.06.15 at 02h 25m 30s.xml">
+      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_test-user_js - 2017.06.15 at 02h 26m 11s.xml">
+      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_test-user_js - 2017.06.15 at 02h 26m 13s.xml">
+      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_test-user_js - 2017.06.15 at 02h 26m 15s.xml">
+      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_test-user_js - 2017.06.15 at 02h 26m 18s.xml">
+      <configuration name="test/test-user.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="899772000" />
+    <option name="totallyTimeSpent" value="900010000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1242,11 +1243,11 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30327868" sideWeight="0.3421875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4398907" sideWeight="0.63489497" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43957505" sideWeight="0.63125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802126" sideWeight="0.49353796" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24474959" sideWeight="0.5315682" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1806109" sideWeight="0.50646204" order="9" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43957505" sideWeight="0.36875" order="9" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2484375" sideWeight="0.46843177" order="0" side_tool="false" content_ui="combo" />
@@ -1729,14 +1730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/controllers/usuarioController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="165" column="34" lean-forward="true" selection-start-line="165" selection-start-column="34" selection-end-line="165" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/salaController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -1753,10 +1746,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/controllers/usuarioController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276">
+          <caret line="165" column="34" lean-forward="true" selection-start-line="165" selection-start-column="34" selection-end-line="165" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/test-user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-952">
-          <caret line="254" column="0" lean-forward="true" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+        <state relative-caret-position="243">
+          <caret line="235" column="37" lean-forward="true" selection-start-line="235" selection-start-column="37" selection-end-line="235" selection-end-column="37" />
           <folding />
         </state>
       </provider>
