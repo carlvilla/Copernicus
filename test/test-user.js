@@ -225,7 +225,7 @@ describe('Tests de usuarios', function () {
 
         it('Deberia devolver un usuario bloqueado para usuario1', function (done) {
             request(url)
-                .post('/api/contactosBloqueados')
+                .get('/api/contactosBloqueados')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .end(function (err, res) {
                     if (err) {
@@ -258,9 +258,8 @@ describe('Tests de usuarios', function () {
 
         it('Deberia devolver 0 usuarios bloqueados para usuario1', function (done) {
             request(url)
-                .post('/api/contactosBloqueados')
+                .get('/api/contactosBloqueados')
                 .set('Cookie', ['token = ' + tokenUsuario1])
-                .send({'username': 'usuario2'})
                 .end(function (err, res) {
                     if (err) {
                         throw err;
