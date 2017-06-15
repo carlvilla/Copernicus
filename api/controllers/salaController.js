@@ -57,8 +57,6 @@ module.exports.createSala = function (req, res) {
 
         var idSala;
 
-        console.log("Creando sala: " + sala);
-
         //Obtenemos el último idSala utilizado. Este id es necesario para identificar de forma unequivoca una sala
         var queryLastSalaID = "match(s:Sala) with s.idSala as id return id order by id desc limit 1";
         db.query(queryLastSalaID, function (err, result) {

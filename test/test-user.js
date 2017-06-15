@@ -30,6 +30,8 @@ describe('Tests de usuarios', function () {
         });
     });
 
+    console.log(db);
+
     /*
      * Test de registro de usuarios
      *
@@ -232,7 +234,7 @@ describe('Tests de usuarios', function () {
                     }
 
                     res.status.should.be.equal(200);
-                    assert(res.body.length, 1);
+                    assert.equal(res.body.length, 1)
                     done();
 
                 })
