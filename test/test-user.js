@@ -225,7 +225,7 @@ describe('Tests de usuarios', function () {
 
         it('Deberia devolver un usuario bloqueado para usuario1', function (done) {
             request(url)
-                .post('/api/bloqueados')
+                .post('/api/contactosBloqueados')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .end(function (err, res) {
                     if (err) {
@@ -258,7 +258,7 @@ describe('Tests de usuarios', function () {
 
         it('Deberia devolver 0 usuarios bloqueados para usuario1', function (done) {
             request(url)
-                .post('/api/bloqueados')
+                .post('/api/contactosBloqueados')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .send({'username': 'usuario2'})
                 .end(function (err, res) {
@@ -317,5 +317,36 @@ describe('Tests de usuarios', function () {
                 })
         })
     });
+
+
+    describe('Crear sala', function () {
+        it('Deberia crear una sala cuyo administrador es el usuario1 y donde el usuario2 es moderador', function (done) {
+            request(url)
+                .post('/api/createSala')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({
+                    'sala': {
+                        nombre: 'Sala de pruebas',
+                        descripcion: 'Sala creada mediantes pruebas automatizadas',
+                        idSala: 1,
+                        fotoPorDefecto: true
+                    },
+                    'usuarios': [{'username': 'usuario2', 'permisos': 'Moderador'}]
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(204);
+                done();
+
+            })
+        })
+
+    });
+
+
 });
 
