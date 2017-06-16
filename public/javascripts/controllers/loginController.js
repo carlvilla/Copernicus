@@ -3,7 +3,7 @@
  */
 var copernicus = angular.module('copernicus');
 
-copernicus.controller('loginController', function($scope, $http, $cookies, $window){
+copernicus.controller('loginController', function ($scope, $http, $cookies, $window, utils, $translate) {
 
     $scope.loginError = false;
 
@@ -18,6 +18,7 @@ copernicus.controller('loginController', function($scope, $http, $cookies, $wind
 
     //Login correcto
     function success(res) {
+        utils.mensajeSuccessSinTiempo($translate.instant('INICIANDO_SESION'));
         $cookies.put('token', res.data.token);
         $window.location.href = '/personalPage';
     }
