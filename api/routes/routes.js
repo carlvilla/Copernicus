@@ -33,7 +33,7 @@ router.post('/participantesSala', salaController.participantesSala);
 router.post('/actualizarSala', middleware.checkAdminOrModerador  ,salaController.actualizarDatos);
 router.post('/eliminarUsuarioSala', salaController.eliminarUsuario);
 router.post('/eliminarSala',  middleware.checkAdmin  ,salaController.eliminarSala);
-router.post('/cambiarPermisos', middleware.checkAdmin, salaController.cambiarPermisos);
+router.post('/cambiarPermisos', middleware.checkAdminOrModerador, salaController.cambiarPermisos);
 router.post('/cambiarPermisosCandidato', middleware.checkAdminOrModerador ,salaController.cambiarPermisosCandidato);
 router.post('/enviarInvitacion', salaController.invitacion);
 router.post('/candidatos', salaController.candidatos);
