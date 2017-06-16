@@ -85,7 +85,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
                 $scope.admin = false;
                 if (permisos == 'miembro') {
                     $scope.miembro = true;
-                }else{
+                } else {
                     $scope.miembro = false;
                 }
             }
@@ -141,7 +141,13 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
                     $window.location.reload();
                 }
 
-            }, error
+            }, function (err) {
+                switch (err.data) {
+                    case 'nombre':
+                        utils.mensajeError('NOMBRE_SALA_NO_VACIO');
+                        break;
+                }
+            }
         )
         ;
     }

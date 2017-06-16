@@ -104,14 +104,11 @@ module.exports.createSala = function (req, res) {
                             utils.sendJSONresponse(res, 204, "");
                         }
                     });
-
-
                 }
             });
 
         });
     });
-
 }
 
 
@@ -352,6 +349,11 @@ module.exports.actualizarDatos = function (req, res) {
     var descripcion = req.body.descripcion;
     var fotoCambiada = req.body.fotoCambiada;
     var foto = req.body.foto;
+
+    if(nombre == ''){
+        utils.sendJSONresponse(res, 400, 'nombre');
+        return;
+    }
 
     var ejecutarQuery = function (query) {
         db.query(query, function (err, result) {

@@ -30,8 +30,6 @@ describe('Tests de usuarios', function () {
         });
     });
 
-    console.log(db);
-
     /*
      * Test de registro de usuarios
      *

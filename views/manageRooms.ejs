@@ -167,7 +167,8 @@
                         <td>
                             <select class="form-control" ng-model="participante.user.permisos"
                                     ng-init="contacto.permisos = participante.user.permisos"
-                                    ng-disabled="!admin || (participante.user.permisos=='Admin')"
+                                    ng-disabled="miembro || (!admin && participante.user.permisos=='Moderador')
+                                     || (participante.user.permisos=='Admin')"
                                     ng-change="cambiarPermisos(participante.user)">
                                 <option value="Miembro">{{'MIEMBRO' | translate}}</option>
                                 <option value="Moderador">{{'MODERADOR' | translate}}</option>
