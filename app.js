@@ -8,27 +8,31 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var forceSSL = require('force-ssl');
 var index = require('./server/routes/index');
 var routesServer = require('./server/routes/routes');
 var routesApi = require('./api/routes/routes');
 
 var app = express();
 
-app.use(bodyParser.json({ limit: '50mb', extended: false }));
+if (process.env.NODE_ENV == 'production') {
+    app.use(forceSSL);
+}
+
+app.use(bodyParser.json({limit: '50mb', extended: false}));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use('/public', express.static('public'));
 app.use('/modulos', express.static('views/modulos'));
 app.use('/dialogs', express.static('views/dialogs'));
 
-app.use(favicon(path.join(__dirname, 'public','favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/bootstrap', express.static(__dirname + '/bower_components/bootstrap/dist/'));
 app.use('/gridstack', express.static(__dirname + '/bower_components/gridstack/dist/'));
@@ -55,22 +59,22 @@ app.use('/videogular-controls', express.static(__dirname + '/bower_components/vi
 app.use('/videogular-themes', express.static(__dirname + '/bower_components/videogular-themes-default'));
 app.use('/angular-sanitize', express.static(__dirname + '/bower_components/angular-sanitize'));
 
-app.use('/api',routesApi);
+app.use('/api', routesApi);
 app.use('/', routesServer);
 
-app.use(function(req, res, next) {
-  var err = new Error('Página no encontrada - Error ');
-  err.status = 404;
-  err.reason = "Parece que te has perdido...";
-  next(err);
+app.use(function (req, res, next) {
+    var err = new Error('Página no encontrada - Error ');
+    err.status = 404;
+    err.reason = "Parece que te has perdido...";
+    next(err);
 });
 
-app.use(function(err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function (err, req, res, next) {
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  res.status(err.status || 500);
-  res.render('error');
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 var server = require('./server/servers/http.js')(app);
