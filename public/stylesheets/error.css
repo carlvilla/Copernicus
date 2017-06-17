@@ -1,0 +1,11 @@
+#numError, #mensajeError{
+    text-align: center;
+}
+
+#fotoError{
+    width: 30%;
+    height: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

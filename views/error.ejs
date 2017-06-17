@@ -1,2 +1,24 @@
-<h1><%= message %><%= error.status %></h1>
-<p><%= error.reason %></p>
+<head>
+    <link rel="stylesheet" href="/public/stylesheets/error.css">
+    <% include partials/shared-head %>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index"><img width="145px" height="17px" src="/public/fotos/logo.png"></a>
+        </div>
+    </div>
+</nav>
+
+<h1 id="numError">Error <%= error.status %></h1>
+<h1 id="mensajeError"><%= message %></h1>
+
+<div>
+    <img id="fotoError" src="/public/fotos/error.png"/>
+</div>
+
+</body>
+
