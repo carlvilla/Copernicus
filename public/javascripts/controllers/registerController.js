@@ -46,7 +46,7 @@ copernicus.controller('registerController', function ($scope, $http, $window, $c
     function success(res) {
         $scope.messages.showError = false;
         $cookies.put('token', res.data.token);
-        $window.location.href = '/personalPage';
+        $window.location.href = '/mainPage';
     }
 
     function error(res) {

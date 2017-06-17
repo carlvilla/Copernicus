@@ -10,8 +10,8 @@ module.exports.searchContacts = function (req, res, next) {
     res.render('searchContacts');
 }
 
-module.exports.personalPage = function (req, res, next) {
-    res.render('personalPage');
+module.exports.mainPage = function (req, res, next) {
+    res.render('mainPage');
 }
 
 module.exports.chatroom = function (req, res, next) {

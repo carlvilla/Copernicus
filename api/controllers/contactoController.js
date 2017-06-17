@@ -9,8 +9,6 @@ var db = require('seraph')({
     pass: confDB.db.pass
 });
 
-var user = model(db, 'Usuario');
-
 /**
  * Devuelve para el usuario que realizó la consulta, todos los usuarios existentes exceptuandose
  * aquellos bloqueados, los que lo tienen bloqueado, los que ya son contactos, a los que se envió solicitud de contacto
@@ -38,18 +36,6 @@ module.exports.findPosiblesContactos = function (req, res) {
             utils.sendJSONresponse(res, 204, "");
         }
     });
-
-}
-
-/**
- * Devuelve aquello contactos del usuario cuyo username sea similar
- * a un string enviado
- *
- * @param req
- * @param res
- */
-module.exports.findEntreContactos = function (req, res) {
-
 
 }
 
