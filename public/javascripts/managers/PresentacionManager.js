@@ -1,4 +1,4 @@
-function PresentacionManager(ws) {
+function PresentacionManager(ws, utils, $translate) {
 
     var scope;
     var reveal;
@@ -35,6 +35,8 @@ function PresentacionManager(ws) {
 
         switch (mensaje.accion) {
             case 'cambiar':
+
+                utils.mensajeInfo($translate.instant('PRESENTACION_CAMBIADA')+mensaje.username);
 
                 if (iframe)
                     iframe.src = mensaje.presentacion;
