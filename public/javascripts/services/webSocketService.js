@@ -8,7 +8,7 @@ angular.module('copernicus')
 
         var asistentesManager = new AsistentesManager(ws);
         var videoChatManager = new VideoChatManager(ws);
-        var presentacionManager = new PresentacionManager(ws);
+        var presentacionManager = new PresentacionManager(ws, utils, $translate);
         var chatTextoManager = new ChatTextoManager(ws, utils, $translate);
         var dibujosManager = new DibujosManager(ws);
         var radioManager = new RadioManager(ws, utils, $translate);

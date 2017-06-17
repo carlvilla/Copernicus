@@ -14,6 +14,10 @@ function VideoChatManager(ws) {
 
     var referenciaStream; //to save the reference of the stream
 
+    //Al silenciar a los otros usuarios, se silencian los usuarios actualmente conectados. Por lo tanto es necesario
+    //una variable que almacene el estado del sonido de los videos remotos por si se conecta un nuevo usuario.
+    var sonidoSilenciado = false;
+
     var constraints = {
         audio: true,
         video: true
@@ -40,7 +44,7 @@ function VideoChatManager(ws) {
         var videoTracks = stream.getVideoTracks();
 
         stream.oninactive = function () {
-            console.log('Stream inactive');
+            console.log('Stream inactivo');
         };
         window.stream = stream;
         videoLocal.srcObject = stream;
@@ -152,7 +156,7 @@ function VideoChatManager(ws) {
                 videoRemoto1.username = (username);
 
                 videoRemoto1.play();
-                videoRemoto1.muted = false;
+                videoRemoto1.muted = sonidoSilenciado;
 
                 remotes.push({
                     'username': username,
@@ -182,7 +186,7 @@ function VideoChatManager(ws) {
                 videoRemoto2.username = (username);
 
                 videoRemoto2.play();
-                videoRemoto2.muted = false;
+                videoRemoto2.muted = sonidoSilenciado;
 
                 remotes.push({
                     'username': getUsername(localPeerConnection),
@@ -208,7 +212,7 @@ function VideoChatManager(ws) {
                 videoRemoto3.username = (username);
 
                 videoRemoto3.play();
-                videoRemoto3.muted = false;
+                videoRemoto3.muted = sonidoSilenciado;
 
                 remotes.push({
                     'username': getUsername(localPeerConnection),
@@ -243,6 +247,7 @@ function VideoChatManager(ws) {
     }
 
     this.setMuted = function (mute) {
+        sonidoSilenciado = mute;
         remotes.forEach(function (remote) {
             remote.video.muted = mute;
         });
@@ -309,6 +314,8 @@ function VideoChatManager(ws) {
                 i--;
             }
         }
+
+
     }
 
     /**
@@ -371,7 +378,6 @@ function VideoChatManager(ws) {
 
             //Actualizamos las dimensiones del video local y de los videos remotos
             if (videosActualizar.length == 1) {
-                console.log(1);
                 videoLocal.style.width = "50%";
                 videoLocal.style.height = "100%";
 
@@ -382,7 +388,6 @@ function VideoChatManager(ws) {
 
             }
             else if (videosActualizar.length == 2) {
-                console.log(2);
                 videoLocal.style.width = "50%";
                 videoLocal.style.height = "50%";
 
@@ -393,10 +398,8 @@ function VideoChatManager(ws) {
                 videosActualizar[1].style.height = "50%";
                 videosActualizar[1].style.marginLeft = "25%";
                 videosActualizar[1].style.marginRight = "25%";
-
             }
             else if (videosActualizar.length == 3) {
-                console.log(3);
                 videoLocal.style.width = "50%";
                 videoLocal.style.height = "50%";
 
@@ -473,8 +476,11 @@ function VideoChatManager(ws) {
     }
 
     this.setDisconnected = function () {
-        console.log("Desconectado módulo videoChat");
         sendData('cerrar');
+
+        //Se vuelve a dejar la variable a false por si se abre la videollamada de nuevo
+        sonidoSilenciado = false;
+
 
         for (var i = 0; i < peerConnections.length; i++) {
             peerConnections[i].connection.close();
