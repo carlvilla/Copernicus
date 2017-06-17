@@ -40,7 +40,6 @@ router.post('/candidatos', salaController.candidatos);
 
 //llamadas rest para gestionar contactos
 router.get('/findPosiblesContactos', contactoController.findPosiblesContactos);
-router.get('/findContacto', contactoController.findEntreContactos);
 router.get('/contactos', contactoController.findMisContactos);
 router.get('/solicitudesContacto', contactoController.findSolicitudesContacto);
 router.post('/enviarSolicitudContacto', contactoController.enviarSolicitudContacto);

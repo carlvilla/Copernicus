@@ -20,7 +20,7 @@ copernicus.controller('loginController', function ($scope, $http, $cookies, $win
     function success(res) {
         utils.mensajeSuccessSinTiempo($translate.instant('INICIANDO_SESION'));
         $cookies.put('token', res.data.token);
-        $window.location.href = '/personalPage';
+        $window.location.href = '/mainPage';
     }
 
     //La combinación usuario-contraseña es erronea

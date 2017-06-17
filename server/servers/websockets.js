@@ -366,6 +366,13 @@ module.exports = function (server) {
     };
 
 
+    /**
+     * Envía el mensaje al usuario especificado de una sala concreta
+     *
+     * @param message
+     * @param usernameSeEnvia
+     * @param sala
+     */
     enviarA = function (message, usernameSeEnvia, sala) {
         console.log("Enviando mensaje a " + usernameSeEnvia);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {

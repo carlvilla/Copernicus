@@ -54,7 +54,7 @@ module.exports.checkSesion = function (req, res, next) {
             var payload = jwt.decode(token, process.env.JWT_SECRET);
             if (payload.exp > moment().unix()) {
                 req.sub = payload.sub;
-                res.redirect('./personalPage');
+                res.redirect('./mainPage');
             }
         } catch (err) {
             next();

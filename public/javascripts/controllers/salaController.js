@@ -59,7 +59,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     }
 
     var successCrear = function (res) {
-        $window.location.href = '/personalPage';
+        $window.location.href = '/mainPage';
     }
 
     $scope.contactos = {};
