@@ -63,9 +63,8 @@ app.use('/api', routesApi);
 app.use('/', routesServer);
 
 app.use(function (req, res, next) {
-    var err = new Error('Página no encontrada - Error ');
+    var err = new Error('Page not found');
     err.status = 404;
-    err.reason = "Parece que te has perdido...";
     next(err);
 });
 

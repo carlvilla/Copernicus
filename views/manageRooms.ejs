@@ -118,7 +118,7 @@
 
             <div id="show-usuarios">
 
-                <h5 ng-show="candidatos.length > 0" translate="INVITACIONES_ENVIADAS"></h5>
+                <h5 ng-show="candidatos.length > 0" translate="SOLICITUDES_ENVIADAS"></h5>
 
                 <table ng-show="candidatos.length > 0" class="table table-bordered">
                     <tr>
@@ -141,10 +141,10 @@
                                 <option value="Moderador">{{'MODERADOR' | translate}}</option>
                             </select>
                         </td>
-                        <td translate="INVITACION_NO_ACEPTADA">Todavía no ha aceptado la invitación</td>
+                        <td translate="SOLICITUD_NO_ACEPTADA"></td>
                         <td ng-show="miembro == false">
                             <button class="btn btn-primary" type="button" ng-click="cancelarInvitacion(candidato.user)">
-                                Cancelar invitación
+                                {{"CANCELAR_SOLICITUD" | translate}}
                             </button>
                         </td>
                     </tr>
