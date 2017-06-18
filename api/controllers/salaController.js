@@ -46,6 +46,13 @@ module.exports.createSala = function (req, res) {
 
     var foto;
 
+    if(sala.nombre > 50){
+        utils.sendJSONresponse(res, 400, 'nombre');
+    }else if(sala.descripcion > 200){
+        utils.sendJSONresponse(res, 400, 'descripcion');
+    }
+
+
     cloudinary.uploader.upload(sala.foto, function (result) {
 
         if (fotoPorDefecto)

@@ -44,10 +44,13 @@
 
 <nav ng-controller="accesoSalaController" class="navbar navbar-default navbar-static-top">
     <div class="navbar-header">
-
         <a class="navbar-brand" href="index">
             <img width="145px" height="17px" src="/public/fotos/logo.png">
         </a>
+
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="index" translate="PAGINA_PRINCIPAL"></a></li>
+        </ul>
 
         <img ng-src="{{selectedSala.foto}}" class="foto-sala"/>
         <span id="nombreSala">{{selectedSala.nombre}}</span>
