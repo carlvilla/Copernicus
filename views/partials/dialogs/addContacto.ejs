@@ -30,7 +30,7 @@
 
             </div>
             <div class="modal-footer">
-                <button data-dismiss="modal" class="btn btn-primary"
+                <button ng-disabled="!usuarioSeleccionado" data-dismiss="modal" class="btn btn-primary"
                         ng-click="enviarSolicitudContacto()">{{'MANDAR_SOLICITUD_CONTACTO' | translate}}
                 </button>
                 <button class="btn btn-primary" data-dismiss="modal">{{'CERRAR' | translate}}</button>

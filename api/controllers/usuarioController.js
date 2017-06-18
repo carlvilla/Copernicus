@@ -47,7 +47,6 @@ module.exports.login = function (req, res) {
         passport.authenticate('local', function (err, usuario, info) {
             var token;
             if (err) {
-                console.log(err);
                 utils.sendJSONresponse(res, 404, err);
                 return;
             }
@@ -99,9 +98,10 @@ module.exports.register = function (req, res) {
         if (!people.length == 0) {
             utils.sendJSONresponse(res, 403, "");
         } else {
+
             cloudinary.uploader.upload(fotoPerfil, function (result) {
 
-                if (fotoPorDefecto)
+                if (fotoPorDefecto || (fotoPorDefecto == undefined && fotoPorDefecto == undefined))
                     fotoPerfil = 'https://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
                 else
                     fotoPerfil = result.secure_url;
@@ -385,21 +385,20 @@ module.exports.modificarPass = function (req, res) {
 module.exports.modificarDatos = function (req, res) {
 
     var username = utils.getUsername(req);
-    var usuario = req.body.usuario;
-    var nombre = usuario.nombre;
-    var apellidos = usuario.apellidos;
-    var email = usuario.email;
+    var nombre = req.body.nombre;
+    var apellidos = req.body.apellidos;
+    var email = req.body.email;
     var fotoCambiada = req.body.fotoCambiada;
     var foto = req.body.foto;
 
     if (!nombre) {
-        utils.sendJSONresponse(res, 500, "nombre");
+        utils.sendJSONresponse(res, 400, "nombre");
         return;
     } else if (apellidos && apellidos.length > 35) {
-        utils.sendJSONresponse(res, 500, "apellidos");
+        utils.sendJSONresponse(res, 400, "apellidos");
         return;
     } else if (!email.match(emailRegex)) {
-        utils.sendJSONresponse(res, 500, "email");
+        utils.sendJSONresponse(res, 400, "email");
         return;
     }
 
@@ -444,7 +443,6 @@ module.exports.eliminarCuenta = function (req, res) {
 
     db.query(queryAdmin, function (err, result) {
         if (err) {
-            console.log(err);
             utils.sendJSONresponse(res, 500, "cuenta");
         } else {
             var queryUsuario = "MATCH (u:Usuario{username:'" + username + "'})-[r]-() DELETE r, u";

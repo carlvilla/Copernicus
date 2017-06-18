@@ -119,12 +119,10 @@ module.exports.enviarSolicitudContacto = function (req, res) {
 
     db.query(query, function (err, result) {
         if (err) {
-            console.log("Error al crear la relación de contacto entre los usuarios " + usernameEnvia +
-                " y " + usernameRecibe + ", ha ocurrido el siguiente error: " + err);
             utils.sendJSONresponse(res, 500, err);
 
         } else {
-            utils.sendJSONresponse(res, 200, "");
+            utils.sendJSONresponse(res, 204, "");
         }
     });
 
@@ -187,7 +185,7 @@ module.exports.aceptarSolicitudContacto = function (req, res) {
                     utils.sendJSONresponse(res, 500, err);
 
                 } else {
-                    utils.sendJSONresponse(res, 200, "");
+                    utils.sendJSONresponse(res, 204, "");
                 }
             });
         }
@@ -221,7 +219,7 @@ module.exports.ignorarSolicitudContacto = function (req, res) {
             utils.sendJSONresponse(res, 500, err);
         }
         else {
-            utils.sendJSONresponse(res, 200, "");
+            utils.sendJSONresponse(res, 204, "");
         }
     });
 }

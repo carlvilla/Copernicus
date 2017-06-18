@@ -7,6 +7,38 @@ var db = require('seraph')({
     pass: confDB.db.pass
 });
 
+/**
+ * Comprueba que el nombre de usuario exista
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.usernameExiste = function (req, res, next) {
+    var username = utils.getUsername(req);
+
+    var query = "MATCH(u:Usuario{username:'" + username + "'}) return u";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            if (result[0]) {
+                next();
+            } else {
+                utils.sendJSONresponse(res, 400, err);
+            }
+        }
+    });
+}
+
+/**
+ * Comprueba que el usuario que envio la petición sea administrador o moderador de la sala
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 module.exports.checkAdminOrModerador = function (req, res, next) {
     var idSala = req.body.idSala;
     var username = utils.getUsername(req);
@@ -18,16 +50,66 @@ module.exports.checkAdminOrModerador = function (req, res, next) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
-            if(result[0]){
+            if (result[0]) {
                 next();
-            }else{
-                utils.sendJSONresponse(res, 500, err);
+            } else {
+                utils.sendJSONresponse(res, 400, err);
             }
         }
     });
 }
 
 
+/**
+ * Comprueba que el usuario sea administrador si se intenta realizar un cambio a un participante que sea administrador
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkAdminSiCambioAModerador = function (req, res, next) {
+    var idSala = req.body.idSala;
+    var username = utils.getUsername(req);
+    var usernamePermisosModificados = req.body.username;
+
+    var query = "MATCH(u:Usuario{username:'" + usernamePermisosModificados + "'})" +
+        "-[r]-(s:Sala{idSala:" + idSala + "}) return r";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            if (result[0].type == 'Moderador') {
+
+                query = "MATCH(u:Usuario{username:'" + username + "'})" +
+                    "-[r]-(s:Sala{idSala:" + idSala + "}) return r";
+
+                db.query(query, function (err, result) {
+                    if (err) {
+                        utils.sendJSONresponse(res, 500, err);
+                    } else {
+                        if (result[0].type == 'Admin') {
+                            next();
+                        } else {
+                            utils.sendJSONresponse(res, 400, err);
+                        }
+                    }
+                });
+            } else {
+                next();
+            }
+        }
+    });
+}
+
+
+/**
+ * Comprueba que el usuario que envio la petición sea administrador de la sala
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 module.exports.checkAdmin = function (req, res, next) {
     var idSala = req.body.idSala;
     var username = utils.getUsername(req);
@@ -39,12 +121,196 @@ module.exports.checkAdmin = function (req, res, next) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
-            if(result[0]){
+            if (result[0]) {
                 next();
-            }else{
-                utils.sendJSONresponse(res, 500, err);
+            } else {
+                utils.sendJSONresponse(res, 400, err);
             }
         }
     });
 }
+
+/**
+ * Comprueba que dos usuarios son contactos
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkSonContactos = function (req, res, next) {
+    var username = utils.getUsername(req);
+    var username2 = req.body.username;
+
+    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:SolicitudContacto | Contacto]-(u2:Usuario{username:'" + username2 + "'})" +
+        "RETURN  c";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            if (result[0]) {
+                utils.sendJSONresponse(res, 400, err);
+            } else {
+                next();
+            }
+        }
+    });
+}
+
+/**
+ * Comprueba que los username enviados no sea vacios
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkUsernamesEnviados = function (req, res, next) {
+    var username = utils.getUsername(req);
+    var username2 = req.body.username;
+
+    if (username == undefined || username2 == undefined) {
+        utils.sendJSONresponse(res, 400, err);
+    } else {
+        next();
+    }
+
+}
+
+/**
+ * Comprueba que el usuario no sea candidato a unirse a una sala o administrador, moderador o miembro de la misma
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.usuarioNoCandidatoAdminModeradorOMiembro = function (req, res, next) {
+    var username = req.body.username;
+    var idSala = req.body.idSala;
+
+    if (username == undefined || idSala == undefined) {
+        utils.sendJSONresponse(res, 400, err);
+    } else {
+        var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:Candidato | Admin | Moderador | Miembro]" +
+            "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+
+        db.query(query, function (err, result) {
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                if (result[0]) {
+                    utils.sendJSONresponse(res, 400, err);
+                } else {
+                    next();
+                }
+            }
+        });
+
+    }
+}
+
+/**
+ * Comprueba que el usuario no sea administrador, moderador o miembro de cierta sala
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.usuarioNoAdminModeradorOMiembro = function (req, res, next) {
+    var username = utils.getUsername(req);
+    var idSala = req.body.idSala;
+
+    if (username == undefined || idSala == undefined) {
+        utils.sendJSONresponse(res, 400, err);
+    } else {
+
+        var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:Admin | Moderador | Miembro]" +
+            "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+
+        db.query(query, function (err, result) {
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                if (result[0]) {
+                    utils.sendJSONresponse(res, 400, err);
+                } else {
+                    next();
+                }
+            }
+        });
+
+    }
+}
+
+/**
+ * Comprueba que exista una solicitud de contacto entre dos usuarios
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkExisteSolicitudContacto = function (req, res, next) {
+    var username = utils.getUsername(req);
+    var usernameEnvioSolicitud = req.body.usernameAceptado;
+
+    if (!usernameEnvioSolicitud) {
+        usernameEnvioSolicitud = req.body.usernameIgnorado;
+    }
+
+    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:SolicitudContacto]" +
+        "-(u2:Usuario{username:'" + usernameEnvioSolicitud + "'}) RETURN  c";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            if (result[0]) {
+                next();
+            } else {
+                utils.sendJSONresponse(res, 400, err);
+            }
+        }
+    });
+}
+
+
+/**
+ * Comprueba que exista una solicitud de salas (Candidato) entre el usuario y una sala
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkExisteSolicitudSala = function (req, res, next) {
+    var username = req.body.username;
+
+    if (!username) {
+        username = utils.getUsername(req);
+    }
+
+    var idSala = req.body.idSala;
+
+    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:Candidato]" +
+        "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+
+    console.log(query);
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            if (result[0]) {
+                next();
+            } else {
+                utils.sendJSONresponse(res, 400, err);
+            }
+        }
+    });
+
+}
+
+
+
+
+
+
 

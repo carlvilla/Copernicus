@@ -13,6 +13,7 @@ copernicus.controller('registerController', function ($scope, $http, $window, $c
     var sizeMaxFoto = 8000000; //8MB
 
     $scope.registrar = function (usuario) {
+        utils.mensajeInfo($translate.instant("SOLICITANDO_REGISTRO"));
         usuario.fotoPerfil = $scope.fotoRecortada;
         usuario.fotoPorDefecto = fotoPorDefecto;
         $http({
@@ -50,7 +51,7 @@ copernicus.controller('registerController', function ($scope, $http, $window, $c
     }
 
     function error(res) {
-        utils.mensajeError($translate.instant("DATOS_INTRODUCIDOS_INCORRECTOS"));
+        utils.mensajeError($translate.instant("DATOS_INTRODUCIDOS_INCORRECTOS_CORREO"));
         $scope.messages.showError = true;
     }
 
