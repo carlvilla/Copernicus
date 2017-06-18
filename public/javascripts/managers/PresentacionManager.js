@@ -10,11 +10,6 @@ function PresentacionManager(ws, utils, $translate) {
 
     this.start = function (salaParam, scopeParam) {
         iframe = document.getElementById('presentacion-frame');
-
-        iframe.onload = function () {
-            Reveal.addEventListener('slidechanged', actualizarAsistentes);
-        }
-
         scope = scopeParam;
         sala = salaParam;
 
@@ -22,10 +17,6 @@ function PresentacionManager(ws, utils, $translate) {
             iframe.src = presentacion;
 
     };
-
-    var actualizarAsistentes = function (evento) {
-        console.log("Hola");
-    }
 
     this.setUsuario = function (username) {
         usernameUsuario = username;

@@ -48,7 +48,9 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
             method: "POST",
             url: "api/modificarDatos",
             data: {
-                usuario: $scope.usuario,
+                nombre: $scope.usuario.nombre,
+                apellidos: $scope.usuario.apellidos,
+                email: $scope.usuario.email,
                 foto: $scope.fotoRecortada,
                 fotoCambiada: fotoCambiada
             }

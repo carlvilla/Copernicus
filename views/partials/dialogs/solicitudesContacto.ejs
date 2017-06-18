@@ -26,12 +26,13 @@
                         </div>
 
                         <div id="div-mensaje-solicitud">
-                            <textarea class="mensaje-solicitud" ng-show="!solicitud.solicitud.properties.mensaje"
-                                      disabled="true">{{'SIN_MENSAJES' | translate}}</textarea>
-                            <textarea class="mensaje-solicitud" ng-show="solicitud.solicitud.properties.mensaje"
+                            <textarea class="mensaje-solicitud"
+                                      ng-show="(solicitud.solicitud.properties.mensaje) == 'undefined'"
+                                      disabled="true">{{'SIN_MENSAJE' | translate}}</textarea>
+                            <textarea class="mensaje-solicitud"
+                                      ng-show="solicitud.solicitud.properties.mensaje != 'undefined'"
                                       disabled="true">{{solicitud.solicitud.properties.mensaje}}</textarea>
                         </div>
-
                     </div>
 
                     <div id="botones-solicitud">

@@ -288,7 +288,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
 
         $http({
             method: "POST",
-            url: "api/ignorarSolicitudSala",
+            url: "api/cancelarSolicitudSala",
             data: {
                 idSala: idSalaSeleccionada,
                 username: usuario.username

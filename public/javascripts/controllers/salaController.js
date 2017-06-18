@@ -162,7 +162,11 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             method: "POST",
             url: "api/aceptarSolicitudSala",
             data: {'idSala': idSala}
-        });
+        }).then(function(res){
+            utils.mensajeSuccess($translate.instant("SOLICITUD_ACEPTADA"));
+        }, function(res){
+            utils.mensajeError($translate.instant("PROBLEMA_ACEPTAR_SOLICITUD"));
+        })
 
         eliminarSolicitud(idSala);
 
@@ -174,7 +178,10 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             method: "POST",
             url: "api/ignorarSolicitudSala",
             data: {'idSala': idSala}
-        });
+        })
+
+        utils.mensajeError($translate.instant("SOLICITUD_IGNORADA"));
+
         eliminarSolicitud(idSala);
     }
 

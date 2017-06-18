@@ -86,7 +86,7 @@ module.exports.createSala = function (req, res) {
 
                     //Relacionamos los usuarios elegidos con la sala con una la relación pasada en el atributo permiso del
                     //usuario
-                    if (usuarios.length > 0) {
+                    if (usuarios && usuarios.length > 0) {
                         var queryUsuario;
                         usuarios.forEach(function (usuario) {
                             queryUsuario = "MATCH(u:Usuario{username:'" + usuario.username + "'}),(s:Sala{idSala:" + idSala
@@ -280,7 +280,7 @@ module.exports.aceptarSolicitud = function (req, res) {
 
             db.query(queryAddUsuario, function (err, result) {
                 if (err) {
-                    utils.sendJSONresponse(res, 500, err);
+                    utils.sendJSONresponse(res, 400, err);
                 } else {
                     utils.sendJSONresponse(res, 200, result);
                 }
@@ -349,8 +349,13 @@ module.exports.participantesSala = function (req, res) {
     });
 };
 
+/**
+ * Actualiza los datos de la sala
+ *
+ * @param req
+ * @param res
+ */
 module.exports.actualizarDatos = function (req, res) {
-
     var idSala = req.body.idSala;
     var nombre = req.body.nombre;
     var descripcion = req.body.descripcion;
@@ -435,6 +440,12 @@ module.exports.eliminarSala = function (req, res) {
     });
 }
 
+/**
+ * Cambia los permisos de un determinado usuario que participa en una sala
+ *
+ * @param req
+ * @param res
+ */
 module.exports.cambiarPermisos = function (req, res) {
     var idSala = req.body.idSala;
     var username = req.body.username;
@@ -452,6 +463,12 @@ module.exports.cambiarPermisos = function (req, res) {
     });
 }
 
+/**
+ * Cambia los permisos de una petición para unirse a una sala
+ *
+ * @param req
+ * @param res
+ */
 module.exports.cambiarPermisosCandidato = function (req, res) {
     var idSala = req.body.idSala;
     var username = req.body.username;
@@ -470,7 +487,7 @@ module.exports.cambiarPermisosCandidato = function (req, res) {
 }
 
 /**
- * Envía una invitación a un usuario a unirse a la sala creando una relación 'CANDIDATO' entre el usuario y la sala.
+ * Envía una invitación a un usuario a unirse a la sala creando una relación 'Candidato' entre el usuario y la sala.
  * Los permisos dados al usuario son de 'Miembro'.
  *
  * @param req
@@ -486,6 +503,8 @@ module.exports.invitacion = function (req, res) {
     db.query(query, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
+        }else{
+            utils.sendJSONresponse(res, 204, "");
         }
     });
 };
