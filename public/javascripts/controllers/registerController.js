@@ -50,6 +50,7 @@ copernicus.controller('registerController', function ($scope, $http, $window, $c
     }
 
     function error(res) {
+        utils.mensajeError($translate.instant("DATOS_INTRODUCIDOS_INCORRECTOS"));
         $scope.messages.showError = true;
     }
 

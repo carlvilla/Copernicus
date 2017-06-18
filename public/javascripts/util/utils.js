@@ -11,6 +11,11 @@ copernicus.service('utils', function ($http, $window, growl) {
         return true;
     };
 
+    var regex =/"[a-zA-Z0-9_-]+$"/; // Not modified
+    function validString(str){
+
+    }
+
     function checkIdSalaExists(str) {
         if (!str) {
             noAutorizado();

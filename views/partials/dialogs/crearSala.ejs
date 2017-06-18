@@ -6,10 +6,10 @@
                 <h4 class="modal-title">{{'CREAR_SALA' | translate}}</h4>
             </div>
 
-            <form id="sala-form" name="salaForm" autocomplete="off" >
+            <form id="sala-form" name="salaForm" autocomplete="off">
 
-            <div class="modal-body">
-                <div class="form-group">
+                <div class="modal-body">
+                    <div class="form-group">
 
                         <h4 class="titulo titulo-crear-sala" translate="DATOS_SALA"></h4>
                         <div id="datos-sala">
@@ -22,29 +22,31 @@
                         </div>
 
                         <div id="add-miembros-div" panel panel-default>
-                            <h4 class="titulo titulo-crear-sala" translate="ADD_MIEMBROS"></h4>
+                            <h4 class="titulo titulo-crear-sala" translate="ADD_PARTICIPANTES"></h4>
                             <div id="buscar-contactos-crear-sala">
-                                <label for="username-crear-sala" id="username-crear-sala-label">{{'USERNAME' | translate}}</label>
+                                <label for="username-crear-sala" id="username-crear-sala-label">{{'USERNAME' |
+                                    translate}}</label>
 
                                 <div>
 
-                                <angucomplete id="username-crear-sala"
-                                              placeholder="{{'USERNAME' | translate}}"
-                                              pause="100"
-                                              selectedobject="usuarioSeleccionado"
-                                              localdata="contactos"
-                                              titlefield="username"
-                                              searchfields="username"
-                                              imagefield="foto"
-                                              minlength="2"
-                                              inputclass="form-control"
-                                />
+                                    <angucomplete id="username-crear-sala"
+                                                  placeholder="{{'USERNAME' | translate}}"
+                                                  pause="100"
+                                                  selectedobject="usuarioSeleccionado"
+                                                  localdata="contactos"
+                                                  titlefield="username"
+                                                  searchfields="username"
+                                                  imagefield="foto"
+                                                  minlength="2"
+                                                  inputclass="form-control"
+                                    />
 
 
                                 </div>
 
                                 <button class="btn btn-primary" type="button"
-                                        ng-click="addContactoTabla()">{{'ADD_CONTACTO' | translate}}</button>
+                                        ng-click="addContactoTabla()">{{'ADD_CONTACTO' | translate}}
+                                </button>
 
 
                             </div>
@@ -65,14 +67,17 @@
                                         <td>{{contacto.nombre}}</td>
                                         <td>{{contacto.apellidos}}</td>
                                         <td>
-                                            <select ng-model="contacto.permisos" ng-init="contacto.permisos = 'Miembro'">
+                                            <select ng-model="contacto.permisos"
+                                                    ng-init="contacto.permisos = 'Miembro'">
                                                 <option value="Miembro">{{'MIEMBRO' | translate}}</option>
                                                 <option value="Moderador">{{'MODERADOR' | translate}}</option>
                                             </select>
                                         </td>
                                         <td>
                                             <button class="btn btn-primary" type="button"
-                                                    ng-click="eliminarSeleccionado(contacto.username)">{{'ELIMINAR' | translate}}</button>
+                                                    ng-click="eliminarSeleccionado(contacto.username)">{{'ELIMINAR' |
+                                                translate}}
+                                            </button>
                                         </td>
                                     </tr>
 
@@ -82,23 +87,25 @@
                         </div>
 
 
-                </div>
-
-                <h4 class="titulo titulo-crear-sala" translate="FOTO_SALA"></h4>
-                <input type="file" id="foto"/>
-
-                <div ng-show="foto">
-                    <div class="cropArea">
-                        <img-crop image="foto" result-image="fotoRecortada"></img-crop>
                     </div>
+
+                    <h4 class="titulo titulo-crear-sala" translate="FOTO_SALA"></h4>
+                    <input type="file" id="foto"/>
+
+                    <div ng-show="foto">
+                        <div class="cropArea">
+                            <img-crop image="foto" result-image="fotoRecortada"></img-crop>
+                        </div>
+                    </div>
+
                 </div>
 
-            </div>
-
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="button" ng-click="crearSala(sala)">{{'CREAR_SALA' | translate}}</button>
-                <button class="btn btn-primary" type="button" data-dismiss="modal">{{'CERRAR' | translate}}</button>
-            </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="crearSala(sala)">{{'CREAR_SALA' |
+                        translate}}
+                    </button>
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">{{'CERRAR' | translate}}</button>
+                </div>
 
             </form>
 

@@ -10,25 +10,23 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     var fotoPorDefecto = true;
     var sizeMaxFoto = 8000000; //8MB
 
+    //Contactos a mostrar en el autocompletar
+    $scope.contactos = {};
+
+    //Contactos seleccionados para añadir a la sala
+    $scope.contactosSeleccionados = [];
+
     //Variable necesario para el filtrado de sala
     var todasSalas;
 
     $http({
         method: "GET",
         url: "api/salasParticipa"
-    }).then(success, error)
+    }).then(success)
 
     function success(res) {
         $scope.salas = res.data;
         todasSalas = res.data;
-    }
-
-    $scope.accederSala = function (idSala) {
-        $http({
-            method: "POST",
-            url: "api/salas",
-            data: angular.toJson({idSala: idSala})
-        }).then(successAcceso, error)
     }
 
     function successAcceso(res) {
@@ -36,9 +34,79 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
         $window.location.href = '/chatroom';
     }
 
+    function comprobarLimiteSala() {
+        //El límite es 8 personas, pero se comprueba que no haya más de 7 porque la octava persona es el usuario
+        //que crea la sala
+        if ($scope.contactosSeleccionados.length == 7) {
+            utils.mensajeInfo($translate.instant("LIMITE_SALA"));
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    var eliminarSolicitud = function (idSala) {
+        $scope.solicitudesSala.every(function (solicitud) {
+            if (solicitud.idSala == idSala) {
+                $scope.solicitudesSala.splice($scope.solicitudesSala.indexOf(solicitud), 1);
+                return false;
+            }
+            return true;
+        });
+    }
+
+    var successCrear = function (res) {
+        $window.location.href = '/mainPage';
+    }
+
+    var findContactos = function () {
+        $http({
+            method: "GET",
+            url: "api/contactos"
+        }).then(success);
+
+        function success(res) {
+            if (!(res.data == "")) {
+                $scope.contactos = res.data;
+            }
+        }
+    }
+
+    findContactos();
+    
+    var nombreNoValido = function(){
+        utils.mensajeError($translate.instant("NOMBRE_SALA_MAX"));
+    }
+
+    var descripcionNoValida = function(){
+        utils.mensajeError($translate.instant("DESCRIPCION_SALA_MAX"));
+    }
+
+    var error = function(err){
+        console.log(err);
+    }
+
+
+    $scope.accederSala = function (idSala) {
+        $http({
+            method: "POST",
+            url: "api/salas",
+            data: angular.toJson({idSala: idSala})
+        }).then(successAcceso)
+    }
+
     //Crear sala
     $scope.crearSala = function (sala) {
         if (sala && sala.nombre) {
+
+            if(sala.nombre.length > 50){
+                nombreNoValido();
+                return;
+            }else if(sala.descripcion > 200){
+                utils.mensajeError($translate.instant("DESCRIPCION_SALA_MAX"));
+                return;
+            }
+
             utils.mensajeInfoSinTiempo($translate.instant("CREANDO_SALA"));
 
             sala.foto = $scope.fotoRecortada;
@@ -58,13 +126,6 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
         }
     }
 
-    var successCrear = function (res) {
-        $window.location.href = '/mainPage';
-    }
-
-    $scope.contactos = {};
-    $scope.contactosSeleccionados = [];
-
     $scope.addContactoTabla = function () {
         if ($scope.usuarioSeleccionado != undefined && comprobarLimiteSala()) {
             var usuario = $scope.usuarioSeleccionado.originalObject;
@@ -72,17 +133,6 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             //Si el usuario no se incluyó todavía
             if ($scope.contactosSeleccionados.indexOf(usuario) == -1)
                 $scope.contactosSeleccionados.push(usuario);
-        }
-    }
-
-    function comprobarLimiteSala() {
-        //El límite es 8 personas, pero se comprueba que no haya más de 7 porque la octava persona es el usuario
-        //que crea la sala
-        if ($scope.contactosSeleccionados.length == 7) {
-            utils.mensajeInfo($translate.instant("LIMITE_SALA"));
-            return false;
-        } else {
-            return true;
         }
     }
 
@@ -94,33 +144,13 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             }
         });
     }
-
-    var findContactos = function () {
-        $http({
-            method: "GET",
-            url: "api/contactos"
-        }).then(success, error);
-
-        function success(res) {
-            if (!(res.data == "")) {
-                $scope.contactos = res.data;
-            }
-        }
-
-        function error(res) {
-            console.log(res);
-        }
-    }
-
-    findContactos();
-
     //Fin crear sala
 
     //Solicitudes para unirse a sala
     $http({
         method: "GET",
         url: "api/solicitudesSala"
-    }).then(successSolicitudes, error);
+    }).then(successSolicitudes);
 
     function successSolicitudes(res) {
         $scope.solicitudesSala = res.data;
@@ -140,25 +170,12 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
 
     $scope.ignorarSolicitud = function (idSala) {
-
         $http({
             method: "POST",
             url: "api/ignorarSolicitudSala",
             data: {'idSala': idSala}
         });
-
         eliminarSolicitud(idSala);
-
-    }
-
-    var eliminarSolicitud = function (idSala) {
-        $scope.solicitudesSala.every(function (solicitud) {
-            if (solicitud.idSala == idSala) {
-                $scope.solicitudesSala.splice($scope.solicitudesSala.indexOf(solicitud), 1);
-                return false;
-            }
-            return true;
-        });
     }
 
     $scope.cerrarPantallaSolicitudes = function () {
@@ -186,10 +203,6 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     };
 
     angular.element(document.querySelector('#foto')).on('change', fotoSeleccionada);
-
-    function error(res) {
-        //console.log(res);
-    }
 
     $scope.filtrar = function () {
         $scope.salas = todasSalas.filter(function (sala) {
