@@ -160,13 +160,16 @@ module.exports.validarUsername = function (req, res) {
     });
 };
 
+/**
+ * Devuelve la información (exceptuando su hash, salt e ID utilizado en la base de datos)
+ * del usuario que realizó la petición
+ *
+ * @param req
+ * @param res
+ */
 module.exports.profile = function (req, res) {
 
-    var token = req.cookies.token;
-
-    var payload = jwt.decode(token, process.env.JWT_SECRET);
-
-    var predicate = {username: payload.sub.username};
+    var predicate = {username: utils.getUsername(req)};
 
     user.where(predicate, function (err, people) {
         if (err) throw err;
@@ -312,7 +315,7 @@ module.exports.desbloquear = function (req, res) {
 };
 
 /**
- *
+ * Devuelve los datos de un usuario cuyo username es pasado en la petición
  *
  * @param req
  * @param res

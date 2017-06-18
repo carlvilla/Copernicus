@@ -31,7 +31,6 @@ angular.module("copernicus").directive("usernameValidation", function($http, $q)
 
 
                 function error(res){
-                    console.log("Error");
                     model.$setValidity('usernameAvailable', false);
                     defer.reject("Ha ocurrido un error");
                 }

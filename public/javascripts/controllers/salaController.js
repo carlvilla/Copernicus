@@ -83,7 +83,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     }
 
     var error = function(err){
-        console.log(err);
+        //console.log(err);
     }
 
 
