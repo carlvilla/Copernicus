@@ -149,6 +149,12 @@ module.exports.findSalasParticipa = function (req, res) {
 
 }
 
+/**
+ * Comprueba que un usuario sea miembro, moderador o administrador de una sala concreta
+ *
+ * @param req
+ * @param res
+ */
 module.exports.checkParticipante = function (req, res) {
 
     var username = utils.getUsername(req);
@@ -538,27 +544,3 @@ module.exports.candidatos = function (req, res) {
         }
     });
 };
-
-
-/*
-
- Esta consulta devuelve todas las salas con las que está relacionado el usuario
- con username 'prueba'
-
- MATCH (Usuario { username: 'prueba' })--(Sala)
- RETURN Sala
-
- Esta consulta devuelve todas las salas en las que el usuario es administrador
- (También puede ser 'Candidato' o 'Miembro')
-
- MATCH (Usuario { username: 'prueba' })-[:Admin]-(Sala)
- RETURN Sala
-
- Esta consulta devuelve todas las salas en las que el usuario es administrador o miembro
-
- MATCH (Usuario { username: 'prueba' })-[:Miembro|Admin]-(Sala)
- RETURN Sala
-
-
-
- */

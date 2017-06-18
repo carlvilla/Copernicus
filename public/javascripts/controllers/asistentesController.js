@@ -67,7 +67,7 @@ copernicus.controller('asistentesController', function ($scope, $http, $cookies,
     };
 
     function error(res) {
-        console.log(res);
+        //console.log(res);
     };
 
 });

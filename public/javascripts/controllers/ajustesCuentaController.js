@@ -76,20 +76,41 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
         }).then(cuentaEliminada, mensajeError);
     }
 
+    /**
+     * Elimina la cookie 'token' del usuario y refresca la página. De esta forma será devuelto a la página de
+     * inicio de sesión y registro
+     *
+     * @param res
+     */
     var cuentaEliminada = function (res) {
         $cookies.remove('token');
         $window.location.reload();
     }
 
+    /**
+     * Muestra un mensaje para indicar que los datos fueron actualizados correctamente
+     *
+     * @param res
+     */
     var mensajeExitoDatos = function (res) {
         utils.mensajeSuccess($translate.instant('DATOS_ACTUALIZADOS_CORRECTAMENTE'));
         $window.location.reload();
     };
 
+    /**
+     * Muestra un mensaje para indicar que la contraseña fue modificada
+     *
+     * @param res
+     */
     var mensajeExitoPass = function (res) {
         utils.mensajeSuccess($translate.instant('PASS_MODIFICADA'));
     };
 
+    /**
+     * Muestra un error en el caso de que algún dato enviado fuese erróneo
+     *
+     * @param res
+     */
     var mensajeError = function (res) {
         if (actualizando_mensaje)
             actualizando_mensaje.destroy();

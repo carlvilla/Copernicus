@@ -21,12 +21,11 @@ copernicus.controller('solicitudContactoController', function ($scope, $http, ut
         }
 
         function error(res) {
-            console.log(res);
+            //console.log(res);
         }
     }
 
     inicializacion();
-
 
     $scope.enviarSolicitudContacto = function () {
 
