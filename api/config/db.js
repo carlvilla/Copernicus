@@ -1,6 +1,6 @@
 var config = {};
 
-if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'test-travis') {
+if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'test') {
     var url = require('url').parse(process.env.GRAPHENEDB_URL);
     config = {
         server: url.protocol + '//' + url.host,

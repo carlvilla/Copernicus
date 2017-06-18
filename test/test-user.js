@@ -16,6 +16,7 @@ var request = require('supertest');
 var url = 'http://localhost:8080';
 
 var deleteDBQuery = "MATCH (n) DETACH DELETE n";
+var datosDBQuery
 
 var tokenUsuario1;
 var tokenUsuario2;
@@ -28,6 +29,11 @@ describe('Tests de usuarios', function () {
         db.query(deleteDBQuery, function (err, result) {
             if (err) throw err;
         });
+
+
+
+
+
     });
 
     /*

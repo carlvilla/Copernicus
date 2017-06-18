@@ -39,9 +39,6 @@ user.schema = {
  * @param res
  */
 module.exports.login = function (req, res) {
-
-    console.log(db);
-
     if (!req.body.username || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
             "message": "Todos los campos son obligatorios"
