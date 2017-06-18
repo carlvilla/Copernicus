@@ -1,5 +1,4 @@
 require('dotenv').load();
-process.env.NODE_ENV = 'test';
 
 var model = require('seraph-model');
 var confDB = require('../api/config/db');
