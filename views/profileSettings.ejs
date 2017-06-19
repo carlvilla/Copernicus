@@ -53,7 +53,7 @@
                 <div class="div-input">
                     <label id="label-foto">{{'FOTO_PERFIL' | translate}}:
                         <input type="file" id="foto-input" accept="image/jpeg, image/x-png, image/gif"></label>
-                    <img ng-show="!foto" class="foto" ng-src="{{usuario.foto}}">
+                    <img ng-show="!foto" class="foto" ng-src="{{usuario.foto}}" alt="Foto de perfil">
                     <div ng-show="foto" class="cropArea">
                         <img-crop image="foto" result-image="fotoRecortada"></img-crop>
                     </div>

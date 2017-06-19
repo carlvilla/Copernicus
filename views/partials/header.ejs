@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index"><img width="145px" height="17px" src="/public/fotos/logo.png"></a>
+            <a class="navbar-brand" href="index"><img width="145px" height="17px" src="/public/fotos/logo.png" alt="Logo"></a>
         </div>
         <div id="navbar" class="navbar-collapse">
 
@@ -14,7 +14,7 @@
                 <button class="dropdown-toggle" data-toggle="dropdown" style="background: none; border: none">
                     {{usuario.username}}<img height="30" width="30"
                                              style="margin-left: 5px; border-radius: 50%; border:solid; border-width: 0.5px"
-                                             ng-src="{{usuario.foto}}">
+                                             ng-src="{{usuario.foto}}" alt="Foto de perfil">
                 </button>
                 <ul class="dropdown-menu">
                     <li><a translate="PAGINA_PRINCIPAL" href="index"></a></li>
@@ -27,16 +27,14 @@
 
             <ul class="nav navbar-nav navbar-right" style="margin-top: 1%; margin-right: 4%">
                 <li class="active" ng-controller="langController">
-                    <button ng-click="cambiarLenguaje('es')" style="background: none; border: none"><img height="20"
-                                                                                                         width="30"
-                                                                                                         src="/public/fotos/spain.png">
+                    <button ng-click="cambiarLenguaje('es')" style="background: none; border: none">
+                        <img height="20" width="30" src="/public/fotos/spain.png" alt="Foto bandera España">
                     </button>
                 </li>
 
                 <li class="active" ng-controller="langController">
-                    <button ng-click="cambiarLenguaje('en')" style="background: none; border: none"><img height="20"
-                                                                                                         width="30"
-                                                                                                         src="/public/fotos/uk.png">
+                    <button ng-click="cambiarLenguaje('en')" style="background: none; border: none">
+                        <img height="20" width="30" src="/public/fotos/uk.png" alt="Foto bandera Reino Unido">
                     </button>
                 </li>
 
