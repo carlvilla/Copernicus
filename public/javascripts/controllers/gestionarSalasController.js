@@ -218,6 +218,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         $scope.participantes.every(function (participante) {
             if (participante.user.username == usuario.user.username) {
                 added = true;
+                utils.mensajeError($translate.instant("USUARIO_ALREADY_ADDED"));
                 return false;
             }
             return true;
@@ -226,6 +227,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         $scope.candidatos.every(function (candidato) {
             if (candidato.user.username == usuario.user.username) {
                 added = true;
+                utils.mensajeError($translate.instant("SOLICITUD_SALA_YA_ENVIADA"));
                 return false;
             }
             return true;
@@ -258,8 +260,6 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
 
                 utils.mensajeSuccess($translate.instant("INVITACION_ENVIADA"));
 
-            } else {
-                utils.mensajeInfo($translate.instant("USUARIO_ALREADY_ADDED"));
             }
         }
     };

@@ -21,7 +21,7 @@ copernicus.controller('solicitudContactoController', function ($scope, $http, ut
         }
 
         function error(res) {
-            //console.log(res);
+            utils.checkDatabaseError(res);
         }
     }
 

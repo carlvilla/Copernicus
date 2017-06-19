@@ -25,7 +25,8 @@ copernicus.controller('loginController', function ($scope, $http, $cookies, $win
 
     //La combinación usuario-contraseña es erronea
     function error(res) {
-        $scope.loginError = true;
+        if(!utils.checkDatabaseError(res))
+            $scope.loginError = true;
     }
 
 });

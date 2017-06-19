@@ -26,7 +26,7 @@ copernicus.controller('registerController', function ($scope, $http, $window, $c
     var fotoSeleccionada = function (evt) {
         var size = document.getElementById('foto').files[0].size;
 
-        if(size < sizeMaxFoto) {
+        if (size < sizeMaxFoto) {
             var file = evt.currentTarget.files[0];
             var reader = new FileReader();
             reader.onload = function (evt) {
@@ -37,7 +37,7 @@ copernicus.controller('registerController', function ($scope, $http, $window, $c
                 fotoPorDefecto = false;
             };
             reader.readAsDataURL(file);
-        }else{
+        } else {
             utils.mensajeError($translate.instant("FOTO_SIZE_MAXIMO"));
         }
     };
@@ -50,9 +50,11 @@ copernicus.controller('registerController', function ($scope, $http, $window, $c
         $window.location.href = '/mainPage';
     }
 
-    function error(res) {
-        utils.mensajeError($translate.instant("DATOS_INTRODUCIDOS_INCORRECTOS_CORREO"));
-        $scope.messages.showError = true;
+    function error(err) {
+        if (!utils.checkDatabaseError(res)) {
+            utils.mensajeError($translate.instant("DATOS_INTRODUCIDOS_INCORRECTOS_CORREO"));
+            $scope.messages.showError = true;
+        }
     }
 
     $scope.comprobarCaracter = function (event) {

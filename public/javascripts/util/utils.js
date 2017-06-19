@@ -1,6 +1,6 @@
 var copernicus = angular.module('copernicus');
 
-copernicus.service('utils', function ($http, $window, growl) {
+copernicus.service('utils', function ($http, $window, growl, $translate) {
 
     function IsJsonString(str) {
         try {
@@ -11,9 +11,12 @@ copernicus.service('utils', function ($http, $window, growl) {
         return true;
     };
 
-    var regex =/"[a-zA-Z0-9_-]+$"/; // Not modified
-    function validString(str){
-
+    function checkDatabaseError (err){
+       if(err.status == 500){
+           mensajeError($translate.instant("ERROR_INTENTAR_MAS_TARDE"));
+           return true;
+       }
+       return false;
     }
 
     function checkIdSalaExists(str) {
@@ -67,6 +70,7 @@ copernicus.service('utils', function ($http, $window, growl) {
         IsJsonString: IsJsonString,
         checkIdSalaExists: checkIdSalaExists,
         checkParticipante: checkParticipante,
+        checkDatabaseError: checkDatabaseError,
         mensajeSuccess: mensajeSuccess,
         mensajeInfo: mensajeInfo,
         mensajeError: mensajeError,

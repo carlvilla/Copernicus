@@ -1,4 +1,4 @@
-angular.module("copernicus").directive("usernameValidation", function($http, $q){
+angular.module("copernicus").directive("usernameValidation", function ($http, $q, utils) {
 
     return {
         restrict: 'AE',
@@ -13,12 +13,12 @@ angular.module("copernicus").directive("usernameValidation", function($http, $q)
                 function success(res) {
                     //El nombre de usuario no puede contener espacios
                     if (res.data.length == 0) {
-                        if(!(username.indexOf(' ') >= 0)) {
+                        if (!(username.indexOf(' ') >= 0)) {
                             scope.messages.showError = false;
                             model.$setValidity('usernameAvailable', true);
                             model.$setValidity('usernameNoSpaces', true);
                             defer.resolve();
-                        }else{
+                        } else {
                             scope.messages.showError = true;
                             model.$setValidity('usernameAvailable', true);
                             model.$setValidity('usernameNoSpaces', false);
@@ -30,9 +30,11 @@ angular.module("copernicus").directive("usernameValidation", function($http, $q)
                 }
 
 
-                function error(res){
-                    model.$setValidity('usernameAvailable', false);
-                    defer.reject("Ha ocurrido un error");
+                function error(res) {
+                    if (!utils.checkDatabaseError(res)) {
+                        model.$setValidity('usernameAvailable', false);
+                        defer.reject("Ha ocurrido un error");
+                    }
                 }
 
 
