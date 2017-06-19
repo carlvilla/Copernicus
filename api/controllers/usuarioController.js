@@ -144,7 +144,9 @@ module.exports.validarUsername = function (req, res) {
     var predicate = {username: req.params.username};
 
     user.where(predicate, function (err, people) {
-        if (err) throw err;
+        if (err){
+            utils.sendJSONresponse(res, 500, "");
+        }
         if (people.length == 0) {
             utils.sendJSONresponse(res, 204, "");
         } else {
