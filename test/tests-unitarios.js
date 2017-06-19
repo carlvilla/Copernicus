@@ -21,6 +21,10 @@ var tokenUsuario2;
 var tokenUsuario3;
 var tokenUsuario4;
 var tokenUsuario5;
+var tokenUsuario6;
+var tokenUsuario7;
+var tokenUsuario8;
+var tokenUsuario9;
 
 describe('Pruebas unitarias', function () {
 
@@ -194,6 +198,122 @@ describe('Pruebas unitarias', function () {
                     should.exist(res.body.token);//Comprobar que existe cookie de sesión
 
                     tokenUsuario5 = res.body.token;
+
+                    done();
+
+                });
+        })
+
+        it('Debería registrar correctamente a usuario6', function (done) {
+
+            var usuario = {
+                'nombre': 'Usuario6',
+                'apellidos': 'ApellidosUsuario6',
+                'username': 'usuario6',
+                'email': 'usuario6@email.com',
+                'password': 'usuario6'
+            }
+
+            request(url)
+                .post('/api/register')
+                .send(usuario)
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(200);
+
+                    should.exist(res.body.token);//Comprobar que existe cookie de sesión
+
+                    tokenUsuario6 = res.body.token;
+
+                    done();
+
+                });
+        })
+
+        it('Debería registrar correctamente a usuario7', function (done) {
+
+            var usuario = {
+                'nombre': 'Usuario7',
+                'apellidos': 'ApellidosUsuario7',
+                'username': 'usuario7',
+                'email': 'usuario7@email.com',
+                'password': 'usuario7'
+            }
+
+            request(url)
+                .post('/api/register')
+                .send(usuario)
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(200);
+
+                    should.exist(res.body.token);//Comprobar que existe cookie de sesión
+
+                    tokenUsuario7 = res.body.token;
+
+                    done();
+
+                });
+        })
+
+        it('Debería registrar correctamente a usuario8', function (done) {
+
+            var usuario = {
+                'nombre': 'Usuario8',
+                'apellidos': 'ApellidosUsuario8',
+                'username': 'usuario8',
+                'email': 'usuario8@email.com',
+                'password': 'usuario8'
+            }
+
+            request(url)
+                .post('/api/register')
+                .send(usuario)
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(200);
+
+                    should.exist(res.body.token);//Comprobar que existe cookie de sesión
+
+                    tokenUsuario8 = res.body.token;
+
+                    done();
+
+                });
+        })
+
+        it('Debería registrar correctamente a usuario9', function (done) {
+
+            var usuario = {
+                'nombre': 'Usuario9',
+                'apellidos': 'ApellidosUsuario9',
+                'username': 'usuario9',
+                'email': 'usuario9@email.com',
+                'password': 'usuario9'
+            }
+
+            request(url)
+                .post('/api/register')
+                .send(usuario)
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(200);
+
+                    should.exist(res.body.token);//Comprobar que existe cookie de sesión
+
+                    tokenUsuario9 = res.body.token;
 
                     done();
 
@@ -513,6 +633,23 @@ describe('Pruebas unitarias', function () {
                 })
         })
 
+        it('Usuario1 no deberia bloquear al usuario2', function (done) {
+            request(url)
+                .post('/api/bloquearContacto')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'username': 'usuario2'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(400);
+                    done();
+
+                })
+        })
+
+
         it('Deberia desbloquear al usuario2', function (done) {
             request(url)
                 .post('/api/desbloquearContacto')
@@ -545,12 +682,28 @@ describe('Pruebas unitarias', function () {
                 })
         })
 
+        it('No deberia desbloquear al usuario2 porque no está bloqueado', function (done) {
+            request(url)
+                .post('/api/desbloquearContacto')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'username': 'usuario2'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(400);
+                    done();
+
+                })
+        })
+
 
     });
 
     describe('Crear sala', function () {
 
-        it("Deberia crear una sala llamada 'Sala de pruebas' cuyo administrador es el usuario2 y se le envía una solicitud de unión como moderador" +
+        it("Deberia crear una sala llamada 'Sala de pruebas' cuyo administrador es el usuario2 " +
+            "y se le envía una solicitud de unión como moderador" +
             " al usuario1", function (done) {
             request(url)
                 .post('/api/createSala')
@@ -1013,7 +1166,6 @@ describe('Pruebas unitarias', function () {
         })
 
 
-
         it("El usuario3 al ser miembro de la sala 'Partidos del domingo' no debería cambiar el nombre ni la descripción" +
             " de la sala", function (done) {
             request(url)
@@ -1103,7 +1255,7 @@ describe('Pruebas unitarias', function () {
         })
 
         it("El usuario1 al ser moderador de la sala 'Sala de prueba' deberia eliminar al usuario3 " +
-            "de la sala", function (done) {
+            "de la sala ya que es miembro", function (done) {
             request(url)
                 .post('/api/eliminarUsuarioSala')
                 .set('Cookie', ['token = ' + tokenUsuario1])
@@ -1165,6 +1317,27 @@ describe('Pruebas unitarias', function () {
             })
         })
 
+        it("El usuario2 al ser administrador de la sala 'Sala de prueba' deberia eliminar de la sala al usuario1 que " +
+            "es moderador", function (done) {
+            request(url)
+                .post('/api/eliminarUsuarioSala')
+                .set('Cookie', ['token = ' + tokenUsuario2])
+                .send({
+                    idSala: 1,
+                    username: 'usuario1'
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(204);
+                done();
+
+            })
+        })
+
 
         it("El usuario1 al ser administrador de la sala 'Sala de prueba 4' deberia eliminar la sala ", function (done) {
             request(url)
@@ -1183,6 +1356,25 @@ describe('Pruebas unitarias', function () {
 
             })
         })
+
+        it("El usuario1 no debería eliminar la 'Sala de prueba 4' porque no existe", function (done) {
+            request(url)
+                .post('/api/eliminarSala')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({
+                    idSala: 4,
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(400);
+                done();
+
+            })
+        })
+
 
         it("El usuario3 no debería ser moderador en ninguna sala ya que se eliminó la sala 'Sala de pruebas 4'", function (done) {
             request(url)
@@ -1203,6 +1395,313 @@ describe('Pruebas unitarias', function () {
 
 
     });
+
+
+    describe('Limite participantes salas', function () {
+
+        it('Usuario7 deberia mandar una solicitud de contacto al usuario1', function (done) {
+            request(url)
+                .post('/api/enviarSolicitudContacto')
+                .set('Cookie', ['token = ' + tokenUsuario7])
+                .send({'username': 'usuario1', 'mensaje': '¡Agrégame!'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+
+        it('Usuario7 deberia mandar una solicitud de contacto al usuario2', function (done) {
+            request(url)
+                .post('/api/enviarSolicitudContacto')
+                .set('Cookie', ['token = ' + tokenUsuario7])
+                .send({'username': 'usuario2', 'mensaje': '¡Agrégame!'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+        it('Usuario7 deberia mandar una solicitud de contacto al usuario3', function (done) {
+            request(url)
+                .post('/api/enviarSolicitudContacto')
+                .set('Cookie', ['token = ' + tokenUsuario7])
+                .send({'username': 'usuario3', 'mensaje': '¡Agrégame!'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+
+        it('Usuario7 deberia mandar una solicitud de contacto al usuario4', function (done) {
+            request(url)
+                .post('/api/enviarSolicitudContacto')
+                .set('Cookie', ['token = ' + tokenUsuario7])
+                .send({'username': 'usuario4', 'mensaje': '¡Agrégame!'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+        it('Usuario7 deberia mandar una solicitud de contacto al usuario5', function (done) {
+            request(url)
+                .post('/api/enviarSolicitudContacto')
+                .set('Cookie', ['token = ' + tokenUsuario7])
+                .send({'username': 'usuario5', 'mensaje': '¡Agrégame!'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+        it('Usuario7 deberia mandar una solicitud de contacto al usuario6', function (done) {
+            request(url)
+                .post('/api/enviarSolicitudContacto')
+                .set('Cookie', ['token = ' + tokenUsuario7])
+                .send({'username': 'usuario6', 'mensaje': '¡Agrégame!'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+        it('Usuario7 deberia mandar una solicitud de contacto al usuario8', function (done) {
+            request(url)
+                .post('/api/enviarSolicitudContacto')
+                .set('Cookie', ['token = ' + tokenUsuario7])
+                .send({'username': 'usuario8', 'mensaje': '¡Agrégame!'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+        it('Usuario7 deberia mandar una solicitud de contacto al usuario9', function (done) {
+            request(url)
+                .post('/api/enviarSolicitudContacto')
+                .set('Cookie', ['token = ' + tokenUsuario7])
+                .send({'username': 'usuario9', 'mensaje': '¡Agrégame!'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+        it('El usuario1 deberia aceptar la solicitud de contacto del usuario7', function (done) {
+            request(url)
+                .post('/api/aceptarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'usernameAceptado': 'usuario7'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(204);
+                    done();
+                })
+        })
+
+        it('El usuario2 deberia aceptar la solicitud de contacto del usuario7', function (done) {
+            request(url)
+                .post('/api/aceptarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario2])
+                .send({'usernameAceptado': 'usuario7'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(204);
+                    done();
+                })
+        })
+
+        it('El usuario3 deberia aceptar la solicitud de contacto del usuario7', function (done) {
+            request(url)
+                .post('/api/aceptarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario3])
+                .send({'usernameAceptado': 'usuario7'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(204);
+                    done();
+                })
+        })
+
+
+        it('El usuario4 deberia aceptar la solicitud de contacto del usuario7', function (done) {
+            request(url)
+                .post('/api/aceptarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario4])
+                .send({'usernameAceptado': 'usuario7'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(204);
+                    done();
+                })
+        })
+
+        it('El usuario5 deberia aceptar la solicitud de contacto del usuario7', function (done) {
+            request(url)
+                .post('/api/aceptarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario5])
+                .send({'usernameAceptado': 'usuario7'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(204);
+                    done();
+                })
+        })
+
+        it('El usuario6 deberia aceptar la solicitud de contacto del usuario7', function (done) {
+            request(url)
+                .post('/api/aceptarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario6])
+                .send({'usernameAceptado': 'usuario7'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(204);
+                    done();
+                })
+        })
+
+        it('El usuario8 deberia aceptar la solicitud de contacto del usuario7', function (done) {
+            request(url)
+                .post('/api/aceptarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario8])
+                .send({'usernameAceptado': 'usuario7'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(204);
+                    done();
+                })
+        })
+
+
+        it('El usuario9 deberia aceptar la solicitud de contacto del usuario7', function (done) {
+            request(url)
+                .post('/api/aceptarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario9])
+                .send({'usernameAceptado': 'usuario7'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(204);
+                    done();
+                })
+        })
+
+
+        it("Deberia crear una sala llamada 'Sala de pruebas usuario 7' cuyo administrador es el usuario7 " +
+            "y se envía solicitudes de unión como miembro a todos los usuarios excepto al usuario9", function (done) {
+            request(url)
+                .post('/api/createSala')
+                .set('Cookie', ['token = ' + tokenUsuario2])
+                .send({
+                    'sala': {
+                        nombre: 'Sala de pruebas',
+                        descripcion: 'Esta es la descripción de la sala de pruebas',
+                        idSala: 1,
+                        fotoPorDefecto: true
+                    },
+                    'usuarios': [{'username': 'usuario1', 'permisos': 'Miembro'},
+                        {'username': 'usuario2', 'permisos': 'Miembro'},
+                        {'username': 'usuario3', 'permisos': 'Miembro'},
+                        {'username': 'usuario4', 'permisos': 'Miembro'},
+                        {'username': 'usuario5', 'permisos': 'Miembro'},
+                        {'username': 'usuario6', 'permisos': 'Miembro'},
+                        {'username': 'usuario8', 'permisos': 'Miembro'}]
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(204);
+                done();
+
+            })
+        })
+
+
+        it("El usuario 7 no debería enviar una solicitud de unión a la sala 'Sala de pruebas usuario 7' al usuario9 " +
+            "ya que la sala ya tiene 8 participantes", function (done) {
+            request(url)
+                .post('/api/enviarInvitacion')
+                .set('Cookie', ['token = ' + tokenUsuario7])
+                .send({
+                    idSala: 4,
+                    username: 'usuario9'
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(400);
+                done();
+
+            })
+        })
+
+
+
+    });
+
 
     describe('Ajustes de la cuenta', function () {
 
@@ -1316,7 +1815,9 @@ describe('Pruebas unitarias', function () {
                 })
         })
 
-
     });
-});
+
+
+})
+;
 

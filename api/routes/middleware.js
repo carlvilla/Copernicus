@@ -8,6 +8,24 @@ var db = require('seraph')({
 });
 
 /**
+ * Comprueba que la base de datos esté activa
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkDatabase = function (req, res, next) {
+    var query = "RETURN timestamp()";
+    db.query(query, function (error, result) {
+        if (error) {
+            utils.sendJSONresponse(res, 503, "");
+        } else {
+            next();
+        }
+    });
+};
+
+/**
  * Comprueba que el nombre de usuario exista
  *
  * @param req
@@ -131,7 +149,38 @@ module.exports.checkAdmin = function (req, res, next) {
 }
 
 /**
- * Comprueba que dos usuarios son contactos
+ * Comprueba que dos usuarios no son contactos
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkNoSonContactos = function (req, res, next) {
+
+    var username = utils.getUsername(req);
+    var username2 = req.body.username;
+
+    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:SolicitudContacto | Contacto]-(u2:Usuario{username:'" + username2 + "'})" +
+        "RETURN  c";
+
+    db.query(query, function (err, result) {
+
+        console.log(result[0]);
+
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            if (result[0]) {
+                utils.sendJSONresponse(res, 400, err);
+            } else {
+                next();
+            }
+        }
+    });
+}
+
+/**
+ * Comprueba que dos usuarios no son contactos
  *
  * @param req
  * @param res
@@ -149,13 +198,14 @@ module.exports.checkSonContactos = function (req, res, next) {
             utils.sendJSONresponse(res, 500, err);
         } else {
             if (result[0]) {
-                utils.sendJSONresponse(res, 400, err);
-            } else {
                 next();
+            } else {
+                utils.sendJSONresponse(res, 400, err);
             }
         }
     });
 }
+
 
 /**
  * Comprueba que los username enviados no sea vacios
@@ -306,6 +356,32 @@ module.exports.checkExisteSolicitudSala = function (req, res, next) {
         }
     });
 
+}
+
+/**
+ * Comprueba que no existan 8 participantes en la sala
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.comprobarLimiteSala = function (req, res, next) {
+    var idSala = req.body.idSala;
+
+    var query = "MATCH(s:Sala{idSala:" + idSala + "})-[c:Candidato | Admin | Moderador | Miembro]" +
+        "-(Usuario) RETURN  c";
+
+    db.query(query, function (err, result) {
+        if (err) {
+            utils.sendJSONresponse(res, 500, err);
+        } else {
+            if (result.length < 8) {
+                next();
+            } else {
+                utils.sendJSONresponse(res, 400, err);
+            }
+        }
+    });
 }
 
 
