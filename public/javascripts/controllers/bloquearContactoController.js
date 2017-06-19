@@ -1,6 +1,6 @@
 var copernicus = angular.module('copernicus');
 
-copernicus.controller('bloquearContactoController', function ($scope, $http, $window) {
+copernicus.controller('bloquearContactoController', function ($scope, $http, $window, utils, $translate) {
 
     $scope.usuarioSeleccionado;
 
@@ -58,9 +58,18 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
                 actualizarInput();
                 findContactosBloqueados();
                 findContactos();
-            }, error);
+            }, errorBloquear);
         }
 
+    }
+
+    /**
+     * Error producido cuando dos usuarios si bloquean entre sí a la vez
+     *
+     * @param err
+     */
+    var errorBloquear = function(err){
+        utils.mensajeError($translate.instant('OPERACION_NO_AUTORIZADA'));
     }
 
     $scope.desbloquearContacto = function (username) {

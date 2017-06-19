@@ -29,10 +29,24 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
         todasSalas = res.data;
     }
 
+    /**
+     * El usuario tiene permiso para acceder a la sala
+     *
+     * @param res
+     */
     function successAcceso(res) {
         window.sessionStorage.setItem("salaSeleccionada", JSON.stringify(res.data[0]));
         $window.location.href = '/chatroom';
     }
+
+    /**
+     * El usuario no ha podido acceder a la sala
+     * @param res
+     */
+    function errorAcceso(res){
+        utils.mensajeError($translate.instant('ACCESO_SALA_NO_AUTORIZADO'));
+    }
+
 
     function comprobarLimiteSala() {
         //El límite es 8 personas, pero se comprueba que no haya más de 7 porque la octava persona es el usuario
@@ -73,16 +87,16 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     }
 
     findContactos();
-    
-    var nombreNoValido = function(){
+
+    var nombreNoValido = function () {
         utils.mensajeError($translate.instant("NOMBRE_SALA_MAX"));
     }
 
-    var descripcionNoValida = function(){
+    var descripcionNoValida = function () {
         utils.mensajeError($translate.instant("DESCRIPCION_SALA_MAX"));
     }
 
-    var error = function(err){
+    var error = function (err) {
         //console.log(err);
     }
 
@@ -92,17 +106,17 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             method: "POST",
             url: "api/salas",
             data: angular.toJson({idSala: idSala})
-        }).then(successAcceso)
+        }).then(successAcceso, errorAcceso)
     }
 
     //Crear sala
     $scope.crearSala = function (sala) {
         if (sala && sala.nombre) {
 
-            if(sala.nombre.length > 50){
+            if (sala.nombre.length > 50) {
                 nombreNoValido();
                 return;
-            }else if(sala.descripcion > 200){
+            } else if (sala.descripcion > 200) {
                 utils.mensajeError($translate.instant("DESCRIPCION_SALA_MAX"));
                 return;
             }
@@ -127,13 +141,20 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     }
 
     $scope.addContactoTabla = function () {
-        if ($scope.usuarioSeleccionado != undefined && comprobarLimiteSala()) {
-            var usuario = $scope.usuarioSeleccionado.originalObject;
 
-            //Si el usuario no se incluyó todavía
-            if ($scope.contactosSeleccionados.indexOf(usuario) == -1)
-                $scope.contactosSeleccionados.push(usuario);
+        if ($scope.usuarioSeleccionado != undefined) {
+            if (comprobarLimiteSala()) {
+                var usuario = $scope.usuarioSeleccionado.originalObject;
+
+                //Si el usuario no se incluyó todavía
+                if ($scope.contactosSeleccionados.indexOf(usuario) == -1)
+                    $scope.contactosSeleccionados.push(usuario);
+            }
+        } else {
+            utils.mensajeError($translate.instant('SELECCIONAR_CONTACTO_LISTADO'));
         }
+
+
     }
 
     $scope.eliminarSeleccionado = function (username) {
@@ -162,9 +183,9 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             method: "POST",
             url: "api/aceptarSolicitudSala",
             data: {'idSala': idSala}
-        }).then(function(res){
+        }).then(function (res) {
             utils.mensajeSuccess($translate.instant("SOLICITUD_ACEPTADA"));
-        }, function(res){
+        }, function (res) {
             utils.mensajeError($translate.instant("PROBLEMA_ACEPTAR_SOLICITUD"));
         })
 
@@ -179,8 +200,6 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             url: "api/ignorarSolicitudSala",
             data: {'idSala': idSala}
         })
-
-        utils.mensajeError($translate.instant("SOLICITUD_IGNORADA"));
 
         eliminarSolicitud(idSala);
     }

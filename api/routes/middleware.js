@@ -17,7 +17,7 @@ var db = require('seraph')({
 module.exports.checkDatabase = function (req, res, next) {
     var query = "RETURN timestamp()";
     db.query(query, function (error, result) {
-        if (error) {
+        if (err) {
             utils.sendJSONresponse(res, 503, "");
         } else {
             next();
@@ -97,6 +97,11 @@ module.exports.checkAdminSiCambioAModerador = function (req, res, next) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
+            if(!result){
+                utils.sendJSONresponse(res, 400, err);
+                return;
+            }
+
             if (result[0].type == 'Moderador') {
 
                 query = "MATCH(u:Usuario{username:'" + username + "'})" +
