@@ -33,7 +33,7 @@
         <button ng-repeat="sala in salasAdmin" class="list-group-item sala"
                 ng-click="mostrarInfoSala(sala.idSala, 'admin')">
             {{sala.nombre}}
-            <img class="foto-sala" ng-src="{{sala.foto}}">
+            <img class="foto-sala" ng-src="{{sala.foto}}" alt="Foto de la sala">
         </button>
     </div>
 
@@ -43,7 +43,7 @@
         <button ng-repeat="sala in salasModerador" class="list-group-item sala"
                 ng-click="mostrarInfoSala(sala.idSala, 'moderador')">
             {{sala.nombre}}
-            <img class="foto-sala" ng-src="{{sala.foto}}">
+            <img class="foto-sala" ng-src="{{sala.foto}}" alt="Foto de la sala">
         </button>
     </div>
 
@@ -53,7 +53,7 @@
         <button ng-repeat="sala in salasMiembro" class="list-group-item sala"
                 ng-click="mostrarInfoSala(sala.idSala, 'miembro')">
             {{sala.nombre}}
-            <img class="foto-sala" ng-src="{{sala.foto}}">
+            <img class="foto-sala" ng-src="{{sala.foto}}" alt="Foto de la sala">
         </button>
     </div>
 
@@ -82,7 +82,7 @@
             <div id="foto-sala">
                 <label id="label-foto">{{'FOTO_SALA' | translate}}:
                     <input type="file" id="foto" accept="image/jpeg, image/x-png, image/gif"></label>
-                <img ng-show="!foto" class="foto-info" ng-src="{{salaSeleccionada.foto}}">
+                <img ng-show="!foto" class="foto-info" ng-src="{{salaSeleccionada.foto}}" alt="Foto de la sala">
                 <div ng-show="foto" class="cropArea">
                     <img-crop image="foto" result-image="fotoRecortada"></img-crop>
                 </div>
