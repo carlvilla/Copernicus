@@ -28,7 +28,6 @@
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "selenium-webdriver": "^3.4.0",
     "seraph": "^0.15.2",
     "seraph-model": "^0.9.1",
     "serve-favicon": "~2.3.2",
@@ -39,5 +38,6 @@
     "mocha": "^3.2.0",
     "should": "^11.2.0",
     "supertest": "^3.0.0"
-  }
+  },
+  "false": {}
 }

@@ -5,7 +5,7 @@ function RadioManager(ws, utils, $translate) {
     var username;
     var sala;
 
-    this.inicializarModulo = function (usernameParam, salaParam) {
+    this.inicializarServicio = function (usernameParam, salaParam) {
         music = document.getElementById('radio-audio');
 
         username = usernameParam;

@@ -17,7 +17,7 @@ var db = require('seraph')({
  * @param req
  * @param res
  */
-module.exports.findPosiblesContactos = function (req, res) {
+module.exports.buscarPosiblesContactos = function (req, res) {
 
     var username = utils.getUsername(req);
 
@@ -45,7 +45,7 @@ module.exports.findPosiblesContactos = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.findMisContactos = function (req, res) {
+module.exports.buscarContactos = function (req, res) {
 
     var username = utils.getUsername(req);
 
@@ -79,7 +79,7 @@ module.exports.findMisContactos = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.findSolicitudesContacto = function (req, res) {
+module.exports.buscarSolicitudesContacto = function (req, res) {
 
     var username = utils.getUsername(req);
 
@@ -340,7 +340,7 @@ module.exports.desbloquear = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.bloqueados = function (req, res) {
+module.exports.buscarBloqueados = function (req, res) {
     var username = utils.getUsername(req);
 
     var query = "MATCH(u:Usuario{username:'" + username + "'})-[:Bloqueado]->(uB:Usuario) RETURN uB"

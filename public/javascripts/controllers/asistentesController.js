@@ -4,7 +4,7 @@ copernicus.controller('asistentesController', function ($scope, $http, $cookies,
 
     $http({
         method: "GET",
-        url: "api/profile"
+        url: "api/perfil"
     }).then(success, error);
 
     function success(res) {

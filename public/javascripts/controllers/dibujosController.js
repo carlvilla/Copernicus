@@ -5,7 +5,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     var username = $rootScope.usuario.username;
     var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
 
-    webSocketService.dibujosManager.inicializarModulo(username, sala);
+    webSocketService.dibujosManager.inicializarServicio(username, sala);
 
     $scope.addCirculo = function(){
         webSocketService.dibujosManager.addCirculo();

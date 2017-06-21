@@ -16,7 +16,7 @@ function ChatTextoManager(ws, utils, $translate) {
         return mensajes;
     }
 
-    this.sendMensaje = function (mensaje) {
+    this.enviarMensaje = function (mensaje) {
         sendData(mensaje);
         this.addMensaje({username: usernameUsuario, mensaje: mensaje, tipo: "texto"});
     }
@@ -38,7 +38,7 @@ function ChatTextoManager(ws, utils, $translate) {
         }, 300);
     }
 
-    this.mensajeRecibido = function (feedback) {
+    this.getFeedback = function (feedback) {
 
         if (feedback.mensaje.tipoMensaje == 'texto') {
             ($(".feedback-" + usernameUsuario)[0]).append(feedback.mensaje.participantes + " √");

@@ -1,0 +1,27 @@
+<div id="radio" ng-controller="radioController" class="servicio-abierto">
+
+    <div class="grid-stack-item-content">
+
+        <a ng-click="eliminarServicio('radio');" class="cerrarServicio">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+
+        <div id="contenido-radio">
+            <audio id="radio-audio"></audio>
+
+            <button id="play" class="play" ng-click="play()"><i id="icono-play"
+                                                                     class="fa fa-4x fa-play-circle"></i></button>
+
+            <input id="url" ng-model="url" placeholder="URL radio/canción" ng-change="cambiarEmisora()"/>
+
+            <div id="control-volumen">
+                <label>{{'VOLUMEN' | translate}}:</label>
+                <input type="range" ng-model="volumen" ng-change="setVolumen()"
+                       id="volumen" min="0" max="1" step="0.01" value="1">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

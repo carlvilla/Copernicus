@@ -1,12 +1,6 @@
-/**
- * Created by carlosvillablanco on 15/02/2017.
- */
-
 module.exports = function (app) {
     var http = require('http');
-    var conf = require('../config');
-
-    var port = conf.port;
+    var port = process.env.HTTP_PORT || process.env.PORT || 8080;
     var server = http.createServer(app);
 
     server.listen(port);

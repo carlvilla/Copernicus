@@ -163,12 +163,12 @@ html, body {
 
 /* Módulos */
 
-.mover-modulo-div {
+.mover-servicio-div {
     height: 5%;
     background: antiquewhite;
 }
 
-.mover-modulo{
+.mover-servicio{
     margin-left: 15px;
 }
 
@@ -189,7 +189,7 @@ html, body {
     height: 100%;
 }
 
-.modulo {
+.servicio-abierto {
     color: #2c3e50;
     text-align: center;
     height: 100%;
@@ -200,11 +200,11 @@ html, body {
        puede sobresalir del módulo. Con esta propiedad a hidden ocultamos aquellas partes del video que sobresalgan */
 }
 
-.closeModule, .fullScreenModule {
+.cerrarServicio {
     float: right;
 }
 
-.closeModule {
+.cerrarServicio {
     margin-right: 2px;
 }
 

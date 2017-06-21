@@ -1,16 +1,15 @@
 module.exports = function (server) {
-    var config = require('../config');
-    var WebSocketServer = require('ws').Server;
+    var port = process.env.HTTP_PORT || process.env.PORT || 8080;
+    var WebSocket = require('ws');
 
-    var wss = new WebSocketServer({
+    var wss = new WebSocket.Server({
         'server': server
     });
 
-    wss.on('error', onError);
-    wss.on('listening', onListening);
-
     var connections = [];
 
+    wss.on('error', onError);
+    wss.on('listening', onListening);
     wss.on('connection', function (ws) {
 
         console.log('Creando conexión a servidor WebSocket');
@@ -91,7 +90,6 @@ module.exports = function (server) {
 
                                 console.log("Usuario envió mensaje: " + obj.data.username)
 
-
                                 var usuarios = getUsuarios(obj.data.username, sala);
 
                                 var response = {
@@ -102,8 +100,6 @@ module.exports = function (server) {
                                     }
                                 };
 
-                                //   console.log("Array de usuarios: "+  usuarios);
-
                                 console.log("Enviar usuarios conectados");
 
                                 ws.send(JSON.stringify(response));
@@ -113,11 +109,6 @@ module.exports = function (server) {
                             case 'offer':
 
                                 console.log("offer:");
-
-                                // console.log(message);
-                                //   console.log(obj.data.usernameObjetivo);
-
-                                //  console.log("Fin offer");
 
                                 enviarA(message, obj.data.usernameObjetivo, sala);
                                 break;
@@ -304,7 +295,7 @@ module.exports = function (server) {
     }
 
     function onListening() {
-        console.info('Servidor Websocket escuchando en el puerto: ' + config.port);
+        console.info('Servidor Websocket escuchando en el puerto: ' + port);
     }
 
     function IsJsonString(str) {
@@ -314,17 +305,6 @@ module.exports = function (server) {
             return false;
         }
         return true;
-    };
-
-
-    setVideoconferenceEnabled = function (usernameEnvia, enabled) {
-        connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
-            if (conexion.user.username == usernameEnvia) {
-                conexion.videoconference = {
-                    'enabled': enabled,
-                }
-            }
-        })
     };
 
 

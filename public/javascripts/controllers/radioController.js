@@ -8,11 +8,11 @@ copernicus.controller('radioController', function ($scope, $rootScope, webSocket
     //Id de la sala a la que se accedió
     var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
 
-    var inicializarModulo = function () {
-        webSocketService.radioManager.inicializarModulo(usuario.username, sala);
+    var inicializarServicio = function () {
+        webSocketService.radioManager.inicializarServicio(usuario.username, sala);
     };
 
-    inicializarModulo();
+    inicializarServicio();
 
     $scope.play = function () {
         webSocketService.radioManager.play();

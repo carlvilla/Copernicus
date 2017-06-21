@@ -1,0 +1,12 @@
+#about{
+    margin: 0 15%;
+}
+
+/* Bootstrap */
+.navbar-brand{
+    margin-left: -40px !important;
+}
+
+.active{
+    padding-left: 5px;
+}

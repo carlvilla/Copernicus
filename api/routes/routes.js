@@ -8,43 +8,43 @@ var router = express.Router();
 
 //llamadas rest para gestionar usuarios
 router.post('/login', usuarioController.login);
-router.post('/register', usuarioController.register);
+router.post('/registrar', middleware.checkEmail, middleware.usernameNoExiste ,usuarioController.registrar);
 router.post('/datosUsuario', usuarioController.datosUsuario);
 router.post('/modificarPass', usuarioController.modificarPass);
-router.post('/modificarDatos', usuarioController.modificarDatos);
+router.post('/modificarDatos', middleware.checkEmail ,usuarioController.modificarDatos);
 router.post('/eliminarCuenta', middleware.usernameExiste, usuarioController.eliminarCuenta);
-router.get('/profile', usuarioController.profile);
+router.get('/perfil', usuarioController.perfil);
 router.get('/validarUsername/:username', usuarioController.validarUsername);
 
 //llamadas rest para gestionar salas
-router.get('/salasParticipa', salaController.findSalasParticipa);
-router.get('/solicitudesSala', salaController.findSalasCandidato);
-router.get('/salasAdmin', salaController.findSalasAdmin);
-router.get('/salasModerador', salaController.findSalasModerador);
-router.get('/salasMiembro', salaController.findSalasMiembro);
+router.get('/salasParticipa', salaController.buscarSalasParticipa);
+router.get('/solicitudesSala', salaController.buscarSalasCandidato);
+router.get('/salasAdmin', salaController.buscarSalasAdmin);
+router.get('/salasModerador', salaController.buscarSalasModerador);
+router.get('/salasMiembro', salaController.buscarSalasMiembro);
 router.post('/salas', salaController.checkParticipante);
-router.post('/createSala', salaController.createSala);
-router.post('/aceptarSolicitudSala', middleware.usuarioNoAdminModeradorOMiembro, middleware.checkExisteSolicitudSala, salaController.aceptarSolicitud);
-router.post('/ignorarSolicitudSala', middleware.checkExisteSolicitudSala, salaController.ignorarSolicitud);
-router.post('/cancelarSolicitudSala', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala, salaController.ignorarSolicitud);
-router.post('/participantesSala', salaController.participantesSala);
+router.post('/crearSala', salaController.crearSala);
+router.post('/aceptarSolicitudSala', middleware.usuarioNoAdminModeradorOMiembro, middleware.checkExisteSolicitudSala, salaController.aceptarSolicitudSala);
+router.post('/ignorarSolicitudSala', middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
+router.post('/cancelarSolicitudSala', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
+router.post('/participantesSala', salaController.buscarParticipantesSala);
 router.post('/actualizarSala', middleware.checkAdminOrModerador, salaController.actualizarDatos);
 router.post('/eliminarUsuarioSala', salaController.eliminarUsuario);
 router.post('/eliminarSala', middleware.checkAdmin, salaController.eliminarSala);
 router.post('/cambiarPermisos', middleware.checkAdminOrModerador, middleware.checkAdminSiCambioAModerador, salaController.cambiarPermisos);
-router.post('/cambiarPermisosCandidato', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala , salaController.cambiarPermisosCandidato);
-router.post('/enviarInvitacion', middleware.usuarioNoCandidatoAdminModeradorOMiembro, middleware.comprobarLimiteSala, salaController.invitacion);
-router.post('/candidatos', salaController.candidatos);
+router.post('/cambiarPermisosSolicitud', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala , salaController.cambiarPermisosSolicitud);
+router.post('/enviarSolicitudSala', middleware.usuarioNoCandidatoAdminModeradorOMiembro, middleware.comprobarLimiteSala, salaController.enviarSolicitudSala);
+router.post('/candidatos', salaController.buscarCandidatos);
 
 //llamadas rest para gestionar contactos
-router.get('/findPosiblesContactos', contactoController.findPosiblesContactos);
-router.get('/contactos', contactoController.findMisContactos);
-router.get('/solicitudesContacto', contactoController.findSolicitudesContacto);
+router.get('/posiblesContactos', contactoController.buscarPosiblesContactos);
+router.get('/contactos', contactoController.buscarContactos);
+router.get('/solicitudesContacto', contactoController.buscarSolicitudesContacto);
 router.post('/enviarSolicitudContacto', middleware.checkNoSonContactos, contactoController.enviarSolicitudContacto);
 router.post('/aceptarSolicitud', middleware.checkExisteSolicitudContacto, contactoController.aceptarSolicitudContacto);
 router.post('/ignorarSolicitud', middleware.checkExisteSolicitudContacto, contactoController.ignorarSolicitudContacto);
 router.post('/bloquearContacto', middleware.checkSonContactos, contactoController.bloquear);
 router.post('/desbloquearContacto', middleware.checkNoSonContactos, contactoController.desbloquear);
-router.get('/contactosBloqueados', contactoController.bloqueados);
+router.get('/contactosBloqueados', contactoController.buscarBloqueados);
 
 module.exports = router;

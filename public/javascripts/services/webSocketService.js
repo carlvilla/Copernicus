@@ -7,7 +7,7 @@ angular.module('copernicus')
         var ws = $websocket(HOST);
 
         var asistentesManager = new AsistentesManager(ws);
-        var videoChatManager = new VideoChatManager(ws);
+        var videollamadasManager = new VideollamadasManager(ws);
         var presentacionManager = new PresentacionManager(ws, utils, $translate);
         var chatTextoManager = new ChatTextoManager(ws, utils, $translate);
         var dibujosManager = new DibujosManager(ws);
@@ -21,7 +21,7 @@ angular.module('copernicus')
         //Si se cierra la ventana o se utilizan las flechas de navegación, se hace una llamada a este método
         window.addEventListener("beforeunload", function (e) {
             asistentesManager.setDisconnected();
-            videoChatManager.setDisconnected();
+            videollamadasManager.setDisconnected();
             ws.close();
         });
 
@@ -44,7 +44,7 @@ angular.module('copernicus')
                         break;
 
                     case "videoChat":
-                        videoChatManager.getMessage(obj.data);
+                        videollamadasManager.getMessage(obj.data);
                         break;
 
                     case "presentacion":
@@ -60,7 +60,7 @@ angular.module('copernicus')
                             chatTextoManager.addMensaje(obj.data);
                         }
                         else {
-                            chatTextoManager.mensajeRecibido(obj.data);
+                            chatTextoManager.getFeedback(obj.data);
                         }
                         break;
 
@@ -78,7 +78,7 @@ angular.module('copernicus')
         var methods = {
             ws: ws,
             asistentesManager: asistentesManager,
-            videoChatManager: videoChatManager,
+            videollamadasManager: videollamadasManager,
             presentacionManager: presentacionManager,
             chatTextoManager: chatTextoManager,
             dibujosManager: dibujosManager,
