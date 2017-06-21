@@ -27,6 +27,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "INICIAR_SESION": 'Iniciar sesión',
         "LOGIN_ERROR": 'Usuario y/o contraseña incorrectos',
         "ABOUT": "Sobre nosotros",
+        "ABOUT_2": 'Esta aplicación Web fue desarrollada para completar el Grado en Ingeniería Informatica del Software de la Universidad de Oviedo.',
+        "ABOUT_3": 'Si tienes cualquier duda o comentario, puedes ponerte en contacto conmigo a través del correo uo236851@uniovi.es.',
         "CONTACTOS": 'Contactos',
         "ADD_CONTACTO": "Añadir contacto",
         "SOLICITUD_CONTACTO_ENVIADA": 'Solicitud de contacto enviada',
@@ -98,8 +100,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "USUARIO_ELIMINADO": 'Usuario eliminado',
         "PERMISOS_USUARIO_CAMBIADOS": 'Los permisos del usuario fueron modificados',
         "SALA_ELIMINADA": 'Sala eliminada',
-        "INVITACION_ENVIADA": 'Invitación para unirse a la sala enviada',
-        "INVITACION_ELIMINADA": 'La invitación fue eliminada',
+        "SOLICITUD_ENVIADA": 'Solicitud para unirse a la sala enviada',
+        "SOLICITUD_ELIMINADA": 'La solicitud fue eliminada',
         "OPERACION_NO_AUTORIZADA": 'La operación no ha sido autorizada',
         "SOLICITUDES_ENVIADAS": 'Solicitudes enviadas',
         "SOLICITUD_NO_ACEPTADA": 'Todavía no ha aceptado la solicitud',
@@ -170,8 +172,15 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "SALIR_SALA": 'Salir de la sala',
         "SALIO_SALA": 'Ha salido de la sala correctamente',
         "ESTA_SEGURO_SALIR_SALA?": '¿Estás seguro de que quieres salir de esta sala? Esta acción no se puede deshacer.',
-        "FICHERO_ENVIADO_FEEDBACK": 'Fichero enviado a '
-    });
+        "FICHERO_ENVIADO_FEEDBACK": 'Fichero enviado a ',
+        "LEGAL": 'Aviso legal',
+        "PROTECCION_DATOS": 'PROTECCIÓN DE DATOS',
+        "PROTECCION_DATOS_2": 'De conformidad con lo establecido en el Art. 5 de la Ley Orgánica 15/1999 de diciembre de Protección de Datos de Carácter Personal, por el que se regula el derecho de información en la recogida de datos le informamos de los siguientes extremos:',
+        "PROTECCION_DATOS_3":'Los datos de carácter personal que nos ha suministrado en esta y otras comunicaciones mantenidas con usted serán objeto de tratamiento en los ficheros responsabilidad de Carlos Villa Blanco.',
+        "PROTECCION_DATOS_4":'La finalidad del tratamiento es la de gestionar de forma adecuada la prestación del servicio que nos ha requerido. Asimismo estos datos no serán cedidos a terceros, salvo las cesiones legalmente permitidas.',
+        "PROTECCION_DATOS_5":'Su negativa a suministrar los datos obligatorios solicitados implica la imposibilidad prestarle el servicio.',
+        "PROTECCION_DATOS_6":'Asimismo, le informamos de la posibilidad de ejercitar los correspondiente derechos de acceso, rectificación, cancelación y oposición de conformidad con lo establecido en la Ley 15/1999 ante Carlos Villa Blanco como responsable del fichero. Los derechos mencionados los puede ejercitar a través de los siguientes medios: carlosvillablanco@gmail.com'
+       });
 
     $translateProvider.translations('en', {
         "PAGINA_PRINCIPAL": "Main Page",
@@ -196,6 +205,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "INICIAR_SESION": 'Login',
         "LOGIN_ERROR": 'Incorrect username and/or password',
         "ABOUT": "About us",
+        "ABOUT_2": 'This Web application was developed to complete the degree in Software Engineering at the University of Oviedo.',
+        "ABOUT_3": 'If you have any questions or comments, you can contact me through the email uo236851@uniovi.es.',
         "CONTACTOS": 'Contacts',
         "ADD_CONTACTO": "Add contact",
         "SOLICITUD_CONTACTO_ENVIADA": 'Contact request sent',
@@ -267,8 +278,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "USUARIO_ELIMINADO": 'User removed',
         "PERMISOS_USUARIO_CAMBIADOS": "User permissions were changed",
         "SALA_ELIMINADA": 'Room deleted',
-        "INVITACION_ENVIADA": 'Invitation to join the room sent',
-        "INVITACION_ELIMINADA": 'The invitation was deleted',
+        "SOLICITUD_ENVIADA": 'Request to join the room sent',
+        "SOLICITUD_ELIMINADA": 'The request was deleted',
         "OPERACION_NO_AUTORIZADA": 'Operation not authorised',
         "SOLICITUDES_ENVIADAS": 'Requests sent',
         "SOLICITUD_NO_ACEPTADA": 'Request not accepted yet',
@@ -339,7 +350,14 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "SALIR_SALA": 'Leave room',
         "SALIO_SALA": 'You left the room successfully',
         "ESTA_SEGURO_SALIR_SALA?": 'Are you sure you want to leave this room? This action cannot be undone.',
-        "FICHERO_ENVIADO_FEEDBACK": 'File sent to '
+        "FICHERO_ENVIADO_FEEDBACK": 'File sent to ',
+        "LEGAL": 'Legal warning',
+        "PROTECCION_DATOS": 'DATA PROTECTION',
+        "PROTECCION_DATOS_2": 'In accordance with the provisions of Article 5 of the Organic Law 15/1999 of December on the Protection of Personal Data, which regulates the right to information in the collection of data we inform you about the following points',
+        "PROTECCION_DATOS_3":'The personal data that you have provided us in this and other communications will be processed in the files that are responsability of Carlos Villa Blanco.',
+        "PROTECCION_DATOS_4":'The purpose of the treatment is to properly provide the service of this platform. Likewise, these data will not be transferred to third parties, except for legally permitted activities.',
+        "PROTECCION_DATOS_5":'Your refusal to provide the required requested data implies the impossibility of providing the service.',
+        "PROTECCION_DATOS_6":'We also inform you of the possibility of exercising the corresponding rights of access, rectification, cancellation and opposition in accordance with the Law 15/1999 where Carlos Villa Blanco is the responsible for the file. The mentioned rights can be exercised through the following means: carlosvillablanco@gmail.com'
 
     })
 

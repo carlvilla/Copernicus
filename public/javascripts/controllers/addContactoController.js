@@ -11,7 +11,7 @@ copernicus.controller('solicitudContactoController', function ($scope, $http, ut
     var inicializacion = function(){
         $http({
             method: "GET",
-            url: "api/findPosiblesContactos"
+            url: "api/posiblesContactos"
         }).then(success, error);
 
         function success(res) {
@@ -59,8 +59,6 @@ copernicus.controller('solicitudContactoController', function ($scope, $http, ut
         }, function (res) {
             utils.mensajeError($translate.instant("SOLICITUD_CONTACTO_NO_ENVIADA"));
         });
-
-
 
 
     }

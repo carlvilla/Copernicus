@@ -1,0 +1,19 @@
+<div id="presentaciones" ng-controller="presentacionController" class="servicio-abierto">
+    <div>
+        <div class="grid-stack-item-content mover-servicio-div">
+            <div>
+                <i class="fa fa-hand-paper-o mover-servicio"></i>
+
+                <a ng-click="eliminarServicio('presentaciones');" class="cerrarServicio">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+
+                <div><button type="file" ngf-select="uploadFiles($file, $invalidFiles)" ngf-max-size="5MB"
+                             class="btn btn-default btn-sm" translate="CAMBIAR_PRESENTACION"></button></div>
+            </div>
+        </div>
+    </div>
+    <div id="presentacion">
+        <iframe id="presentacion-frame" allowfullscreen="true"/>
+    </div>
+</div>

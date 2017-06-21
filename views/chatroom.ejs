@@ -20,7 +20,7 @@
 
     <!-- Controladores y Managers -->
     <script src='/public/javascripts/managers/AsistentesManager.js'></script>
-    <script src='/public/javascripts/managers/VideoChatManager.js'></script>
+    <script src='/public/javascripts/managers/VideollamadasManager.js'></script>
     <script src='/public/javascripts/managers/PresentacionManager.js'></script>
     <script src='/public/javascripts/managers/ChatTextoManager.js'></script>
     <script src='/public/javascripts/managers/DibujosManager.js'></script>
@@ -29,8 +29,8 @@
 
     <script src='/public/javascripts/controllers/accesoSalaController.js'></script>
     <script src='/public/javascripts/controllers/asistentesController.js'></script>
-    <script src='/public/javascripts/controllers/modulosController.js'></script>
-    <script src='/public/javascripts/controllers/videoChatController.js'></script>
+    <script src='/public/javascripts/controllers/serviciosController.js'></script>
+    <script src='/public/javascripts/controllers/videollamadasController.js'></script>
     <script src='/public/javascripts/controllers/dibujosController.js'></script>
     <script src='/public/javascripts/controllers/presentacionController.js'></script>
     <script src='/public/javascripts/controllers/chatTextoController.js'></script>
@@ -57,15 +57,15 @@
     </div>
 </nav>
 
-<div ng-controller='modulosController' id="myServiciosnav" class="sideServiciosnav">
+<div ng-controller='serviciosController' id="myServiciosnav" class="sideServiciosnav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('myServiciosnav');">&times;</a>
     <h2 id="serviciosLabel">{{'SERVICIOS' | translate}}</h2>
-    <a class="servicio" ng-click="addModule('chatVideo')">{{'CHAT_VIDEO' | translate}}</a>
-    <a class="servicio" ng-click="addModule('chatTexto')">{{'CHAT_TEXTO' | translate}}</a>
-    <a class="servicio" ng-click="addModule('presentaciones')">{{'PRESENTACIONES' | translate}}</a>
-    <a class="servicio" ng-click="addModule('videoCompartido')">{{'VIDEO_COMPARTIDO' | translate}}</a>
-    <a class="servicio" ng-click="addModule('dibujo')">{{'DIBUJOS' | translate}}</a>
-    <a class="servicio" ng-click="addModule('radio')">{{'RADIO' | translate}}</a>
+    <a class="servicio" ng-click="addServicio('chatVideo')">{{'CHAT_VIDEO' | translate}}</a>
+    <a class="servicio" ng-click="addServicio('chatTexto')">{{'CHAT_TEXTO' | translate}}</a>
+    <a class="servicio" ng-click="addServicio('presentaciones')">{{'PRESENTACIONES' | translate}}</a>
+    <a class="servicio" ng-click="addServicio('videoCompartido')">{{'VIDEO_COMPARTIDO' | translate}}</a>
+    <a class="servicio" ng-click="addServicio('dibujo')">{{'DIBUJOS' | translate}}</a>
+    <a class="servicio" ng-click="addServicio('radio')">{{'RADIO' | translate}}</a>
 </div>
 
 <div ng-controller='asistentesController' id="myAsistentesnav" class="sideAsistentesnav">
@@ -85,7 +85,7 @@
     <span class="opcion-navegacion" onclick="openNav('myAsistentesnav'); closeNav('myServiciosnav');">&#9776; {{'PARTICIPANTES' | translate}}</span>
 </div>
 
-<!-- MÓDULOS -->
+<!-- SERVICIOS -->
 
 <div id="contenedorGridStack">
     <div class="grid-stack"></div>

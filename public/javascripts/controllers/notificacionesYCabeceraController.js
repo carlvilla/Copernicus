@@ -15,7 +15,7 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
 
         $http({
             method: "GET",
-            url: "api/profile"
+            url: "api/perfil"
         }).then(success);
     }
 

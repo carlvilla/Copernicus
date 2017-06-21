@@ -20,17 +20,6 @@ cloudinary.config({
     secure: true
 });
 
-var user = model(db, 'Usuario');
-var emailRegex = /([a-z0-9][-a-z0-9_\+\.]*[a-z0-9])@([a-z0-9][-a-z0-9\.]*[a-z0-9]\.(arpa|root|aero|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cu|cv|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|st|su|sv|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|um|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|yu|za|zm|zw)|([0-9]{1,3}\.{3}[0-9]{1,3}))/;
-user.schema = {
-    username: {type: String, required: true},
-    nombre: {type: String, required: true},
-    apellidos: {type: String},
-    email: {type: String, match: emailRegex, required: true},
-    hash: {type: String},
-    salt: {type: String}
-};
-
 /**
  * Comprueba que las credenciales enviadas por el usuario son correctas. En el caso de serlo, se envía un token que
  * lo identifica y que le permite el acceso sin volver a introducir los credenciales durante cierto tiempo.
@@ -72,7 +61,7 @@ module.exports.login = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.register = function (req, res) {
+module.exports.registrar = function (req, res) {
 
     if (!req.body.username || !req.body.nombre || !req.body.email || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
@@ -90,50 +79,32 @@ module.exports.register = function (req, res) {
     var fotoPerfil = req.body.fotoPerfil;
     var fotoPorDefecto = req.body.fotoPorDefecto;
 
-    //Comprueba que el nombre de usuario no esté en uso
-    var predicate = {username: username};
+    cloudinary.uploader.upload(fotoPerfil, function (result) {
 
-    user.where(predicate, function (err, people) {
-        if (err){
-            utils.sendJSONresponse(res, 500, err);
-        }
-        if (!people.length == 0) {
-            utils.sendJSONresponse(res, 403, "");
-        } else {
+        if (fotoPorDefecto || (fotoPorDefecto == undefined && fotoPorDefecto == undefined))
+            fotoPerfil = 'https://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
+        else
+            fotoPerfil = result.secure_url;
 
-            cloudinary.uploader.upload(fotoPerfil, function (result) {
+        var query = "CREATE(u:Usuario{username:'" + username + "', nombre:'" + nombre + "', " +
+            "apellidos:'" + apellidos + "', email:'" + email + "', foto:'" + fotoPerfil + "', hash:'" + credenciales.hash + "'," +
+            " salt:'" + credenciales.salt + "'})";
 
-                if (fotoPorDefecto || (fotoPorDefecto == undefined && fotoPorDefecto == undefined))
-                    fotoPerfil = 'https://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
-                else
-                    fotoPerfil = result.secure_url;
-
-
-                user.save({
-                    username: username,
-                    nombre: nombre,
-                    apellidos: apellidos,
-                    email: email,
-                    foto: fotoPerfil,
-                    hash: credenciales.hash,
-                    salt: credenciales.salt
-                }, function (err, node) {
-                    var token;
-                    if (err) {
-                        utils.sendJSONresponse(res, 500, err);
-                    } else {
-                        token = utils.generateJwt(username, nombre);
-                        utils.sendJSONresponse(res, 200, {
-                            "token": token,
-                            "username": username
-                        });
-                    }
+        db.query(query, function (err, result) {
+            var token;
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                token = utils.generateJwt(username, nombre);
+                utils.sendJSONresponse(res, 200, {
+                    "token": token,
+                    "username": username
                 });
-            });
-        }
+            }
+        });
     });
+}
 
-};
 
 /**
  * Comprueba que el nombre de usuario no este ya asignado
@@ -143,10 +114,12 @@ module.exports.register = function (req, res) {
  */
 module.exports.validarUsername = function (req, res) {
 
-    var predicate = {username: req.params.username};
+    var username = req.params.username;
 
-    user.where(predicate, function (err, people) {
-        if (err){
+    var query = "MATCH(u:Usuario{username:'" + username + "'}) return u";
+
+    db.query(query, function (err, people) {
+        if (err) {
             utils.sendJSONresponse(res, 500, "");
             return;
         }
@@ -172,11 +145,13 @@ module.exports.validarUsername = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.profile = function (req, res) {
+module.exports.perfil = function (req, res) {
 
-    var predicate = {username: utils.getUsername(req)};
+    var username = utils.getUsername(req);
 
-    user.where(predicate, function (err, people) {
+    var query = "MATCH(u:Usuario{username:'" + username + "'}) return u";
+
+    db.query(query, function (err, people) {
         if (err) throw err;
         if (people.length == 0) {
             utils.sendJSONresponse(res, 204, '');
@@ -279,9 +254,6 @@ module.exports.modificarDatos = function (req, res) {
         return;
     } else if (apellidos && apellidos.length > 35) {
         utils.sendJSONresponse(res, 400, "apellidos");
-        return;
-    } else if (!email.match(emailRegex)) {
-        utils.sendJSONresponse(res, 400, "email");
         return;
     }
 

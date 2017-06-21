@@ -14,10 +14,10 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
 
     $scope.mensajes = webSocketService.chatTextoManager.getMensajes();
 
-    $scope.sendMensaje = function (mensaje) {
+    $scope.enviarMensaje = function (mensaje) {
         if (mensaje != "") {
             document.getElementById("texto-enviar").value = "";
-            webSocketService.chatTextoManager.sendMensaje(mensaje);
+            webSocketService.chatTextoManager.enviarMensaje(mensaje);
             $scope.mensaje = "";
         }
 
@@ -26,7 +26,7 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
     $scope.enviarMensajeTeclado = function (event, mensaje) {
         if (event.keyCode == 13) {
             event.preventDefault();
-            $scope.sendMensaje(mensaje);
+            $scope.enviarMensaje(mensaje);
         }
     };
 

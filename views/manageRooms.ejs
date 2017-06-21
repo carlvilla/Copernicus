@@ -135,7 +135,7 @@
                         <td>{{candidato.user.apellidos}}</td>
                         <td>
                             <select class="form-control" ng-model="candidato.rel.properties.permisos"
-                                    ng-change="cambiarPermisosCandidato(candidato)"
+                                    ng-change="cambiarPermisosSolicitud(candidato)"
                                     ng-disabled="miembro == true">
                                 <option value="Miembro">{{'MIEMBRO' | translate}}</option>
                                 <option value="Moderador">{{'MODERADOR' | translate}}</option>
@@ -143,7 +143,7 @@
                         </td>
                         <td translate="SOLICITUD_NO_ACEPTADA"></td>
                         <td ng-show="miembro == false">
-                            <button class="btn btn-primary" type="button" ng-click="cancelarInvitacion(candidato.user)">
+                            <button class="btn btn-primary" type="button" ng-click="cancelarSolicitudSala(candidato.user)">
                                 {{"CANCELAR_SOLICITUD" | translate}}
                             </button>
                         </td>
@@ -179,7 +179,7 @@
                             <button class="btn btn-primary" type="button"
                                     ng-disabled="(!admin && participante.user.permisos!='Miembro')
                                     || (admin && participante.user.permisos=='Admin')"
-                                    ng-click="eliminarUsuarioSeleccionado(participante.user)">
+                                    ng-click="eliminarUsuario(participante.user)">
                                 {{'ELIMINAR' | translate}}
                             </button>
                         </td>

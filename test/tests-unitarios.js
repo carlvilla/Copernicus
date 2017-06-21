@@ -71,7 +71,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -99,7 +99,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -128,7 +128,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -157,7 +157,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -186,7 +186,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -215,7 +215,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -244,7 +244,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -273,7 +273,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -302,7 +302,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -348,7 +348,7 @@ describe('Pruebas unitarias', function () {
             }
 
             request(url)
-                .post('/api/register')
+                .post('/api/registrar')
                 .send(usuario)
                 .end(function (err, res) {
                     if (err) {
@@ -706,7 +706,7 @@ describe('Pruebas unitarias', function () {
             "y se le envía una solicitud de unión como moderador" +
             " al usuario1", function (done) {
             request(url)
-                .post('/api/createSala')
+                .post('/api/crearSala')
                 .set('Cookie', ['token = ' + tokenUsuario2])
                 .send({
                     'sala': {
@@ -732,7 +732,7 @@ describe('Pruebas unitarias', function () {
         it("Deberia crear una sala llamada 'Sala de pruebas 2' cuyo administrador es el usuario2 y se le envía una solicitud de unión como miembro" +
             " al usuario1", function (done) {
             request(url)
-                .post('/api/createSala')
+                .post('/api/crearSala')
                 .set('Cookie', ['token = ' + tokenUsuario2])
                 .send({
                     'sala': {
@@ -758,7 +758,7 @@ describe('Pruebas unitarias', function () {
         it("Deberia crear una sala llamada 'Sala de pruebas 3' cuyo administrador es el usuario1 y se envía " +
             "solicitudes de unión como moderador al usuario2 y como miembro al usuario3", function (done) {
             request(url)
-                .post('/api/createSala')
+                .post('/api/crearSala')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .send({
                     'sala': {
@@ -787,7 +787,7 @@ describe('Pruebas unitarias', function () {
         it("Deberia crear una sala llamada 'Sala de pruebas 4' cuyo administrador es el usuario1 y envia solicitud " +
             "de unión como moderador a usuario3", function (done) {
             request(url)
-                .post('/api/createSala')
+                .post('/api/crearSala')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .send({
                     'sala': {
@@ -816,7 +816,7 @@ describe('Pruebas unitarias', function () {
     describe('Enviar solicitudes de unión a salas', function () {
         it("El usuario2 deberia enviar una solicitud de unión a la sala 'Sala de pruebas' como miembro al usuario 4", function (done) {
             request(url)
-                .post('/api/enviarInvitacion')
+                .post('/api/enviarSolicitudSala')
                 .set('Cookie', ['token = ' + tokenUsuario2])
                 .send({
                     idSala: 1,
@@ -836,7 +836,7 @@ describe('Pruebas unitarias', function () {
 
         it("El usuario2 no deberia volver a enviar una solicitud de unión para la sala 'Sala de pruebas' al usuario4", function (done) {
             request(url)
-                .post('/api/enviarInvitacion')
+                .post('/api/enviarSolicitudSala')
                 .set('Cookie', ['token = ' + tokenUsuario2])
                 .send({
                     idSala: 1,
@@ -1108,7 +1108,7 @@ describe('Pruebas unitarias', function () {
         it("El usuario1 al ser moderador de la sala 'Partidos del domingo' debería enviar una solicitud de unión como miembro" +
             " al usuario3", function (done) {
             request(url)
-                .post('/api/enviarInvitacion')
+                .post('/api/enviarSolicitudSala')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .send({
                     idSala: 1,
@@ -1278,7 +1278,7 @@ describe('Pruebas unitarias', function () {
         it("El usuario2 al ser administrador de la sala 'Sala de prueba' deberia mandar una solicitud de unión a la sala" +
             " como miembro al usuario3 ", function (done) {
             request(url)
-                .post('/api/enviarInvitacion')
+                .post('/api/enviarSolicitudSala')
                 .set('Cookie', ['token = ' + tokenUsuario2])
                 .send({
                     idSala: 1,
@@ -1647,8 +1647,8 @@ describe('Pruebas unitarias', function () {
         it("Deberia crear una sala llamada 'Sala de pruebas usuario 7' cuyo administrador es el usuario7 " +
             "y se envía solicitudes de unión como miembro a todos los usuarios excepto al usuario9", function (done) {
             request(url)
-                .post('/api/createSala')
-                .set('Cookie', ['token = ' + tokenUsuario2])
+                .post('/api/crearSala')
+                .set('Cookie', ['token = ' + tokenUsuario7])
                 .send({
                     'sala': {
                         nombre: 'Sala de pruebas',
@@ -1680,7 +1680,7 @@ describe('Pruebas unitarias', function () {
         it("El usuario 7 no debería enviar una solicitud de unión a la sala 'Sala de pruebas usuario 7' al usuario9 " +
             "ya que la sala ya tiene 8 participantes", function (done) {
             request(url)
-                .post('/api/enviarInvitacion')
+                .post('/api/enviarSolicitudSala')
                 .set('Cookie', ['token = ' + tokenUsuario7])
                 .send({
                     idSala: 4,

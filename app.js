@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use('/public', express.static('public'));
-app.use('/modulos', express.static('views/modulos'));
+app.use('/servicios', express.static('views/servicios'));
 app.use('/dialogs', express.static('views/dialogs'));
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

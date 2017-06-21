@@ -34,7 +34,7 @@ cloudinary.config({
  * @param req
  * @param res
  */
-module.exports.createSala = function (req, res) {
+module.exports.crearSala = function (req, res) {
 
     var username = utils.getUsername(req);
     var sala = req.body.sala;
@@ -124,7 +124,7 @@ module.exports.createSala = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.findSalasParticipa = function (req, res) {
+module.exports.buscarSalasParticipa = function (req, res) {
 
     var username = utils.getUsername(req);
 
@@ -183,7 +183,7 @@ module.exports.checkParticipante = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.findSalasCandidato = function (req, res) {
+module.exports.buscarSalasCandidato = function (req, res) {
 
     var username = utils.getUsername(req);
 
@@ -205,7 +205,7 @@ module.exports.findSalasCandidato = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.findSalasAdmin = function (req, res) {
+module.exports.buscarSalasAdmin = function (req, res) {
 
     var username = utils.getUsername(req);
 
@@ -229,7 +229,7 @@ module.exports.findSalasAdmin = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.findSalasModerador = function (req, res) {
+module.exports.buscarSalasModerador = function (req, res) {
     var username = utils.getUsername(req);
 
     var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala)where (u)-" +
@@ -249,7 +249,7 @@ module.exports.findSalasModerador = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.findSalasMiembro = function (req, res) {
+module.exports.buscarSalasMiembro = function (req, res) {
     var username = utils.getUsername(req);
 
     var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala)where (u)-" +
@@ -265,7 +265,7 @@ module.exports.findSalasMiembro = function (req, res) {
 
 }
 
-module.exports.aceptarSolicitud = function (req, res) {
+module.exports.aceptarSolicitudSala = function (req, res) {
     var username = utils.getUsername(req);
     var idSala = req.body.idSala;
 
@@ -303,7 +303,7 @@ module.exports.aceptarSolicitud = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.ignorarSolicitud = function (req, res) {
+module.exports.ignorarSolicitudSala = function (req, res) {
 
     var username = req.body.username;
 
@@ -331,7 +331,7 @@ module.exports.ignorarSolicitud = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.participantesSala = function (req, res) {
+module.exports.buscarParticipantesSala = function (req, res) {
 
     var idSala = req.body.idSala;
 
@@ -475,7 +475,7 @@ module.exports.cambiarPermisos = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.cambiarPermisosCandidato = function (req, res) {
+module.exports.cambiarPermisosSolicitud = function (req, res) {
     var idSala = req.body.idSala;
     var username = req.body.username;
     var permisos = req.body.permisos;
@@ -493,13 +493,13 @@ module.exports.cambiarPermisosCandidato = function (req, res) {
 }
 
 /**
- * Envía una invitación a un usuario a unirse a la sala creando una relación 'Candidato' entre el usuario y la sala.
+ * Envía una solicitud de unión a una sala a un usuario una relación 'Candidato' entre el usuario y la sala.
  * Los permisos dados al usuario son de 'Miembro'.
  *
  * @param req
  * @param res
  */
-module.exports.invitacion = function (req, res) {
+module.exports.enviarSolicitudSala = function (req, res) {
     var idSala = req.body.idSala;
     var username = req.body.username;
 
@@ -522,7 +522,7 @@ module.exports.invitacion = function (req, res) {
  * @param req
  * @param res
  */
-module.exports.candidatos = function (req, res) {
+module.exports.buscarCandidatos = function (req, res) {
 
     var idSala = req.body.idSala;
 

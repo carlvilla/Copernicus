@@ -3,10 +3,9 @@ function DibujosManager(ws) {
     var username;
     var sala;
     var canvas;
-
     var figuraSeleccionda;
 
-    this.inicializarModulo = function (usernameParam, salaParam) {
+    this.inicializarServicio = function (usernameParam, salaParam) {
         canvas = new fabric.Canvas('area-dibujo');
         canvas.selection = false;
 

@@ -12,16 +12,16 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
         //console.log("Error al obtener contacto bloqueados");
     }
 
-    var findContactosBloqueados = function () {
+    var buscarContactosBloqueados = function () {
         $http({
             method: "GET",
             url: "api/contactosBloqueados"
         }).then(success, error);
     }
 
-    findContactosBloqueados();
+    buscarContactosBloqueados();
 
-    var findContactos = function () {
+    var buscarContactos = function () {
         $http({
             method: "GET",
             url: "api/contactos"
@@ -40,7 +40,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
         }
     }
 
-    findContactos();
+    buscarContactos();
 
     $scope.bloquearContacto = function () {
         if ($scope.usuarioSeleccionado) {
@@ -56,8 +56,8 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
                 data: angular.toJson({username: ($scope.usuarioSeleccionado.originalObject).username})
             }).then(function (res) {
                 actualizarInput();
-                findContactosBloqueados();
-                findContactos();
+                buscarContactosBloqueados();
+                buscarContactos();
             }, errorBloquear);
         }
 
@@ -78,8 +78,8 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
             url: "api/desbloquearContacto",
             data: angular.toJson({username: username})
         }).then(function (res) {
-            findContactosBloqueados();
-            findContactos();
+            buscarContactosBloqueados();
+            buscarContactos();
         }, error);
     }
 

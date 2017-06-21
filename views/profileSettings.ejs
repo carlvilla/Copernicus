@@ -29,7 +29,7 @@
 <div class="contenedor-inputs">
 
     <div class="form-group">
-        <form ng-submit="actualizar()">
+        <form ng-submit="actualizarDatos()">
             <div class="seccion" id="div-datos">
                 <h4 class="Subhead-heading" style="color: #3A539B" translate="MODIFICAR_DATOS_CUENTA"></h4>
                 <div class="div-input">
@@ -75,7 +75,7 @@
 
     <div class="seccion">
         <h4 style="color: #3A539B" translate="CAMBIAR_PASS"></h4>
-        <form id="pass-form" name="passForm" ng-submit="actualizarPass()">
+        <form id="pass-form" name="passForm" ng-submit="actualizarPassword()">
             <div class="div-input">
                 <label>{{'PASS_ACTUAL' | translate}}:</label>
                 <input minlength="8" required type="password" ng-model="pass.old" placeholder="Contraseña actual">

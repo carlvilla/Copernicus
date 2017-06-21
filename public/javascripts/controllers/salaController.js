@@ -127,7 +127,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             sala.fotoPorDefecto = fotoPorDefecto;
             $http({
                 method: "POST",
-                url: "api/createSala",
+                url: "api/crearSala",
                 data: angular.toJson(
                     {
                         "sala": sala,

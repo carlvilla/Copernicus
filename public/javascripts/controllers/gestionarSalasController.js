@@ -100,7 +100,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         }, error)
     };
 
-    $scope.eliminarUsuarioSeleccionado = function (usuario) {
+    $scope.eliminarUsuario = function (usuario) {
         $http({
             method: "POST",
             url: "api/eliminarUsuarioSala",
@@ -165,6 +165,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         }, error);
     };
 
+
     $scope.eliminarSala = function () {
         $http({
             method: "POST",
@@ -196,10 +197,10 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     }
 
 
-    $scope.cambiarPermisosCandidato = function (candidato) {
+    $scope.cambiarPermisosSolicitud = function (candidato) {
         $http({
             method: "POST",
-            url: "api/cambiarPermisosCandidato",
+            url: "api/cambiarPermisosSolicitud",
             data: {
                 idSala: idSalaSeleccionada,
                 username: candidato.user.username,
@@ -248,7 +249,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
 
                 $http({
                     method: "POST",
-                    url: "api/enviarInvitacion",
+                    url: "api/enviarSolicitudSala",
                     data: {
                         idSala: idSalaSeleccionada,
                         username: usuario.user.username
@@ -258,7 +259,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
                 $scope.contactosAdded.push(usuario);
                 $scope.candidatos.push(usuario);
 
-                utils.mensajeSuccess($translate.instant("INVITACION_ENVIADA"));
+                utils.mensajeSuccess($translate.instant("SOLICITUD_ENVIADA"));
 
             }
         }
@@ -279,7 +280,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     }
 
 
-    $scope.cancelarInvitacion = function (usuario) {
+    $scope.cancelarSolicitudSala = function (usuario) {
 
         console.log("Cancelar invitación: " + usuario.username);
 
@@ -294,7 +295,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
             $scope.candidatos.forEach(function (candidato) {
                 if (candidato.user.username == usuario.username) {
                     $scope.candidatos.splice($scope.candidatos.indexOf(candidato), 1);
-                    utils.mensajeSuccess($translate.instant('INVITACION_ELIMINADA'));
+                    utils.mensajeSuccess($translate.instant('SOLICITUD_ELIMINADA'));
                 }
             })
         }, error)

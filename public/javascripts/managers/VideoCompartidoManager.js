@@ -3,7 +3,6 @@ function VideoCompartidoManager(ws, utils, $translate) {
     var scope;
     var username;
     var sala;
-
     var API;
 
     //Variables necesarias en el caso de que se cambió la URL, pero el usuario no tiene
@@ -28,7 +27,6 @@ function VideoCompartidoManager(ws, utils, $translate) {
     }
 
     this.cambiarVideo = function (url) {
-        //  API.stop();
         scope.url = url;
         copiaUrl = url;
         sendData(url);

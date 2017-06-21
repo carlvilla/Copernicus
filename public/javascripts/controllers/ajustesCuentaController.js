@@ -7,7 +7,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
 
     $http({
         method: "GET",
-        url: "api/profile"
+        url: "api/perfil"
     }).then(success);
 
     function success(res) {
@@ -42,7 +42,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
 
     var actualizando_mensaje;
 
-    $scope.actualizar = function () {
+    $scope.actualizarDatos = function () {
         actualizando_mensaje = growl.info($translate.instant('ACTUALIZANDO_DATOS'), {reference: 1});
         $http({
             method: "POST",
@@ -57,7 +57,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
         }).then(mensajeExitoDatos, mensajeError);
     };
 
-    $scope.actualizarPass = function () {
+    $scope.actualizarPassword = function () {
         $http({
             method: "POST",
             url: "api/modificarPass",
