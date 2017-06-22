@@ -16,13 +16,12 @@ var emailRegex = /([a-z0-9][-a-z0-9_\+\.]*[a-z0-9])@([a-z0-9][-a-z0-9\.]*[a-z0-9
  * @param next
  */
 module.exports.checkEmail = function (req, res, next) {
-    if(emailRegex.test(req.body.email)){
+    if (emailRegex.test(req.body.email)) {
         next();
-    }else{
+    } else {
         utils.sendJSONresponse(res, 400, "email");
     }
 }
-
 
 
 /**
@@ -76,7 +75,6 @@ module.exports.usernameNoExiste = function (req, res, next) {
 }
 
 
-
 /**
  * Comprueba que el usuario que envio la petición sea administrador o moderador de la sala
  *
@@ -124,7 +122,7 @@ module.exports.checkAdminSiCambioAModerador = function (req, res, next) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
-            if(!result){
+            if (!result) {
                 utils.sendJSONresponse(res, 400, err);
                 return;
             }
@@ -395,20 +393,40 @@ module.exports.checkExisteSolicitudSala = function (req, res, next) {
 module.exports.comprobarLimiteSala = function (req, res, next) {
     var idSala = req.body.idSala;
 
-    var query = "MATCH(s:Sala{idSala:" + idSala + "})-[c:Candidato | Admin | Moderador | Miembro]" +
-        "-(Usuario) RETURN  c";
+    var usuarios = req.body.usuarios;
 
-    db.query(query, function (err, result) {
-        if (err) {
-            utils.sendJSONresponse(res, 500, err);
-        } else {
-            if (result.length < 4) {
-                next();
-            } else {
-                utils.sendJSONresponse(res, 400, err);
-            }
+    //Si se envió un listado de usuarios, significa que se está creando una sala
+    if (usuarios) {
+
+        if(usuarios.length > 3){
+            utils.sendJSONresponse(res, 400, err);
+        }else{
+            console.log("Bien");
+            next();
         }
-    });
+
+    }
+
+    //Si no se envió un listado de usuarios, significa que se está enviando una
+    //solicitud de unión a una sala a un usuario
+    else {
+
+        var query = "MATCH(s:Sala{idSala:" + idSala + "})-[c:Candidato | Admin | Moderador | Miembro]" +
+            "-(Usuario) RETURN  c";
+
+        db.query(query, function (err, result) {
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                if (result.length < 4) {
+                    next();
+                } else {
+                    utils.sendJSONresponse(res, 400, err);
+                }
+            }
+        });
+
+    }
 }
 
 
