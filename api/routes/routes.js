@@ -26,7 +26,7 @@ router.post('/salas', salaController.checkParticipante);
 router.post('/crearSala', middleware.checkLimiteSala, middleware.checkNombreDescripcionSala , salaController.crearSala);
 router.post('/aceptarSolicitudSala', middleware.usuarioNoAdminModeradorOMiembro, middleware.checkExisteSolicitudSala, salaController.aceptarSolicitudSala);
 router.post('/ignorarSolicitudSala', middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
-router.post('/cancelarSolicitudSala', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
+router.post('/eliminarSolicitudSala', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
 router.post('/participantesSala', salaController.buscarParticipantesSala);
 router.post('/actualizarSala', middleware.checkAdminOrModerador, salaController.actualizarDatos);
 router.post('/eliminarUsuarioSala', salaController.eliminarUsuario);
