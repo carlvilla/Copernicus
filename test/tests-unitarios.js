@@ -353,6 +353,23 @@ describe('Pruebas unitarias', function () {
                 })
         })
 
+        it('Usuario1 deberia mandar una solicitud de contacto al usuario5', function (done) {
+            request(url)
+                .post('/api/enviarSolicitudContacto')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'username': 'usuario5', 'mensaje': '¡Hola!'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+        })
+
+
         it('Usuario2 deberia mandar una solicitud de contacto al usuario3', function (done) {
             request(url)
                 .post('/api/enviarSolicitudContacto')
@@ -414,6 +431,20 @@ describe('Pruebas unitarias', function () {
         })
 
         it('El usuario3 deberia tener 2 solicitudes de contacto', function (done) {
+            request(url)
+                .get('/api/solicitudesContacto')
+                .set('Cookie', ['token = ' + tokenUsuario3])
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 2);
+                    done();
+                })
+        })
+
+        it('El usuario5 deberia tener 1 solicitud de contacto', function (done) {
             request(url)
                 .get('/api/solicitudesContacto')
                 .set('Cookie', ['token = ' + tokenUsuario3])
