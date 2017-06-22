@@ -280,13 +280,13 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     }
 
 
-    $scope.cancelarSolicitudSala = function (usuario) {
+    $scope.eliminarSolicitudSala = function (usuario) {
 
-        console.log("Cancelar invitación: " + usuario.username);
+        console.log("Eliminar solicitud: " + usuario.username);
 
         $http({
             method: "POST",
-            url: "api/cancelarSolicitudSala",
+            url: "api/eliminarSolicitudSala",
             data: {
                 idSala: idSalaSeleccionada,
                 username: usuario.username

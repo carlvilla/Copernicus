@@ -428,9 +428,6 @@ describe('Pruebas unitarias', function () {
         })
 
 
-
-
-
     });
 
     describe('Aceptar solicitud contacto', function () {
@@ -462,6 +459,19 @@ describe('Pruebas unitarias', function () {
                 })
         })
 
+        it('El usuario2 no deberia aceptar la solicitud de contacto del usuario1 porque ya la aceptó', function (done) {
+            request(url)
+                .post('/api/aceptarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario2])
+                .send({'usernameAceptado': 'usuario1'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(400);
+                    done();
+                })
+        })
 
         it('El usuario2 deberia tener 1 contacto', function (done) {
             request(url)
@@ -555,6 +565,23 @@ describe('Pruebas unitarias', function () {
 
                 })
         })
+
+        it('El usuario4 no deberia ignorar la solicitud de contacto del usuario1 porque ya la ignoró', function (done) {
+            request(url)
+                .post('/api/ignorarSolicitud')
+                .set('Cookie', ['token = ' + tokenUsuario4])
+                .send({'usernameIgnorado': 'usuario1'})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(400);
+                    done();
+
+                })
+        })
+
 
         it('El usuario4 deberia tener 1 solicitud de contacto del usuario 2', function (done) {
             request(url)
@@ -1131,6 +1158,23 @@ describe('Pruebas unitarias', function () {
                 })
         })
 
+        it('Deberia devolver un usuario bloqueado para usuario1', function (done) {
+            request(url)
+                .get('/api/contactosBloqueados')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 1);
+                    done();
+
+                })
+        })
+
+
         it("La sala 'Sala de pruebas 3' cuyo administrador es usuario1 deberia tener 1 solicitud de unión" +
             ", ya que usuario1 bloqueó a usuario3'", function (done) {
             request(url)
@@ -1201,6 +1245,23 @@ describe('Pruebas unitarias', function () {
 
                 })
         })
+
+        it('Deberia devolver 0 usuarios bloqueados para usuario1', function (done) {
+            request(url)
+                .get('/api/contactosBloqueados')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 0)
+                    done();
+
+                })
+        })
+
 
 
     });
@@ -1354,7 +1415,7 @@ describe('Pruebas unitarias', function () {
 
     describe('Eliminar solicitud', function () {
 
-        it("El usuario1 al ser moderador de la sala 'Partidos del domingo' debería enviar una solicitud de unión como miembro" +
+        it("El usuario1 al ser moderador de la sala 'Sala de pruebas' debería enviar una solicitud de unión como miembro" +
             " al usuario3", function (done) {
             request(url)
                 .post('/api/enviarSolicitudSala')
@@ -1375,9 +1436,26 @@ describe('Pruebas unitarias', function () {
             })
         })
 
-        it("El usuario1 deberia cancelar la solicitud de unión a la sala de usuario 3", function (done) {
+        it("La sala 'Sala de pruebas' debería tener 1 solicitud de unión enviada", function (done) {
             request(url)
-                .post('/api/cancelarSolicitudSala')
+                .post('/api/candidatos')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'idSala': 1})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 1);
+                    done();
+                })
+        })
+
+
+        it("El usuario1 al ser moderador de la sala 'Sala de pruebas' deberia eliminar la solicitud de unión a la" +
+            " sala de usuario 3", function (done) {
+            request(url)
+                .post('/api/eliminarSolicitudSala')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .send({
                     idSala: 1,
@@ -1395,8 +1473,22 @@ describe('Pruebas unitarias', function () {
             })
         })
 
+        it("La sala 'Sala de pruebas' debería tener 0 solicitudes de unión enviadas", function (done) {
+            request(url)
+                .post('/api/candidatos')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'idSala': 1})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 0);
+                    done();
+                })
+        })
 
-        it("El usuario1 al ser moderador de la sala 'Partidos del domingo' debería enviar una solicitud de unión como miembro" +
+        it("El usuario1 al ser moderador de la sala 'Sala de pruebas' debería enviar una solicitud de unión como miembro" +
             " al usuario3", function (done) {
             request(url)
                 .post('/api/enviarSolicitudSala')
@@ -1418,12 +1510,12 @@ describe('Pruebas unitarias', function () {
         })
 
 
-        it("El usuario3 debería aceptar la solicitud de unión a la sala 'Partidos del domingo'", function (done) {
+        it("El usuario3 debería aceptar la solicitud de unión a la sala 'Sala de pruebas'", function (done) {
             request(url)
                 .post('/api/aceptarSolicitudSala')
                 .set('Cookie', ['token = ' + tokenUsuario3])
                 .send({
-                    idSala: 1,
+                    idSala: 1
                 }).end(function (err, res) {
 
                 if (err) {
@@ -1436,10 +1528,10 @@ describe('Pruebas unitarias', function () {
             })
         })
 
-        it("El usuario1 no deberia cancelar la solicitud de unión a la sala de usuario 3 porque este último ya la " +
+        it("El usuario1 no deberia eliminar la solicitud de unión a la sala de usuario 3 porque este último ya la " +
             "aceptó", function (done) {
             request(url)
-                .post('/api/cancelarSolicitudSala')
+                .post('/api/eliminarSolicitudSala')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .send({
                     idSala: 1,
@@ -1457,11 +1549,105 @@ describe('Pruebas unitarias', function () {
             })
         })
 
+        it("El usuario1 al ser moderador de la sala 'Sala de pruebas' debería enviar una solicitud de unión como miembro" +
+            " al usuario5", function (done) {
+            request(url)
+                .post('/api/enviarSolicitudSala')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({
+                    idSala: 1,
+                    username: 'usuario5'
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(204);
+                done();
+
+            })
+        })
+
+        it("El usuario3 al ser miembro de la sala 'Sala de pruebas' no deberia eliminar la solicitud de unión a la sala" +
+            " del usuario 5", function (done) {
+            request(url)
+                .post('/api/eliminarSolicitudSala')
+                .set('Cookie', ['token = ' + tokenUsuario3])
+                .send({
+                    idSala: 1,
+                    username: 'usuario5'
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(400);
+                done();
+
+            })
+        })
+
+        it("La sala 'Sala de pruebas' debería tener 1 solicitud de unión enviada", function (done) {
+            request(url)
+                .post('/api/candidatos')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'idSala': 1})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 1);
+                    done();
+                })
+        })
+
+
+        it("El usuario2 al ser administrador de la sala 'Sala de pruebas' deberia eliminar la solicitud de unión a la " +
+            "sala del usuario 5", function (done) {
+            request(url)
+                .post('/api/eliminarSolicitudSala')
+                .set('Cookie', ['token = ' + tokenUsuario2])
+                .send({
+                    idSala: 1,
+                    username: 'usuario5'
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(204);
+                done();
+
+            })
+        })
+
+        it("La sala 'Sala de pruebas' debería tener 0 solicitudes de unión enviadas", function (done) {
+            request(url)
+                .post('/api/candidatos')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'idSala': 1})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 0);
+                    done();
+                })
+        })
+
     });
 
     describe('Modificar datos salas', function () {
 
-        it("El usuario1 al ser moderador de la sala 'Sala de prueba' debería cambiar el nombre de la sala a " +
+        it("El usuario1 al ser moderador de la sala 'Sala de pruebas' debería cambiar el nombre de la sala a " +
             "'Partidos del domingo' y la descripción a 'En esta sala se organizan los partidos del domingo'"
             , function (done) {
                 request(url)
@@ -1483,6 +1669,8 @@ describe('Pruebas unitarias', function () {
 
                 })
             })
+
+
 
         it("El usuario3 al ser miembro de la sala 'Partidos del domingo' no debería cambiar el nombre ni la descripción" +
             " de la sala", function (done) {
@@ -1506,12 +1694,36 @@ describe('Pruebas unitarias', function () {
             })
         })
 
+        it("El usuario2 al ser administrador de la sala 'Partidos del domingo' debería cambiar el nombre de la sala a " +
+            "'Sala de pruebas' y la descripción a 'En esta sala no se organizan los partidos del domingo'"
+            , function (done) {
+                request(url)
+                    .post('/api/actualizarSala')
+                    .set('Cookie', ['token = ' + tokenUsuario2])
+                    .send({
+                        idSala: 1,
+                        nombre: 'Sala de pruebas',
+                        descripcion: 'En esta sala no se organizan los partidos del domingo',
+                        fotoCambiada: false
+                    }).end(function (err, res) {
+
+                    if (err) {
+                        throw err;
+                    }
+
+                    res.status.should.be.equal(204);
+                    done();
+
+                })
+            })
+
+
     });
 
     describe('Cambiar permisos miembros', function () {
 
 
-        it("El usuario1 al ser moderador de la sala 'Partidos del domingo' deberia cambiar los permisos a moderador del " +
+        it("El usuario1 al ser moderador de la sala 'Sala de pruebas' deberia cambiar los permisos a moderador del " +
             "usuario 3", function (done) {
             request(url)
                 .post('/api/cambiarPermisos')
@@ -1539,7 +1751,7 @@ describe('Pruebas unitarias', function () {
     describe('Cambiar permisos moderadores', function () {
 
 
-        it("El usuario1 al no ser administrador de la sala 'Partidos del domingo' no deberia cambiar los permisos al usuario3 " +
+        it("El usuario1 al no ser administrador de la sala 'Sala de pruebas' no deberia cambiar los permisos al usuario3 " +
             "ya que este es moderador", function (done) {
             request(url)
                 .post('/api/cambiarPermisos')
@@ -1561,7 +1773,7 @@ describe('Pruebas unitarias', function () {
             })
         })
 
-        it("El usuario2 al ser administrador de la sala 'Partidos del domingo' deberia cambiar los permisos al moderador usuario3 " +
+        it("El usuario2 al ser administrador de la sala 'Sala de pruebas' deberia cambiar los permisos al moderador usuario3 " +
             "a miembro", function (done) {
             request(url)
                 .post('/api/cambiarPermisos')
@@ -1589,7 +1801,7 @@ describe('Pruebas unitarias', function () {
 
     describe('Eliminar miembro', function () {
 
-        it("El usuario1 al ser moderador de la sala 'Partidos del domingo' deberia eliminar al usuario3 " +
+        it("El usuario1 al ser moderador de la sala 'Sala de pruebas' deberia eliminar al usuario3 " +
             "de la sala ya que es miembro", function (done) {
             request(url)
                 .post('/api/eliminarUsuarioSala')
@@ -1615,7 +1827,7 @@ describe('Pruebas unitarias', function () {
 
     describe('Eliminar moderador', function () {
 
-        it("El usuario2 al ser administrador de la sala 'Sala de prueba' deberia eliminar de la sala al usuario1 que " +
+        it("El usuario2 al ser administrador de la sala 'Sala de pruebas' deberia eliminar de la sala al usuario1 que " +
             "es moderador", function (done) {
             request(url)
                 .post('/api/eliminarUsuarioSala')
@@ -1639,7 +1851,7 @@ describe('Pruebas unitarias', function () {
 
     describe('Cambiar permisos solicitud', function () {
 
-        it("El usuario2 al ser administrador de la sala 'Sala de prueba' deberia mandar una solicitud de unión a la sala" +
+        it("El usuario2 al ser administrador de la sala 'Sala de pruebas' deberia mandar una solicitud de unión a la sala" +
             " como miembro al usuario3 ", function (done) {
             request(url)
                 .post('/api/enviarSolicitudSala')
@@ -1660,7 +1872,7 @@ describe('Pruebas unitarias', function () {
             })
         })
 
-        it("El usuario2 al ser administrador de la sala 'Sala de prueba' deberia cambiar los permisos de" +
+        it("El usuario2 al ser administrador de la sala 'Sala de pruebas' deberia cambiar los permisos de" +
             " la solicitud de unión a la sala del usuario3 ", function (done) {
             request(url)
                 .post('/api/cambiarPermisosSolicitud')
@@ -1686,7 +1898,7 @@ describe('Pruebas unitarias', function () {
 
     describe('Abandonar sala', function () {
 
-        it("El usuario3 al ser moderador de la sala 'Sala de prueba' deberia salir de la sala ", function (done) {
+        it("El usuario3 al ser moderador de la sala 'Sala de pruebas' deberia salir de la sala ", function (done) {
             request(url)
                 .post('/api/eliminarUsuarioSala')
                 .set('Cookie', ['token = ' + tokenUsuario3])
@@ -1709,7 +1921,7 @@ describe('Pruebas unitarias', function () {
 
     describe('Eliminar sala', function () {
 
-        it("El usuario1 al ser administrador de la sala 'Sala de prueba 4' deberia eliminar la sala ", function (done) {
+        it("El usuario1 al ser administrador de la sala 'Sala de pruebas 4' deberia eliminar la sala ", function (done) {
             request(url)
                 .post('/api/eliminarSala')
                 .set('Cookie', ['token = ' + tokenUsuario1])
@@ -1727,7 +1939,7 @@ describe('Pruebas unitarias', function () {
             })
         })
 
-        it("El usuario1 no debería eliminar la 'Sala de prueba 4' porque no existe", function (done) {
+        it("El usuario1 no debería eliminar la 'Sala de pruebas 4' porque no existe", function (done) {
             request(url)
                 .post('/api/eliminarSala')
                 .set('Cookie', ['token = ' + tokenUsuario1])
@@ -1765,6 +1977,7 @@ describe('Pruebas unitarias', function () {
 
 
     });
+    
 
 /*
     describe('Limite participantes salas', function () {
