@@ -23,6 +23,27 @@ module.exports.checkEmail = function (req, res, next) {
     }
 }
 
+/**
+ * Comprueba que el nombre y apellidos sean válidos
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkNombreApellidos = function (req, res, next) {
+    var nombre = req.body.nombre;
+    var apellidos = req.body.apellidos;
+
+    if(nombre.length > 15 || nombre.length < 3){
+        utils.sendJSONresponse(res, 400, "nombre");
+    }else if(apellidos.length > 35){
+        utils.sendJSONresponse(res, 400, "apellidos");
+    }else{
+        next();
+    }
+}
+
+
 
 /**
  * Comprueba que el nombre de usuario exista
@@ -397,9 +418,9 @@ module.exports.checkLimiteSala = function (req, res, next) {
 
     //Si se envió un listado de usuarios, significa que se está creando una sala
     if (usuarios) {
-        if(usuarios.length > 3){
+        if (usuarios.length > 3) {
             utils.sendJSONresponse(res, 400, "");
-        }else{
+        } else {
             next();
         }
 
@@ -437,18 +458,104 @@ module.exports.checkLimiteSala = function (req, res, next) {
 module.exports.checkNombreDescripcionSala = function (req, res, next) {
     var sala = req.body.sala;
 
-    console.log(sala);
-
     if (!sala.nombre || sala.nombre.length > 50) {
         utils.sendJSONresponse(res, 400, "");
 
     } else if (sala.descripcion && sala.descripcion.length > 200) {
         utils.sendJSONresponse(res, 400, "");
 
-    }else{
+    } else {
         next();
     }
 }
+
+
+/**
+ * Comprueba que el nombre y descripción de la sala sean válidos
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkPosibleEliminar = function (req, res, next) {
+    var idSala = req.body.idSala;
+
+    var usernameEnvia = utils.getUsername(req);
+    var username = req.body.username;
+
+    //En el caso de que no se pase un usuario significa que es el usuario que envía la petición quien quiere
+    // abandonar la sala. Puede hacerlo si este no es administrador.
+    if (!username) {
+
+        var query = "MATCH(u:Usuario{username:'" + usernameEnvia + "'})-[c]" +
+            "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+
+        db.query(query, function (err, result) {
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                if (!result) {
+                    utils.sendJSONresponse(res, 400, err);
+                    return;
+                }else{
+
+                    //Si el usuario que envía la petición es administrador de la sala, puede realizar la operación
+                    if (result[0].type != 'Admin') {
+                        next();
+
+                    }else{
+                        utils.sendJSONresponse(res, 400, err);
+                    }
+                }
+            }
+        });
+
+    } else {
+        var query = "MATCH(u:Usuario{username:'" + usernameEnvia + "'})-[c]" +
+            "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+
+        db.query(query, function (err, result) {
+            if (err) {
+                utils.sendJSONresponse(res, 500, err);
+            } else {
+                if (!result) {
+                    utils.sendJSONresponse(res, 400, err);
+                    return;
+                }
+
+                //Si el usuario que envía la petición es administrador de la sala, puede realizar la operación
+                if (result[0].type == 'Admin') {
+                    next();
+
+                    //Si el usuario que envía la petición es moderador de la sala, hay que comprobar que el usuario
+                    //al que intenta eliminar sea miembro
+                } else if (result[0].type == 'Moderador') {
+
+                    query = "MATCH(u:Usuario{username:'" + username + "'})-[c]" +
+                        "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+
+                    db.query(query, function (err, result) {
+                        if (err) {
+                            utils.sendJSONresponse(res, 500, err);
+                        } else {
+                            if (result[0].type == 'Miembro') {
+                                next();
+                            } else {
+                                utils.sendJSONresponse(res, 400, err);
+                            }
+                        }
+                    });
+
+                } else {
+                    utils.sendJSONresponse(res, 400, err);
+                }
+            }
+        });
+    }
+}
+
+
+
 
 
 

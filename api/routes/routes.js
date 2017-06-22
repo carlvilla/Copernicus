@@ -11,7 +11,7 @@ router.post('/login', usuarioController.login);
 router.post('/registrar', middleware.checkEmail, middleware.usernameNoExiste ,usuarioController.registrar);
 router.post('/datosUsuario', usuarioController.datosUsuario);
 router.post('/modificarPass', usuarioController.modificarPass);
-router.post('/modificarDatos', middleware.checkEmail ,usuarioController.modificarDatos);
+router.post('/modificarDatos', middleware.checkEmail, middleware.checkNombreApellidos ,usuarioController.modificarDatos);
 router.post('/eliminarCuenta', middleware.usernameExiste, usuarioController.eliminarCuenta);
 router.get('/perfil', usuarioController.perfil);
 router.get('/validarUsername/:username', usuarioController.validarUsername);
@@ -29,7 +29,7 @@ router.post('/ignorarSolicitudSala', middleware.checkExisteSolicitudSala, salaCo
 router.post('/eliminarSolicitudSala', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
 router.post('/participantesSala', salaController.buscarParticipantesSala);
 router.post('/actualizarSala', middleware.checkAdminOrModerador, salaController.actualizarDatos);
-router.post('/eliminarUsuarioSala', salaController.eliminarUsuario);
+router.post('/eliminarUsuarioSala', middleware.checkPosibleEliminar ,salaController.eliminarUsuario);
 router.post('/eliminarSala', middleware.checkAdmin, salaController.eliminarSala);
 router.post('/cambiarPermisos', middleware.checkAdminOrModerador, middleware.checkAdminSiCambioAModerador, salaController.cambiarPermisos);
 router.post('/cambiarPermisosSolicitud', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala , salaController.cambiarPermisosSolicitud);
