@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/partials/footer.ejs" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/routes/middleware.js" afterPath="$PROJECT_DIR$/api/routes/middleware.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js" afterPath="$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/chatroom.css" afterPath="$PROJECT_DIR$/public/stylesheets/chatroom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/routes/routes.js" afterPath="$PROJECT_DIR$/api/routes/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modulo.js" afterPath="$PROJECT_DIR$/public/modulo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/tests-unitarios.js" afterPath="$PROJECT_DIR$/test/tests-unitarios.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/about.ejs" afterPath="$PROJECT_DIR$/views/about.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/chatroom.ejs" afterPath="$PROJECT_DIR$/views/chatroom.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/error.ejs" afterPath="$PROJECT_DIR$/views/error.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/legal.ejs" afterPath="$PROJECT_DIR$/views/legal.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/mainPage.ejs" afterPath="$PROJECT_DIR$/views/mainPage.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manageRooms.ejs" afterPath="$PROJECT_DIR$/views/manageRooms.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/profileSettings.ejs" afterPath="$PROJECT_DIR$/views/profileSettings.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/servicios/presentaciones.ejs" afterPath="$PROJECT_DIR$/views/servicios/presentaciones.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,8 +36,8 @@
       <file leaf-file-name="tests-unitarios.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="422" column="18" lean-forward="true" selection-start-line="422" selection-start-column="18" selection-end-line="422" selection-end-column="18" />
+            <state relative-caret-position="129">
+              <caret line="803" column="11" lean-forward="false" selection-start-line="803" selection-start-column="11" selection-end-line="803" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -58,8 +46,8 @@
       <file leaf-file-name="VideollamadasManager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="430" column="0" lean-forward="false" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
+            <state relative-caret-position="-4428">
+              <caret line="111" column="55" lean-forward="false" selection-start-line="111" selection-start-column="32" selection-end-line="111" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -95,16 +83,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addContactoController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-361">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="salaController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/salaController.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -115,31 +93,41 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="serviciosController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/routes/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="35" column="109" lean-forward="false" selection-start-line="35" selection-start-column="109" selection-end-line="35" selection-end-column="109" />
+            <state relative-caret-position="254">
+              <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manageRooms.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/manageRooms.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="35" lean-forward="false" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="middleware.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="middleware.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/routes/middleware.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="405" column="23" lean-forward="true" selection-start-line="405" selection-start-column="23" selection-end-line="405" selection-end-column="23" />
+            <state relative-caret-position="278">
+              <caret line="403" column="32" lean-forward="false" selection-start-line="403" selection-start-column="32" selection-end-line="403" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modulo.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/modulo.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="119" column="56" lean-forward="false" selection-start-line="119" selection-start-column="56" selection-end-line="119" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -157,10 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>videosActualizar</find>
-      <find>video</find>
-      <find>videoRemoto3</find>
-      <find>confirm</find>
       <find>utils</find>
       <find>confirmAction</find>
       <find>in</find>
@@ -181,12 +165,16 @@
       <find>usl</find>
       <find>ul</find>
       <find>&lt;ul</find>
-      <find>checkNo</find>
       <find>RTCPeerConnection</find>
-      <find>describe</find>
-      <find>webkitRTCPeerConnection</find>
       <find>limite</find>
+      <find>describe</find>
+      <find>Sala de pruebas 4</find>
+      <find>webkitRTCPeerConnection</find>
       <find>comprobarLimiteSala</find>
+      <find>checkNo</find>
+      <find>8</find>
+      <find>4</find>
+      <find>MAX_SERVICIOS</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -230,7 +218,6 @@
         <option value="$PROJECT_DIR$/server/config.js" />
         <option value="$PROJECT_DIR$/server/servers/http.js" />
         <option value="$PROJECT_DIR$/server/servers/websockets.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/chatTextoController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/managers/ChatTextoManager.js" />
         <option value="$PROJECT_DIR$/public/javascripts/managers/VideoCompartidoManager.js" />
@@ -245,7 +232,6 @@
         <option value="$PROJECT_DIR$/server/controllers/pagesControllers.js" />
         <option value="$PROJECT_DIR$/server/routes/routes.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/public/modulo.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/index.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/legal.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/about.css" />
@@ -259,12 +245,14 @@
         <option value="$PROJECT_DIR$/views/manageRooms.ejs" />
         <option value="$PROJECT_DIR$/views/profileSettings.ejs" />
         <option value="$PROJECT_DIR$/views/error.ejs" />
-        <option value="$PROJECT_DIR$/api/routes/routes.js" />
-        <option value="$PROJECT_DIR$/test/tests-unitarios.js" />
         <option value="$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" />
+        <option value="$PROJECT_DIR$/api/routes/routes.js" />
+        <option value="$PROJECT_DIR$/test/tests-unitarios.js" />
         <option value="$PROJECT_DIR$/api/routes/middleware.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js" />
+        <option value="$PROJECT_DIR$/public/modulo.js" />
       </list>
     </option>
   </component>
@@ -1349,23 +1337,11 @@
       <workItem from="1497976761776" duration="17406000" />
       <workItem from="1498002869178" duration="1867000" />
       <workItem from="1498042612151" duration="19586000" />
-      <workItem from="1498084557073" duration="6406000" />
+      <workItem from="1498084557073" duration="7457000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 10h 16m 25s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 10h 23m 34s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 10h 25m 27s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 10h 43m 39s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="test_tests-unitarios_js - 2017.06.22 at 10h 45m 12s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -1384,9 +1360,21 @@
     <history-entry file="test_tests-unitarios_js - 2017.06.22 at 11h 09m 53s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 12h 38m 50s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 12h 42m 16s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 12h 43m 32s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 12h 52m 40s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1050466000" />
+    <option name="totallyTimeSpent" value="1051517000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1399,7 +1387,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.49353796" order="6" side_tool="false" content_ui="tabs" />
@@ -1413,11 +1400,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802126" sideWeight="0.49353796" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24474959" sideWeight="0.5315682" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5145396" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33333334" sideWeight="0.5145396" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25686592" sideWeight="0.46843177" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27459016" sideWeight="0.48546043" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1430,7 +1418,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27459016" sideWeight="0.48546043" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1480,14 +1467,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/radioController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/servicios/chatVideo.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1719,14 +1698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2730">
-          <caret line="182" column="37" lean-forward="false" selection-start-line="182" selection-start-column="31" selection-end-line="182" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/servicios/presentaciones.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1799,30 +1770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="422" column="18" lean-forward="true" selection-start-line="422" selection-start-column="18" selection-end-line="422" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="430" column="0" lean-forward="false" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/videollamadasController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-361">
@@ -1839,14 +1786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="243" column="74" lean-forward="false" selection-start-line="243" selection-start-column="55" selection-end-line="243" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/salaController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1857,16 +1796,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/routes/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="35" column="109" lean-forward="false" selection-start-line="35" selection-start-column="109" selection-end-line="35" selection-end-column="109" />
+        <state relative-caret-position="254">
+          <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/videollamadasController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="803" column="11" lean-forward="false" selection-start-line="803" selection-start-column="11" selection-end-line="803" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4428">
+          <caret line="111" column="55" lean-forward="false" selection-start-line="111" selection-start-column="32" selection-end-line="111" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="243" column="74" lean-forward="false" selection-start-line="243" selection-start-column="55" selection-end-line="243" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/routes/middleware.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="405" column="23" lean-forward="true" selection-start-line="405" selection-start-column="23" selection-end-line="405" selection-end-column="23" />
+        <state relative-caret-position="278">
+          <caret line="403" column="32" lean-forward="false" selection-start-line="403" selection-start-column="32" selection-end-line="403" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/modulo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="119" column="56" lean-forward="false" selection-start-line="119" selection-start-column="56" selection-end-line="119" selection-end-column="56" />
           <folding />
         </state>
       </provider>

@@ -60,12 +60,6 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
             maxHeight: 8
         };
 
-        //Solo se pueden utilizar 4 módulos simultáneamente
-        if(serviciosAbiertos.length > 3){
-            utils.mensajeInfo($translate.instant('MAX_SERVICIOS'));
-            return;
-        }
-
         switch (servicio) {
             case "chatVideo":
                 servicioSeleccionado = htmlChatVideo;

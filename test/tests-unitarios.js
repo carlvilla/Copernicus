@@ -746,8 +746,8 @@ describe('Pruebas unitarias', function () {
             })
         })
 
-        it("Deberia crear una sala llamada 'Sala de pruebas 2' cuyo administrador es el usuario2 y se le envía una solicitud de unión como miembro" +
-            " al usuario1", function (done) {
+        it("Deberia crear una sala llamada 'Sala de pruebas 2' cuyo administrador es el usuario2 " +
+            "y se le envía una solicitud de unión como miembro al usuario1", function (done) {
             request(url)
                 .post('/api/crearSala')
                 .set('Cookie', ['token = ' + tokenUsuario2])
