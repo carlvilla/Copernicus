@@ -397,11 +397,9 @@ module.exports.comprobarLimiteSala = function (req, res, next) {
 
     //Si se envió un listado de usuarios, significa que se está creando una sala
     if (usuarios) {
-
         if(usuarios.length > 3){
-            utils.sendJSONresponse(res, 400, err);
+            utils.sendJSONresponse(res, 400, "");
         }else{
-            console.log("Bien");
             next();
         }
 
@@ -410,7 +408,6 @@ module.exports.comprobarLimiteSala = function (req, res, next) {
     //Si no se envió un listado de usuarios, significa que se está enviando una
     //solicitud de unión a una sala a un usuario
     else {
-
         var query = "MATCH(s:Sala{idSala:" + idSala + "})-[c:Candidato | Admin | Moderador | Miembro]" +
             "-(Usuario) RETURN  c";
 
