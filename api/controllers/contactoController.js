@@ -234,13 +234,12 @@ module.exports.ignorarSolicitudContacto = function (req, res) {
  * @param res
  */
 module.exports.bloquear = function (req, res) {
-
     var username = utils.getUsername(req);
 
     var usernameBloqueado = req.body.username;
 
     var queryAddBloqueado = "MATCH(u:Usuario{username:'" + username + "'}),(uB:Usuario{username:'" + usernameBloqueado + "'}) " +
-        "CREATE (u)-[:Bloqueado]->(uB)"
+        "CREATE (u)-[:Bloqueado]->(uB)";
 
     db.query(queryAddBloqueado, function (err, result) {
         if (err) {
@@ -257,7 +256,7 @@ module.exports.bloquear = function (req, res) {
 
                     var queryFindAdmin = "MATCH(u:Usuario{username:'" + username + "'})," +
                         "(uB:Usuario{username:'" + usernameBloqueado + "'}),(s:Sala) where (u)-[:Admin]->(s) " +
-                        "AND (uB)-[:Miembro | Moderador]-(s) RETURN s";
+                        "AND (uB)-[:Candidato | Miembro | Moderador]-(s) RETURN s";
 
 
                     db.query(queryFindAdmin, function (err, result) {
@@ -269,10 +268,7 @@ module.exports.bloquear = function (req, res) {
                             result.forEach(function (sala) {
 
                                 var queryRemoveParticipante = "MATCH(u:Usuario {username:'" + usernameBloqueado + "'})" +
-                                    "-[r:Candidato| Miembro | Moderador]->(sala:Sala {idSala:" + sala.idSala + "}) DELETE r RETURN sala";
-
-
-                                console.log(queryRemoveParticipante);
+                                    "-[r:Candidato | Miembro | Moderador]->(sala:Sala {idSala:" + sala.idSala + "}) DELETE r RETURN sala";
 
 
                                 db.query(queryRemoveParticipante, function (err, result) {
