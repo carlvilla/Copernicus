@@ -23,7 +23,7 @@ router.get('/salasAdmin', salaController.buscarSalasAdmin);
 router.get('/salasModerador', salaController.buscarSalasModerador);
 router.get('/salasMiembro', salaController.buscarSalasMiembro);
 router.post('/salas', salaController.checkParticipante);
-router.post('/crearSala', middleware.comprobarLimiteSala , salaController.crearSala);
+router.post('/crearSala', middleware.checkLimiteSala, middleware.checkNombreDescripcionSala , salaController.crearSala);
 router.post('/aceptarSolicitudSala', middleware.usuarioNoAdminModeradorOMiembro, middleware.checkExisteSolicitudSala, salaController.aceptarSolicitudSala);
 router.post('/ignorarSolicitudSala', middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
 router.post('/cancelarSolicitudSala', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
@@ -33,7 +33,7 @@ router.post('/eliminarUsuarioSala', salaController.eliminarUsuario);
 router.post('/eliminarSala', middleware.checkAdmin, salaController.eliminarSala);
 router.post('/cambiarPermisos', middleware.checkAdminOrModerador, middleware.checkAdminSiCambioAModerador, salaController.cambiarPermisos);
 router.post('/cambiarPermisosSolicitud', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala , salaController.cambiarPermisosSolicitud);
-router.post('/enviarSolicitudSala', middleware.usuarioNoCandidatoAdminModeradorOMiembro, middleware.comprobarLimiteSala, salaController.enviarSolicitudSala);
+router.post('/enviarSolicitudSala', middleware.usuarioNoCandidatoAdminModeradorOMiembro, middleware.checkLimiteSala, salaController.enviarSolicitudSala);
 router.post('/candidatos', salaController.buscarCandidatos);
 
 //llamadas rest para gestionar contactos

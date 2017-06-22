@@ -197,6 +197,7 @@ module.exports.buscarSalasCandidato = function (req, res) {
             utils.sendJSONresponse(res, 200, result);
         }
     });
+
 };
 
 /**

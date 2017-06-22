@@ -390,7 +390,7 @@ module.exports.checkExisteSolicitudSala = function (req, res, next) {
  * @param res
  * @param next
  */
-module.exports.comprobarLimiteSala = function (req, res, next) {
+module.exports.checkLimiteSala = function (req, res, next) {
     var idSala = req.body.idSala;
 
     var usuarios = req.body.usuarios;
@@ -425,6 +425,34 @@ module.exports.comprobarLimiteSala = function (req, res, next) {
 
     }
 }
+
+
+/**
+ * Comprueba que el nombre y descripción de la sala sean válidos
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
+module.exports.checkNombreDescripcionSala = function (req, res, next) {
+    var sala = req.body.sala;
+
+    console.log(sala);
+
+    if (!sala.nombre || sala.nombre.length > 50) {
+        utils.sendJSONresponse(res, 400, "");
+
+    } else if (sala.descripcion && sala.descripcion.length > 200) {
+        utils.sendJSONresponse(res, 400, "");
+
+    }else{
+        next();
+    }
+}
+
+
+
+
 
 
 
