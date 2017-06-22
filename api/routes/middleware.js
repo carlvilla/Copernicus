@@ -66,7 +66,7 @@ module.exports.usernameNoExiste = function (req, res, next) {
             utils.sendJSONresponse(res, 500, err);
         } else {
             if (result[0]) {
-                utils.sendJSONresponse(res, 403, err);
+                utils.sendJSONresponse(res, 400, err);
             } else {
                 next();
             }

@@ -46,7 +46,7 @@ module.exports.login = function (req, res) {
                     "token": token
                 });
             } else {
-                utils.sendJSONresponse(res, 401, info);
+                utils.sendJSONresponse(res, 403, info);
             }
 
         })(req, res);
@@ -209,7 +209,7 @@ module.exports.modificarPass = function (req, res) {
     passport.authenticate('local', function (err, usuario, info) {
         var token;
         if (err) {
-            utils.sendJSONresponse(res, 404, "pass");
+            utils.sendJSONresponse(res, 403, "pass");
             return;
         }
 
@@ -227,7 +227,7 @@ module.exports.modificarPass = function (req, res) {
             });
 
         } else {
-            utils.sendJSONresponse(res, 401, "pass");
+            utils.sendJSONresponse(res, 403, "pass");
         }
 
     })(req, res);

@@ -170,7 +170,7 @@ module.exports.checkParticipante = function (req, res) {
             utils.sendJSONresponse(res, 200, result);
         } else {
             //El usuario no tiene permisos para acceder a esta sala
-            utils.sendJSONresponse(res, 403, err);
+            utils.sendJSONresponse(res, 400, err);
         }
     });
 }
