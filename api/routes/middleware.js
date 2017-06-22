@@ -386,7 +386,7 @@ module.exports.checkExisteSolicitudSala = function (req, res, next) {
 }
 
 /**
- * Comprueba que no existan 8 participantes en la sala
+ * Comprueba que no existan 4 participantes en la sala
  *
  * @param req
  * @param res
@@ -402,7 +402,7 @@ module.exports.comprobarLimiteSala = function (req, res, next) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
-            if (result.length < 8) {
+            if (result.length < 4) {
                 next();
             } else {
                 utils.sendJSONresponse(res, 400, err);

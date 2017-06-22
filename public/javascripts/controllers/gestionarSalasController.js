@@ -271,7 +271,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
      * @returns {boolean}
      */
     function comprobarLimiteSala() {
-        if (($scope.participantes.length + $scope.candidatos.length) == 8) {
+        if (($scope.participantes.length + $scope.candidatos.length) == 4) {
             utils.mensajeInfo($translate.instant("LIMITE_SALA"));
             return false;
         } else {

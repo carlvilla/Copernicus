@@ -49,9 +49,9 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
 
     function comprobarLimiteSala() {
-        //El límite es 8 personas, pero se comprueba que no haya más de 7 porque la octava persona es el usuario
+        //El límite es 4 personas, pero se comprueba que no haya más de 3 porque la octava persona es el usuario
         //que crea la sala
-        if ($scope.contactosSeleccionados.length == 7) {
+        if ($scope.contactosSeleccionados.length == 3) {
             utils.mensajeInfo($translate.instant("LIMITE_SALA"));
             return false;
         } else {
