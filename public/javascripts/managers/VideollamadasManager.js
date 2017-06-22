@@ -6,11 +6,6 @@ function VideollamadasManager(ws) {
     var videoRemoto2;
     var videoRemoto3;
 
-    var remoto5;
-    var remoto6;
-    var remoto7;
-    var remoto8;
-
     var usuario;
     var sala;
 
@@ -133,8 +128,6 @@ function VideollamadasManager(ws) {
         };
 
         localPeerConnection.onaddstream = function gotRemoteStream(event) {
-
-            console.log("OnAddStream");
 
             //Aqui se tienen que utilizar los componentes remoteVideo1, remoteVideo2,
             // remoteVideo3 (Puede haber como máximo 4 personas
@@ -427,7 +420,15 @@ function VideollamadasManager(ws) {
                 videosActualizar[2].style.width = "50%";
                 videosActualizar[2].style.height = "50%";
 
+                //Si true, significa que era más de 4 y alguien salió
+                if(!videosActualizar[1].getVideoTracks()[0].enabled){
+                    videosActualizar.forEach(function(video){
+                        videosActualizar.getVideoTracks()[0].enabled = true;
+                    })
+                }
+
             }
+
         }
     }
 

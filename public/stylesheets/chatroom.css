@@ -142,7 +142,6 @@ html, body {
     animation: blink-animation 1.5s steps(5, start) infinite;
     -webkit-animation: blink-animation 1.5s steps(5, start) infinite;
     color: #00FF00;
-"
 }
 
 .desconectado {
@@ -150,12 +149,6 @@ html, body {
 }
 
 @keyframes blink-animation {
-    to {
-        visibility: hidden;
-    }
-}
-
-@-webkit-keyframes blink-animation {
     to {
         visibility: hidden;
     }
