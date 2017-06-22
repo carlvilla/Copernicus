@@ -27,7 +27,7 @@
 
 <% include partials/header %>
 
-<h1>Iniciar sesión</h1>
+<h1 translate="BIENVENIDO_COPERNICUS" id="bienvenido"></h1>
 
 <div class="container">
     <div class="row">
@@ -50,14 +50,18 @@
                             <div ng-controller='loginController'>
                                 <form ng-submit="login()" id="login-form" style="display: block;">
                                     <div class="form-group">
+                                        <label translate="USERNAME" for="username-login"></label>
                                         <input type="text" ng-model="credenciales.username" name="username-login"
                                                required id="username-login" tabindex="1"
-                                               class="form-control" title="username" placeholder="{{'USERNAME' | translate}}">
+                                               class="form-control" title="username" placeholder="{{'USERNAME' | translate}}"/>
+
                                     </div>
                                     <div class="form-group">
+                                        <label translate="PASS" for="password-login"></label>
                                         <input type="password" ng-model="credenciales.password" name="password-login"
                                                required id="password-login" tabindex="2"
-                                               class="form-control" title="password" placeholder="{{'PASS' | translate}}">
+                                               class="form-control" title="password" placeholder="{{'PASS' | translate}}"/>
+
                                     </div>
 
                                     <!-- Error al iniciar sesión -->
@@ -69,7 +73,7 @@
                                             <div class="col-sm-6 col-sm-offset-3">
                                                 <input type="submit" name="login-submit" id="login-submit" tabindex="4"
                                                        class="btn btn-primary btn-block"
-                                                       value="{{'INICIAR_SESION' | translate}}">
+                                                       value="{{'INICIAR_SESION' | translate}}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -80,23 +84,27 @@
                                       style="display: none;">
 
                                     <div class="form-group">
+                                        <label translate="NOMBRE" for="nombre"></label>
                                         <input type="text" ng-model='usuario.nombre' id="nombre" required minlength="3"
                                                maxlength="15" tabindex="1" class="form-control"
-                                               placeholder="{{'NOMBRE' | translate}} *">
+                                               placeholder="{{'NOMBRE' | translate}} *"/>
                                     </div>
 
                                     <div class="form-group">
+                                        <label translate="APELLIDOS" for="apellidos"></label>
                                         <input type="text" ng-model='usuario.apellidos' id="apellidos"
                                                maxlength="35" tabindex="1" class="form-control"
-                                               placeholder="{{'APELLIDOS' | translate}}" value="">
+                                               placeholder="{{'APELLIDOS' | translate}}" value=""/>
+
                                     </div>
 
                                     <div class="form-group">
+                                        <label translate="USERNAME" for="username"></label>
                                         <input type="text" username-validation required ng-model='usuario.username'
                                                id="username" ng-keypress="comprobarCaracter($event)"
                                                minlength="3" maxlength="15" tabindex="1"
                                                ng-class="{error:messages.showError}"
-                                               class="form-control" placeholder="{{'USERNAME' | translate}} *">
+                                               class="form-control" placeholder="{{'USERNAME' | translate}} *"/>
 
                                         <div ng-if="registerForm.$pending.usernameAvailable"
                                              translate="COMPROBAR_USERNAME"></div>
@@ -108,26 +116,30 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label translate="EMAIL" for="email"></label>
                                         <input type="email" ng-model='usuario.email' id="email" required tabindex="1"
-                                               class="form-control" placeholder="{{'EMAIL' | translate}} *" value="">
+                                               class="form-control" placeholder="{{'EMAIL' | translate}} *" value=""/>
                                     </div>
 
                                     <div class="form-group">
+                                        <label translate="PASS" for="password"></label>
                                         <input type="password" id="password" name="password" ng-model='usuario.password'
                                                minlength="8" required
                                                class="form-control" tabindex="1"
-                                               placeholder="{{'PASS' | translate}} *">
+                                               placeholder="{{'PASS' | translate}} *"/>
                                     </div>
 
                                     <div class="form-group">
+                                        <label translate="PASS_CONF" for="confirmPassword"></label>
                                         <input type="password" id="confirmPassword" name="confirmPassword"
                                                ng-model="confirmPassword"
                                                password-validation="password" required
                                                class="form-control" tabindex="1"
-                                               placeholder="{{'PASS_CONF' | translate}} *">
+                                               placeholder="{{'PASS_CONF' | translate}} *"/>
                                     </div>
 
-                                    <div>{{'SELECCIONA_FOTO_PERFIL' | translate}}:
+                                    <div>
+                                        <label translate="SELECCIONA_FOTO_PERFIL" for="foto"></label>
                                         <input type="file" id="foto" accept="image/jpeg, image/x-png, image/gif"/>
                                     </div>
 
