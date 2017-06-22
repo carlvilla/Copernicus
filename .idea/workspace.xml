@@ -45,8 +45,8 @@
       <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="57" column="83" lean-forward="false" selection-start-line="57" selection-start-column="83" selection-end-line="57" selection-end-column="83" />
+            <state relative-caret-position="30">
+              <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -1330,20 +1330,11 @@
       <workItem from="1498138578996" duration="2045000" />
       <workItem from="1498140641016" duration="3846000" />
       <workItem from="1498144509626" duration="9645000" />
-      <workItem from="1498158695738" duration="46000" />
+      <workItem from="1498158695738" duration="386000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 18h 58m 53s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 19h 00m 13s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 19h 00m 34s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="test_tests-unitarios_js - 2017.06.22 at 19h 01m 40s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -1365,9 +1356,18 @@
     <history-entry file="test_tests-unitarios_js - 2017.06.22 at 19h 25m 42s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 21h 14m 36s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 21h 14m 51s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.22 at 21h 15m 52s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1075952000" />
+    <option name="totallyTimeSpent" value="1076292000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1391,7 +1391,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4043716" sideWeight="0.48626816" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802126" sideWeight="0.49353796" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25409836" sideWeight="0.79563814" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25409836" sideWeight="0.79563814" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24474959" sideWeight="0.5315682" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3989071" sideWeight="0.51615506" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
@@ -1823,8 +1823,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="57" column="83" lean-forward="false" selection-start-line="57" selection-start-column="83" selection-end-line="57" selection-end-column="83" />
+        <state relative-caret-position="30">
+          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding />
         </state>
       </provider>
