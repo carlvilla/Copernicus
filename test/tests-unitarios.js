@@ -576,8 +576,7 @@ describe('Pruebas unitarias', function () {
     describe('Crear sala', function () {
 
         it("Deberia crear una sala llamada 'Sala de pruebas' cuyo administrador es el usuario2 " +
-            "y se le envía una solicitud de unión como moderador" +
-            " al usuario1", function (done) {
+            "y se le envía una solicitud de unión como moderador al usuario1", function (done) {
             request(url)
                 .post('/api/crearSala')
                 .set('Cookie', ['token = ' + tokenUsuario2])
@@ -585,7 +584,6 @@ describe('Pruebas unitarias', function () {
                     'sala': {
                         nombre: 'Sala de pruebas',
                         descripcion: 'Esta es la descripción de la sala de pruebas',
-                        idSala: 1,
                         fotoPorDefecto: true
                     },
                     'usuarios': [{'username': 'usuario1', 'permisos': 'Moderador'}]
@@ -602,6 +600,21 @@ describe('Pruebas unitarias', function () {
             })
         })
 
+        it("La sala 'Sala de pruebas' debería tener 1 solicitud de unión enviada", function (done) {
+            request(url)
+                .post('/api/candidatos')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'idSala': 1})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 1);
+                    done();
+                })
+        })
+
         it("Deberia crear una sala llamada 'Sala de pruebas 2' cuyo administrador es el usuario2 " +
             "y se le envía una solicitud de unión como miembro al usuario1", function (done) {
             request(url)
@@ -611,7 +624,6 @@ describe('Pruebas unitarias', function () {
                     'sala': {
                         nombre: 'Sala de pruebas 2',
                         descripcion: 'Sala para realizar pruebas',
-                        idSala: 2,
                         fotoPorDefecto: true
                     },
                     'usuarios': [{'username': 'usuario1', 'permisos': 'Miembro'}]
@@ -628,6 +640,21 @@ describe('Pruebas unitarias', function () {
             })
         })
 
+        it("La sala 'Sala de pruebas 2' debería tener 1 solicitud de unión enviada", function (done) {
+            request(url)
+                .post('/api/candidatos')
+                .set('Cookie', ['token = ' + tokenUsuario2])
+                .send({'idSala': 2})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 1);
+                    done();
+                })
+        })
+
         it("Deberia crear una sala llamada 'Sala de pruebas 3' cuyo administrador es el usuario1 y se envía " +
             "solicitudes de unión como moderador al usuario2 y como miembro al usuario3", function (done) {
             request(url)
@@ -637,7 +664,6 @@ describe('Pruebas unitarias', function () {
                     'sala': {
                         nombre: 'Sala de pruebas 3',
                         descripcion: 'Sala creada mediantes pruebas automatizadas',
-                        idSala: 3,
                         fotoPorDefecto: true
                     },
                     'usuarios': [
@@ -657,6 +683,22 @@ describe('Pruebas unitarias', function () {
             })
         })
 
+        it("La sala 'Sala de pruebas 3' debería tener 2 solicitudes de unión enviadas", function (done) {
+            request(url)
+                .post('/api/candidatos')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({idSala: 3})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 2);
+                    done();
+                })
+        })
+
+
         it("Deberia crear una sala llamada 'Sala de pruebas 4' cuyo administrador es el usuario1 y envia solicitud " +
             "de unión como moderador a usuario3", function (done) {
             request(url)
@@ -666,7 +708,6 @@ describe('Pruebas unitarias', function () {
                     'sala': {
                         nombre: 'Sala de pruebas 4',
                         descripcion: 'Sala creada mediantes pruebas automatizadas',
-                        idSala: 4,
                         fotoPorDefecto: true,
                     },
                     'usuarios': [{'username': 'usuario3', 'permisos': 'Moderador'}]
@@ -682,6 +723,120 @@ describe('Pruebas unitarias', function () {
 
             })
         })
+
+
+        it("La sala 'Sala de pruebas 4' debería tener 1 solicitud de unión enviada", function (done) {
+            request(url)
+                .post('/api/candidatos')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'idSala': 4})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 1);
+                    done();
+                })
+        })
+
+
+        it("Deberia crear una sala llamada 'Sala de pruebas 5' cuyo administrador es el usuario1 y no envia solicitudes " +
+            "de unión", function (done) {
+            request(url)
+                .post('/api/crearSala')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({
+                    'sala': {
+                        nombre: 'Sala de pruebas 5',
+                        descripcion: 'Sala creada mediantes pruebas automatizadas',
+                        fotoPorDefecto: true,
+                    },
+                    'usuarios':[{}]
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(204);
+                done();
+
+            })
+        })
+
+        it("La sala 'Sala de pruebas 5' debería tener 0 solicitudes de unión enviadas", function (done) {
+            request(url)
+                .post('/api/candidatos')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({'idSala': 5})
+                .end(function (err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    res.status.should.be.equal(200);
+                    assert.equal(res.body.length, 0);
+                    done();
+                })
+        })
+
+
+        it("No deberia crear una sala ya que su nombre es demasiado largo", function (done) {
+            request(url)
+                .post('/api/crearSala')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({
+                    'sala': {
+                        nombre: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+                        descripcion: 'Descripción',
+                        fotoPorDefecto: true,
+                    },
+                    'usuarios':[{}]
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(400);
+                done();
+
+            })
+        })
+
+        it("No deberia crear una sala ya que su descripción es demasiado larga", function (done) {
+            request(url)
+                .post('/api/crearSala')
+                .set('Cookie', ['token = ' + tokenUsuario1])
+                .send({
+                    'sala': {
+                        nombre: 'Nombre',
+                        descripcion: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' +
+                        'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' +
+                        'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+                        fotoPorDefecto: true,
+                    },
+                    'usuarios':[{}]
+
+                }).end(function (err, res) {
+
+                if (err) {
+                    throw err;
+                }
+
+                res.status.should.be.equal(400);
+                done();
+
+            })
+        })
+
+
+
+
+
+
 
 
     });
@@ -947,7 +1102,7 @@ describe('Pruebas unitarias', function () {
 
 
     });
-    
+
     describe('Ignorar solicitud de unión a sala', function () {
 
         it("El usuario4 debería tener 1 solicitud de unión a salas", function (done) {
@@ -1023,9 +1178,9 @@ describe('Pruebas unitarias', function () {
 
     describe('Comprobar en cuantas salas participan los usuarios', function () {
 
-        it("El usuario1 debería participar en 3 salas", function (done) {
+        it("El usuario1 debería participar en 4 salas", function (done) {
             request(url)
-                .get('/api/salasAdmin')
+                .get('/api/salasParticipa')
                 .set('Cookie', ['token = ' + tokenUsuario1])
                 .end(function (err, res) {
 
@@ -1034,14 +1189,14 @@ describe('Pruebas unitarias', function () {
                     }
 
                     res.status.should.be.equal(200);
-                    assert.equal(res.body.length, 2);
+                    assert.equal(res.body.length, 4);
                     done();
 
                 })
         })
 
 
-        it("El usuario1 debería ser administrador en 2 salas", function (done) {
+        it("El usuario1 debería ser administrador en 3 salas", function (done) {
             request(url)
                 .get('/api/salasAdmin')
                 .set('Cookie', ['token = ' + tokenUsuario1])
@@ -1052,7 +1207,7 @@ describe('Pruebas unitarias', function () {
                     }
 
                     res.status.should.be.equal(200);
-                    assert.equal(res.body.length, 2);
+                    assert.equal(res.body.length, 3);
                     done();
 
                 })
@@ -1643,7 +1798,7 @@ describe('Pruebas unitarias', function () {
                     'sala': {
                         nombre: 'Sala de pruebas',
                         descripcion: 'Esta es la descripción de la sala de pruebas',
-                        idSala: 4,
+                        idSala: 6,
                         fotoPorDefecto: true
                     },
                     'usuarios': [
@@ -1669,7 +1824,7 @@ describe('Pruebas unitarias', function () {
                 .post('/api/enviarSolicitudSala')
                 .set('Cookie', ['token = ' + tokenUsuario5])
                 .send({
-                    idSala: 4,
+                    idSala: 6,
                     username: 'usuario4'
 
                 }).end(function (err, res) {
