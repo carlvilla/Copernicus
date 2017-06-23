@@ -199,7 +199,9 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             method: "POST",
             url: "api/ignorarSolicitudSala",
             data: {'idSala': idSala}
-        })
+        }).then(function (res) {
+            utils.mensajeSuccess($translate.instant("SOLICITUD_IGNORADA"));
+        });
 
         eliminarSolicitud(idSala);
     }
