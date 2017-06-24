@@ -1,11 +1,11 @@
 function DibujosManager(ws) {
 
-    var username;
+    var usernameUsuario;
     var sala;
     var canvas;
     var figuraSeleccionda;
 
-    this.inicializarServicio = function (usernameParam, salaParam) {
+    this.inicializar = function (usernameParam, salaParam) {
         canvas = new fabric.Canvas('area-dibujo');
         canvas.selection = false;
 
@@ -50,7 +50,7 @@ function DibujosManager(ws) {
 
         });
 
-        username = usernameParam;
+        usernameUsuario = usernameParam;
         sala = salaParam;
     }
 
@@ -228,7 +228,7 @@ function DibujosManager(ws) {
             {
                 'seccion': 'dibujos',
                 'data': {
-                    'username': username,
+                    'username': usernameUsuario,
                     'sala': sala,
                     'figura': figura,
                     'idFiguraOriginal': mensaje.idFiguraOriginal,

@@ -1,8 +1,7 @@
 function AsistentesManager(ws) {
 
     var asistentes = [];
-    var usuarioConectado;
-
+    var usuario;
     var sala;
 
     /**
@@ -23,10 +22,6 @@ function AsistentesManager(ws) {
         if(nuevoAsistente) {
             asistentes.push(asistente);
         }
-    }
-
-    this.getDesconectados = function(){
-        return desconectados;
     }
 
     /**
@@ -56,7 +51,7 @@ function AsistentesManager(ws) {
      * @param nombre
      */
     this.setConnected = function (username, nombre, salaParam) {
-        usuarioConectado = {
+        usuario = {
             'username': username,
             'nombre': nombre
         };
@@ -70,9 +65,9 @@ function AsistentesManager(ws) {
     /**
      * Indicar que el usuario ya no es un asistente
      */
-    this.setDisconnected = function () {
-        this.deleteAsistente(usuarioConectado);
-        sendData(usuarioConectado.username, usuarioConectado.nombre, sala, 'disconnected');
+    this.setDesconectado = function () {
+        this.deleteAsistente(usuario);
+        sendData(usuario.username, usuario.nombre, sala, 'disconnected');
     };
 
 

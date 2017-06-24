@@ -1,17 +1,17 @@
 function RadioManager(ws, utils, $translate) {
 
-    var music;
-    var urlRadio;
-    var username;
+    var usernameUsuario;
     var sala;
+    var reproductor;
+    var urlRadio;
 
-    this.inicializarServicio = function (usernameParam, salaParam) {
-        music = document.getElementById('radio-audio');
+    this.inicializar = function (usernameParam, salaParam) {
+        reproductor = document.getElementById('radio-audio');
 
-        username = usernameParam;
+        usernameUsuario = usernameParam;
         sala = salaParam;
 
-        music.onerror = function () {
+        reproductor.onerror = function () {
             utils.mensajeError($translate.instant('URL_NO_VALIDA'));
             urlRadio = undefined;
         };
@@ -42,12 +42,12 @@ function RadioManager(ws, utils, $translate) {
 
     this.play = function () {
         if (urlRadio) {
-            if (music.paused) {
-                music.play();
+            if (reproductor.paused) {
+                reproductor.play();
                 $('#icono-play').attr('class', 'fa fa-4x fa-pause-circle');
 
             } else {
-                music.pause();
+                reproductor.pause();
                 $('#icono-play').attr('class', 'fa fa-4x fa-play-circle');
             }
         } else {
@@ -56,8 +56,8 @@ function RadioManager(ws, utils, $translate) {
     };
 
     this.setVolumen = function (volumenParam) {
-        if (music)
-            music.volume = volumenParam;
+        if (reproductor)
+            reproductor.volume = volumenParam;
     };
 
     var sendData = function (url) {
@@ -65,7 +65,7 @@ function RadioManager(ws, utils, $translate) {
             {
                 'seccion': 'radio',
                 'data': {
-                    'username': username,
+                    'username': usernameUsuario,
                     'sala': sala,
                     'url': url
                 }

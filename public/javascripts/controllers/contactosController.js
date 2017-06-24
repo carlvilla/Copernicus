@@ -3,21 +3,26 @@ var copernicus = angular.module('copernicus');
 copernicus.controller('contactosController', function ($scope, $http, $window, utils, $translate) {
 
     //Variable necesario para el filtrado de contactos
-    var todosContactos;
-
-    $http({
-        method: "GET",
-        url: "api/contactos"
-    }).then(success, error);
+    var contactos;
 
     function success(res) {
         $scope.contactos = res.data;
-        todosContactos = res.data;
+        contactos = res.data;
     }
 
     function error() {
         console.log("Ocurrió un error al recuperar los contactos");
     }
+
+    var inicializacion = function(){
+        $http({
+            method: "GET",
+            url: "api/contactos"
+        }).then(success, error);
+
+    }
+
+    inicializacion();
 
     $scope.mostrarContacto = function (username) {
         $http({
@@ -53,9 +58,9 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     }
 
     $scope.filtrar = function () {
-        $scope.contactos = todosContactos.filter(function (contacto) {
+        $scope.contactos = contactos.filter(function (contacto) {
             var nombreContacto = contacto.username.toLowerCase();
-            var stringFiltrar = $('#input-filtrar-contactos').val().toLowerCase();
+            var stringFiltrar =  $scope.textoFiltrar.toLowerCase();
             return nombreContacto.indexOf(stringFiltrar) !== -1;
         });
     }

@@ -112,7 +112,7 @@
                     />
                 </div>
                 <button class="btn btn-primary" type="button" id="btn-add-participante"
-                        ng-click="addCandidato()">{{'ADD_USUARIO' | translate}}
+                        ng-click="mandarSolicitud()">{{'ADD_USUARIO' | translate}}
                 </button>
             </div>
 
@@ -143,7 +143,7 @@
                         </td>
                         <td translate="SOLICITUD_NO_ACEPTADA"></td>
                         <td ng-show="miembro == false">
-                            <button class="btn btn-primary" type="button" ng-click="eliminarSolicitudSala(candidato.user)">
+                            <button class="btn btn-primary" type="button" ng-click="eliminarSolicitudSala(candidato.user.username)">
                                 {{"ELIMINAR_SOLICITUD" | translate}}
                             </button>
                         </td>
@@ -169,7 +169,7 @@
                                     ng-init="contacto.permisos = participante.user.permisos"
                                     ng-disabled="miembro || (!admin && participante.user.permisos=='Moderador')
                                      || (participante.user.permisos=='Admin')"
-                                    ng-change="cambiarPermisos(participante.user)">
+                                    ng-change="cambiarPermisos(participante.user.username)">
                                 <option value="Miembro">{{'MIEMBRO' | translate}}</option>
                                 <option value="Moderador">{{'MODERADOR' | translate}}</option>
                                 <option value="Admin" ng-show="false">{{'ADMIN' | translate}}</option>

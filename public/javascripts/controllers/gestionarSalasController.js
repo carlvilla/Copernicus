@@ -2,44 +2,62 @@ var copernicus = angular.module('copernicus');
 
 copernicus.controller('gestionarSalasController', function ($scope, $http, $window, utils, $translate) {
 
-    var idSalaSeleccionada;
+    var salaSeleccionada;
 
     //Variables necesarias para realizar el filtado de salas
-    var todasSalasAdmin;
-    var todasSalasModerador;
-    var todasSalasMiembro;
+    var salasAdmin;
+    var salasModerador;
+    var salasMiembro;
+
+    $scope.foto;
+    $scope.fotoRecortada = '';
+    var fotoCambiada = false;
+    var sizeMaxFoto = 8000000; //8MB
+
+    $scope.contactosAdded = [];
 
     function error(res) {
         utils.mensajeError($translate.instant('OPERACION_NO_AUTORIZADA'));
     }
 
-    $http({
-        method: "GET",
-        url: "api/salasAdmin"
-    }).then(function (res) {
-        $scope.salasAdmin = res.data;
-        todasSalasAdmin = res.data;
-    }, error)
+    var inicializacion = function(){
 
-    $http({
-        method: "GET",
-        url: "api/salasModerador"
-    }).then(function (res) {
-        $scope.salasModerador = res.data;
-        todasSalasModerador = res.data;
-    }, error)
+        $http({
+            method: "GET",
+            url: "api/salasAdmin"
+        }).then(function (res) {
+            $scope.salasAdmin = res.data;
+            salasAdmin = res.data;
+        }, error)
 
-    $http({
-        method: "GET",
-        url: "api/salasMiembro"
-    }).then(function (res) {
-        $scope.salasMiembro = res.data;
-        todasSalasMiembro = res.data;
-    }, error)
+        $http({
+            method: "GET",
+            url: "api/salasModerador"
+        }).then(function (res) {
+            $scope.salasModerador = res.data;
+            salasModerador = res.data;
+        }, error)
+
+        $http({
+            method: "GET",
+            url: "api/salasMiembro"
+        }).then(function (res) {
+            $scope.salasMiembro = res.data;
+            salasMiembro = res.data;
+        }, error)
 
 
+    }
+
+    inicializacion();
+
+    /**
+     * Muestra la información de una sala
+     * @param idSala
+     * @param permisos
+     */
     $scope.mostrarInfoSala = function (idSala, permisos) {
-        idSalaSeleccionada = idSala;
+        salaSeleccionada = idSala;
         $scope.foto = undefined;
 
 
@@ -100,17 +118,21 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         }, error)
     };
 
-    $scope.eliminarUsuario = function (usuario) {
+    /**
+     * Elimina un usuario de la sala
+     * @param usuario
+     */
+    $scope.eliminarUsuario = function (username) {
         $http({
             method: "POST",
             url: "api/eliminarUsuarioSala",
             data: {
-                idSala: idSalaSeleccionada,
-                username: usuario.username
+                idSala: salaSeleccionada,
+                username: username
             }
         }).then(function (res) {
             $scope.participantes.forEach(function (participante) {
-                if (participante.user.username == usuario.username) {
+                if (participante.user.username == username) {
                     $scope.participantes.splice($scope.participantes.indexOf(participante), 1);
                     utils.mensajeSuccess($translate.instant('USUARIO_ELIMINADO'));
                 }
@@ -118,6 +140,9 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         });
     }
 
+    /**
+     * Actualiza la información de una sala
+     */
     $scope.actualizarSala = function () {
         if (fotoCambiada) {
             utils.mensajeInfo($translate.instant('ACTUALIZANDO_SALA'));
@@ -127,7 +152,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
             method: "POST",
             url: "api/actualizarSala",
             data: {
-                idSala: idSalaSeleccionada,
+                idSala: salaSeleccionada,
                 nombre: $scope.salaSeleccionada.nombre,
                 descripcion: $scope.salaSeleccionada.descripcion,
                 foto: $scope.fotoRecortada,
@@ -152,12 +177,15 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         ;
     }
 
+    /**
+     * Utilizado para salir de una sala
+     */
     $scope.salirSala = function () {
         $http({
             method: "POST",
             url: "api/eliminarUsuarioSala",
             data: {
-                idSala: idSalaSeleccionada,
+                idSala: salaSeleccionada,
             }
         }).then(function (res) {
             utils.mensajeSuccess($translate.instant("SALIO_SALA"));
@@ -165,13 +193,15 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         }, error);
     };
 
-
+    /**
+     * Elimina la sala
+     */
     $scope.eliminarSala = function () {
         $http({
             method: "POST",
             url: "api/eliminarSala",
             data: {
-                idSala: idSalaSeleccionada,
+                idSala: salaSeleccionada,
             }
         }).then(function (res) {
             $scope.salasAdmin.every(function (sala) {
@@ -181,12 +211,16 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         }, error);
     };
 
+    /**
+     * Cambia los permisos de un participante
+     * @param participante
+     */
     $scope.cambiarPermisos = function (participante) {
         $http({
             method: "POST",
             url: "api/cambiarPermisos",
             data: {
-                idSala: idSalaSeleccionada,
+                idSala: salaSeleccionada,
                 username: participante.username,
                 permisos: participante.permisos,
             }
@@ -196,13 +230,16 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
 
     }
 
-
+    /**
+     * Cambiar permisos solicitud
+     * @param candidato
+     */
     $scope.cambiarPermisosSolicitud = function (candidato) {
         $http({
             method: "POST",
             url: "api/cambiarPermisosSolicitud",
             data: {
-                idSala: idSalaSeleccionada,
+                idSala: salaSeleccionada,
                 username: candidato.user.username,
                 permisos: candidato.rel.properties.permisos,
             }
@@ -213,6 +250,11 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     }
 
 
+    /**
+     * Comprueba si un usuario ya participa en una sala o se le ha mandado una solicitud
+     * @param usuario
+     * @returns {boolean}
+     */
     var added = function (usuario) {
         var added = false;
 
@@ -238,9 +280,11 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         return added;
     }
 
-    $scope.contactosAdded = [];
 
-    $scope.addCandidato = function () {
+    /**
+     * Manda una solicitud de unión a la sala
+     */
+    $scope.mandarSolicitud = function () {
         if ($scope.usuarioSeleccionado != undefined && comprobarLimiteSala()) {
             var usuario = {user: $scope.usuarioSeleccionado.originalObject, rel: {properties: {permisos: 'Miembro'}}};
 
@@ -251,7 +295,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
                     method: "POST",
                     url: "api/enviarSolicitudSala",
                     data: {
-                        idSala: idSalaSeleccionada,
+                        idSala: salaSeleccionada,
                         username: usuario.user.username
                     }
                 })
@@ -280,20 +324,24 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     }
 
 
-    $scope.eliminarSolicitudSala = function (usuario) {
+    /**
+     * Elimina una solicitud de unión a la sala
+     * @param usuario
+     */
+    $scope.eliminarSolicitudSala = function (username) {
 
-        console.log("Eliminar solicitud: " + usuario.username);
+        console.log("Eliminar solicitud: " + username);
 
         $http({
             method: "POST",
             url: "api/eliminarSolicitudSala",
             data: {
-                idSala: idSalaSeleccionada,
-                username: usuario.username
+                idSala: salaSeleccionada,
+                username: username
             }
         }).then(function () {
             $scope.candidatos.forEach(function (candidato) {
-                if (candidato.user.username == usuario.username) {
+                if (candidato.user.username == username) {
                     $scope.candidatos.splice($scope.candidatos.indexOf(candidato), 1);
                     utils.mensajeSuccess($translate.instant('SOLICITUD_ELIMINADA'));
                 }
@@ -320,10 +368,6 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
 
     findContactos();
 
-    $scope.foto;
-    $scope.fotoRecortada = '';
-    var fotoCambiada = false;
-    var sizeMaxFoto = 8000000; //8MB
 
     var fotoSeleccionada = function (evt) {
 
@@ -350,24 +394,33 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     angular.element(document.querySelector('#foto')).on('change', fotoSeleccionada);
 
 
+    /**
+     * Filtrar salas en las que el usuario es administrador
+     */
     $scope.filtrarAdmin = function () {
-        $scope.salasAdmin = todasSalasAdmin.filter(function (sala) {
+        $scope.salasAdmin = salasAdmin.filter(function (sala) {
             var nombreSala = sala.nombre.toLowerCase();
             var stringFiltrar = $('#filtrar-admin').val().toLowerCase();
             return nombreSala.indexOf(stringFiltrar) !== -1;
         });
     }
 
+    /**
+     * Filtrar salas en las que el usuario es moderador
+     */
     $scope.filtrarModerador = function () {
-        $scope.salasModerador = todasSalasModerador.filter(function (sala) {
+        $scope.salasModerador = salasModerador.filter(function (sala) {
             var nombreSala = sala.nombre.toLowerCase();
             var stringFiltrar = $('#filtrar-moderador').val().toLowerCase();
             return nombreSala.indexOf(stringFiltrar) !== -1;
         });
     }
 
+    /**
+     * Filtrar salas en las que el usuario es miembro
+     */
     $scope.filtrarMiembro = function () {
-        $scope.salasMiembro = todasSalasMiembro.filter(function (sala) {
+        $scope.salasMiembro = salasMiembro.filter(function (sala) {
             var nombreSala = sala.nombre.toLowerCase();
             var stringFiltrar = $('#filtrar-miembro').val().toLowerCase();
             return nombreSala.indexOf(stringFiltrar) !== -1;

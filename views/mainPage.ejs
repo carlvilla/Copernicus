@@ -94,7 +94,7 @@
         <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left"> <span
                         translate="CONTACTOS"/>
             </label><input id="input-filtrar-contactos" style="float:left; margin-bottom: 5px;"
-                           placeholder="{{'FILTRAR_CONTACTOS' | translate}}" ng-keyup="filtrar()"/></div>
+                           placeholder="{{'FILTRAR_CONTACTOS' | translate}}" ng-model="textoFiltrar" ng-keyup="filtrar()"/></div>
         <div id="contenedor2-listado-contactos">
             <div id="listado-contactos">
                 <button ng-repeat="contacto in contactos" class="list-group-item boton-listado"

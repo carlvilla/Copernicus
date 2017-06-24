@@ -2,14 +2,14 @@ var copernicus = angular.module('copernicus');
 
 copernicus.controller('bloquearContactoController', function ($scope, $http, $window, utils, $translate) {
 
-    $scope.usuarioSeleccionado;
+    $scope.contactoSeleccionado;
 
     var success = function (res) {
         $scope.contactosBloqueados = res.data;
     }
 
     var error = function (res) {
-        //console.log("Error al obtener contacto bloqueados");
+        utils.mensajeError($translate.instant("ERROR_INTENTAR_MAS_TARDE"));
     }
 
     var buscarContactosBloqueados = function () {
@@ -43,17 +43,17 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     buscarContactos();
 
     $scope.bloquearContacto = function () {
-        if ($scope.usuarioSeleccionado) {
+        if ($scope.contactoSeleccionado) {
 
             var actualizarInput = function () {
                 $("#username-bloquear-contacto_value").val('');
-                $scope.usuarioSeleccionado = undefined;
+                $scope.contactoSeleccionado = undefined;
             }
 
             $http({
                 method: "POST",
                 url: "api/bloquearContacto",
-                data: angular.toJson({username: ($scope.usuarioSeleccionado.originalObject).username})
+                data: angular.toJson({username: ($scope.contactoSeleccionado.originalObject).username})
             }).then(function (res) {
                 actualizarInput();
                 buscarContactosBloqueados();

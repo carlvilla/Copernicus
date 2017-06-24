@@ -26,13 +26,13 @@ router.post('/salas', salaController.checkParticipante);
 router.post('/crearSala', middleware.checkLimiteSala, middleware.checkNombreDescripcionSala , salaController.crearSala);
 router.post('/aceptarSolicitudSala', middleware.usuarioNoAdminModeradorOMiembro, middleware.checkExisteSolicitudSala, salaController.aceptarSolicitudSala);
 router.post('/ignorarSolicitudSala', middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
-router.post('/eliminarSolicitudSala', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
+router.post('/eliminarSolicitudSala', middleware.checkAdminOModerador, middleware.checkExisteSolicitudSala, salaController.ignorarSolicitudSala);
 router.post('/participantesSala', salaController.buscarParticipantesSala);
-router.post('/actualizarSala', middleware.checkAdminOrModerador, salaController.actualizarDatos);
+router.post('/actualizarSala', middleware.checkAdminOModerador, salaController.actualizarDatos);
 router.post('/eliminarUsuarioSala', middleware.checkPosibleEliminar ,salaController.eliminarUsuario);
 router.post('/eliminarSala', middleware.checkAdmin, salaController.eliminarSala);
-router.post('/cambiarPermisos', middleware.checkAdminOrModerador, middleware.checkAdminSiCambioAModerador, salaController.cambiarPermisos);
-router.post('/cambiarPermisosSolicitud', middleware.checkAdminOrModerador, middleware.checkExisteSolicitudSala , salaController.cambiarPermisosSolicitud);
+router.post('/cambiarPermisos', middleware.checkAdminOModerador, middleware.checkAdminSiCambioAModerador, salaController.cambiarPermisos);
+router.post('/cambiarPermisosSolicitud', middleware.checkAdminOModerador, middleware.checkExisteSolicitudSala , salaController.cambiarPermisosSolicitud);
 router.post('/enviarSolicitudSala', middleware.usuarioNoCandidatoAdminModeradorOMiembro, middleware.checkLimiteSala, salaController.enviarSolicitudSala);
 router.post('/candidatos', salaController.buscarCandidatos);
 

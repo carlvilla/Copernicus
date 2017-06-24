@@ -2,17 +2,19 @@ var copernicus = angular.module('copernicus');
 
 copernicus.controller('radioController', function ($scope, $rootScope, webSocketService) {
 
-    //Usuario almacenado en el rootScope
-    var usuario = $rootScope.usuario;
+    var usuario;
+    var sala;
 
-    //Id de la sala a la que se accedió
-    var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
+    var inicializacion = function () {
+        //Usuario almacenado en el rootScope
+        usuario = $rootScope.usuario;
 
-    var inicializarServicio = function () {
-        webSocketService.radioManager.inicializarServicio(usuario.username, sala);
+        //Id de la sala a la que se accedió
+        sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
+        webSocketService.radioManager.inicializar(usuario.username, sala.idSala);
     };
 
-    inicializarServicio();
+    inicializacion();
 
     $scope.play = function () {
         webSocketService.radioManager.play();

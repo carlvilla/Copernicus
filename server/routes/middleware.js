@@ -59,10 +59,7 @@ module.exports.checkSesion = function (req, res, next) {
         } catch (err) {
             next();
         }
-
-
     }
-
     next();
 
 };

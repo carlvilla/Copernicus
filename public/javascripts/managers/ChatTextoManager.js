@@ -1,14 +1,11 @@
 function ChatTextoManager(ws, utils, $translate) {
 
-    var mensajes = [];
     var usernameUsuario;
     var sala;
+    var mensajes = [];
 
-    this.setUsuario = function (username) {
+    this.inicializar = function (username, salaParam){
         usernameUsuario = username;
-    }
-
-    this.setSala = function (salaParam) {
         sala = salaParam;
     }
 

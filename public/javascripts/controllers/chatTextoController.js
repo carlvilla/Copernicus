@@ -2,17 +2,25 @@ var copernicus = angular.module('copernicus');
 
 copernicus.controller("chatTextoController", function ($scope, $rootScope, webSocketService, utils, $translate) {
 
-    var usuario = $rootScope.usuario;
-
-    //Usuario almacenado por asistentesController en el rootScope
-    webSocketService.chatTextoManager.setUsuario(usuario.username);
-    $scope.usernameUsuario = usuario.username;
+    var usuario;
 
     //Id de la sala a la que se accedió
-    var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
-    webSocketService.chatTextoManager.setSala(sala);
+    var sala;
 
-    $scope.mensajes = webSocketService.chatTextoManager.getMensajes();
+    var inicializacion = function(){
+        usuario = $rootScope.usuario;
+
+        $scope.usernameUsuario = usuario.username;
+
+        sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
+
+        webSocketService.chatTextoManager.inicializar(usuario.username, sala.idSala);
+
+        $scope.mensajes = webSocketService.chatTextoManager.getMensajes();
+
+    }
+
+    inicializacion();
 
     $scope.enviarMensaje = function (mensaje) {
         if (mensaje != "") {
@@ -31,21 +39,18 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
     };
 
 
-    $scope.uploadFiles = function (file, errFiles) {
+    $scope.enviarFichero = function (file, errFiles) {
 
         var fr = new FileReader();
 
         if (file)
             fr.readAsDataURL(file);
         else {
-            console.log(errFiles);
             if (errFiles[0] && errFiles[0].$error == 'maxSize')
                 utils.mensajeError($translate.instant('FICHERO_SIZE_MAXIMO'));
         }
 
         fr.onloadend = function () {
-
-            console.log("Nombre: " + file.name);
 
             var tipoFichero;
 
@@ -54,7 +59,6 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
                     case "image/png":
                     case "image/gif":
                     case "image/jpeg":
-                        console.log("Es una foto");
                         tipoFichero = "foto";
                         webSocketService.chatTextoManager.sendArchivo(file, fr.result, tipoFichero);
                         break;

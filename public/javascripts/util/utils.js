@@ -34,10 +34,10 @@ copernicus.service('utils', function ($http, $window, growl, $translate) {
     /**
      * Comprobamos que existe el idSala, en caso contrario el usuario habrá accedido directamente a la
      * página de salas sin haber seleccionado una sala.
-     * @param str
+     * @param id
      */
-    function checkIdSalaExists(str) {
-        if (!str) {
+    function checkIdSalaExists(id) {
+        if (!id) {
             noAutorizado();
         }
     }

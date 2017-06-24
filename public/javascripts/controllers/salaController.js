@@ -1,6 +1,3 @@
-/**
- * Created by carlosvillablanco on 24/03/2017.
- */
 var copernicus = angular.module('copernicus');
 
 copernicus.controller('salaController', function ($scope, $rootScope, $http, $window, utils, $translate) {
@@ -17,17 +14,58 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     $scope.contactosSeleccionados = [];
 
     //Variable necesario para el filtrado de sala
-    var todasSalas;
+    var salas;
+    
+    /**
+     * Encuentar los contactos del usuario para que los pueda añadir a la sala
+     */
+    var findContactos = function () {
+        $http({
+            method: "GET",
+            url: "api/contactos"
+        }).then(success);
 
-    $http({
-        method: "GET",
-        url: "api/salasParticipa"
-    }).then(success)
-
-    function success(res) {
-        $scope.salas = res.data;
-        todasSalas = res.data;
+        function success(res) {
+            if (!(res.data == "")) {
+                $scope.contactos = res.data;
+            }
+        }
     }
+
+    /**
+     * Busca las solicitudes de unión a salas recibidas
+     */
+    var findSolicitudes = function(){
+        $http({
+            method: "GET",
+            url: "api/solicitudesSala"
+        }).then(successSolicitudes);
+
+        function successSolicitudes(res) {
+            $scope.solicitudesSala = res.data;
+        }
+
+    }
+
+    /**
+     * Obtiene las salas en las que participa el usuario. Es necesario para mostrarle su listado de salas.
+     */
+    var inicializacion = function(){
+        $http({
+            method: "GET",
+            url: "api/salasParticipa"
+        }).then(success)
+
+        function success(res) {
+            $scope.salas = res.data;
+            salas = res.data;
+        }
+
+        findContactos();
+        findSolicitudes();
+    }
+
+    inicializacion();
 
     /**
      * El usuario tiene permiso para acceder a la sala
@@ -48,6 +86,10 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     }
 
 
+    /**
+     * Comprueba que no se supera el límite de una sala
+     * @returns {boolean}
+     */
     function comprobarLimiteSala() {
         //El límite es 4 personas, pero se comprueba que no haya más de 3 porque la octava persona es el usuario
         //que crea la sala
@@ -59,6 +101,10 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
         }
     }
 
+    /**
+     * Elimina una solicitud de una sala
+     * @param idSala
+     */
     var eliminarSolicitud = function (idSala) {
         $scope.solicitudesSala.every(function (solicitud) {
             if (solicitud.idSala == idSala) {
@@ -69,38 +115,33 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
         });
     }
 
+    /**
+     * Función llamada cuando una sala fue creada con éxito
+     * @param res
+     */
     var successCrear = function (res) {
         $window.location.href = '/mainPage';
     }
 
-    var findContactos = function () {
-        $http({
-            method: "GET",
-            url: "api/contactos"
-        }).then(success);
 
-        function success(res) {
-            if (!(res.data == "")) {
-                $scope.contactos = res.data;
-            }
-        }
-    }
-
-    findContactos();
-
+    /**
+     * Función llamada cuando el nombre de la sala no es válido
+     */
     var nombreNoValido = function () {
         utils.mensajeError($translate.instant("NOMBRE_SALA_MAX"));
     }
 
+    /**
+     * Función llamada cuando la descripción de la sala no es válido
+     */
     var descripcionNoValida = function () {
         utils.mensajeError($translate.instant("DESCRIPCION_SALA_MAX"));
     }
 
-    var error = function (err) {
-        //console.log(err);
-    }
-
-
+    /**
+     * Función llamada para acceder a una sala
+     * @param idSala
+     */
     $scope.accederSala = function (idSala) {
         $http({
             method: "POST",
@@ -109,7 +150,18 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
         }).then(successAcceso, errorAcceso)
     }
 
-    //Crear sala
+    /**
+     * Ocurrió un error al crear la sala por problemas en el servidor
+     * @param err
+     */
+    var errorCrear = function (err) {
+        utils.mensajeError($translate.instant("ERROR_INTENTAR_MAS_TARDE"));
+    }
+
+    /**
+     * Comprueba que los valores introducidos para crear la sala sean válido, y en ese caso la crea
+     * @param sala
+     */
     $scope.crearSala = function (sala) {
         if (sala && sala.nombre) {
 
@@ -134,13 +186,16 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
                         "usuarios": $scope.contactosSeleccionados
                     }
                 )
-            }).then(successCrear, error);
+            }).then(successCrear, errorCrear);
         } else {
             utils.mensajeError($translate.instant("NOMBRE_SALA_OBLIGATORIO"));
         }
     }
 
-    $scope.addContactoTabla = function () {
+    /**
+     * Añade el contacto seleccionado a la tabla de usuarios a los que se enviará una solicitud de unión a la sala creada
+     */
+    $scope.addContacto = function () {
 
         if ($scope.usuarioSeleccionado != undefined) {
             if (comprobarLimiteSala()) {
@@ -157,6 +212,10 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
     }
 
+    /**
+     * Elimina al usuario de los usuarios a los que se enviará una solicitud de unión a la sala creada
+     * @param username
+     */
     $scope.eliminarSeleccionado = function (username) {
         $scope.contactosSeleccionados.forEach(function (usuario) {
             if (usuario.username == username) {
@@ -165,18 +224,12 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             }
         });
     }
-    //Fin crear sala
 
-    //Solicitudes para unirse a sala
-    $http({
-        method: "GET",
-        url: "api/solicitudesSala"
-    }).then(successSolicitudes);
-
-    function successSolicitudes(res) {
-        $scope.solicitudesSala = res.data;
-    }
-
+    /**
+     * Acepta una solicitud a una sala
+     *
+     * @param idSala
+     */
     $scope.aceptarSolicitud = function (idSala) {
 
         $http({
@@ -193,7 +246,11 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
     }
 
-
+    /**
+     * Ignora una solicitud a una sala
+     *
+     * @param idSala
+     */
     $scope.ignorarSolicitud = function (idSala) {
         $http({
             method: "POST",
@@ -206,10 +263,17 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
         eliminarSolicitud(idSala);
     }
 
+    /**
+     * Cierra la pantalla de solicitudes refrescando la página por si se aceptó alguna
+     */
     $scope.cerrarPantallaSolicitudes = function () {
         $window.location.reload();
     }
 
+    /**
+     * Obtiene la foto seleccionada por el usuario para la sala
+     * @param evt
+     */
     var fotoSeleccionada = function (evt) {
         var size = document.getElementById('foto').files[0].size;
 
@@ -232,8 +296,11 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
     angular.element(document.querySelector('#foto')).on('change', fotoSeleccionada);
 
+    /**
+     * Filtra el listado de salas
+     */
     $scope.filtrar = function () {
-        $scope.salas = todasSalas.filter(function (sala) {
+        $scope.salas = salas.filter(function (sala) {
             var nombreSala = sala.nombre.toLowerCase();
             var stringFiltrar = $('#input-filtrar-salas').val().toLowerCase();
             return nombreSala.indexOf(stringFiltrar) !== -1;

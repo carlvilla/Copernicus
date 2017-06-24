@@ -5,7 +5,6 @@ var utils = require('../utils/utils');
 var jwt = require('jwt-simple');
 var cloudinary = require('cloudinary');
 
-var model = require('seraph-model');
 var confDB = require('../config/db')
 var db = require('seraph')({
     server: confDB.db.server,

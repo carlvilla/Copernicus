@@ -1,14 +1,22 @@
 var copernicus = angular.module('copernicus');
 
-copernicus.controller('presentacionController', function ($scope, $rootScope, webSocketService, utils, $translate) {
+copernicus.controller('presentacionesController', function ($scope, $rootScope, webSocketService, utils, $translate) {
 
-    //Id de la sala a la que se accedió
-    var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
+    var usuario;
+    var sala;
 
-    webSocketService.presentacionManager.start(sala, $scope);
-    webSocketService.presentacionManager.setUsuario($rootScope.usuario.username);
+    var inicializacion = function(){
 
-    $scope.uploadFiles = function (file, errFiles) {
+        usuario = $rootScope.usuario;
+        sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
+
+        webSocketService.presentacionesManager.inicializar(usuario.username, sala.idSala, $scope);
+
+    }
+
+    inicializacion();
+
+    $scope.enviarFichero = function (file, errFiles) {
 
         var fr = new FileReader();
 
@@ -24,7 +32,7 @@ copernicus.controller('presentacionController', function ($scope, $rootScope, we
             switch (file.type) {
                 case "text/html":
                 case "application/pdf":
-                    webSocketService.presentacionManager.cambiarPresentacion(fr.result);
+                    webSocketService.presentacionesManager.cambiarPresentacion(fr.result);
                     break;
 
                 default:

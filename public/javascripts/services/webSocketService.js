@@ -4,11 +4,12 @@ angular.module('copernicus')
             console.log("WebSockets no están soportados con este navegador");
         }
         var HOST = location.origin.replace(/^http/, 'ws');
+
         var ws = $websocket(HOST);
 
         var asistentesManager = new AsistentesManager(ws);
         var videollamadasManager = new VideollamadasManager(ws);
-        var presentacionManager = new PresentacionManager(ws, utils, $translate);
+        var presentacionesManager = new PresentacionesManager(ws, utils, $translate);
         var chatTextoManager = new ChatTextoManager(ws, utils, $translate);
         var dibujosManager = new DibujosManager(ws);
         var radioManager = new RadioManager(ws, utils, $translate);
@@ -20,8 +21,8 @@ angular.module('copernicus')
 
         //Si se cierra la ventana o se utilizan las flechas de navegación, se hace una llamada a este método
         window.addEventListener("beforeunload", function (e) {
-            asistentesManager.setDisconnected();
-            videollamadasManager.setDisconnected();
+            asistentesManager.setDesconectado();
+            videollamadasManager.setDesconectado();
             ws.close();
         });
 
@@ -48,7 +49,7 @@ angular.module('copernicus')
                         break;
 
                     case "presentacion":
-                        presentacionManager.actualizarPresentacion(obj.data);
+                        presentacionesManager.actualizarPresentacion(obj.data);
                         break;
 
                     case "dibujos":
@@ -79,7 +80,7 @@ angular.module('copernicus')
             ws: ws,
             asistentesManager: asistentesManager,
             videollamadasManager: videollamadasManager,
-            presentacionManager: presentacionManager,
+            presentacionesManager: presentacionesManager,
             chatTextoManager: chatTextoManager,
             dibujosManager: dibujosManager,
             radioManager: radioManager,

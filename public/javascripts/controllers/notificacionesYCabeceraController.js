@@ -1,23 +1,6 @@
 var copernicus = angular.module('copernicus');
 
-copernicus.controller('notificacionesYCabeceraController', function ($scope, $http, $cookies) {
-
-    if ($cookies.get('token')) {
-        $http({
-            method: "GET",
-            url: "api/solicitudesContacto"
-        }).then(successSolicitudes, error);
-
-        $http({
-            method: "GET",
-            url: "api/solicitudesSala"
-        }).then(successSala, error);
-
-        $http({
-            method: "GET",
-            url: "api/perfil"
-        }).then(success);
-    }
+copernicus.controller('notificacionesYCabeceraController', function ($scope, $http, $cookies, utils, $translate) {
 
     function success(res) {
         if (res.data[0])
@@ -35,7 +18,29 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
     }
 
     function error(err) {
-        //console.log(err);
+        utils.mensajeError($translate.instant("ERROR_INTENTAR_MAS_TARDE"));
     }
+
+    var inicializacion = function () {
+        if ($cookies.get('token')) {
+            $http({
+                method: "GET",
+                url: "api/solicitudesContacto"
+            }).then(successSolicitudes, error);
+
+            $http({
+                method: "GET",
+                url: "api/solicitudesSala"
+            }).then(successSala, error);
+
+            $http({
+                method: "GET",
+                url: "api/perfil"
+            }).then(success);
+        }
+    }
+
+    inicializacion();
+
 
 });

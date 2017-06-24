@@ -1,4 +1,4 @@
-<div id="presentaciones" ng-controller="presentacionController" class="servicio-abierto">
+<div id="presentaciones" ng-controller="presentacionesController" class="servicio-abierto">
     <div>
         <div class="grid-stack-item-content mover-servicio-div">
             <div>
@@ -8,7 +8,7 @@
                     <span class="glyphicon glyphicon-remove"></span>
                 </a>
 
-                <div><button type="file" ngf-select="uploadFiles($file, $invalidFiles)" ngf-max-size="5MB"
+                <div><button type="file" ngf-select="enviarFichero($file, $invalidFiles)" ngf-max-size="5MB"
                              class="btn btn-default btn-sm" translate="CAMBIAR_PRESENTACION"></button></div>
             </div>
         </div>
