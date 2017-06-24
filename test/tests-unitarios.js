@@ -33,8 +33,8 @@ describe('Pruebas unitarias', function () {
 
     describe('Registrarse', function () {
 
-        it("El nombre de usuario 'nombreUsuario' debería estar disponible'", function (done) {
-            var username = 'nombreUsuario';
+        it("El nombre de usuario 'usuario1' debería estar disponible'", function (done) {
+            var username = 'usuario1';
 
             request(url)
                 .get('/api/validarUsername/' + username)

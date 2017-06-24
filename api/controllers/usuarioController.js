@@ -72,22 +72,23 @@ module.exports.registrar = function (req, res) {
 
     var username = req.body.username;
     var nombre = req.body.nombre;
-    var apellidos = req.body.apellidos;
+    var apellidos = req.body.apellidos || "";
     var email = req.body.email;
     var credenciales = utils.setPassword(req.body.password);
-    var fotoPerfil = req.body.fotoPerfil;
+    var fotoPerfil = req.body.foto;
     var fotoPorDefecto = req.body.fotoPorDefecto;
 
     cloudinary.uploader.upload(fotoPerfil, function (result) {
 
         if (fotoPorDefecto || (fotoPorDefecto == undefined && fotoPorDefecto == undefined))
             fotoPerfil = 'https://res.cloudinary.com/videoconference/image/upload/v1496079819/profile.jpg'
-        else
+        else {
             fotoPerfil = result.secure_url;
+        }
 
         var query = "CREATE(u:Usuario{username:'" + username + "', nombre:'" + nombre + "', " +
-            "apellidos:'" + apellidos + "', email:'" + email + "', foto:'" + fotoPerfil + "', hash:'" + credenciales.hash + "'," +
-            " salt:'" + credenciales.salt + "'})";
+            "apellidos:'" + apellidos + "', email:'" + email + "', foto:'" + fotoPerfil + "', hash:'"
+            + credenciales.hash + "', salt:'" + credenciales.salt + "'})";
 
         db.query(query, function (err, result) {
             var token;

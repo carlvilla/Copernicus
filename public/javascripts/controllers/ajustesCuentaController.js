@@ -1,15 +1,92 @@
 var copernicus = angular.module('copernicus');
 
+/**
+ * @ngdoc controller
+ * @name copernicus.controller:AjustesCuentaController
+ *
+ * @description
+ * Controlador que permite al usuario modificar los datos y contraseña de su cuenta, así como eliminarla.
+ */
 copernicus.controller('ajustesCuentaController', function ($scope, $http, $window, utils, growl, $translate, $cookies) {
 
+    /**
+     * @ngdoc property
+     * @name usuario
+     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Datos del usuario el cual está modificando su cuenta.
+     *
+     **/
     $scope.usuario;
+
+    /**
+     * @ngdoc property
+     * @name pass
+     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @description
+     * En este objeto se almacena la contraseña actual y la nueva seleccionada por el usuario.
+     *
+     **/
     $scope.pass;
+
+    /**
+     * @ngdoc property
+     * @name foto
+     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @description
+     * En este objeto se almacena la foto seleccionada por el usuario.
+     *
+     **/
     $scope.foto;
+
+    /**
+     * @ngdoc property
+     * @name fotoRecortada
+     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Almacena la foto recortada subida por el usuario.
+     *
+     **/
     $scope.fotoRecortada = '';
+
+    /**
+     * @ngdoc property
+     * @name fotoCambiada
+     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Booleano que indica si el usuario modifica su foto.
+     *
+     **/
     var fotoCambiada = false;
+
+    /**
+     * @ngdoc property
+     * @name fotoCambiada
+     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Indica el tamaño máximo de fotografía aceptado.
+     *
+     **/
     var sizeMaxFoto = 8000000; //8MB
+
+    /**
+     * @ngdoc property
+     * @name actualizando_mensaje
+     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Propiedad utilizada para resolver un problema a la hora de eliminar una notificación cuando se produce un error.
+     *
+     **/
     var actualizando_mensaje;
 
+    /**
+     * @ngdoc method
+     * @name inicializacion
+     * @methodOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Inicializa el controlador obteniendo los datos del usuario y almacenandolos en el atributo 'usuario'.
+     *
+     **/
     var inicializacion = function(){
         $http({
             method: "GET",
@@ -23,6 +100,16 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
 
     inicializacion();
 
+    /**
+     * @ngdoc method
+     * @name fotoSeleccionada
+     * @methodOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Método invocado cuando un usuario selecciona una foto de perfil.
+     *
+     * @param {object} evt Contiene la fotografía seleccionada por el usuario.
+     *
+     **/
     var fotoSeleccionada = function (evt) {
 
         var size = document.getElementById('foto-input').files[0].size;
@@ -45,6 +132,14 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     angular.element(document.querySelector('#foto-input')).on('change', fotoSeleccionada);
 
 
+    /**
+     * @ngdoc method
+     * @name actualizarDatos
+     * @methodOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Actualiza los datos del usuario.
+     *
+     **/
     $scope.actualizarDatos = function () {
         actualizando_mensaje = growl.info($translate.instant('ACTUALIZANDO_DATOS'), {reference: 1});
         $http({
@@ -60,6 +155,14 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
         }).then(mensajeExitoDatos, mensajeError);
     };
 
+    /**
+     * @ngdoc method
+     * @name actualizarPassword
+     * @methodOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Actualiza la contraseña del usuario.
+     *
+     **/
     $scope.actualizarPassword = function () {
         $http({
             method: "POST",
@@ -72,6 +175,14 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
         }).then(mensajeExitoPass, mensajeError);
     };
 
+    /**
+     * @ngdoc method
+     * @name eliminarCuenta
+     * @methodOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Elimina la cuenta de un usuario.
+     *
+     **/
     $scope.eliminarCuenta = function () {
         $http({
             method: "POST",
@@ -80,40 +191,67 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     }
 
     /**
-     * Elimina la cookie 'token' del usuario y refresca la página. De esta forma será devuelto a la página de
-     * inicio de sesión y registro
+     *
      *
      * @param res
      */
+
+
+    /**
+     * @ngdoc method
+     * @name cuentaEliminada
+     * @methodOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Elimina la cookie 'token' del usuario y refresca la página. De esta forma el usuario será devuelto a la página de
+     * inicio de sesión y registro.
+     *
+     * @param {object} res Respuesta de la API REST
+     *
+     **/
     var cuentaEliminada = function (res) {
         $cookies.remove('token');
         $window.location.reload();
     }
 
     /**
-     * Muestra un mensaje para indicar que los datos fueron actualizados correctamente
+     * @ngdoc method
+     * @name mensajeExitoDatos
+     * @methodOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Muestra un mensaje para indicar que los datos fueron actualizados correctamente.
      *
-     * @param res
-     */
+     * @param {object} res Respuesta de la API REST
+     *
+     **/
     var mensajeExitoDatos = function (res) {
         utils.mensajeSuccess($translate.instant('DATOS_ACTUALIZADOS_CORRECTAMENTE'));
         $window.location.reload();
     };
 
     /**
-     * Muestra un mensaje para indicar que la contraseña fue modificada
+     * @ngdoc method
+     * @name mensajeExitoPass
+     * @methodOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Muestra un mensaje para indicar que la contraseña fue modificada.
      *
-     * @param res
-     */
+     * @param {object} res Respuesta de la API REST
+     *
+     **/
     var mensajeExitoPass = function (res) {
         utils.mensajeSuccess($translate.instant('PASS_MODIFICADA'));
     };
 
     /**
-     * Muestra un error en el caso de que algún dato enviado fuese erróneo
+     * @ngdoc method
+     * @name mensajeError
+     * @methodOf copernicus.controller:AjustesCuentaController
+     * @description
+     * Muestra un error en el caso de que algún dato enviado fuese erróneo.
      *
-     * @param res
-     */
+     * @param {object} res Respuesta de la API REST
+     *
+     **/
     var mensajeError = function (res) {
         if (actualizando_mensaje)
             actualizando_mensaje.destroy();
@@ -140,6 +278,5 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
                 break;
         }
     };
-
 
 });

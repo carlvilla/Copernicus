@@ -1,0 +1,85 @@
+<h1><code ng:non-bindable="">AjustesCuentaController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-controller-page copernicus-controller-ajustescuentacontroller-page"><p>Controlador que permite al usuario modificar los datos y contraseña de su cuenta, así como eliminarla.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_actualizardatos">actualizarDatos()</h3>
+<div class="actualizardatos"><div class="actualizardatos-page"><p>Actualiza los datos del usuario.</p>
+</div></div>
+</li>
+<li><h3 id="methods_actualizarpassword">actualizarPassword()</h3>
+<div class="actualizarpassword"><div class="actualizarpassword-page"><p>Actualiza la contraseña del usuario.</p>
+</div></div>
+</li>
+<li><h3 id="methods_cuentaeliminada">cuentaEliminada(res)</h3>
+<div class="cuentaeliminada"><div class="cuentaeliminada-page"><p>Elimina la cookie &#39;token&#39; del usuario y refresca la página. De esta forma el usuario será devuelto a la página de
+inicio de sesión y registro.</p>
+</div><h5 id="methods_cuentaeliminada_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="cuentaeliminada-page"><p>Respuesta de la API REST</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_eliminarcuenta">eliminarCuenta()</h3>
+<div class="eliminarcuenta"><div class="eliminarcuenta-page"><p>Elimina la cuenta de un usuario.</p>
+</div></div>
+</li>
+<li><h3 id="methods_fotoseleccionada">fotoSeleccionada(evt)</h3>
+<div class="fotoseleccionada"><div class="fotoseleccionada-page"><p>Método invocado cuando un usuario selecciona una foto de perfil.</p>
+</div><h5 id="methods_fotoseleccionada_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>evt</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="fotoseleccionada-page"><p>Contiene la fotografía seleccionada por el usuario.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_inicializacion">inicializacion()</h3>
+<div class="inicializacion"><div class="inicializacion-page"><p>Inicializa el controlador obteniendo los datos del usuario y almacenandolos en el atributo &#39;usuario&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="methods_mensajeerror">mensajeError(res)</h3>
+<div class="mensajeerror"><div class="mensajeerror-page"><p>Muestra un error en el caso de que algún dato enviado fuese erróneo.</p>
+</div><h5 id="methods_mensajeerror_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="mensajeerror-page"><p>Respuesta de la API REST</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_mensajeexitodatos">mensajeExitoDatos(res)</h3>
+<div class="mensajeexitodatos"><div class="mensajeexitodatos-page"><p>Muestra un mensaje para indicar que los datos fueron actualizados correctamente.</p>
+</div><h5 id="methods_mensajeexitodatos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="mensajeexitodatos-page"><p>Respuesta de la API REST</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_mensajeexitopass">mensajeExitoPass(res)</h3>
+<div class="mensajeexitopass"><div class="mensajeexitopass-page"><p>Muestra un mensaje para indicar que la contraseña fue modificada.</p>
+</div><h5 id="methods_mensajeexitopass_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="mensajeexitopass-page"><p>Respuesta de la API REST</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_actualizando_mensaje">actualizando_mensaje</h3>
+<div class="actualizando_mensaje"><div class="actualizando-mensaje-page"><p>Propiedad utilizada para resolver un problema a la hora de eliminar una notificación cuando se produce un error.</p>
+</div></div>
+</li>
+<li><h3 id="properties_foto">foto</h3>
+<div class="foto"><div class="foto-page"><p>En este objeto se almacena la foto seleccionada por el usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_fotocambiada">fotoCambiada</h3>
+<div class="fotocambiada"><div class="fotocambiada-page"><p>Booleano que indica si el usuario modifica su foto.</p>
+</div></div>
+</li>
+<li><h3 id="properties_fotocambiada">fotoCambiada</h3>
+<div class="fotocambiada"><div class="fotocambiada-page"><p>Indica el tamaño máximo de fotografía aceptado.</p>
+</div></div>
+</li>
+<li><h3 id="properties_fotorecortada">fotoRecortada</h3>
+<div class="fotorecortada"><div class="fotorecortada-page"><p>Almacena la foto recortada subida por el usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_pass">pass</h3>
+<div class="pass"><div class="pass-page"><p>En este objeto se almacena la contraseña actual y la nueva seleccionada por el usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usuario">usuario</h3>
+<div class="usuario"><div class="usuario-page"><p>Datos del usuario el cual está modificando su cuenta.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

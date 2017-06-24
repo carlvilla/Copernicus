@@ -15,7 +15,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
     //Variable necesario para el filtrado de sala
     var salas;
-    
+
     /**
      * Encuentar los contactos del usuario para que los pueda añadir a la sala
      */

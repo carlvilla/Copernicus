@@ -1,3 +1,9 @@
+/**
+ * @ngdoc function
+ * @name copernicus.function:AsistentesManager
+ * @description
+ * Este manager se encarga de la gestión de los asistentes a una sala
+ */
 function AsistentesManager(ws) {
 
     var asistentes = [];
