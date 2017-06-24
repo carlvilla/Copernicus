@@ -1,10 +1,22 @@
-/**
- * Created by carlosvillablanco on 29/02/2017.
- */
 var copernicus = angular.module('copernicus');
 
+/**
+ * @ngdoc controller
+ * @name copernicus.controller:LoginController
+ *
+ * @description
+ * Controlador encargado de permitir iniciar sesión a los usuarios.
+ */
 copernicus.controller('loginController', function ($scope, $http, $cookies, $window, utils, $translate) {
 
+    /**
+     * @ngdoc property
+     * @name loginError
+     * @propertyOf copernicus.controller:LoginController
+     * @description
+     * Atributo que indica si hay que mostrar un mensaje de error o no por un inicio de sesión no autorizado.
+     *
+     **/
     $scope.loginError = false;
 
     $scope.login = function () {
