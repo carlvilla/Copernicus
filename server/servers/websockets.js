@@ -125,8 +125,7 @@ module.exports = function (server) {
                                 enviarA(message, obj.data.otherUsername, sala);
                                 break;
 
-                            case 'cerrar':
-                                console.log("cerrar");
+                            case 'desconectado':
                                 setDisponibleUsuarioVideoChat(obj.data.username, sala, false);
                                 broadcast(message, obj.data.username, sala);
                                 break;

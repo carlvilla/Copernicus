@@ -3,32 +3,38 @@ var copernicus = angular.module('copernicus');
 copernicus.controller('videollamadasController', function ($scope, $rootScope, webSocketService) {
 
     //Usuario almacenado por asistentesController en el rootScope
-    webSocketService.videollamadasManager.setUsuario($rootScope.usuario);
-
+    var usuario;
 
     //Id de la sala a la que se accedió
-    var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
-
-    webSocketService.videollamadasManager.start(sala);
-
-    $scope.cerrarServicio = function () {
-        webSocketService.videollamadasManager.setDisconnected();
-    }
+    var sala;
 
     $scope.muteMicrophone = false;
-    $scope.mute = false;
+    $scope.muteAltavoz = false;
     $scope.video = false;
 
-    $scope.setAltavoz = function(){
-        webSocketService.videollamadasManager.setAltavoz($scope.mute);
+    var incializacion = function(){
+        usuario = $rootScope.usuario;
+        sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
+        webSocketService.videollamadasManager.inicializar(usuario.username, sala.idSala);
     }
 
-    $scope.setMicrofono = function(){
+    incializacion();
+
+    $scope.setAltavoz = function(){
+        webSocketService.videollamadasManager.setAltavoz($scope.muteAltavoz);
+    }
+
+    $scope.setAltavoz = function(){
         webSocketService.videollamadasManager.setMicrofono(!$scope.muteMicrophone);
     }
 
     $scope.stopVideo = function(){
         webSocketService.videollamadasManager.setVideo(!$scope.video);
     }
+
+    $scope.cerrarServicio = function () {
+        webSocketService.videollamadasManager.setDesconectado();
+    }
+
 
 });

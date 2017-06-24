@@ -2,32 +2,40 @@ var copernicus = angular.module('copernicus');
 
 copernicus.controller('dibujosController', function ($scope, $rootScope, webSocketService) {
 
-    var username = $rootScope.usuario.username;
-    var sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada")).idSala;
+    var usuario;
+    var sala;
 
-    webSocketService.dibujosManager.inicializarServicio(username, sala);
+    var inicializacion = function () {
+        usuario = $rootScope.usuario;
+        sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
 
-    $scope.addCirculo = function(){
+        webSocketService.dibujosManager.inicializar(usuario.username, sala.idSala);
+    }
+
+    inicializacion();
+
+
+    $scope.addCirculo = function () {
         webSocketService.dibujosManager.addCirculo();
     };
 
-    $scope.addTriangulo = function(){
+    $scope.addTriangulo = function () {
         webSocketService.dibujosManager.addTriangulo();
     };
 
-   $scope.addRectangulo = function(){
+    $scope.addRectangulo = function () {
         webSocketService.dibujosManager.addRectangulo();
     };
 
-   $scope.dibujar = function(){
+    $scope.dibujar = function () {
         webSocketService.dibujosManager.dibujar();
     };
 
-   $scope.seleccionar = function(){
+    $scope.seleccionar = function () {
         webSocketService.dibujosManager.seleccionar();
     };
 
-   $scope.borrar = function(){
+    $scope.borrar = function () {
         webSocketService.dibujosManager.borrar();
     };
 

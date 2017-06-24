@@ -1,20 +1,18 @@
-/**
- * Created by carlosvillablanco on 20/02/2017.
- */
 var copernicus = angular.module('copernicus');
 
 copernicus.controller('registroController', function ($scope, $http, $window, $cookies, utils, $translate) {
-    $scope.messages = {};
-    $scope.messages.showError = false;
 
-    $scope.fotoPerfil;
+    $scope.foto;
     $scope.fotoRecortada = '';
     var fotoPorDefecto = true;
     var sizeMaxFoto = 8000000; //8MB
 
+    $scope.messages = {};
+    $scope.messages.showError = false;
+
     $scope.registrar = function (usuario) {
         utils.mensajeInfo($translate.instant("SOLICITANDO_REGISTRO"));
-        usuario.fotoPerfil = $scope.fotoRecortada;
+        usuario.foto = $scope.fotoRecortada;
         usuario.fotoPorDefecto = fotoPorDefecto;
         $http({
             method: "POST",
@@ -31,7 +29,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
             var reader = new FileReader();
             reader.onload = function (evt) {
                 $scope.$apply(function ($scope) {
-                    $scope.fotoPerfil = evt.target.result;
+                    $scope.foto = evt.target.result;
                 });
 
                 fotoPorDefecto = false;

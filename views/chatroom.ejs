@@ -21,7 +21,7 @@
     <!-- Controladores y Managers -->
     <script src='/public/javascripts/managers/AsistentesManager.js'></script>
     <script src='/public/javascripts/managers/VideollamadasManager.js'></script>
-    <script src='/public/javascripts/managers/PresentacionManager.js'></script>
+    <script src='/public/javascripts/managers/PresentacionesManager.js'></script>
     <script src='/public/javascripts/managers/ChatTextoManager.js'></script>
     <script src='/public/javascripts/managers/DibujosManager.js'></script>
     <script src='/public/javascripts/managers/RadioManager.js'></script>
@@ -32,7 +32,7 @@
     <script src='/public/javascripts/controllers/serviciosController.js'></script>
     <script src='/public/javascripts/controllers/videollamadasController.js'></script>
     <script src='/public/javascripts/controllers/dibujosController.js'></script>
-    <script src='/public/javascripts/controllers/presentacionController.js'></script>
+    <script src='/public/javascripts/controllers/presentacionesController.js'></script>
     <script src='/public/javascripts/controllers/chatTextoController.js'></script>
     <script src='/public/javascripts/controllers/radioController.js'></script>
     <script src='/public/javascripts/controllers/videoCompartidoController.js'></script>
@@ -52,8 +52,8 @@
             <li class="active"><a href="index" translate="PAGINA_PRINCIPAL"></a></li>
         </ul>
 
-        <img ng-src="{{selectedSala.foto}}" class="foto-sala" alt="Foto sala"/>
-        <span id="nombreSala">{{selectedSala.nombre}}</span>
+        <img ng-src="{{salaSeleccionada.foto}}" class="foto-sala" alt="Foto sala"/>
+        <span id="nombreSala">{{salaSeleccionada.nombre}}</span>
     </div>
 </nav>
 
@@ -72,10 +72,16 @@
     <a href="javascript:void(0)" class="closebtn"
        onclick="closeNav('myAsistentesnav'); ">&times;</a>
     <h3 id="asistentesLabel">{{'PARTICIPANTES' | translate}}</h3>
-    <a ng-repeat="asistente in asistentes" onclick="informacion()">{{asistente.username}} <span
+
+    <a ng-repeat="asistente in asistentes">{{asistente.username}} <span
                 class="conectado">•</span></a>
+
     <a ng-show="asistentes.length == 0" translate="{{'NO_PARTICIPANTES' | translate}}"></a>
+
 </div>
+
+
+
 
 <div id="div-hide-navegacion">
     <span class="glyphicon glyphicon-chevron-left" id="esconder-navegacion" onclick="closeNavPrincipal(); "></span>

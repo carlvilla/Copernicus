@@ -103,7 +103,7 @@ module.exports.usernameNoExiste = function (req, res, next) {
  * @param res
  * @param next
  */
-module.exports.checkAdminOrModerador = function (req, res, next) {
+module.exports.checkAdminOModerador = function (req, res, next) {
     var idSala = req.body.idSala;
     var username = utils.getUsername(req);
 
@@ -524,12 +524,12 @@ module.exports.checkPosibleEliminar = function (req, res, next) {
                 }
 
                 //Si el usuario que envía la petición es administrador de la sala, puede realizar la operación
-                if (result[0].type == 'Admin') {
+                if (result[0] && result[0].type == 'Admin') {
                     next();
 
                     //Si el usuario que envía la petición es moderador de la sala, hay que comprobar que el usuario
                     //al que intenta eliminar sea miembro
-                } else if (result[0].type == 'Moderador') {
+                } else if (result[0] && result[0].type == 'Moderador') {
 
                     query = "MATCH(u:Usuario{username:'" + username + "'})-[c]" +
                         "-(s:Sala{idSala:" + idSala + "}) RETURN  c";

@@ -1,15 +1,15 @@
 function VideollamadasManager(ws) {
 
+    var usernameUsuario;
+    var sala;
+
     //Solo podrán estar conectados 4 personas con el video a la vez
     var videoLocal;
     var videoRemoto1;
     var videoRemoto2;
     var videoRemoto3;
 
-    var usuario;
-    var sala;
-
-    var conexiones = [];
+    var peerConnections = [];
     var remotes = [];
     var referenciaStream;
 
@@ -22,9 +22,10 @@ function VideollamadasManager(ws) {
         video: true
     };
 
-    this.start = function (salaParam) {
+    this.inicializar = function (username, salaParam) {
 
         sala = salaParam;
+        usernameUsuario = username;
 
         videoLocal = document.getElementById("localVideo");
         videoRemoto1 = document.getElementById("remoteVideo1");
@@ -32,10 +33,6 @@ function VideollamadasManager(ws) {
         videoRemoto3 = document.getElementById("remoteVideo3");
 
         navigator.mediaDevices.getUserMedia(constraints).then(successVideo).catch(errorVideo);
-    }
-
-    this.setUsuario = function (user) {
-        usuario = user;
     }
 
     function successVideo(stream) {
@@ -77,7 +74,7 @@ function VideollamadasManager(ws) {
                             console.err('Failed to create signaling message: ' + err.message);
                         });
 
-                    conexiones.push({
+                    peerConnections.push({
                         'username': user,
                         'connection': localPeerConnection
                     });
@@ -97,8 +94,8 @@ function VideollamadasManager(ws) {
                 onCandidate(data.candidate, data.username);
                 break;
 
-            case 'cerrar':
-                onCerrar(data.username);
+            case 'desconectado':
+                onDesconectado(data.username);
                 break;
 
             default:
@@ -187,7 +184,7 @@ function VideollamadasManager(ws) {
                 videoRemoto2.muted = sonidoSilenciado;
 
                 remotes.push({
-                    'username': getUsername(localPeerConnection),
+                    'username': username,
                     'video': videoRemoto2
                 });
 
@@ -213,7 +210,7 @@ function VideollamadasManager(ws) {
                 videoRemoto3.muted = sonidoSilenciado;
 
                 remotes.push({
-                    'username': getUsername(localPeerConnection),
+                    'username': username,
                     'video': videoRemoto3
                 });
 
@@ -230,9 +227,9 @@ function VideollamadasManager(ws) {
      * @returns {*}
      */
     function getUsername(localPeerConnection) {
-        for (var i = 0; i < conexiones.length; i++) {
-            if (conexiones[i].connection == localPeerConnection) {
-                return conexiones[i].username;
+        for (var i = 0; i < peerConnections.length; i++) {
+            if (peerConnections[i].connection == localPeerConnection) {
+                return peerConnections[i].username;
             }
         }
     }
@@ -274,7 +271,7 @@ function VideollamadasManager(ws) {
     function onOffer(offer, usernameOrigen) {
         console.log("Recibe offer de: " + usernameOrigen);
         var localPeerConnection = iniciarVideollamada();
-        conexiones.push({
+        peerConnections.push({
             'username': usernameOrigen,
             'connection': localPeerConnection
         });
@@ -289,7 +286,7 @@ function VideollamadasManager(ws) {
 
     function onAnswer(answer, targetUsername) {
         console.log("Recibe answer de: " + targetUsername);
-        conexiones.forEach(function (peer) {
+        peerConnections.forEach(function (peer) {
             if (peer.username == targetUsername) {
                 peer.connection.setRemoteDescription(new RTCSessionDescription(answer));
             }
@@ -297,18 +294,18 @@ function VideollamadasManager(ws) {
     }
 
     function onCandidate(candidate, username) {
-        conexiones.forEach(function (peer) {
+        peerConnections.forEach(function (peer) {
             if (peer.username == username) {
                 peer.connection.addIceCandidate(new RTCIceCandidate(candidate));
             }
         });
     }
 
-    function onCerrar(username) {
-        for (var i = 0; i < conexiones.length; i++) {
-            if (conexiones[i].username == username) {
-                conexiones[i].connection.close();
-                conexiones.splice(i, 1);
+    function onDesconectado(username) {
+        for (var i = 0; i < peerConnections.length; i++) {
+            if (peerConnections[i].username == username) {
+                peerConnections[i].connection.close();
+                peerConnections.splice(i, 1);
                 i--;
             }
         }
@@ -438,7 +435,7 @@ function VideollamadasManager(ws) {
             'data': {
                 'operacion': 'answer',
                 'usernameOrigen': usernameOrigen,
-                'usernameObjetivo': usuario.username,
+                'usernameObjetivo': usernameUsuario,
                 'answer': answer,
                 'sala': sala
             }
@@ -450,7 +447,7 @@ function VideollamadasManager(ws) {
             'seccion': 'videoChat',
             'data': {
                 'operacion': 'offer',
-                'usernameOrigen': usuario.username,
+                'usernameOrigen': usernameUsuario,
                 'usernameObjetivo': usernameObjetivo,
                 'offer': descripcion,
                 'sala': sala
@@ -463,7 +460,7 @@ function VideollamadasManager(ws) {
             'seccion': 'videoChat',
             'data': {
                 'operacion': 'candidate',
-                'username': usuario.username,
+                'username': usernameUsuario,
                 'otherUsername': otherUsername,
                 'candidate': candidate,
                 'sala': sala
@@ -471,16 +468,16 @@ function VideollamadasManager(ws) {
         }));
     }
 
-    this.setDisconnected = function () {
-        sendData('cerrar');
+    this.setDesconectado = function () {
+        sendData('desconectado');
 
         //Se vuelve a dejar la variable a false por si se abre la videollamada de nuevo
         sonidoSilenciado = false;
 
 
-        for (var i = 0; i < conexiones.length; i++) {
-            conexiones[i].connection.close();
-            conexiones.splice(i, 1);
+        for (var i = 0; i < peerConnections.length; i++) {
+            peerConnections[i].connection.close();
+            peerConnections.splice(i, 1);
             i--;
         }
         for (var i = 0; i < remotes.length; i++) {
@@ -504,7 +501,7 @@ function VideollamadasManager(ws) {
                 'seccion': 'videoChat',
                 'data': {
                     'operacion': operacion,
-                    'username': usuario.username,
+                    'username': usernameUsuario,
                     'sala': sala
                 }
 

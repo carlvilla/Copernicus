@@ -5,21 +5,12 @@ var utils = require('../utils/utils');
 var jwt = require('jwt-simple');
 var cloudinary = require('cloudinary');
 
-var model = require('seraph-model');
 var confDB = require('../config/db')
 var db = require('seraph')({
     server: confDB.db.server,
     user: confDB.db.user,
     pass: confDB.db.pass
 });
-
-var sala = model(db, 'Sala');
-
-sala.schema = {
-    id: {type: Number, required: true},
-    nombre: {type: String, required: true},
-    descripcion: {type: String}
-};
 
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,

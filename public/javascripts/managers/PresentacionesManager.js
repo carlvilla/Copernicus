@@ -1,14 +1,13 @@
-function PresentacionManager(ws, utils, $translate) {
+function PresentacionesManager(ws, utils, $translate) {
 
-    var scope;
-    var reveal;
     var usernameUsuario;
     var sala;
-
     var iframe;
     var presentacion;
+    var scope;
 
-    this.start = function (salaParam, scopeParam) {
+    this.inicializar = function (username, salaParam, scopeParam) {
+        usernameUsuario = username;
         iframe = document.getElementById('presentacion-frame');
         scope = scopeParam;
         sala = salaParam;
@@ -17,10 +16,6 @@ function PresentacionManager(ws, utils, $translate) {
             iframe.src = presentacion;
 
     };
-
-    this.setUsuario = function (username) {
-        usernameUsuario = username;
-    }
 
     this.actualizarPresentacion = function (mensaje) {
 
@@ -46,7 +41,6 @@ function PresentacionManager(ws, utils, $translate) {
             presentacion: presentacionParam
         };
 
-
         if (iframe)
             iframe.src = presentacionParam;
 
@@ -59,8 +53,6 @@ function PresentacionManager(ws, utils, $translate) {
             {
                 'seccion': 'presentacion',
                 'data': {
-                    'indexh': mensaje.indexh,
-                    'indexv': mensaje.indexv,
                     'accion': mensaje.accion,
                     'presentacion': mensaje.presentacion,
                     'username': usernameUsuario,

@@ -2,18 +2,24 @@ var copernicus = angular.module('copernicus');
 
 copernicus.controller('solicitudesContactoController', function ($scope, $http, $window, utils, $translate) {
 
-    $http({
-        method: "GET",
-        url: "api/solicitudesContacto"
-    }).then(successSolicitudes, error);
-
-    function successSolicitudes(res) {
-        $scope.solicitudes = res.data;
-    }
 
     function error(err){
-        //console.log(err);
+        utils.mensajeError($translate.instant("ERROR_INTENTAR_MAS_TARDE"));
     }
+
+    var inicializacion = function(){
+        $http({
+            method: "GET",
+            url: "api/solicitudesContacto"
+        }).then(successSolicitudes, error);
+
+        function successSolicitudes(res) {
+            $scope.solicitudes = res.data;
+        }
+
+    }
+
+    inicializacion();
 
     $scope.aceptarSolicitud = function(usernameMandoSolicitud){
 

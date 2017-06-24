@@ -1,23 +1,25 @@
 function VideoCompartidoManager(ws, utils, $translate) {
 
-    var scope;
-    var username;
+    var usernameUsuario;
     var sala;
-    var API;
 
     //Variables necesarias en el caso de que se cambió la URL, pero el usuario no tiene
     //abierto el servicio de video compartido
-    var copiaUrl;
-    var copiaYoutube;
+    var url;
+    var urlYoutube;
 
-    this.inicializar = function ($scope, usernameParam, salaParam) {
-        scope = $scope;
-        username = usernameParam;
+    var API;
+    var scope;
+
+
+    this.inicializar = function (usernameParam, salaParam, $scope) {
+        usernameUsuario = usernameParam;
         sala = salaParam;
+        scope = $scope;
 
-        if (copiaUrl) {
-            scope.url = copiaUrl;
-            scope.youtube = copiaYoutube;
+        if (url) {
+            scope.url = url;
+            scope.youtube = urlYoutube;
         }
 
     };
@@ -26,27 +28,27 @@ function VideoCompartidoManager(ws, utils, $translate) {
         API = APIParam;
     }
 
-    this.cambiarVideo = function (url) {
-        scope.url = url;
-        copiaUrl = url;
-        sendData(url);
+    this.cambiarVideo = function (urlParam) {
+        scope.url = urlParam;
+        url = urlParam;
+        sendData(urlParam);
 
         utils.mensajeInfo($translate.instant('PREPARANDO_VIDEO'));
 
     };
 
-    this.cambiarVideoRemoto = function (url, youtube, username) {
+    this.cambiarVideoRemoto = function (urlParam, youtube, username) {
         if (scope) {
             if (!youtube) {
                 API.stop();
             }
             scope.youtube = youtube;
-            scope.url = url;
-            copiaUrl = url;
+            scope.url = urlParam;
+            url = urlParam;
         }
         else {
-            copiaYoutube = youtube;
-            copiaUrl = url;
+            urlYoutube = youtube;
+            url = urlParam;
         }
 
         utils.mensajeInfo($translate.instant('CAMBIO_VIDEO') + username);
@@ -56,14 +58,14 @@ function VideoCompartidoManager(ws, utils, $translate) {
         scope.youtube = boolean;
     }
 
-    function sendData(url) {
+    function sendData(urlParam) {
         ws.send(JSON.stringify(
             {
                 'seccion': 'video',
                 'data': {
-                    'username': username,
+                    'username': usernameUsuario,
                     'sala': sala,
-                    'url': url,
+                    'url': urlParam,
                     'youtube': scope.youtube
                 }
             }));

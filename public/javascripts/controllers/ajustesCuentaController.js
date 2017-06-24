@@ -4,20 +4,24 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
 
     $scope.usuario;
     $scope.pass;
-
-    $http({
-        method: "GET",
-        url: "api/perfil"
-    }).then(success);
-
-    function success(res) {
-        $scope.usuario = res.data[0];
-    }
-
     $scope.foto;
     $scope.fotoRecortada = '';
     var fotoCambiada = false;
     var sizeMaxFoto = 8000000; //8MB
+    var actualizando_mensaje;
+
+    var inicializacion = function(){
+        $http({
+            method: "GET",
+            url: "api/perfil"
+        }).then(success);
+
+        function success(res) {
+            $scope.usuario = res.data[0];
+        }
+    }
+
+    inicializacion();
 
     var fotoSeleccionada = function (evt) {
 
@@ -40,7 +44,6 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
 
     angular.element(document.querySelector('#foto-input')).on('change', fotoSeleccionada);
 
-    var actualizando_mensaje;
 
     $scope.actualizarDatos = function () {
         actualizando_mensaje = growl.info($translate.instant('ACTUALIZANDO_DATOS'), {reference: 1});
