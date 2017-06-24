@@ -24,7 +24,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
         webSocketService.videollamadasManager.setAltavoz($scope.muteAltavoz);
     }
 
-    $scope.setAltavoz = function(){
+    $scope.setMicrofono = function(){
         webSocketService.videollamadasManager.setMicrofono(!$scope.muteMicrophone);
     }
 

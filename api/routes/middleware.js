@@ -143,7 +143,7 @@ module.exports.checkAdminSiCambioAModerador = function (req, res, next) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
-            if (!result) {
+            if (!result[0]) {
                 utils.sendJSONresponse(res, 400, err);
                 return;
             }
