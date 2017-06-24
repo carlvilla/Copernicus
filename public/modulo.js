@@ -1,3 +1,9 @@
+/**
+ * @ngdoc overview
+ * @name overview:copernicus
+ * @description
+ * Este módulo se encarga de contener todos aquellas directivas, controladores y servicios de la aplicación
+ **/
 var copernicus = angular.module('copernicus', ['ngCookies', 'angular-websocket', 'angucomplete', 'ngFileUpload'
     , 'angular-growl', 'pascalprecht.translate', 'ngImgCrop', "ngSanitize", "com.2fdevs.videogular",
     "com.2fdevs.videogular.plugins.controls", 'youtube-embed']);

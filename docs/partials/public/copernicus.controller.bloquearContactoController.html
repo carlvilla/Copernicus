@@ -1,0 +1,60 @@
+<h1><code ng:non-bindable="">BloquearContactoController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-controller-page copernicus-controller-bloquearcontactocontroller-page"><p>Este controlador es utilizado para bloquear y desbloquear contactos, además de listar los usuarios bloqueados.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_bloquearcontacto">bloquearContacto()</h3>
+<div class="bloquearcontacto"><div class="bloquearcontacto-page"><p>Bloquea el contacto seleccionado.</p>
+</div></div>
+</li>
+<li><h3 id="methods_buscarcontactos">buscarContactos()</h3>
+<div class="buscarcontactos"><div class="buscarcontactos-page"><p>Realiza petición a la API REST para recuperar los contactos del usuario.</p>
+</div></div>
+</li>
+<li><h3 id="methods_buscarcontactosbloqueados">buscarContactosBloqueados()</h3>
+<div class="buscarcontactosbloqueados"><div class="buscarcontactosbloqueados-page"><p>Realiza petición a la API REST para recuperar los contactos bloqueados.</p>
+</div></div>
+</li>
+<li><h3 id="methods_cerrarpantallabloquear">cerrarPantallaBloquear()</h3>
+<div class="cerrarpantallabloquear"><div class="cerrarpantallabloquear-page"><p>Actualiza la página al cerrar el diálogo para bloquear y desbloquear contactos.</p>
+</div></div>
+</li>
+<li><h3 id="methods_desbloquearcontacto">desbloquearContacto(username)</h3>
+<div class="desbloquearcontacto"><div class="desbloquearcontacto-page"><p>Desbloquea al contacto seleccionado.</p>
+</div><h5 id="methods_desbloquearcontacto_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="desbloquearcontacto-page"><p>Nombre de usuario del usuario que se va a desbloquear.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_error">error(res)</h3>
+<div class="error"><div class="error-page"><p>Muestra un mensaje de error en el caso de que no se pudo recuperar información al conectarse con el servidor.</p>
+</div><h5 id="methods_error_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="error-page"><p>Respuesta de la API REST</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_errorbloquear">errorBloquear(err)</h3>
+<div class="errorbloquear"><div class="errorbloquear-page"><p>Error producido cuando dos usuarios si bloquean entre sí a la vez</p>
+</div><h5 id="methods_errorbloquear_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>err</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="errorbloquear-page"><p>Respuesta de la API REST</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_success">success(res)</h3>
+<div class="success"><div class="success-page"><p>Almacena en la propiedad &#39;contactosBloqueados&#39; los usuarios bloqueados obtenidos a partir de una petición a la
+API REST.</p>
+</div><h5 id="methods_success_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="success-page"><p>Respuesta de la API REST</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_contactoseleccionado">contactoSeleccionado</h3>
+<div class="contactoseleccionado"><div class="contactoseleccionado-page"><p>Contacto seleccionado para ser bloqueado.</p>
+</div></div>
+</li>
+<li><h3 id="properties_contactosbloqueados">contactosBloqueados</h3>
+<div class="contactosbloqueados"><div class="contactosbloqueados-page"><p>Contactos bloqueados.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

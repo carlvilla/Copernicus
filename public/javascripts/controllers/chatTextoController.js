@@ -1,12 +1,55 @@
 var copernicus = angular.module('copernicus');
 
+/**
+ * @ngdoc controller
+ * @name copernicus.controller:ChatTextoController
+ *
+ * @description
+ * Este controlador es utilizado para comunicar al usuario con 'ChatTextoManager', de modo que pueda enviar y recibir
+ * mensajes y archivos.
+ */
+
 copernicus.controller("chatTextoController", function ($scope, $rootScope, webSocketService, utils, $translate) {
 
+    /**
+     * @ngdoc property
+     * @name usuario
+     * @propertyOf copernicus.controller:ChatTextoController
+     * @description
+     * Usuario que está utilizando la sala.
+     *
+     **/
     var usuario;
 
-    //Id de la sala a la que se accedió
+    /**
+     * @ngdoc property
+     * @name sala
+     * @propertyOf copernicus.controller:ChatTextoController
+     * @description
+     * Id de la sala a la que se accedió.
+     *
+     **/
     var sala;
 
+    /**
+     * @ngdoc property
+     * @name mensajes
+     * @propertyOf copernicus.controller:ChatTextoController
+     * @description
+     * Mensajes del chat de texto.
+     *
+     **/
+    $scope.mensajes = {};
+
+    /**
+     * @ngdoc method
+     * @name inicializacion
+     * @methodOf copernicus.controller:ChatTextoController
+     * @description
+     * Inicializa el controlador. Se encarga de inicializar el 'ChatTextoManager' pasandole el nombre de usuario y la
+     * sala, y recibe los mensajes enviados.
+     *
+     **/
     var inicializacion = function(){
         usuario = $rootScope.usuario;
 
@@ -22,6 +65,17 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
 
     inicializacion();
 
+
+    /**
+     * @ngdoc method
+     * @name enviarMensaje
+     * @methodOf copernicus.controller:ChatTextoController
+     * @description
+     * Envía un mensaje del usuario.
+     *
+     * @param {String} mensaje Mensaje enviado por el usuario.
+     *
+     **/
     $scope.enviarMensaje = function (mensaje) {
         if (mensaje != "") {
             document.getElementById("texto-enviar").value = "";
@@ -31,6 +85,17 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
 
     };
 
+    /**
+     * @ngdoc method
+     * @name enviarMensajeTeclado
+     * @methodOf copernicus.controller:ChatTextoController
+     * @description
+     * Envía un mensaje del usuario al pulsar Enter en el teclado.
+     *
+     * @param {object} event Evento ocasionado al pulsar una tecla.
+     * @param {String} mensaje Mensaje enviado por el usuario.
+     *
+     **/
     $scope.enviarMensajeTeclado = function (event, mensaje) {
         if (event.keyCode == 13) {
             event.preventDefault();
@@ -38,7 +103,17 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
         }
     };
 
-
+    /**
+     * @ngdoc method
+     * @name enviarFichero
+     * @methodOf copernicus.controller:ChatTextoController
+     * @description
+     * Envía un fichero.
+     *
+     * @param {object} file Fichero que el usuario envía
+     * @param {object} errFiles Error al recibir el fichero.
+     *
+     **/
     $scope.enviarFichero = function (file, errFiles) {
 
         var fr = new FileReader();

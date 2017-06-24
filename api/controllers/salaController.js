@@ -1,6 +1,3 @@
-/**
- * Created by carlosvillablanco on 23/03/2017.
- */
 var utils = require('../utils/utils');
 var jwt = require('jwt-simple');
 var cloudinary = require('cloudinary');

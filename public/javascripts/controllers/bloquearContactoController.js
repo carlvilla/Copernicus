@@ -1,17 +1,71 @@
 var copernicus = angular.module('copernicus');
 
+/**
+ * @ngdoc controller
+ * @name copernicus.controller:BloquearContactoController
+ *
+ * @description
+ * Este controlador es utilizado para bloquear y desbloquear contactos, además de listar los usuarios bloqueados.
+ */
 copernicus.controller('bloquearContactoController', function ($scope, $http, $window, utils, $translate) {
 
+    /**
+     * @ngdoc property
+     * @name contactoSeleccionado
+     * @propertyOf copernicus.controller:BloquearContactoController
+     * @description
+     * Contacto seleccionado para ser bloqueado.
+     *
+     **/
     $scope.contactoSeleccionado;
 
+    /**
+     * @ngdoc property
+     * @name contactosBloqueados
+     * @propertyOf copernicus.controller:BloquearContactoController
+     * @description
+     * Contactos bloqueados.
+     *
+     **/
+    $scope.contactosBloqueados;
+
+    /**
+     * @ngdoc method
+     * @name success
+     * @methodOf copernicus.controller:BloquearContactoController
+     * @description
+     * Almacena en la propiedad 'contactosBloqueados' los usuarios bloqueados obtenidos a partir de una petición a la
+     * API REST.
+     *
+     * @param {object} res Respuesta de la API REST
+     *
+     **/
     var success = function (res) {
         $scope.contactosBloqueados = res.data;
     }
 
+    /**
+     * @ngdoc method
+     * @name error
+     * @methodOf copernicus.controller:BloquearContactoController
+     * @description
+     * Muestra un mensaje de error en el caso de que no se pudo recuperar información al conectarse con el servidor.
+     *
+     * @param {object} res Respuesta de la API REST
+     *
+     **/
     var error = function (res) {
         utils.mensajeError($translate.instant("ERROR_INTENTAR_MAS_TARDE"));
     }
 
+    /**
+     * @ngdoc method
+     * @name buscarContactosBloqueados
+     * @methodOf copernicus.controller:BloquearContactoController
+     * @description
+     * Realiza petición a la API REST para recuperar los contactos bloqueados.
+     *
+     **/
     var buscarContactosBloqueados = function () {
         $http({
             method: "GET",
@@ -21,6 +75,14 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
 
     buscarContactosBloqueados();
 
+    /**
+     * @ngdoc method
+     * @name buscarContactos
+     * @methodOf copernicus.controller:BloquearContactoController
+     * @description
+     * Realiza petición a la API REST para recuperar los contactos del usuario.
+     *
+     **/
     var buscarContactos = function () {
         $http({
             method: "GET",
@@ -42,6 +104,14 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
 
     buscarContactos();
 
+    /**
+     * @ngdoc method
+     * @name bloquearContacto
+     * @methodOf copernicus.controller:BloquearContactoController
+     * @description
+     * Bloquea el contacto seleccionado.
+     *
+     **/
     $scope.bloquearContacto = function () {
         if ($scope.contactoSeleccionado) {
 
@@ -64,14 +134,29 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     }
 
     /**
-     * Error producido cuando dos usuarios si bloquean entre sí a la vez
+     * @ngdoc method
+     * @name errorBloquear
+     * @methodOf copernicus.controller:BloquearContactoController
+     * @description
+     *  Error producido cuando dos usuarios si bloquean entre sí a la vez
      *
-     * @param err
-     */
+     *  @param {object} err Respuesta de la API REST
+     *
+     **/
     var errorBloquear = function(err){
         utils.mensajeError($translate.instant('OPERACION_NO_AUTORIZADA'));
     }
 
+    /**
+     * @ngdoc method
+     * @name desbloquearContacto
+     * @methodOf copernicus.controller:BloquearContactoController
+     * @description
+     * Desbloquea al contacto seleccionado.
+     *
+     * @param {String} username Nombre de usuario del usuario que se va a desbloquear.
+     *
+     **/
     $scope.desbloquearContacto = function (username) {
         $http({
             method: "POST",
@@ -83,6 +168,14 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
         }, error);
     }
 
+    /**
+     * @ngdoc method
+     * @name cerrarPantallaBloquear
+     * @methodOf copernicus.controller:BloquearContactoController
+     * @description
+     * Actualiza la página al cerrar el diálogo para bloquear y desbloquear contactos.
+     *
+     **/
     $scope.cerrarPantallaBloquear = function () {
         $window.location.reload();
     }
