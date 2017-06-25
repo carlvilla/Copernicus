@@ -267,6 +267,33 @@ NG_DOCS={
       "keywords": "aplicaci aquellas contener controladores de directivas encarga este la overview public se servicios todos"
     },
     {
+      "section": "api",
+      "id": "copernicus.function:ContactoController",
+      "shortName": "ContactoController",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Encargado de procesar las peticiones relacionadas con los contactos, recibidas por la API REST, realizando las",
+      "keywords": "acepta aceptarsolicitudcontacto administrador al api aquellas aquellos atributo base bloqueado bloqueados bloquear buscarbloqueados buscarcontactos buscarposiblescontactos buscarsolicitudescontacto con confdb configuraci consulta consultas contacto contactos contenida contra copernicus crea creado cuando cuyo datos db de del desbloquear devuelve el elimina en encargado entre envi enviado enviarsolicitudcontacto es establece establecer este exceptuandose exist existentes expulsa function ignora ignorarsolicitudcontacto jwt la las lo los manda mensaje method mismo necesarias objeto para pasados petici peticiones por procesar property realiz realiza realizando realizar recibidas referencia relaci relacionadas req res respuesta rest salas se seraph solicitud solicitudcontacto solicitudes son tambi tiene tienen tipo todas todos una username usuario usuarios utiliza utilizado utilizando utils vuelve ya"
+    },
+    {
+      "section": "api",
+      "id": "copernicus.function:SalaController",
+      "shortName": "SalaController",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Encargado de procesar las peticiones relacionadas con las salas, recibidas por la API REST, realizando las",
+      "keywords": "aceptado aceptarsolicitudsala actualiza actualizardatos admin administrador al api atributo base busca buscarcandidatos buscarparticipantessala buscarsalasadmin buscarsalascandidato buscarsalasmiembro buscarsalasmoderador buscarsalasparticipa cambia cambiarpermisos cambiarpermisossolicitud candidato checkparticipante cloudinary como comprueba con concreta confdb configuraci consultas contenida contra copernicus crea creado crearsala cuyo datos db de del determinado devuelve el elimina eliminar eliminarsala eliminarusuario en encargado entre env envi enviada enviado enviarsolicitudsala es ese especificados esta estableciendo esto function ha ignorarsolicitudsala informaci jwt la las los method miembro moderador moderadores necesarias ni nombre objeto otorgados par para participa participantes pasada pasado pasados permisos pero petici peticiones por procesar property propiedad realizando realizar recibidas referencia relaci relacionadas req res respuesta rest sala salas se sea seraph si solicitud tipo todav una uni unirse usuario usuarios utilizado utilizando utils valor"
+    },
+    {
+      "section": "api",
+      "id": "copernicus.function:UsuarioController",
+      "shortName": "UsuarioController",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Encargado de procesar las peticiones relacionadas con un usuario, recibidas por la API REST, realizando las",
+      "keywords": "acceso administrador almacena almacenan api asignado atributo base caso cierto cloudinary comprueba con confdb configuraci consultas contenida contra contrase copernicus correctas crea creado creando credenciales cuenta datos datosusuario db de del devuelve durante el eliminar eliminarcuenta ella en encargado env enviadas enviados es este esto estos function hash identifica implica informaci introducir jwt la las le lo login los method modificar modificardatos modificarpass necesarias nodo nombre nuevo objeto otros para partir passport perfil permite petici peticiones por procesar property realiz realizando realizar recibidas referencia registra registrar relacionadas relaciones req res respuesta rest salas salt se seraph serlo sin solicitud son su sus tiempo tiene tipo todas token una usuario utilizado utilizando utils validarusername vez volver ya"
+    },
+    {
       "section": "server",
       "id": "copernicus.function:pagesController",
       "shortName": "pagesController",
