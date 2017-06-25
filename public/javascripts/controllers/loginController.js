@@ -19,8 +19,15 @@ copernicus.controller('loginController', function ($scope, $http, $cookies, $win
      **/
     $scope.loginError = false;
 
+    /**
+     * @ngdoc method
+     * @name login
+     * @methodOf copernicus.controller:LoginController
+     * @description
+     * Permite iniciar sesión a un usuario.
+     *
+     **/
     $scope.login = function () {
-        //Obtenemos el usuario de la base de datos (Si existe)
         $http({
             method: "POST",
             url: "api/login",
@@ -28,14 +35,32 @@ copernicus.controller('loginController', function ($scope, $http, $cookies, $win
         }).then(success, error)
     }
 
-    //Login correcto
+    /**
+     * @ngdoc method
+     * @name success
+     * @methodOf copernicus.controller:LoginController
+     * @description
+     * Incluye el token de sesión al navegador y redirige al usuario a la página principal.
+     *
+     * @param {object} res Respuesta de la API REST
+     *
+     **/
     function success(res) {
         utils.mensajeSuccessSinTiempo($translate.instant('INICIANDO_SESION'));
         $cookies.put('token', res.data.token);
         $window.location.href = '/mainPage';
     }
 
-    //La combinación usuario-contraseña es erronea
+    /**
+     * @ngdoc method
+     * @name error
+     * @methodOf copernicus.controller:LoginController
+     * @description
+     * Muestra un mensaje de error si las credenciales de acceso eran erroneas.
+     *
+     * @param {object} res Respuesta de la API REST
+     *
+     **/
     function error(res) {
         if(!utils.checkDatabaseError(res))
             $scope.loginError = true;

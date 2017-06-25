@@ -1,15 +1,54 @@
 var copernicus = angular.module('copernicus');
 
+/**
+ * @ngdoc controller
+ * @name copernicus.controller:VideoCompartidoController
+ *
+ * @description
+ * Este controlador es utilizado para comunicar al usuario con 'VideoCompartidoManager', de modo que pueda
+ * enviar y recibir la URL de los videos.
+ */
 copernicus.controller('videoCompartidoController', function ($scope, $rootScope, webSocketService) {
 
-    //Username del usuario de esta sesión
+    /**
+     * @ngdoc property
+     * @name usuario
+     * @propertyOf copernicus.controller:VideoCompartidoController
+     * @description
+     * Almacena los datos del usuario.
+     *
+     **/
     var usuario;
 
-    $scope.youtube = false;
-
-    //Id de la sala a la que se accedió
+    /**
+     * @ngdoc property
+     * @name usuario
+     * @propertyOf copernicus.controller:VideoCompartidoController
+     * @description
+     * Almacena los datos de la sala a la que se accedió.
+     *
+     **/
     var sala;
 
+    /**
+     * @ngdoc property
+     * @name youtube
+     * @propertyOf copernicus.controller:VideoCompartidoController
+     * @description
+     * Booleano que indica si la URL del video es de un video de YouTube o no.
+     *
+     **/
+    $scope.youtube = false;
+
+    /**
+     * @ngdoc method
+     * @name inicializar
+     * @methodOf copernicus.controller:VideoCompartidoController
+     * @description
+     * Inicializa el controlador, obteniendo los datos de la sala y el usuario e inicializa 'VideoCompartidoManager'
+     * pasandole el nombre de usuario e ID de la sala.
+     *
+     **/
     var inicializar = function () {
         usuario = $rootScope.usuario;
         sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
@@ -19,9 +58,14 @@ copernicus.controller('videoCompartidoController', function ($scope, $rootScope,
     inicializar();
 
     /**
+     * @ngdoc method
+     * @name cambiarVideo
+     * @methodOf copernicus.controller:VideoCompartidoController
+     * @description
      * Modifica el video que se está reproduciendo a través de VideoCompartidoManager. Se comprueba antes si el video
-     * pasado es de YouTube, ya que en ese caso es necesario utilizar otro reproductor.
-     */
+     * pasado es de YouTube ya que en ese caso es necesario utilizar otro reproductor.
+     *
+     **/
     $scope.cambiarVideo = function () {
 
         var urlCambiar = $scope.urlCambiar;
@@ -37,6 +81,17 @@ copernicus.controller('videoCompartidoController', function ($scope, $rootScope,
 
     }
 
+    /**
+     * @ngdoc method
+     * @name onPlayerReady
+     * @methodOf copernicus.controller:VideoCompartidoController
+     * @description
+     * Cuando el reproductor de video está preparado, se le pasa su API a 'VideoCompartidoManager' de modo que lo pueda
+     * controlar.
+     *
+     * @param {object} API API del reproductor de video.
+     *
+     **/
     $scope.onPlayerReady = function (API){
         webSocketService.videoCompartidoManager.setAPI(API);
     }

@@ -1,0 +1,71 @@
+<h1><code ng:non-bindable="">ChatTextoManager</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-chattextomanager-page"><p>Este manager se encarga de la gestión del chat de texto.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new ChatTextoManager();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_addmensaje">addMensaje(mensaje)</h3>
+<div class="addmensaje"><div class="addmensaje-page"><p>Guarda un mensaje recibido de modo que se mostrará en el chat de texto, y mueve el scroll del chat de texto hasta
+el último mensaje.</p>
+</div><h5 id="methods_addmensaje_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="addmensaje-page"><p>Mensaje a añadir.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_enviarmensaje">enviarMensaje(mensaje)</h3>
+<div class="enviarmensaje"><div class="enviarmensaje-page"><p>Envía un mensaje a través de &#39;sendData&#39; al resto de usuarios conectados a la sala, y lo muestra en el chat
+de texto.</p>
+</div><h5 id="methods_enviarmensaje_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="enviarmensaje-page"><p>Mensaje a enviar al resto de usuarios.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_getfeedback">getFeedback(feedback)</h3>
+<div class="getfeedback"><div class="getfeedback-page"><p>Obtiene feedback de un mensaje enviado, de modo que el usuario puede saber el número de usuarios que recibieron
+el mensaje.</p>
+</div><h5 id="methods_getfeedback_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>feedback</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="getfeedback-page"><p>Feedback del mensaje enviado.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_getmensajes">getMensajes()</h3>
+<div class="getmensajes"><div class="getmensajes-page"><p>Devuelve todos los mensajes.</p>
+</div><h5 id="methods_getmensajes_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object[]</a></td><td><div class="getmensajes-page"><p>Listado de mensajes</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_inicializar">inicializar(username, salaParam)</h3>
+<div class="inicializar"><div class="inicializar-page"><p>Inicializa los valores de los atributos &#39;usernameUsuario&#39; y &#39;sala&#39;.</p>
+</div><h5 id="methods_inicializar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>salaParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>ID de la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_sendarchivo">sendArchivo(file, contenido, tipo)</h3>
+<div class="sendarchivo"><div class="sendarchivo-page"><p>Envía un archivo al resto de usuario conectados.</p>
+</div><h5 id="methods_sendarchivo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>file</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="sendarchivo-page"><p>Datos del archivo a enviar.</p>
+</div></td></tr><tr><td>contenido</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="sendarchivo-page"><p>Contenido del archivo.</p>
+</div></td></tr><tr><td>tipo</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="sendarchivo-page"><p>Tipo de archivo.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_senddata">sendData(mensaje)</h3>
+<div class="senddata"><div class="senddata-page"><p>Envía un mensaje al resto de usuario conectados.</p>
+</div><h5 id="methods_senddata_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="senddata-page"><p>Mensaje a enviar.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_mensajes">mensajes</h3>
+<div class="mensajes"><div class="mensajes-page"><p>Mensajes enviados y recibidos.</p>
+</div></div>
+</li>
+<li><h3 id="properties_sala">sala</h3>
+<div class="sala"><div class="sala-page"><p>ID de la sala.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usernameusuario">usernameUsuario</h3>
+<div class="usernameusuario"><div class="usernameusuario-page"><p>Nombre de usuario del usuario.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

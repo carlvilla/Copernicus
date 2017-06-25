@@ -1,0 +1,67 @@
+<h1><code ng:non-bindable="">RadioManager</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-radiomanager-page"><p>Este manager se encarga de la gestión del servicio de radio.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new RadioManager();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_cambiaremisoraremoto">cambiarEmisoraRemoto(url, usernameRemoto)</h3>
+<div class="cambiaremisoraremoto"><div class="cambiaremisoraremoto-page"><p>Recibe la URL de la emisora que fue introducida por otro usuario.</p>
+</div><h5 id="methods_cambiaremisoraremoto_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="cambiaremisoraremoto-page"><p>URL de la nueva emisora.</p>
+</div></td></tr><tr><td>usernameRemoto</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="cambiaremisoraremoto-page"><p>Nombre de usuario del usuario que cambio la URL.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_cambiaremisoraremoto">cambiarEmisoraRemoto(url)</h3>
+<div class="cambiaremisoraremoto"><div class="cambiaremisoraremoto-page"><p>Modifica la URL a reproducir.</p>
+</div><h5 id="methods_cambiaremisoraremoto_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="cambiaremisoraremoto-page"><p>URL de la nueva emisora.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_inicializar">inicializar(username, salaParam)</h3>
+<div class="inicializar"><div class="inicializar-page"><p>Inicializa los valores de los atributoes &#39;reproductor&#39;, &#39;usernameUsuario&#39; y &#39;sala&#39;. En el caso de que el atributo
+&#39;urlRadio&#39; tuviese algún valor, eso significa que otro usuario pasó una URL antes de abrir el
+servicio por lo que se establece como la URL a reproducir.</p>
+</div><h5 id="methods_inicializar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>salaParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>ID de la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_play">play()</h3>
+<div class="play"><div class="play-page"><p>Comienza la reproduciendo de la radio o canción.</p>
+</div></div>
+</li>
+<li><h3 id="methods_senddata">sendData(url)</h3>
+<div class="senddata"><div class="senddata-page"><p>Envía la URL establecida al resto de usuarios conectados a la sala.</p>
+</div><h5 id="methods_senddata_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="senddata-page"><p>URL de la radio o canción establecida.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setvolumen">setVolumen(volumenParam)</h3>
+<div class="setvolumen"><div class="setvolumen-page"><p>Modifica el volumen del sonido.</p>
+</div><h5 id="methods_setvolumen_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>volumenParam</td><td><a href="" class="label type-hint type-hint-double">double</a></td><td><div class="setvolumen-page"><p>Volumen establecido.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_reproductor">reproductor</h3>
+<div class="reproductor"><div class="reproductor-page"><p>Reproductor de música.</p>
+</div></div>
+</li>
+<li><h3 id="properties_sala">sala</h3>
+<div class="sala"><div class="sala-page"><p>ID de la sala.</p>
+</div></div>
+</li>
+<li><h3 id="properties_urlradio">urlRadio</h3>
+<div class="urlradio"><div class="urlradio-page"><p>URL de la radio o canción que se está utilizando.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usernameusuario">usernameUsuario</h3>
+<div class="usernameusuario"><div class="usernameusuario-page"><p>Nombre de usuario del usuario.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

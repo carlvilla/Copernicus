@@ -83,7 +83,7 @@ copernicus.controller('asistentesController', function ($scope, $http, $cookies,
         sala = JSON.parse(window.sessionStorage.getItem("salaSeleccionada"));
 
         //Avisamos a los demás asistentes de la sala que el usuario se conectó
-        webSocketService.asistentesManager.setConnected(usuario.username, usuario.nombre, sala.idSala);
+        webSocketService.asistentesManager.setConectado(usuario.username, usuario.nombre, sala.idSala);
 
         //Obtenemos los asistentes conectados en la sala
         var asistentes = webSocketService.asistentesManager.getAsistentes();

@@ -1,27 +1,140 @@
+/**
+ * @ngdoc function
+ * @name copernicus.function:VideollamadasManager
+ * @description
+ * Este manager se encarga de la gestión del servicio de videollamadas.
+ */
 function VideollamadasManager(ws) {
 
+    /**
+     * @ngdoc property
+     * @name usernameUsuario
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Nombre de usuario del usuario.
+     *
+     **/
     var usernameUsuario;
+
+    /**
+     * @ngdoc property
+     * @name sala
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * ID de la sala.
+     *
+     **/
     var sala;
 
     //Solo podrán estar conectados 4 personas con el video a la vez
+    /**
+     * @ngdoc property
+     * @name videoLocal
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Referencia al video local.
+     *
+     **/
     var videoLocal;
+
+    /**
+     * @ngdoc property
+     * @name videoRemoto1
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Referencia a un video remoto.
+     *
+     **/
     var videoRemoto1;
+
+    /**
+     * @ngdoc property
+     * @name videoRemoto2
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Referencia a un video remoto.
+     *
+     **/
     var videoRemoto2;
+
+    /**
+     * @ngdoc property
+     * @name videoRemoto3
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Referencia a un video remoto.
+     *
+     **/
     var videoRemoto3;
 
+    /**
+     * @ngdoc property
+     * @name peerConnections
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Conexiones entre la máquina local y máquinas remotas.
+     *
+     **/
     var peerConnections = [];
+
+    /**
+     * @ngdoc property
+     * @name remotes
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Relaciona los videos con el nombre de usuario del usuario.
+     *
+     **/
     var remotes = [];
+
+    /**
+     * @ngdoc property
+     * @name referenciaStream
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Referencia al stream local.
+     *
+     **/
     var referenciaStream;
 
-    //Al silenciar a los otros usuarios, se silencian los usuarios actualmente conectados. Por lo tanto es necesario
-    //una variable que almacene el estado del sonido de los videos remotos por si se conecta un nuevo usuario.
+    //
+
+    /**
+     * @ngdoc property
+     * @name sonidoSilenciado
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Al silenciar a los otros usuarios, se silencian los usuarios actualmente conectados. Por lo tanto, es necesario
+     * esta variable que almacene el estado del sonido de los videos remotos por si se conecta un nuevo usuario.
+     *
+     **/
     var sonidoSilenciado = false;
 
+    /**
+     * @ngdoc property
+     * @name constraints
+     * @propertyOf copernicus.function:VideollamadasManager
+     * @description
+     * Objeto en el que se indica si se utilizará el video y audio en la videollamada.
+     *
+     **/
     var constraints = {
         audio: true,
         video: true
     };
 
+    /**
+     * @ngdoc method
+     * @name inicializar
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Inicializa los valores de los atributoes 'usernameUsuario' y 'sala', establece referencias a los cuatro
+     * reproductores de video e inicializa el video local.
+     *
+     * @param {String} username Nombre de usuario del usuario.
+     * @param {String} salaParam ID de la sala.
+     *
+     **/
     this.inicializar = function (username, salaParam) {
 
         sala = salaParam;
@@ -35,6 +148,17 @@ function VideollamadasManager(ws) {
         navigator.mediaDevices.getUserMedia(constraints).then(successVideo).catch(errorVideo);
     }
 
+    /**
+     * @ngdoc method
+     * @name successVideo
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Realiza las preparaciones necesarias para mostrar el video local, y envía un mensaje de 'inicio' al resto de
+     * usuarios a través de 'sendData'.
+     *
+     * @param {object} stream Stream del video local.
+     *
+     **/
     function successVideo(stream) {
         referenciaStream = stream;
         var videoTracks = stream.getVideoTracks();
@@ -50,10 +174,19 @@ function VideollamadasManager(ws) {
 
         videoLocal.muted = true;
 
-        console.log("Enviando mensaje 'login' desde videoManager")
         sendData('inicio');
     }
 
+    /**
+     * @ngdoc method
+     * @name getMessage
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Recibe mensajes de otros usuarios para realizar ciertas acciones.
+     *
+     * @param {object} data Stream del video local.
+     *
+     **/
     this.getMessage = function (data) {
 
         console.log(data.operacion);
@@ -103,6 +236,14 @@ function VideollamadasManager(ws) {
         }
     }
 
+    /**
+     * @ngdoc method
+     * @name iniciarVideollamada
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Inicia la videollamada.
+     *
+     **/
     function iniciarVideollamada() {
 
         if (typeof RTCPeerConnection == "undefined")
@@ -220,12 +361,18 @@ function VideollamadasManager(ws) {
     }
 
     /**
+     * @ngdoc method
+     * @name iniciarVideollamada
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
      * Devuelve el nombre de usuario de la colección de peerConnection cuyo localPeerConnection
+     * coincide con el pasado como parámetro.
+     *
+     * @param  {object} localPeerConnection Objeto localPeerConnection
+     * @return {String} Nombre de usuario de la colección de peerConnection cuyo localPeerConnection
      * coincide con el pasado como parámetro
      *
-     * @param localPeerConnection
-     * @returns {*}
-     */
+     **/
     function getUsername(localPeerConnection) {
         for (var i = 0; i < peerConnections.length; i++) {
             if (peerConnections[i].connection == localPeerConnection) {
@@ -239,6 +386,17 @@ function VideollamadasManager(ws) {
      *
      * @param mute
      */
+
+    /**
+     * @ngdoc method
+     * @name setAltavoz
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Activa o desactiva el altavoz
+     *
+     * @param {boolean} mute Indicia si el altavoz se activa o desactiva.
+     *
+     **/
     this.setAltavoz = function (mute) {
         sonidoSilenciado = mute;
         remotes.forEach(function (remote) {
@@ -247,27 +405,61 @@ function VideollamadasManager(ws) {
     };
 
     /**
-     * Silencia o activa el micrófono
+     * @ngdoc method
+     * @name setMicrofono
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Activa o desactiva el micrófono
      *
-     * @param mute
-     */
+     * @param {boolean} mute Indicia si el micrófono se activa o desactiva.
+     *
+     **/
     this.setMicrofono = function (mute) {
         referenciaStream.getAudioTracks()[0].enabled = mute;
     };
 
     /**
-     * Pausa o activa el video local
+     * @ngdoc method
+     * @name setVideo
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Activa o desactiva el video
      *
-     * @param video
-     */
+     * @param {boolean} mute Indicia si el video se activa o desactiva.
+     *
+     **/
     this.setVideo = function (video) {
         referenciaStream.getVideoTracks()[0].enabled = video;
     }
 
+
+    /**
+     * @ngdoc method
+     * @name errorVideo
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Método invocado si se produce un error al inicializar el video local. Se muestra un mensaje indicando que ocurrió
+     * un error.
+     *
+     * @param {object} error Error ocurrido.
+     *
+     **/
     function errorVideo(error) {
-        console.log(error);
+        utils.mensajeError($translate.instant("ERROR_VIDEOLLAMADA"));
     }
 
+
+    /**
+     * @ngdoc method
+     * @name onOffer
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Se recibe una oferta de un usuario
+     *
+     * @param {object} offer Oferta recibida.
+     * @param {String} usernameOrigen Nombre de usuario del usuario que manda la oferta.
+     *
+     **/
     function onOffer(offer, usernameOrigen) {
         console.log("Recibe offer de: " + usernameOrigen);
         var localPeerConnection = iniciarVideollamada();
@@ -284,6 +476,17 @@ function VideollamadasManager(ws) {
         });
     }
 
+    /**
+     * @ngdoc method
+     * @name onAnswer
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Se recibe una respuesta de un usuario
+     *
+     * @param {object} offer Respuesta recibida.
+     * @param {String} usernameOrigen Nombre de usuario del usuario que manda la respuesta.
+     *
+     **/
     function onAnswer(answer, targetUsername) {
         console.log("Recibe answer de: " + targetUsername);
         peerConnections.forEach(function (peer) {
@@ -293,6 +496,17 @@ function VideollamadasManager(ws) {
         });
     }
 
+    /**
+     * @ngdoc method
+     * @name onCandidate
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Se recibe un candidato de conexión de un usuario
+     *
+     * @param {object} candidate Candidato recibido.
+     * @param {boolean} username Nombre de usuario del usuario que manda el candidato de conexión.
+     *
+     **/
     function onCandidate(candidate, username) {
         peerConnections.forEach(function (peer) {
             if (peer.username == username) {
@@ -301,6 +515,16 @@ function VideollamadasManager(ws) {
         });
     }
 
+    /**
+     * @ngdoc method
+     * @name onDesconectado
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Se recibe que un usuario se desconectó de la videollamada.
+     *
+     * @param {String} username Nombre de usuario del usuario que se desconectó de la videollamada.
+     *
+     **/
     function onDesconectado(username) {
         for (var i = 0; i < peerConnections.length; i++) {
             if (peerConnections[i].username == username) {
@@ -322,11 +546,16 @@ function VideollamadasManager(ws) {
     }
 
     /**
+     * @ngdoc method
+     * @name actualizarVideos
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
      * Pausa el video en el cual se muestra el usuario con el username pasado como parámetro, y se actualizan las
      * dimensiones de todos los videos
      *
-     * @param username
-     */
+     * @param {String} username Nombre de usuario del usuario cuyo video hay que actualizar.
+     *
+     **/
     function actualizarVideos(username) {
         switch (username) {
             case videoRemoto1.username:
@@ -429,6 +658,16 @@ function VideollamadasManager(ws) {
         }
     }
 
+    /**
+     * @ngdoc method
+     * @name sendAnswer
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Envia una respuesta a cierto usuario.
+     *
+     * @param {String} usernameOrigen Nombre de usuario al que se envía la respuesta.
+     *
+     **/
     function sendAnswer(answer, usernameOrigen) {
         ws.send(JSON.stringify({
             'seccion': 'videoChat',
@@ -442,6 +681,16 @@ function VideollamadasManager(ws) {
         }));
     }
 
+    /**
+     * @ngdoc method
+     * @name sendOffer
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Envia una oferta a cierto usuario.
+     *
+     * @param {String} usernameOrigen Nombre de usuario al que se envía la oferta.
+     *
+     **/
     function sendOffer(descripcion, usernameObjetivo) {
         ws.send(JSON.stringify({
             'seccion': 'videoChat',
@@ -455,6 +704,16 @@ function VideollamadasManager(ws) {
         }));
     }
 
+    /**
+     * @ngdoc method
+     * @name sendCandidate
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Envia un candidato de conexión a cierto usuario.
+     *
+     * @param {String} otherUsername Nombre de usuario al que se envía el candidato de conexión.
+     *
+     **/
     function sendCandidate(candidate, otherUsername) {
         ws.send(JSON.stringify({
             'seccion': 'videoChat',
@@ -468,6 +727,14 @@ function VideollamadasManager(ws) {
         }));
     }
 
+    /**
+     * @ngdoc method
+     * @name setDesconectado
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Establece al usuario como desconectado.
+     *
+     **/
     this.setDesconectado = function () {
         sendData('desconectado');
 
@@ -495,6 +762,17 @@ function VideollamadasManager(ws) {
 
     };
 
+    /**
+     * @ngdoc method
+     * @name setDesconectado
+     * @methodOf copernicus.function:VideollamadasManager
+     * @description
+     * Envia mensajes con la operación realizada a los usuarios conectados a la videollamada a través del servidore
+     * de WebSockets.
+     *
+     * @param {String} operacion Operación realizada.
+     *
+     **/
     function sendData(operacion) {
         ws.send(JSON.stringify(
             {

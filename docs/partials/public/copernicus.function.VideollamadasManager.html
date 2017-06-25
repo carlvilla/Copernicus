@@ -1,0 +1,168 @@
+<h1><code ng:non-bindable="">VideollamadasManager</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-videollamadasmanager-page"><p>Este manager se encarga de la gestión del servicio de videollamadas.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new VideollamadasManager();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_actualizarvideos">actualizarVideos(username)</h3>
+<div class="actualizarvideos"><div class="actualizarvideos-page"><p>Pausa el video en el cual se muestra el usuario con el username pasado como parámetro, y se actualizan las
+dimensiones de todos los videos</p>
+</div><h5 id="methods_actualizarvideos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="actualizarvideos-page"><p>Nombre de usuario del usuario cuyo video hay que actualizar.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_errorvideo">errorVideo(error)</h3>
+<div class="errorvideo"><div class="errorvideo-page"><p>Método invocado si se produce un error al inicializar el video local. Se muestra un mensaje indicando que ocurrió
+un error.</p>
+</div><h5 id="methods_errorvideo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>error</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="errorvideo-page"><p>Error ocurrido.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_getmessage">getMessage(data)</h3>
+<div class="getmessage"><div class="getmessage-page"><p>Recibe mensajes de otros usuarios para realizar ciertas acciones.</p>
+</div><h5 id="methods_getmessage_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>data</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="getmessage-page"><p>Stream del video local.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_inicializar">inicializar(username, salaParam)</h3>
+<div class="inicializar"><div class="inicializar-page"><p>Inicializa los valores de los atributoes &#39;usernameUsuario&#39; y &#39;sala&#39;, establece referencias a los cuatro
+reproductores de video e inicializa el video local.</p>
+</div><h5 id="methods_inicializar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>salaParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>ID de la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_iniciarvideollamada">iniciarVideollamada(localPeerConnection)</h3>
+<div class="iniciarvideollamada"><div class="iniciarvideollamada-page"><p>Devuelve el nombre de usuario de la colección de peerConnection cuyo localPeerConnection
+coincide con el pasado como parámetro.</p>
+</div><h5 id="methods_iniciarvideollamada_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>localPeerConnection</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="iniciarvideollamada-page"><p>Objeto localPeerConnection</p>
+</div></td></tr></tbody></table><h5 id="methods_iniciarvideollamada_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="iniciarvideollamada-page"><p>Nombre de usuario de la colección de peerConnection cuyo localPeerConnection
+coincide con el pasado como parámetro</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_iniciarvideollamada">iniciarVideollamada()</h3>
+<div class="iniciarvideollamada"><div class="iniciarvideollamada-page"><p>Inicia la videollamada.</p>
+</div></div>
+</li>
+<li><h3 id="methods_onanswer">onAnswer(offer, usernameOrigen)</h3>
+<div class="onanswer"><div class="onanswer-page"><p>Se recibe una respuesta de un usuario</p>
+</div><h5 id="methods_onanswer_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>offer</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="onanswer-page"><p>Respuesta recibida.</p>
+</div></td></tr><tr><td>usernameOrigen</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="onanswer-page"><p>Nombre de usuario del usuario que manda la respuesta.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_oncandidate">onCandidate(candidate, username)</h3>
+<div class="oncandidate"><div class="oncandidate-page"><p>Se recibe un candidato de conexión de un usuario</p>
+</div><h5 id="methods_oncandidate_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>candidate</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="oncandidate-page"><p>Candidato recibido.</p>
+</div></td></tr><tr><td>username</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="oncandidate-page"><p>Nombre de usuario del usuario que manda el candidato de conexión.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_ondesconectado">onDesconectado(username)</h3>
+<div class="ondesconectado"><div class="ondesconectado-page"><p>Se recibe que un usuario se desconectó de la videollamada.</p>
+</div><h5 id="methods_ondesconectado_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="ondesconectado-page"><p>Nombre de usuario del usuario que se desconectó de la videollamada.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_onoffer">onOffer(offer, usernameOrigen)</h3>
+<div class="onoffer"><div class="onoffer-page"><p>Se recibe una oferta de un usuario</p>
+</div><h5 id="methods_onoffer_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>offer</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="onoffer-page"><p>Oferta recibida.</p>
+</div></td></tr><tr><td>usernameOrigen</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="onoffer-page"><p>Nombre de usuario del usuario que manda la oferta.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_sendanswer">sendAnswer(usernameOrigen)</h3>
+<div class="sendanswer"><div class="sendanswer-page"><p>Envia una respuesta a cierto usuario.</p>
+</div><h5 id="methods_sendanswer_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usernameOrigen</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="sendanswer-page"><p>Nombre de usuario al que se envía la respuesta.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_sendcandidate">sendCandidate(otherUsername)</h3>
+<div class="sendcandidate"><div class="sendcandidate-page"><p>Envia un candidato de conexión a cierto usuario.</p>
+</div><h5 id="methods_sendcandidate_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>otherUsername</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="sendcandidate-page"><p>Nombre de usuario al que se envía el candidato de conexión.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_sendoffer">sendOffer(usernameOrigen)</h3>
+<div class="sendoffer"><div class="sendoffer-page"><p>Envia una oferta a cierto usuario.</p>
+</div><h5 id="methods_sendoffer_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usernameOrigen</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="sendoffer-page"><p>Nombre de usuario al que se envía la oferta.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setaltavoz">setAltavoz(mute)</h3>
+<div class="setaltavoz"><div class="setaltavoz-page"><p>Activa o desactiva el altavoz</p>
+</div><h5 id="methods_setaltavoz_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mute</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="setaltavoz-page"><p>Indicia si el altavoz se activa o desactiva.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setdesconectado">setDesconectado()</h3>
+<div class="setdesconectado"><div class="setdesconectado-page"><p>Establece al usuario como desconectado.</p>
+</div></div>
+</li>
+<li><h3 id="methods_setdesconectado">setDesconectado(operacion)</h3>
+<div class="setdesconectado"><div class="setdesconectado-page"><p>Envia mensajes con la operación realizada a los usuarios conectados a la videollamada a través del servidore
+de WebSockets.</p>
+</div><h5 id="methods_setdesconectado_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>operacion</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setdesconectado-page"><p>Operación realizada.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setmicrofono">setMicrofono(mute)</h3>
+<div class="setmicrofono"><div class="setmicrofono-page"><p>Activa o desactiva el micrófono</p>
+</div><h5 id="methods_setmicrofono_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mute</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="setmicrofono-page"><p>Indicia si el micrófono se activa o desactiva.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setvideo">setVideo(mute)</h3>
+<div class="setvideo"><div class="setvideo-page"><p>Activa o desactiva el video</p>
+</div><h5 id="methods_setvideo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mute</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="setvideo-page"><p>Indicia si el video se activa o desactiva.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_successvideo">successVideo(stream)</h3>
+<div class="successvideo"><div class="successvideo-page"><p>Realiza las preparaciones necesarias para mostrar el video local, y envía un mensaje de &#39;inicio&#39; al resto de
+usuarios a través de &#39;sendData&#39;.</p>
+</div><h5 id="methods_successvideo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>stream</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="successvideo-page"><p>Stream del video local.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_constraints">constraints</h3>
+<div class="constraints"><div class="constraints-page"><p>Objeto en el que se indica si se utilizará el video y audio en la videollamada.</p>
+</div></div>
+</li>
+<li><h3 id="properties_peerconnections">peerConnections</h3>
+<div class="peerconnections"><div class="peerconnections-page"><p>Conexiones entre la máquina local y máquinas remotas.</p>
+</div></div>
+</li>
+<li><h3 id="properties_referenciastream">referenciaStream</h3>
+<div class="referenciastream"><div class="referenciastream-page"><p>Referencia al stream local.</p>
+</div></div>
+</li>
+<li><h3 id="properties_remotes">remotes</h3>
+<div class="remotes"><div class="remotes-page"><p>Relaciona los videos con el nombre de usuario del usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_sala">sala</h3>
+<div class="sala"><div class="sala-page"><p>ID de la sala.</p>
+</div></div>
+</li>
+<li><h3 id="properties_sonidosilenciado">sonidoSilenciado</h3>
+<div class="sonidosilenciado"><div class="sonidosilenciado-page"><p>Al silenciar a los otros usuarios, se silencian los usuarios actualmente conectados. Por lo tanto, es necesario
+esta variable que almacene el estado del sonido de los videos remotos por si se conecta un nuevo usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usernameusuario">usernameUsuario</h3>
+<div class="usernameusuario"><div class="usernameusuario-page"><p>Nombre de usuario del usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_videolocal">videoLocal</h3>
+<div class="videolocal"><div class="videolocal-page"><p>Referencia al video local.</p>
+</div></div>
+</li>
+<li><h3 id="properties_videoremoto1">videoRemoto1</h3>
+<div class="videoremoto1"><div class="videoremoto1-page"><p>Referencia a un video remoto.</p>
+</div></div>
+</li>
+<li><h3 id="properties_videoremoto2">videoRemoto2</h3>
+<div class="videoremoto2"><div class="videoremoto2-page"><p>Referencia a un video remoto.</p>
+</div></div>
+</li>
+<li><h3 id="properties_videoremoto3">videoRemoto3</h3>
+<div class="videoremoto3"><div class="videoremoto3-page"><p>Referencia a un video remoto.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

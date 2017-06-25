@@ -1,0 +1,87 @@
+<h1><code ng:non-bindable="">DibujosManager</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-dibujosmanager-page"><p>Este manager se encarga de la gestión del servicio de dibujos.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new DibujosManager();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_accion">accion(mensaje)</h3>
+<div class="accion"><div class="accion-page"><p>Recibe una acción realizada por otro usuario sobre el canvas.</p>
+</div><h5 id="methods_accion_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="accion-page"><p>Mensaje que contiene la acción realizada por el otro usuario.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_addcirculo">addCirculo()</h3>
+<div class="addcirculo"><div class="addcirculo-page"><p>Añade un circulo al canvas y lo comunica al resto de usuarios conectados al servicio a través de &#39;sendData&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="methods_addfigura">addFigura(mensaje)</h3>
+<div class="addfigura"><div class="addfigura-page"><p>Añade una figura al canvas.</p>
+</div><h5 id="methods_addfigura_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="addfigura-page"><p>Mensaje que contiene la información de la figura a añadir.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_addrectangulo">addRectangulo()</h3>
+<div class="addrectangulo"><div class="addrectangulo-page"><p>Añade un rectangulo al canvas y lo comunica al resto de usuarios conectados al servicio a través de &#39;sendData&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="methods_addtriangulo">addTriangulo()</h3>
+<div class="addtriangulo"><div class="addtriangulo-page"><p>Añade un triangulo al canvas y lo comunica al resto de usuarios conectados al servicio a través de &#39;sendData&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="methods_borrar">borrar()</h3>
+<div class="borrar"><div class="borrar-page"><p>Borra todo el contenido del canvas.</p>
+</div></div>
+</li>
+<li><h3 id="methods_dibujar">dibujar()</h3>
+<div class="dibujar"><div class="dibujar-page"><p>Establece el canvas en modo dibujo.</p>
+</div></div>
+</li>
+<li><h3 id="methods_inicializar">inicializar(username, salaParam)</h3>
+<div class="inicializar"><div class="inicializar-page"><p>Inicializa el canvas y establece funciones para eventos, e inicializa los valores de los atributos
+&#39;usernameUsuario&#39; y &#39;sala&#39;.</p>
+</div><h5 id="methods_inicializar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>salaParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>ID de la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_removefigura">removeFigura(mensaje)</h3>
+<div class="removefigura"><div class="removefigura-page"><p>Borra una figura del canvas. Este método es utilizado para simular el movimiento de una figura en tiempo real
+en el canvas de los otros usuarios.</p>
+</div><h5 id="methods_removefigura_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="removefigura-page"><p>Mensaje que contiene la información de la figura a borrar.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_seleccionar">seleccionar()</h3>
+<div class="seleccionar"><div class="seleccionar-page"><p>Establece el canvas en modo seleccionar.</p>
+</div></div>
+</li>
+<li><h3 id="methods_senddata">sendData(mensaje)</h3>
+<div class="senddata"><div class="senddata-page"><p>Envía una acción realizada sobre el canvas al resto de usuario conectados al servicio a través del servidor
+de WebSockets.</p>
+</div><h5 id="methods_senddata_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="senddata-page"><p>Mensaje que contiene la información de la acción realizada.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_canvas">canvas</h3>
+<div class="canvas"><div class="canvas-page"><p>Canvas en las que se muestran las figuras y dibujos.</p>
+</div></div>
+</li>
+<li><h3 id="properties_figuraseleccionda">figuraSeleccionda</h3>
+<div class="figuraseleccionda"><div class="figuraseleccionda-page"><p>Figura seleccionada para su manipulación.</p>
+</div></div>
+</li>
+<li><h3 id="properties_sala">sala</h3>
+<div class="sala"><div class="sala-page"><p>ID de la sala.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usernameusuario">usernameUsuario</h3>
+<div class="usernameusuario"><div class="usernameusuario-page"><p>Nombre de usuario del usuario.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

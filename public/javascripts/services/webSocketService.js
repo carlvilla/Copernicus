@@ -8,7 +8,7 @@ angular.module('copernicus')
         var ws = $websocket(HOST);
 
         var asistentesManager = new AsistentesManager(ws);
-        var videollamadasManager = new VideollamadasManager(ws);
+        var videollamadasManager = new VideollamadasManager(ws, utils, $translate);
         var presentacionesManager = new PresentacionesManager(ws, utils, $translate);
         var chatTextoManager = new ChatTextoManager(ws, utils, $translate);
         var dibujosManager = new DibujosManager(ws);

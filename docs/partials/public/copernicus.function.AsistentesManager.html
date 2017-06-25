@@ -9,4 +9,56 @@
 <h2 id="usage">Usage</h2>
 <div class="usage"><pre class="prettyprint linenums">new AsistentesManager();</pre>
 </div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_deleteasistente">deleteAsistente(Asistente)</h3>
+<div class="deleteasistente"><div class="deleteasistente-page"><p>Elimina un asistente del array de asistentes.</p>
+</div><h5 id="methods_deleteasistente_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>Asistente</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="deleteasistente-page"><p>Asistente que abandonó la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_getasistentes">getAsistentes()</h3>
+<div class="getasistentes"><div class="getasistentes-page"><p>Obtiene los asistentes de la sala</p>
+</div><h5 id="methods_getasistentes_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object[]</a></td><td><div class="getasistentes-page"><p>Array con los asistentes de la sala.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_salaseleccionada">salaSeleccionada(Asistente)</h3>
+<div class="salaseleccionada"><div class="salaseleccionada-page"><p>Añadir asistentes a la sala.</p>
+</div><h5 id="methods_salaseleccionada_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>Asistente</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="salaseleccionada-page"><p>que se acaba de unir a la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_senddata">sendData(username, nombre, sala, operacion)</h3>
+<div class="senddata"><div class="senddata-page"><p>Método para enviar mensajes al servidor de WebSockets.</p>
+</div><h5 id="methods_senddata_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="senddata-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>nombre</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="senddata-page"><p>Nombre del usuario.</p>
+</div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="senddata-page"><p>ID de la sala.</p>
+</div></td></tr><tr><td>operacion</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="senddata-page"><p>Operación realizada.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setconectado">setConectado(username, nombre, salaParam)</h3>
+<div class="setconectado"><div class="setconectado-page"><p>Comunica a los demás usuarios de la sala que el usuario está conectado.</p>
+</div><h5 id="methods_setconectado_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setconectado-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>nombre</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setconectado-page"><p>Nombre del usuario.</p>
+</div></td></tr><tr><td>salaParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setconectado-page"><p>ID de la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setdesconectado">setDesconectado()</h3>
+<div class="setdesconectado"><div class="setdesconectado-page"><p>Indicar a los demás usuarios que el usuario ya está conectado a la sala.</p>
+</div></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_asistentes">asistentes</h3>
+<div class="asistentes"><div class="asistentes-page"><p>Listado de asistentes a una sala.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usuario">usuario</h3>
+<div class="usuario"><div class="usuario-page"><p>Datos del usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usuario">usuario</h3>
+<div class="usuario"><div class="usuario-page"><p>Datos de la sala.</p>
+</div></div>
+</li>
+</ul>
+</div>
 </div>
