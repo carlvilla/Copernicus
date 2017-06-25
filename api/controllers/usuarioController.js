@@ -86,11 +86,13 @@ module.exports.registrar = function (req, res) {
             fotoPerfil = result.secure_url;
         }
 
-        var query = "CREATE(u:Usuario{username:'" + username + "', nombre:'" + nombre + "', " +
-            "apellidos:'" + apellidos + "', email:'" + email + "', foto:'" + fotoPerfil + "', hash:'"
-            + credenciales.hash + "', salt:'" + credenciales.salt + "'})";
+        var query = "CREATE(u:Usuario{username:{username}, nombre:{nombre}, apellidos:{apellidos}, email:{email}," +
+            " foto:{fotoPerfil}, hash: {hash}, salt:{salt} })";
 
-        db.query(query, function (err, result) {
+        db.query(query, {
+            username: username, nombre: nombre, apellidos: apellidos, email: email, fotoPerfil: fotoPerfil
+            , hash: credenciales.hash, salt: credenciales.salt
+        }, function (err, result) {
             var token;
             if (err) {
                 utils.sendJSONresponse(res, 500, err);
@@ -116,9 +118,9 @@ module.exports.validarUsername = function (req, res) {
 
     var username = req.params.username;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'}) return u";
+    var query = "MATCH(u:Usuario{username:{username}}) return u";
 
-    db.query(query, function (err, people) {
+    db.query(query, {username: username}, function (err, people) {
         if (err) {
             utils.sendJSONresponse(res, 500, "");
             return;
@@ -149,9 +151,9 @@ module.exports.perfil = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'}) return u";
+    var query = "MATCH(u:Usuario{username:{username}}) return u";
 
-    db.query(query, function (err, people) {
+    db.query(query, {username: username}, function (err, people) {
         if (err) throw err;
         if (people.length == 0) {
             utils.sendJSONresponse(res, 204, '');
@@ -179,9 +181,9 @@ module.exports.datosUsuario = function (req, res) {
 
     var username = req.body.username;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'}) RETURN u";
+    var query = "MATCH(u:Usuario{username:{username}}) RETURN u";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
             if (err) {
                 utils.sendJSONresponse(res, 500, err);
             } else {
@@ -257,29 +259,43 @@ module.exports.modificarDatos = function (req, res) {
         return;
     }
 
-    var ejecutarQuery = function (query) {
-        db.query(query, function (err, result) {
-            if (err) {
-                utils.sendJSONresponse(res, 500, err);
-            } else {
-                utils.sendJSONresponse(res, 204, "");
-            }
-        });
-    }
-
     if (fotoCambiada) {
         //Si la foto se modificó, cambiamos la url de la foto de la sala
         cloudinary.uploader.upload(foto, function (result) {
-            var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.nombre = '" + nombre + "', u.apellidos = '"
-                + apellidos + "', u.email = '" + email + "', u.foto = '" + result.secure_url + "'";
-            ejecutarQuery(query);
+            var query = "MATCH(u:Usuario{username:{username}}) SET u.nombre = {nombre}, u.apellidos = {apellidos}" +
+                ", u.email = {email}, u.foto = {foto}";
+
+            db.query(query, {
+                    username: username,
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    email: email,
+                    foto: result.secure_url
+                }
+                , function (err, result) {
+                    if (err) {
+                        utils.sendJSONresponse(res, 500, err);
+                    } else {
+                        utils.sendJSONresponse(res, 204, "");
+                    }
+                });
+
+
         });
     } else {
         //Si la foto no se modificó, solo cambiamos el nombre y descripción de la sala
-        var query = "MATCH(u:Usuario{username:'" + username + "'}) SET u.nombre = '" + nombre + "', u.apellidos = '"
-            + apellidos + "', u.email = '" + email + "'";
+        var query = "MATCH(u:Usuario{username:{username}}) SET u.nombre = {nombre}, u.apellidos = {apellidos}" +
+            ", u.email = {email}";
 
-        ejecutarQuery(query);
+        db.query(query, {username: username, nombre: nombre, apellidos: apellidos, email: email}
+            , function (err, result) {
+                if (err) {
+                    utils.sendJSONresponse(res, 500, err);
+                } else {
+                    utils.sendJSONresponse(res, 204, "");
+                }
+            });
+
     }
 }
 
@@ -294,15 +310,15 @@ module.exports.eliminarCuenta = function (req, res) {
     var username = utils.getUsername(req);
 
     //Eliminar salas Admin con relaciones
-    var queryAdmin = "MATCH (u:Usuario{username:'" + username + "'})-[r:Admin]->(s:Sala)-[rs]-(Usuario) DELETE rs, r, s";
+    var queryAdmin = "MATCH (u:Usuario{username:{username}})-[r:Admin]->(s:Sala)-[rs]-(Usuario) DELETE rs, r, s";
 
-    db.query(queryAdmin, function (err, result) {
+    db.query(queryAdmin, {username: username}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, "cuenta");
         } else {
-            var queryUsuario = "MATCH (u:Usuario{username:'" + username + "'})-[r]-() DELETE r, u";
+            var queryUsuario = "MATCH (u:Usuario{username:{username}})-[r]-() DELETE r, u";
 
-            db.query(queryUsuario, function (err, result) {
+            db.query(queryUsuario, {username: username}, function (err, result) {
                 if (err) {
                     utils.sendJSONresponse(res, 500, "cuenta");
                 } else {

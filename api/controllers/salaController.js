@@ -26,20 +26,20 @@ module.exports.crearSala = function (req, res) {
 
     var username = utils.getUsername(req);
     var sala = req.body.sala;
-    var descripcion = sala.descripcion;
+    var descripcion = sala.descripcion || "";
     var fotoPorDefecto = sala.fotoPorDefecto;
-
-    if (descripcion == undefined)
-        descripcion = "";
 
     var foto;
 
-    if(sala.nombre > 50){
+    if (sala.nombre > 50) {
         utils.sendJSONresponse(res, 400, 'nombre');
-    }else if(sala.descripcion > 200){
-        utils.sendJSONresponse(res, 400, 'descripcion');
-    }
+        return;
 
+    } else if (sala.descripcion > 200) {
+        utils.sendJSONresponse(res, 400, 'descripcion');
+        return;
+
+    }
 
     cloudinary.uploader.upload(sala.foto, function (result) {
 
@@ -62,45 +62,51 @@ module.exports.crearSala = function (req, res) {
                 idSala = 1;
 
             //Creamos la sala
-            var querySala = "CREATE(s:Sala{idSala:" + idSala + ", nombre:'" + sala.nombre + "', descripcion:'"
-                + descripcion + "', foto:'" + foto + "'})";
+            var querySala = "CREATE(s:Sala{idSala:{idSala}, nombre:{nombre}, descripcion:{descripcion}, foto:{foto}})";
 
-            db.query(querySala, function (err, result) {
-                if (err) {
-                    //Error al crear la sala
-                    utils.sendJSONresponse(res, 500, err);
-                }
-                else {
-
-                    //Relacionamos los usuarios elegidos con la sala con una la relación pasada en el atributo permiso del
-                    //usuario
-                    if (usuarios && usuarios.length > 0) {
-                        var queryUsuario;
-                        usuarios.forEach(function (usuario) {
-                            queryUsuario = "MATCH(u:Usuario{username:'" + usuario.username + "'}),(s:Sala{idSala:" + idSala
-                                + "}) CREATE(u)-[:Candidato{permisos:'" + usuario.permisos + "'}]->(s)";
-                            db.query(queryUsuario, function (err, result) {
-                                if (err) {
-                                    utils.sendJSONresponse(res, 500, err);
-                                }
-                            });
-
-                        })
+            db.query(querySala, {idSala: idSala, nombre: sala.nombre, descripcion: descripcion, foto: foto}
+                , function (err, result) {
+                    if (err) {
+                        //Error al crear la sala
+                        utils.sendJSONresponse(res, 500, err);
+                        return;
                     }
+                    else {
 
-                    //Relacionamos el creador de la sala con la sala con una relación de tipo Admin
-                    var queryAdmin = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
-                        + "}) CREATE(u)-[:Admin]->(s)";
+                        //Relacionamos los usuarios elegidos con la sala con una la relación pasada en el atributo permiso del
+                        //usuario
+                        if (usuarios[0] && usuarios[0].username) {
+                            var queryUsuario;
+                            usuarios.forEach(function (usuario) {
 
-                    db.query(queryAdmin, function (err, result) {
-                        if (err) {
-                            utils.sendJSONresponse(res, 500, err);
-                        } else {
-                            utils.sendJSONresponse(res, 204, "");
+                                queryUsuario = "MATCH(u:Usuario{ username:{username} }),(s:Sala{ idSala: {idSala} }) " +
+                                    "CREATE(u)-[:Candidato{ permisos:{permisos} }]->(s)";
+
+                                db.query(queryUsuario, {
+                                    username: (usuario.username), idSala: idSala
+                                    , permisos: usuario.permisos
+                                }, function (err, result) {
+                                    if (err) {
+                                        utils.sendJSONresponse(res, 500, err);
+                                    }
+                                });
+
+                            })
                         }
-                    });
-                }
-            });
+
+                        //Relacionamos el creador de la sala con la sala con una relación de tipo Admin
+                        var queryAdmin = "MATCH(u:Usuario{username:{username}}),(s:Sala{idSala:{idSala}})" +
+                            "CREATE(u)-[:Admin]->(s)";
+
+                        db.query(queryAdmin, {username: username, idSala: idSala}, function (err, result) {
+                            if (err) {
+                                utils.sendJSONresponse(res, 500, err);
+                            } else {
+                                utils.sendJSONresponse(res, 204, "");
+                            }
+                        });
+                    }
+                });
 
         });
     });
@@ -116,10 +122,10 @@ module.exports.buscarSalasParticipa = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (Usuario { username: '" + username + "' })-[:Miembro|Admin|Moderador]-(Sala) RETURN Sala"
+    var query = "MATCH (Usuario { username: {username} })-[:Miembro|Admin|Moderador]-(Sala) RETURN Sala"
 
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             //Error en el servidor
             utils.sendJSONresponse(res, 500, err);
@@ -147,11 +153,13 @@ module.exports.checkParticipante = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + req.body.idSala + "})where (u)-" +
-        "[:Miembro | Admin | Moderador]->(s) return s";
+    var idSala = req.body.idSala;
+
+    var query = "MATCH (u:Usuario{username:{username}}),(s:Sala{idSala:{idSala}}) WHERE (u)-" +
+        "[:Miembro | Admin | Moderador]->(s) RETURN s";
 
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username, idSala: idSala}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else if (result.length == 1) {
@@ -175,10 +183,9 @@ module.exports.buscarSalasCandidato = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala)where (u)-" +
-        "[:Candidato]->(s) return s";
+    var query = "MATCH (u:Usuario{username:{username}}),(s:Sala) WHERE (u)-[:Candidato]->(s) return s";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -198,10 +205,9 @@ module.exports.buscarSalasAdmin = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala)where (u)-" +
-        "[:Admin]->(s) return s";
+    var query = "MATCH (u:Usuario{username:{username}}),(s:Sala)where (u)-[:Admin]->(s) return s";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -221,10 +227,9 @@ module.exports.buscarSalasAdmin = function (req, res) {
 module.exports.buscarSalasModerador = function (req, res) {
     var username = utils.getUsername(req);
 
-    var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala)where (u)-" +
-        "[:Moderador]->(s) return s";
+    var query = "MATCH (u:Usuario{username:{username}}),(s:Sala)where (u)-[:Moderador]->(s) return s";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -232,7 +237,8 @@ module.exports.buscarSalasModerador = function (req, res) {
         }
     });
 
-}/**
+}
+/**
  * Devuelve las salas en las que el usuario es miembro. Esto es, que no es ni administrador ni moderador
  *
  * @param req
@@ -241,10 +247,9 @@ module.exports.buscarSalasModerador = function (req, res) {
 module.exports.buscarSalasMiembro = function (req, res) {
     var username = utils.getUsername(req);
 
-    var query = "MATCH (u:Usuario{username:'" + username + "'}),(s:Sala)where (u)-" +
-        "[:Miembro]->(s) return s";
+    var query = "MATCH (u:Usuario{username:{username}}),(s:Sala)where (u)-[:Miembro]->(s) return s";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -260,22 +265,22 @@ module.exports.aceptarSolicitudSala = function (req, res) {
 
     //Elimina la relación de candidato entre el usuario y sala, y devuelve los permisos que se han concedido
     //al usuario en la sala
-    var queryBorrarCandidato = "MATCH(u:Usuario{username:'" + username + "'})-[c:Candidato]->(s:Sala{idSala:" + idSala + "}) WITH c as candidato, " +
-        "c.permisos as permisos DELETE candidato RETURN permisos"
+    var queryBorrarCandidato = "MATCH(u:Usuario{username:{username}})-[c:Candidato]->(s:Sala{idSala:{idSala}}) " +
+        "WITH c as candidato, c.permisos as permisos DELETE candidato RETURN permisos"
 
-    db.query(queryBorrarCandidato, function (err, result) {
+    db.query(queryBorrarCandidato, {username: username, idSala: idSala}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
             var permisos = result[0].permisos;
 
-            //Relaciona el usuario con la sala utilizando los permisos que se le concedieron
-            var queryAddUsuario = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
-                + "}) CREATE(u)-[:" + permisos + "]->(s)";
+            //Relaciona el usuario con la sala utilizando los permisos que se le concedieron (Moderador o Miembro)
+            var queryAddUsuario = "MATCH(u:Usuario{username:{username}}),(s:Sala{idSala:{idSala}}) " +
+                "CREATE(u)-[:" + permisos + "]->(s)";
 
-            db.query(queryAddUsuario, function (err, result) {
+            db.query(queryAddUsuario, {username: username, idSala: idSala}, function (err, result) {
                 if (err) {
-                    utils.sendJSONresponse(res, 400, err);
+                    utils.sendJSONresponse(res, 500, err);
                 } else {
                     utils.sendJSONresponse(res, 200, result);
                 }
@@ -302,9 +307,9 @@ module.exports.ignorarSolicitudSala = function (req, res) {
 
     var idSala = req.body.idSala;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:Candidato]->(s:Sala{idSala:" + idSala + "}) DELETE c"
+    var query = "MATCH(u:Usuario{username:{username}})-[c:Candidato]->(s:Sala{idSala:{idSala}}) DELETE c"
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username, idSala: idSala}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -324,10 +329,10 @@ module.exports.buscarParticipantesSala = function (req, res) {
 
     var idSala = req.body.idSala;
 
-    var query = "MATCH(user:Usuario)-[rel:Miembro | Admin | Moderador]->(s:Sala{idSala:" + idSala + "}) " +
+    var query = "MATCH(user:Usuario)-[rel:Miembro | Admin | Moderador]->(s:Sala{idSala:{idSala}}) " +
         "RETURN user,rel"
 
-    db.query(query, function (err, result) {
+    db.query(query, {idSala: idSala}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -357,32 +362,49 @@ module.exports.actualizarDatos = function (req, res) {
     var fotoCambiada = req.body.fotoCambiada;
     var foto = req.body.foto;
 
-    if(nombre == ''){
+    if (nombre == '') {
         utils.sendJSONresponse(res, 400, 'nombre');
         return;
     }
 
-    var ejecutarQuery = function (query) {
-        db.query(query, function (err, result) {
+
+    if (fotoCambiada) {
+        //Si la foto se modificó, cambiamos la url de la foto de la sala
+        cloudinary.uploader.upload(foto, function (result) {
+            var query = "MATCH(s:Sala{idSala:{idSala}}) SET s.nombre = {nombre}, s.descripcion = {descripcion}," +
+                " s.foto = {foto}";
+
+            db.query(query, {
+                idSala: idSala,
+                nombre: nombre,
+                descripcion: descripcion,
+                foto: result.secure_url
+            }, function (err, result) {
+                if (err) {
+                    utils.sendJSONresponse(res, 500, err);
+                } else {
+                    utils.sendJSONresponse(res, 204, "");
+                }
+            });
+
+
+        });
+    } else {
+        //Si la foto no se modificó, solo cambiamos el nombre y descripción de la sala
+        var query = "MATCH(s:Sala{idSala:{idSala}}) SET s.nombre = {nombre}, s.descripcion = {descripcion}";
+
+        db.query(query, {
+            idSala: idSala,
+            nombre: nombre,
+            descripcion: descripcion,
+        }, function (err, result) {
             if (err) {
                 utils.sendJSONresponse(res, 500, err);
             } else {
                 utils.sendJSONresponse(res, 204, "");
             }
         });
-    }
 
-    if (fotoCambiada) {
-        //Si la foto se modificó, cambiamos la url de la foto de la sala
-        cloudinary.uploader.upload(foto, function (result) {
-            var query = "MATCH(s:Sala{idSala:" + idSala + "}) SET s.nombre = '" + nombre + "', s.descripcion = '"
-                + descripcion + "', s.foto = '" + result.secure_url + "'";
-            ejecutarQuery(query);
-        });
-    } else {
-        //Si la foto no se modificó, solo cambiamos el nombre y descripción de la sala
-        var query = "MATCH(s:Sala{idSala:" + idSala + "}) SET s.nombre = '" + nombre + "', s.descripcion = '" + descripcion + "'";
-        ejecutarQuery(query);
     }
 
 
@@ -395,18 +417,23 @@ module.exports.actualizarDatos = function (req, res) {
  * @param res
  */
 module.exports.eliminarUsuario = function (req, res) {
+
     var idSala = req.body.idSala;
     var username = req.body.username;
 
     //En el caso de que no se pase un usuario significa que es el usuario que envía la petición cuya
     //relación con la sala debe de ser eliminada
-    if(!username){
+    if (!username) {
         username = utils.getUsername(req);
     }
 
-    var query = "MATCH(Sala{idSala:" + idSala + "})-[r]-(Usuario{username:'" + username + "'}) delete r";
+    console.log(idSala);
 
-    db.query(query, function (err, result) {
+    console.log(username);
+
+    var query = "MATCH(Sala{idSala:{idSala}})-[r]-(Usuario{username:{username}}) DELETE r";
+
+    db.query(query, {idSala: idSala, username: username}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -424,9 +451,9 @@ module.exports.eliminarUsuario = function (req, res) {
 module.exports.eliminarSala = function (req, res) {
     var idSala = req.body.idSala;
 
-    var query = "OPTIONAL MATCH()-[r]->(s:Sala{idSala:" + idSala + "}) delete r,s";
+    var query = "OPTIONAL MATCH()-[r]->(s:Sala{idSala:{idSala}}) delete r,s";
 
-    db.query(query, function (err, result) {
+    db.query(query, {idSala: idSala}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -446,10 +473,13 @@ module.exports.cambiarPermisos = function (req, res) {
     var username = req.body.username;
     var permisos = req.body.permisos;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[r]->(s:Sala{idSala:" + idSala + "}) " +
+    //No es posible introducir los permisos introduciendo el valor de la variable al ejecutar la consulta, ya que
+    //es el nombre de una relación. Esto no implica un problema ya que el usuario no introduce ese valor sino que lo
+    //selecciona.
+    var query = "MATCH(u:Usuario{username:{username}})-[r]->(s:Sala{idSala:{idSala}}) " +
         "CREATE (u)-[r2:" + permisos + "]->(s) DELETE r";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username, idSala: idSala}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -469,10 +499,10 @@ module.exports.cambiarPermisosSolicitud = function (req, res) {
     var username = req.body.username;
     var permisos = req.body.permisos;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[r]->(s:Sala{idSala:" + idSala + "}) " +
-        "CREATE (u)-[r2:Candidato{permisos:'" + permisos + "'}]->(s) DELETE r";
+    var query = "MATCH(u:Usuario{username:{username}})-[r]->(s:Sala{idSala:{idSala}}) " +
+        "CREATE (u)-[r2:Candidato{permisos:{permisos}}]->(s) DELETE r";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username, idSala: idSala, permisos: permisos}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -492,13 +522,13 @@ module.exports.enviarSolicitudSala = function (req, res) {
     var idSala = req.body.idSala;
     var username = req.body.username;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'}),(s:Sala{idSala:" + idSala
-        + "}) CREATE(u)-[:Candidato{permisos:'Miembro'}]->(s)";
+    var query = "MATCH(u:Usuario{username:{username}}),(s:Sala{idSala:{idSala}}) " +
+        "CREATE(u)-[:Candidato{permisos:'Miembro'}]->(s)";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username, idSala: idSala}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
-        }else{
+        } else {
             utils.sendJSONresponse(res, 204, "");
         }
     });
@@ -515,10 +545,9 @@ module.exports.buscarCandidatos = function (req, res) {
 
     var idSala = req.body.idSala;
 
-    var query = "MATCH(user:Usuario)-[rel:Candidato]->(s:Sala{idSala:" + idSala + "}) " +
-        "RETURN user,rel"
+    var query = "MATCH(user:Usuario)-[rel:Candidato]->(s:Sala{idSala:{idSala}}) RETURN user,rel"
 
-    db.query(query, function (err, result) {
+    db.query(query, {idSala:idSala}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {

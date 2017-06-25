@@ -21,10 +21,10 @@ module.exports.buscarPosiblesContactos = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (u1:Usuario { username:'" + username + "' }), (u2:Usuario) where not (u1)-[]-(u2) " +
+    var query = "MATCH (u1:Usuario { username:{username}}), (u2:Usuario) where not (u1)-[]-(u2) " +
         "AND u1.username<>u2.username RETURN u2";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             //Error en el servidor
             utils.sendJSONresponse(res, 500, err);
@@ -49,9 +49,9 @@ module.exports.buscarContactos = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (u1:Usuario { username: '" + username + "' })-[:Contacto]-(u2:Usuario) RETURN u2"
+    var query = "MATCH (u1:Usuario { username:{username} })-[:Contacto]-(u2:Usuario) RETURN u2"
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             //Error en el servidor
             utils.sendJSONresponse(res, 500, err);
@@ -83,10 +83,10 @@ module.exports.buscarSolicitudesContacto = function (req, res) {
 
     var username = utils.getUsername(req);
 
-    var query = "MATCH (contacto:Usuario)-[solicitud:SolicitudContacto]->(u2:Usuario { username: '" + username + "' }) " +
+    var query = "MATCH (contacto:Usuario)-[solicitud:SolicitudContacto]->(u2:Usuario { username: {username} }) " +
         "RETURN contacto,solicitud"
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             //Error en el servidor
             utils.sendJSONresponse(res, 500, err);
@@ -112,13 +112,18 @@ module.exports.enviarSolicitudContacto = function (req, res) {
 
     var usernameRecibe = req.body.username;
 
-    var mensaje = req.body.mensaje;
+    var mensaje = req.body.mensaje || "";
 
-    var query = "MATCH (u1:Usuario {username: '" + usernameEnvia + "'}), (u2:Usuario { username: '" + usernameRecibe + "' }) " +
-        "create (u1)-[:SolicitudContacto{mensaje:'" + mensaje + "'}]->(u2)";
+    var query = "MATCH (u1:Usuario {username:{usernameEnvia}}), (u2:Usuario { username: {usernameRecibe} }) " +
+        "create (u1)-[:SolicitudContacto{mensajeEnviado: {mensaje} }]->(u2)";
 
-    db.query(query, function (err, result) {
+    db.query(query, {
+        usernameEnvia: usernameEnvia,
+        usernameRecibe: usernameRecibe,
+        mensaje: mensaje
+    }, function (err, result) {
         if (err) {
+            console.log(err);
             utils.sendJSONresponse(res, 500, err);
 
         } else {
@@ -144,16 +149,19 @@ module.exports.aceptarSolicitudContacto = function (req, res) {
     console.log("Fue aceptado/a: " + usernameEnvioSolicitud + " por " + usernameAceptaSolicitud);
 
     //Eliminar solicitud
-    var queryEliminarSolicitud = "MATCH (u1:Usuario {username:'" + usernameAceptaSolicitud + "'})" +
-        "-[solicitud:SolicitudContacto]-(u2:Usuario {username: '" + usernameEnvioSolicitud + "'}) " +
+    var queryEliminarSolicitud = "MATCH (u1:Usuario {username: {usernameAceptaSolicitud}})" +
+        "-[solicitud:SolicitudContacto]-(u2:Usuario {username: {usernameEnvioSolicitud}}) " +
         "with solicitud, solicitud.mensaje as mensaje delete solicitud return mensaje";
 
     //Crear relación de Contacto
-    var queryAddContacto = "MATCH (u1:Usuario {username:'" + usernameAceptaSolicitud + "'})," +
-        "(u2:Usuario {username: '" + usernameEnvioSolicitud + "'}) CREATE (u1)-[:Contacto]->(u2)";
+    var queryAddContacto = "MATCH (u1:Usuario {username: {usernameAceptaSolicitud}})," +
+        "(u2:Usuario {username: {usernameEnvioSolicitud}}) CREATE (u1)-[:Contacto]->(u2)";
 
 
-    db.query(queryEliminarSolicitud, function (err, resultEliminarSolicitud) {
+    db.query(queryEliminarSolicitud, {
+        usernameAceptaSolicitud: usernameAceptaSolicitud
+        , usernameEnvioSolicitud: usernameEnvioSolicitud
+    }, function (err, resultEliminarSolicitud) {
         if (err) {
             //Error en el servidor
             console.log("Error al eliminar la solicitud de contacto entre los usuarios " + usernameAceptaSolicitud +
@@ -162,7 +170,10 @@ module.exports.aceptarSolicitudContacto = function (req, res) {
         }
         else {
             //Si no hubo ningún error se crea una relación de contacto entre los usuarios
-            db.query(queryAddContacto, function (err, resultAddContacto) {
+            db.query(queryAddContacto, {
+                usernameAceptaSolicitud: usernameAceptaSolicitud
+                , usernameEnvioSolicitud: usernameEnvioSolicitud
+            }, function (err, resultAddContacto) {
                 if (err) {
                     //Error en el servidor
                     console.log("Error al crear la relación de contacto entre los usuarios " + usernameAceptaSolicitud +
@@ -170,12 +181,15 @@ module.exports.aceptarSolicitudContacto = function (req, res) {
 
                     //En el caso de que no se pudo crear la relación de contacto, pero si se borró la solicitud,
                     //se vuelve a crear la solicitud
-                    var queryCrearSolicitud = "MATCH (u1:Usuario {username: '" + usernameEnvioSolicitud + "'})," +
-                        " (u2:Usuario { username: '" + usernameAceptaSolicitud + "' })" +
+                    var queryCrearSolicitud = "MATCH (u1:Usuario {username: {usernameEnvioSolicitud} })," +
+                        " (u2:Usuario { username: {usernameAceptaSolicitud} })" +
                         "create (u1)-[:SolicitudContacto{mensaje:'" + resultEliminarSolicitud.mensaje + "'}]->(u2)";
 
 
-                    db.query(queryCrearSolicitud, function (err, resultCrearSolicitud) {
+                    db.query(queryCrearSolicitud, {
+                        usernameEnvioSolicitud: usernameEnvioSolicitud
+                        , usernameAceptaSolicitud: usernameAceptaSolicitud
+                    }, function (err, resultCrearSolicitud) {
                         if (err) {
                             console.log("Error al crear solicitud de contacto entre " + usernameEnvioSolicitud + " y "
                                 + usernameAceptaSolicitud + ", ha ocurrido el siguiente error: " + err);
@@ -207,15 +221,20 @@ module.exports.ignorarSolicitudContacto = function (req, res) {
     console.log("Fue ignorado/a: " + usernameEnvioSolicitud + " por " + usernameIgnoraSolicitud);
 
     //Eliminar solicitud
-    var queryEliminarSolicitud = "MATCH (u1:Usuario {username:'" + usernameIgnoraSolicitud + "'})" +
-        "-[solicitud:SolicitudContacto]-(u2:Usuario {username: '" + usernameEnvioSolicitud + "'}) " +
+    var queryEliminarSolicitud = "MATCH (u1:Usuario {username: {usernameIgnoraSolicitud}})" +
+        "-[solicitud:SolicitudContacto]-(u2:Usuario {username: {usernameEnvioSolicitud}}) " +
         "delete solicitud";
 
-    db.query(queryEliminarSolicitud, function (err, result) {
+    db.query(queryEliminarSolicitud, {
+        usernameIgnoraSolicitud: usernameIgnoraSolicitud
+        , usernameEnvioSolicitud: usernameEnvioSolicitud
+    }, function (err, result) {
         if (err) {
+
             //Error en el servidor
             console.log("Error al eliminar la solicitud de contacto entre los usuarios " + usernameAceptaSolicitud +
                 " y " + usernameEnvioSolicitud + ", ha ocurrido el siguiente error " + err);
+
             utils.sendJSONresponse(res, 500, err);
         }
         else {
@@ -238,28 +257,34 @@ module.exports.bloquear = function (req, res) {
 
     var usernameBloqueado = req.body.username;
 
-    var queryAddBloqueado = "MATCH(u:Usuario{username:'" + username + "'}),(uB:Usuario{username:'" + usernameBloqueado + "'}) " +
+    var queryAddBloqueado = "MATCH(u:Usuario{username:{username}}),(uB:Usuario{username:{usernameBloqueado}}) " +
         "CREATE (u)-[:Bloqueado]->(uB)";
 
-    db.query(queryAddBloqueado, function (err, result) {
+    db.query(queryAddBloqueado, {username: username, usernameBloqueado: usernameBloqueado}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
 
-            var queryRemoveContacto = "MATCH(u:Usuario{username:'" + username + "'})-[c:Contacto]-(uB:Usuario{username:'"
-                + usernameBloqueado + "'}) DELETE c"
+            var queryRemoveContacto = "MATCH(u:Usuario{username:{username}})-[c:Contacto]-" +
+                "(uB:Usuario{username:{usernameBloqueado}}) DELETE c"
 
-            db.query(queryRemoveContacto, function (err, result) {
+            db.query(queryRemoveContacto, {
+                username: username,
+                usernameBloqueado: usernameBloqueado
+            }, function (err, result) {
                 if (err) {
                     utils.sendJSONresponse(res, 500, err);
                 } else {
 
-                    var queryFindAdmin = "MATCH(u:Usuario{username:'" + username + "'})," +
-                        "(uB:Usuario{username:'" + usernameBloqueado + "'}),(s:Sala) where (u)-[:Admin]->(s) " +
+                    var queryFindAdmin = "MATCH(u:Usuario{username:{username}})," +
+                        "(uB:Usuario{username:{usernameBloqueado}}),(s:Sala) where (u)-[:Admin]->(s) " +
                         "AND (uB)-[:Candidato | Miembro | Moderador]-(s) RETURN s";
 
 
-                    db.query(queryFindAdmin, function (err, result) {
+                    db.query(queryFindAdmin, {
+                        username: username,
+                        usernameBloqueado: usernameBloqueado
+                    }, function (err, result) {
                         if (err) {
                             utils.sendJSONresponse(res, 500, err);
                         } else {
@@ -267,11 +292,14 @@ module.exports.bloquear = function (req, res) {
 
                             result.forEach(function (sala) {
 
-                                var queryRemoveParticipante = "MATCH(u:Usuario {username:'" + usernameBloqueado + "'})" +
-                                    "-[r:Candidato | Miembro | Moderador]->(sala:Sala {idSala:" + sala.idSala + "}) DELETE r RETURN sala";
+                                var queryRemoveParticipante = "MATCH(u:Usuario {username:{usernameBloqueado}})" +
+                                    "-[r:Candidato | Miembro | Moderador]->(sala:Sala {idSala:{idSala}}) DELETE r RETURN sala";
 
 
-                                db.query(queryRemoveParticipante, function (err, result) {
+                                db.query(queryRemoveParticipante, {
+                                    usernameBloqueado: usernameBloqueado
+                                    , idSala: sala.idSala
+                                }, function (err, result) {
                                     if (err) {
                                         console.log(err);
                                         utils.sendJSONresponse(res, 500, err);
@@ -286,14 +314,9 @@ module.exports.bloquear = function (req, res) {
 
                     });
                 }
-
-
             });
-
-
         }
     });
-
 }
 
 /**
@@ -306,18 +329,18 @@ module.exports.desbloquear = function (req, res) {
     var username = utils.getUsername(req);
     var usernameBloqueado = req.body.username;
 
-    var queryEliminaBloqueo = "MATCH(u:Usuario{username:'" + username + "'})-[r:Bloqueado]->" +
-        "(uB:Usuario{username: '" + usernameBloqueado + "'}) DELETE r"
+    var queryEliminaBloqueo = "MATCH(u:Usuario{username:{username}})-[r:Bloqueado]->" +
+        "(uB:Usuario{username: {usernameBloqueado}}) DELETE r"
 
-    db.query(queryEliminaBloqueo, function (err, result) {
+    db.query(queryEliminaBloqueo, {username: username, usernameBloqueado: usernameBloqueado}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
 
-            var queryContacto = "MATCH(u1:Usuario{username:'" + username + "'})," +
-                " (u2:Usuario{username: '" + usernameBloqueado + "'}) CREATE (u1)-[:Contacto]->(u2)"
+            var queryContacto = "MATCH(u1:Usuario{username:{username}})," +
+                " (u2:Usuario{username: {usernameBloqueado} }) CREATE (u1)-[:Contacto]->(u2)"
 
-            db.query(queryContacto, function (err, result) {
+            db.query(queryContacto, {username: username, usernameBloqueado: usernameBloqueado}, function (err, result) {
                 if (err) {
                     utils.sendJSONresponse(res, 500, err);
                 } else {
@@ -339,9 +362,9 @@ module.exports.desbloquear = function (req, res) {
 module.exports.buscarBloqueados = function (req, res) {
     var username = utils.getUsername(req);
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[:Bloqueado]->(uB:Usuario) RETURN uB"
+    var query = "MATCH(u:Usuario{username: {username}})-[:Bloqueado]->(uB:Usuario) RETURN uB"
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
