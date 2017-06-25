@@ -1,21 +1,91 @@
 var copernicus = angular.module('copernicus');
 
+/**
+ * @ngdoc controller
+ * @name copernicus.controller:ServiciosController
+ *
+ * @description
+ * Este controlador está encargado de gestionar los servicios de las salas.
+ *
+ */
 copernicus.controller('serviciosController', function ($scope, utils, $compile, $translate) {
 
     //Primero cargamos los htmls de los módulos
     //Es necesario hacer esto en primer lugar, no se puede cargar el html una vez se va a añadir ya que no se cargará
     //a tiempo
-    var htmlChatVideo;
+
+    /**
+     * @ngdoc property
+     * @name htmlVideollamada
+     * @propertyOf copernicus.controller:ServiciosController
+     * @description
+     * HTML del servicio de videollamada.
+     *
+     **/
+    var htmlVideollamada;
+
+    /**
+     * @ngdoc property
+     * @name htmlPresentaciones
+     * @propertyOf copernicus.controller:ServiciosController
+     * @description
+     * HTML del servicio de presentaciones.
+     *
+     **/
     var htmlPresentaciones;
+
+    /**
+     * @ngdoc property
+     * @name htmlDibujo
+     * @propertyOf copernicus.controller:ServiciosController
+     * @description
+     * HTML del servicio de dibujo.
+     *
+     **/
     var htmlDibujo;
+
+    /**
+     * @ngdoc property
+     * @name htmlChatTexto
+     * @propertyOf copernicus.controller:ServiciosController
+     * @description
+     * HTML del servicio de chat de texto.
+     *
+     **/
     var htmlChatTexto;
+
+    /**
+     * @ngdoc property
+     * @name htmlRadio
+     * @propertyOf copernicus.controller:ServiciosController
+     * @description
+     * HTML del servicio de radio.
+     *
+     **/
     var htmlRadio;
+
+    /**
+     * @ngdoc property
+     * @name htmlVideoCompartido
+     * @propertyOf copernicus.controller:ServiciosController
+     * @description
+     * HTML del servicio de video compartido.
+     *
+     **/
     var htmlVideoCompartido;
 
+    /**
+     * @ngdoc property
+     * @name serviciosAbiertos
+     * @propertyOf copernicus.controller:ServiciosController
+     * @description
+     * Listado de servicio abiertos.
+     *
+     **/
     var serviciosAbiertos = [];
 
     $.get("/servicios/chatVideo.ejs", function (html) {
-        htmlChatVideo = html;
+        htmlVideollamada = html;
     });
 
     $.get("/servicios/chatTexto.ejs", function (html) {
@@ -38,15 +108,33 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
         htmlVideoCompartido = html;
     });
 
+
+    /**
+     * @ngdoc property
+     * @name options
+     * @propertyOf copernicus.controller:ServiciosController
+     * @description
+     * Objeto de configuración para Gridstack.js
+     *
+     **/
     var options = {
         float:true
     };
-
 
     $('.grid-stack').gridstack(options);
 
     var grid = $('.grid-stack').data('gridstack');
 
+    /**
+     * @ngdoc method
+     * @name addServicio
+     * @methodOf copernicus.controller:ServiciosController
+     * @description
+     * Abre un servicio.
+     *
+     * @param {String} servicio Servicio que se va a abrir.
+     *
+     **/
     $scope.addServicio = function (servicio) {
 
 
@@ -62,7 +150,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
 
         switch (servicio) {
             case "chatVideo":
-                servicioSeleccionado = htmlChatVideo;
+                servicioSeleccionado = htmlVideollamada;
 
                 if(!contains(serviciosAbiertos,"chatVideo")){
                     serviciosAbiertos.push("chatVideo");
@@ -177,7 +265,17 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
         $compile('#'+servicio)($scope);
     };
 
-
+    /**
+     * @ngdoc method
+     * @name contains
+     * @methodOf copernicus.controller:ServiciosController
+     * @description
+     * Comprueba si un array contiene cierto objeto.
+     *
+     * @param {object[]} array Array en el que se busca.
+     * @param {object} obj Objeto que se busca.
+     *
+     **/
     function contains(array, obj) {
         var i = array.length;
         while (i--) {
@@ -188,6 +286,16 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
         return false;
     }
 
+    /**
+     * @ngdoc method
+     * @name eliminarServicio
+     * @methodOf copernicus.controller:ServiciosController
+     * @description
+     * Cierra un servicio.
+     *
+     * @param {String} servicio Servicio que se quiere cerrar.
+     *
+     **/
     $scope.eliminarServicio = function (servicio){
         serviciosAbiertos.splice(serviciosAbiertos.indexOf(servicio), 1);
         grid.removeWidget($('#'+servicio));

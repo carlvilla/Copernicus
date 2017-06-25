@@ -1,0 +1,79 @@
+<h1><code ng:non-bindable="">VideoCompartidoManager</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-videocompartidomanager-page"><p>Este manager se encarga de la gestión del servicio de video compartido.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new VideoCompartidoManager();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_cambiarvideo">cambiarVideo(urlParam)</h3>
+<div class="cambiarvideo"><div class="cambiarvideo-page"><p>Modifica la URL del video a mostrar, y comunica el cambio al resto de usuario conectados a la sala a través de
+&#39;sendData&#39;.</p>
+</div><h5 id="methods_cambiarvideo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>urlParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="cambiarvideo-page"><p>URL del video a reproducir.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_cambiarvideoremoto">cambiarVideoRemoto(urlParam, youtube, username)</h3>
+<div class="cambiarvideoremoto"><div class="cambiarvideoremoto-page"><p>Modifica la URL del video a mostrar, ya que otro usuario la modificó.</p>
+</div><h5 id="methods_cambiarvideoremoto_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>urlParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="cambiarvideoremoto-page"><p>URL del video a reproducir.</p>
+</div></td></tr><tr><td>youtube</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="cambiarvideoremoto-page"><p>Indica si es un video de YouTube.</p>
+</div></td></tr><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="cambiarvideoremoto-page"><p>Nombre de usuario de la persona que modificó la URL.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_inicializar">inicializar(username, salaParam, $scope)</h3>
+<div class="inicializar"><div class="inicializar-page"><p>Inicializa los valores de los atributoes &#39;scope&#39;, &#39;usernameUsuario&#39; y &#39;sala&#39;. En el caso de que el atributo
+&#39;url&#39; tuviese algún valor, eso significa que otro usuario pasó una URL antes de abrir el
+servicio por lo que se carga esa URL en el reproductor.</p>
+</div><h5 id="methods_inicializar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>salaParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>ID de la sala.</p>
+</div></td></tr><tr><td>$scope</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="inicializar-page"><p>Objeto $scope de AngularJS.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setapi">setAPI(APIParam)</h3>
+<div class="setapi"><div class="setapi-page"><p>Almacena en el atributo &#39;API&#39; una referencia a la API del reproductor de video.</p>
+</div><h5 id="methods_setapi_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>APIParam</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="setapi-page"><p>API del reproductor de video.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setyoutube">setYoutube(boolean)</h3>
+<div class="setyoutube"><div class="setyoutube-page"><p>Establece el atributo &#39;youtube&#39; del scope al valor pasado como parámetro.</p>
+</div><h5 id="methods_setyoutube_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>boolean</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="setyoutube-page"><p>Booleano.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setyoutube">setYoutube(boolean)</h3>
+<div class="setyoutube"><div class="setyoutube-page"><p>Envía la URL establecida a los usuarios conectados a la sala a través del servidor de WebSockets.</p>
+</div><h5 id="methods_setyoutube_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>boolean</td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="setyoutube-page"><p>Booleano.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_api">API</h3>
+<div class="api"><div class="api-page"><p>API del reproductor de video.</p>
+</div></div>
+</li>
+<li><h3 id="properties_sala">sala</h3>
+<div class="sala"><div class="sala-page"><p>ID de la sala.</p>
+</div></div>
+</li>
+<li><h3 id="properties_scope">scope</h3>
+<div class="scope"><div class="scope-page"><p>Referencia al objeto scope de AngularJS.</p>
+</div></div>
+</li>
+<li><h3 id="properties_url">url</h3>
+<div class="url"><div class="url-page"><p>URL del video actualmente establecido.</p>
+</div></div>
+</li>
+<li><h3 id="properties_urlyoutube">urlYoutube</h3>
+<div class="urlyoutube"><div class="urlyoutube-page"><p>Booleano que indica si la URL es de YouTube.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usernameusuario">usernameUsuario</h3>
+<div class="usernameusuario"><div class="usernameusuario-page"><p>Nombre de usuario del usuario.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

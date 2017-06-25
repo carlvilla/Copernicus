@@ -1,0 +1,57 @@
+<h1><code ng:non-bindable="">PresentacionesManager</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-presentacionesmanager-page"><p>Este manager se encarga de la gestión del servicio de presentaciones.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new PresentacionesManager();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_actualizarpresentacion">actualizarPresentacion(mensaje)</h3>
+<div class="actualizarpresentacion"><div class="actualizarpresentacion-page"><p>Actualiza la presentación que se muestra a partir de una enviada por otro usuario.</p>
+</div><h5 id="methods_actualizarpresentacion_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="actualizarpresentacion-page"><p>Mensaje con la presentación a mostrar.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_cambiarpresentacion">cambiarPresentacion(presentacionParam)</h3>
+<div class="cambiarpresentacion"><div class="cambiarpresentacion-page"><p>Cambia la presentación que se muestra y la envía a los usuarios conectados a la sala.</p>
+</div><h5 id="methods_cambiarpresentacion_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>presentacionParam</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="cambiarpresentacion-page"><p>Mensaje con la presentación a mostrar.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_inicializar">inicializar(username, salaParam)</h3>
+<div class="inicializar"><div class="inicializar-page"><p>Inicializa los valores de los atributoes &#39;iframe&#39;, &#39;usernameUsuario&#39; y &#39;sala&#39;. En el caso de que el atributo
+&#39;presentacion&#39; tuviese algún valor, eso significa que otro usuario pasó una presentación antes de abrir el
+servicio por lo que se carga en el Iframe.</p>
+</div><h5 id="methods_inicializar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>salaParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>ID de la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_senddata">sendData(mensaje)</h3>
+<div class="senddata"><div class="senddata-page"><p>Envía una presentación a los usuarios conectados a la sala a través del servidor de WebSockets.</p>
+</div><h5 id="methods_senddata_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="senddata-page"><p>Mensaje con la presentación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_iframe">iframe</h3>
+<div class="iframe"><div class="iframe-page"><p>Iframe utilizado para mostrar las presentaciones.</p>
+</div></div>
+</li>
+<li><h3 id="properties_presentacion">presentacion</h3>
+<div class="presentacion"><div class="presentacion-page"><p>Presentación que se muestra.</p>
+</div></div>
+</li>
+<li><h3 id="properties_sala">sala</h3>
+<div class="sala"><div class="sala-page"><p>ID de la sala.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usernameusuario">usernameUsuario</h3>
+<div class="usernameusuario"><div class="usernameusuario-page"><p>Nombre de usuario del usuario.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

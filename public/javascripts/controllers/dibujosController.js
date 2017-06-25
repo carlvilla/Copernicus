@@ -25,7 +25,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
      * @name sala
      * @propertyOf copernicus.controller:DibujosController
      * @description
-     * Sala en la que está conectado el usuario.
+     * ID de la sala en la que está conectado el usuario.
      *
      **/
     var sala;

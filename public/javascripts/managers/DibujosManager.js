@@ -1,10 +1,63 @@
+/**
+ * @ngdoc function
+ * @name copernicus.function:DibujosManager
+ * @description
+ * Este manager se encarga de la gestión del servicio de dibujos.
+ */
 function DibujosManager(ws) {
 
+    /**
+     * @ngdoc property
+     * @name usernameUsuario
+     * @propertyOf copernicus.function:DibujosManager
+     * @description
+     * Nombre de usuario del usuario.
+     *
+     **/
     var usernameUsuario;
+
+    /**
+     * @ngdoc property
+     * @name sala
+     * @propertyOf copernicus.function:DibujosManager
+     * @description
+     * ID de la sala.
+     *
+     **/
     var sala;
+
+    /**
+     * @ngdoc property
+     * @name canvas
+     * @propertyOf copernicus.function:DibujosManager
+     * @description
+     * Canvas en las que se muestran las figuras y dibujos.
+     *
+     **/
     var canvas;
+
+    /**
+     * @ngdoc property
+     * @name figuraSeleccionda
+     * @propertyOf copernicus.function:DibujosManager
+     * @description
+     * Figura seleccionada para su manipulación.
+     *
+     **/
     var figuraSeleccionda;
 
+    /**
+     * @ngdoc method
+     * @name inicializar
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Inicializa el canvas y establece funciones para eventos, e inicializa los valores de los atributos
+     * 'usernameUsuario' y 'sala'.
+     *
+     * @param {String} username Nombre de usuario del usuario.
+     * @param {String} salaParam ID de la sala.
+     *
+     **/
     this.inicializar = function (usernameParam, salaParam) {
         canvas = new fabric.Canvas('area-dibujo');
         canvas.selection = false;
@@ -54,6 +107,14 @@ function DibujosManager(ws) {
         sala = salaParam;
     }
 
+    /**
+     * @ngdoc method
+     * @name addCirculo
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Añade un circulo al canvas y lo comunica al resto de usuarios conectados al servicio a través de 'sendData'.
+     *
+     **/
     this.addCirculo = function () {
         var figura = {
             tipo: 'circle',
@@ -77,6 +138,14 @@ function DibujosManager(ws) {
 
     };
 
+    /**
+     * @ngdoc method
+     * @name addRectangulo
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Añade un rectangulo al canvas y lo comunica al resto de usuarios conectados al servicio a través de 'sendData'.
+     *
+     **/
     this.addRectangulo = function () {
         var figura = {
             tipo: 'rect',
@@ -101,6 +170,14 @@ function DibujosManager(ws) {
 
     };
 
+    /**
+     * @ngdoc method
+     * @name addTriangulo
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Añade un triangulo al canvas y lo comunica al resto de usuarios conectados al servicio a través de 'sendData'.
+     *
+     **/
     this.addTriangulo = function () {
         var figura = {
             tipo: 'triangle',
@@ -123,14 +200,38 @@ function DibujosManager(ws) {
         this.accion(mensaje);
     };
 
+    /**
+     * @ngdoc method
+     * @name dibujar
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Establece el canvas en modo dibujo.
+     *
+     **/
     this.dibujar = function () {
         canvas.isDrawingMode = true;
     };
 
+    /**
+     * @ngdoc method
+     * @name seleccionar
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Establece el canvas en modo seleccionar.
+     *
+     **/
     this.seleccionar = function () {
         canvas.isDrawingMode = false;
     };
 
+    /**
+     * @ngdoc method
+     * @name borrar
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Borra todo el contenido del canvas.
+     *
+     **/
     this.borrar = function () {
         var mensaje = {
             accion: 'clear'
@@ -139,6 +240,16 @@ function DibujosManager(ws) {
         this.accion(mensaje);
     };
 
+    /**
+     * @ngdoc method
+     * @name accion
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Recibe una acción realizada por otro usuario sobre el canvas.
+     *
+     * @param {object} mensaje Mensaje que contiene la acción realizada por el otro usuario.
+     *
+     **/
     this.accion = function (mensaje) {
 
         switch (mensaje.accion) {
@@ -172,6 +283,17 @@ function DibujosManager(ws) {
         }
     };
 
+    /**
+     * @ngdoc method
+     * @name removeFigura
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Borra una figura del canvas. Este método es utilizado para simular el movimiento de una figura en tiempo real
+     * en el canvas de los otros usuarios.
+     *
+     * @param {object} mensaje Mensaje que contiene la información de la figura a borrar.
+     *
+     **/
     function removeFigura(mensaje) {
 
         var objects = canvas.getObjects();
@@ -185,6 +307,16 @@ function DibujosManager(ws) {
 
     }
 
+    /**
+     * @ngdoc method
+     * @name addFigura
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Añade una figura al canvas.
+     *
+     * @param {object} mensaje Mensaje que contiene la información de la figura a añadir.
+     *
+     **/
     function addFigura(mensaje) {
 
         var figura;
@@ -220,6 +352,17 @@ function DibujosManager(ws) {
 
     }
 
+    /**
+     * @ngdoc method
+     * @name sendData
+     * @methodOf copernicus.function:DibujosManager
+     * @description
+     * Envía una acción realizada sobre el canvas al resto de usuario conectados al servicio a través del servidor
+     * de WebSockets.
+     *
+     * @param {object} mensaje Mensaje que contiene la información de la acción realizada.
+     *
+     **/
     function sendData(mensaje) {
 
         var figura = mensaje.figura;
