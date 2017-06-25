@@ -27,11 +27,11 @@
 
                         <div id="div-mensaje-solicitud">
                             <textarea class="mensaje-solicitud"
-                                      ng-show="(solicitud.solicitud.properties.mensaje) == 'undefined'"
+                                      ng-show="!solicitud.solicitud.properties.mensajeEnviado"
                                       disabled="true">{{'SIN_MENSAJE' | translate}}</textarea>
                             <textarea class="mensaje-solicitud"
-                                      ng-show="solicitud.solicitud.properties.mensaje != 'undefined'"
-                                      disabled="true">{{solicitud.solicitud.properties.mensaje}}</textarea>
+                                      ng-show="solicitud.solicitud.properties.mensajeEnviado"
+                                      disabled="true">{{solicitud.solicitud.properties.mensajeEnviado}}</textarea>
                         </div>
                     </div>
 

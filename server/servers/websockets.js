@@ -1,11 +1,52 @@
+/**
+ * @ngdoc function
+ * @name copernicus.function:websockets
+ *
+ * @description
+ * Utilizado por Express.js para la ejecución del servidor de WebSockets.
+ */
 module.exports = function (server) {
+
+    /**
+     * @ngdoc property
+     * @name port
+     * @propertyOf copernicus.function:websockets
+     * @description
+     * Puerto en el que escucha el servidor.
+     *
+     **/
     var port = process.env.HTTP_PORT || process.env.PORT || 8080;
+
+    /**
+     * @ngdoc property
+     * @name port
+     * @propertyOf copernicus.function:websockets
+     * @description
+     * Módulo 'ws'.
+     *
+     **/
     var WebSocket = require('ws');
 
+    /**
+     * @ngdoc property
+     * @name wss
+     * @propertyOf copernicus.function:websockets
+     * @description
+     * Servidor de WebSockets.
+     *
+     **/
     var wss = new WebSocket.Server({
         'server': server
     });
 
+    /**
+     * @ngdoc property
+     * @name connections
+     * @propertyOf copernicus.function:websockets
+     * @description
+     * Conexiones de los usuarios a salas.
+     *
+     **/
     var connections = [];
 
     wss.on('error', onError);
@@ -86,7 +127,7 @@ module.exports = function (server) {
 
                                 console.log("inicio");
 
-                                setDisponibleUsuarioVideoChat(obj.data.username, sala, true);
+                                setDisponibleUsuarioVideollamada(obj.data.username, sala, true);
 
                                 console.log("Usuario envió mensaje: " + obj.data.username)
 
@@ -126,7 +167,7 @@ module.exports = function (server) {
                                 break;
 
                             case 'desconectado':
-                                setDisponibleUsuarioVideoChat(obj.data.username, sala, false);
+                                setDisponibleUsuarioVideollamada(obj.data.username, sala, false);
                                 broadcast(message, obj.data.username, sala);
                                 break;
 
@@ -171,13 +212,18 @@ module.exports = function (server) {
             }
         });
 
-
         /**
+         * @ngdoc method
+         * @name broadcast
+         * @methodOf copernicus.function:websockets
+         * @description
          * Se envía un mensaje a cada usuario conectado, excepto al usuario por el cual se envía el mensaje
          *
-         * @param message
-         * @param usuarioAccion
-         */
+         * @param {object} message Mensaje a enviar.
+         * @param {String} usuarioAccion Usuario que realizó la acción.
+         * @param {String} sala Sala en la que se aplica el mensaje.
+         *
+         **/
         broadcast = function (message, usuarioAccion, sala) {
 
             var conexionUsuarioEnvia;
@@ -203,12 +249,18 @@ module.exports = function (server) {
         };
 
         /**
+         * @ngdoc method
+         * @name obtenerInformacionAsistentes
+         * @methodOf copernicus.function:websockets
+         * @description
          * Obtenemos la información de los usuarios que ya estaban conectados, para comunicarsela al usuario
-         * que se acaba de conectar
+         * que se acaba de conectar.
          *
-         * @param ws
-         * @param usuarioAccion
-         */
+         * @param {object} ws Servidor de WebSockets.
+         * @param {String} usuarioAccion Usuario que realizó la acción.
+         * @param {String} sala Sala en la que se aplica el mensaje.
+         *
+         **/
         obtenerInformacionAsistentes = function (ws, usuarioAccion, sala) {
             connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
                 if (conexion.usuario.username != usuarioAccion) {
@@ -229,10 +281,16 @@ module.exports = function (server) {
 
 
         /**
-         * Si el usuario se desconecta, lo eliminamos de la lista de usuarios conectados
+         * @ngdoc method
+         * @name desconectarUsuario
+         * @methodOf copernicus.function:websockets
+         * @description
+         * Si el usuario se desconecta, lo eliminamos de la lista de usuarios conectados.
          *
-         * @param usuarioAccion
-         */
+         * @param {String} usuarioAccion Usuario que se desconectó.
+         * @param {String} sala Sala en la que ocurre la desconexión.
+         *
+         **/
         desconectarUsuario = function (usuarioAccion, sala) {
 
             var conexiones = connections.filter(filtrarPorSala(sala));
@@ -245,10 +303,18 @@ module.exports = function (server) {
         };
 
         /**
-         * Devuelve información al usuario que mandó información a otros
+         * @ngdoc method
+         * @name feedBack
+         * @methodOf copernicus.function:websockets
+         * @description
+         * Devuelve información al usuario que mandó información a otros.
          *
-         * @param usuarioAccion
-         */
+         * @param {object} conexion Conexión de un usuario.
+         * @param {String} sala Sala en la que ocurrió la acción.
+         * @param {String} seccion Sección del mensaje
+         * @param {String} mensaje Mensaje que se envía.
+         *
+         **/
         feedBack = function (conexion, sala, seccion, mensaje) {
             console.log("Feedback");
             var message = {
@@ -272,31 +338,62 @@ module.exports = function (server) {
         };
     });
 
-
     /**
+     * @ngdoc method
+     * @name filtrarPorSala
+     * @methodOf copernicus.function:websockets
+     * @description
      * Utilizado para filtrar las conexiones, de modo que solo tengamos aquellas para la sala cuyo id es pasado
      * como parámetro
      *
-     * @param conexion
-     * @param sala
-     * @returns {boolean}
-     */
+     * @param {object} sala Filtrar conexiones por el id de la sala.
+     * @return {boolean} Booleano que indica si la conexión pertenece a la sala indicada.
+     *
+     **/
     function filtrarPorSala(sala) {
         return function (conexion) {
             return conexion.sala == sala;
         }
     }
 
-
+    /**
+     * @ngdoc method
+     * @name onError
+     * @methodOf copernicus.function:websockets
+     * @description
+     * Utilizado cuando ocurre un error.
+     *
+     * @param {object} error Error ocurrido.
+     *
+     **/
     function onError(error) {
         console.error(error.message);
         process.exit(1);
     }
 
+    /**
+     * @ngdoc method
+     * @name onError
+     * @methodOf copernicus.function:websockets
+     * @description
+     * Indicar el puerto en el que escucha el servidor de WebSockets.
+     *
+     **/
     function onListening() {
         console.info('Servidor Websocket escuchando en el puerto: ' + port);
     }
 
+    /**
+     * @ngdoc method
+     * @name IsJsonString
+     * @methodOf copernicus.function:websockets
+     * @description
+     * Comprueba si un String es un JSON válido.
+     *
+     * @param {String} str String a comprobar.
+     * @return {Boolean} Resultado de la comprobación.
+     *
+     **/
     function IsJsonString(str) {
         try {
             JSON.parse(str);
@@ -308,11 +405,18 @@ module.exports = function (server) {
 
 
     /**
-     * Establece el estado del usuario pasado como parámetro respecto al video chat
-     * @param username
-     * @param disponible
-     */
-    setDisponibleUsuarioVideoChat = function (username, sala, disponible) {
+     * @ngdoc method
+     * @name setDisponibleUsuarioVideollamada
+     * @methodOf copernicus.function:websockets
+     * @description
+     * Establece el estado del usuario pasado como parámetro respecto a la videollamada.
+     *
+     * @param {String} username Nombre de usuario del usuario.
+     * @param {String} sala Sala en la que ocurre la acción.
+     * @param {String} disponible Estado del usuario respecto a la videollamada.
+     *
+     **/
+    setDisponibleUsuarioVideollamada = function (username, sala, disponible) {
         console.log("Establecer usuario como disponible a " + disponible + " : " + username);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
             if (conexion.usuario.username == username) {
@@ -324,13 +428,18 @@ module.exports = function (server) {
 
     };
 
-
     /**
+     * @ngdoc method
+     * @name getUsuarios
+     * @methodOf copernicus.function:websockets
+     * @description
      * Obtiene los demás usuarios disponibles para hacer una videoconferencia en la sala
      *
-     * @param usernameEnvia
-     * @returns {Array}
-     */
+     * @param {String} usernameEnvia Nombre de usuario del usuario que busca conocer los usuarios disponible para
+     * una videollamada.
+     * @param {String} sala Sala en la que ocurre la acción.
+     *
+     **/
     getUsuarios = function (usernameEnvia, sala) {
         var usuarios = [];
         console.log("Obtener usuarios");
@@ -344,14 +453,18 @@ module.exports = function (server) {
         return usuarios;
     };
 
-
     /**
-     * Envía el mensaje al usuario especificado de una sala concreta
+     * @ngdoc method
+     * @name enviarA
+     * @methodOf copernicus.function:websockets
+     * @description
+     * Envía el mensaje al usuario especificado de una sala concreta.
      *
-     * @param message
-     * @param usernameSeEnvia
-     * @param sala
-     */
+     * @param {object} message Mensaje enviado.
+     * @param {String} usernameSeEnvia Nombre de usuario del usuario al que se envía el mensaje.
+     * @param {String} sala Sala en la que ocurre la acción.
+     *
+     **/
     enviarA = function (message, usernameSeEnvia, sala) {
         console.log("Enviando mensaje a " + usernameSeEnvia);
         connections.filter(filtrarPorSala(sala)).forEach(function (conexion) {
@@ -361,7 +474,4 @@ module.exports = function (server) {
             }
         });
     };
-
-
-}
-;
+};

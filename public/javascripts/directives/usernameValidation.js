@@ -1,5 +1,11 @@
+/**
+ * @ngdoc directive
+ * @name copernicus.directive:usernameValidation
+ *
+ * @description
+ * Directiva que comprueba si la contraseña introducida ya está en uso.
+ */
 angular.module("copernicus").directive("usernameValidation", function ($http, $q, utils) {
-
     return {
         restrict: 'AE',
         require: 'ngModel',
@@ -28,16 +34,12 @@ angular.module("copernicus").directive("usernameValidation", function ($http, $q
                         model.$setValidity('usernameAvailable', false);
                     }
                 }
-
-
                 function error(res) {
                     if (!utils.checkDatabaseError(res)) {
                         model.$setValidity('usernameAvailable', false);
                         defer.reject("Ha ocurrido un error");
                     }
                 }
-
-
                 return defer.promise;
             }
         }

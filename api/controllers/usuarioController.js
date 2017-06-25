@@ -1,6 +1,6 @@
 /**
  * @ngdoc function
- * @name copernicus.function:UsuarioController
+ * @name copernicus.function:usuarioController
  *
  * @description
  * Encargado de procesar las peticiones relacionadas con un usuario, recibidas por la API REST, realizando las
@@ -10,7 +10,7 @@
 /**
  * @ngdoc property
  * @name passport
- * @propertyOf copernicus.function:UsuarioController
+ * @propertyOf copernicus.function:usuarioController
  * @description
  * Módulo 'passport'.
  *
@@ -21,7 +21,7 @@ require('../utils/passport');
 /**
  * @ngdoc property
  * @name utils
- * @propertyOf copernicus.function:UsuarioController
+ * @propertyOf copernicus.function:usuarioController
  * @description
  * Referencia a 'Utils'.
  *
@@ -31,7 +31,7 @@ var utils = require('../utils/utils');
 /**
  * @ngdoc property
  * @name jwt
- * @propertyOf copernicus.function:UsuarioController
+ * @propertyOf copernicus.function:usuarioController
  * @description
  * Módulo 'jwt'.
  *
@@ -41,7 +41,7 @@ var jwt = require('jwt-simple');
 /**
  * @ngdoc property
  * @name cloudinary
- * @propertyOf copernicus.function:UsuarioController
+ * @propertyOf copernicus.function:usuarioController
  * @description
  * Módulo 'cloudinary'.
  *
@@ -51,7 +51,7 @@ var cloudinary = require('cloudinary');
 /**
  * @ngdoc property
  * @name confDB
- * @propertyOf copernicus.function:UsuarioController
+ * @propertyOf copernicus.function:usuarioController
  * @description
  * Referencia a 'DB'.
  *
@@ -61,7 +61,7 @@ var confDB = require('../config/db')
 /**
  * @ngdoc property
  * @name db
- * @propertyOf copernicus.function:UsuarioController
+ * @propertyOf copernicus.function:usuarioController
  * @description
  * Atributo utilizado para realizar consultas contra la base de datos. Es creado con el módulo 'seraph' utilizando la
  * configuración de la base de datos contenida en 'confDB'.
@@ -83,7 +83,7 @@ cloudinary.config({
 /**
  * @ngdoc method
  * @name login
- * @methodOf copernicus.function:UsuarioController
+ * @methodOf copernicus.function:usuarioController
  * @description
  * Comprueba que las credenciales enviadas por el usuario son correctas. En el caso de serlo, se envía un token que
  * lo identifica y que le permite el acceso sin volver a introducir los credenciales durante cierto tiempo.
@@ -121,7 +121,7 @@ module.exports.login = function (req, res) {
 /**
  * @ngdoc method
  * @name registrar
- * @methodOf copernicus.function:UsuarioController
+ * @methodOf copernicus.function:usuarioController
  * @description
  * Registra a un nuevo usuario, creando un nuevo nodo de tipo 'Usuario' en el que se almacena los datos enviados.
  * En el caso de la contraseña, se crea una hash y una salt a partir de ella, y se almacenan estos en vez de
@@ -181,7 +181,7 @@ module.exports.registrar = function (req, res) {
 /**
  * @ngdoc method
  * @name validarUsername
- * @methodOf copernicus.function:UsuarioController
+ * @methodOf copernicus.function:usuarioController
  * @description
  * Comprueba que el nombre de usuario no este ya asignado.
  *
@@ -218,7 +218,7 @@ module.exports.validarUsername = function (req, res) {
 /**
  * @ngdoc method
  * @name perfil
- * @methodOf copernicus.function:UsuarioController
+ * @methodOf copernicus.function:usuarioController
  * @description
  * Devuelve la información (exceptuando su hash, salt e ID utilizado en la base de datos)
  * del usuario que realizó la petición.
@@ -254,7 +254,7 @@ module.exports.perfil = function (req, res) {
 /**
  * @ngdoc method
  * @name datosUsuario
- * @methodOf copernicus.function:UsuarioController
+ * @methodOf copernicus.function:usuarioController
  * @description
  * Devuelve la información (exceptuando su hash, salt e ID utilizado en la base de datos)
  * del usuario que realizó la petición.
@@ -287,7 +287,7 @@ module.exports.datosUsuario = function (req, res) {
 /**
  * @ngdoc method
  * @name modificarPass
- * @methodOf copernicus.function:UsuarioController
+ * @methodOf copernicus.function:usuarioController
  * @description
  * Modificar contraseña del usuario.
  *
@@ -330,7 +330,7 @@ module.exports.modificarPass = function (req, res) {
 /**
  * @ngdoc method
  * @name modificarDatos
- * @methodOf copernicus.function:UsuarioController
+ * @methodOf copernicus.function:usuarioController
  * @description
  * Modificar datos del usuario.
  *
@@ -398,7 +398,7 @@ module.exports.modificarDatos = function (req, res) {
 /**
  * @ngdoc method
  * @name eliminarCuenta
- * @methodOf copernicus.function:UsuarioController
+ * @methodOf copernicus.function:usuarioController
  * @description
  * Eliminar la cuenta del usuario. Esto implica eliminar todas las salas en las que es administrador y sus relaciones,
  * y todas las relaciones que tiene con otros usuario o salas

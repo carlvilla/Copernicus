@@ -1,0 +1,64 @@
+<h1><code ng:non-bindable="">solicitudesContactoController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-controller-page copernicus-controller-solicitudescontactocontroller-page"><p>Este controlador está encargado de gestionar las solicitudes de contacto, mostrandolas y permitiendo aceptarlas
+o ignorarlas.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_aceptarsolicitud">aceptarSolicitud(usernameMandoSolicitud)</h3>
+<div class="aceptarsolicitud"><div class="aceptarsolicitud-page"><p>Permite aceptar una solicitud de contacto.</p>
+</div><h5 id="methods_aceptarsolicitud_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usernameMandoSolicitud</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="aceptarsolicitud-page"><p>Nombre de usuario del usuario que mando la solicitud de contacto.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_cerrarpantallasolicitudes">cerrarPantallaSolicitudes()</h3>
+<div class="cerrarpantallasolicitudes"><div class="cerrarpantallasolicitudes-page"><p>Cierra el dialogo de las solicitudes refrescando la página. De este modo los usuarios cuya solicitud de contacto
+fue aceptada aparecerán en el listado de contactos.</p>
+</div></div>
+</li>
+<li><h3 id="methods_eliminarsolicitud">eliminarSolicitud(username)</h3>
+<div class="eliminarsolicitud"><div class="eliminarsolicitud-page"><p>Elimina de la lista de solicitudes una solicitud que se acaba de aceptar o ignorar.</p>
+</div><h5 id="methods_eliminarsolicitud_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="eliminarsolicitud-page"><p>Nombre de usuario del usuario que mando la solicitud de contacto.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_error">error(err)</h3>
+<div class="error"><div class="error-page"><p>Muestra un mensaje de error debido a un problema con el servidor.</p>
+</div><h5 id="methods_error_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>err</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="error-page"><p>Respuesta de la API REST.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_ignorarsolicitud">ignorarSolicitud(usernameMandoSolicitud)</h3>
+<div class="ignorarsolicitud"><div class="ignorarsolicitud-page"><p>Permite ignorar una solicitud de contacto.</p>
+</div><h5 id="methods_ignorarsolicitud_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usernameMandoSolicitud</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="ignorarsolicitud-page"><p>Nombre de usuario del usuario que mando la solicitud de contacto.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_ignorarsolicitud">ignorarSolicitud(res)</h3>
+<div class="ignorarsolicitud"><div class="ignorarsolicitud-page"><p>Muestra una notificación indicando que la solicitud fue ignorada.</p>
+</div><h5 id="methods_ignorarsolicitud_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="ignorarsolicitud-page"><p>Respuesta de la API REST.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_inicializacion">inicializacion()</h3>
+<div class="inicializacion"><div class="inicializacion-page"><p>Inicializa el controlador, obteniendo las solicitudes de contacto pendientes del usuario.</p>
+</div></div>
+</li>
+<li><h3 id="methods_problemaaceptarsolicitud">problemaAceptarSolicitud(res)</h3>
+<div class="problemaaceptarsolicitud"><div class="problemaaceptarsolicitud-page"><p>Muestra una notificación si hubo un problema al aceptar la solicitud.</p>
+</div><h5 id="methods_problemaaceptarsolicitud_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="problemaaceptarsolicitud-page"><p>Respuesta de la API REST.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_solicitudaceptada">solicitudAceptada(res)</h3>
+<div class="solicitudaceptada"><div class="solicitudaceptada-page"><p>Muestra una notificación indicando que la solicitud fue aceptada</p>
+</div><h5 id="methods_solicitudaceptada_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="solicitudaceptada-page"><p>Respuesta de la API REST.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_solicitudes">solicitudes</h3>
+<div class="solicitudes"><div class="solicitudes-page"><p>Listado de solicitudes de contacto pendientes.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

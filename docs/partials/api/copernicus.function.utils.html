@@ -1,0 +1,66 @@
+<h1><code ng:non-bindable="">utils</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-utils-page"><p>Proporciona métodos de utilidad.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new utils();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_generatejwt">generateJwt(username, nombre)</h3>
+<div class="generatejwt"><div class="generatejwt-page"><p>Genera un token de sesión en el que se almacena el nombre de usuario y nombre del usuario, y que tiene una validez de
+un día.</p>
+</div><h5 id="methods_generatejwt_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="generatejwt-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>nombre</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="generatejwt-page"><p>Nombre del usuario.</p>
+</div></td></tr></tbody></table><h5 id="methods_generatejwt_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="generatejwt-page"><p>Token de sesión generado.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_getusername">getUsername(req)</h3>
+<div class="getusername"><div class="getusername-page"><p>Devuelve el username del usuario que realizó la petición.</p>
+</div><h5 id="methods_getusername_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getusername-page"><p>Objeto de solicitud.</p>
+</div></td></tr></tbody></table><h5 id="methods_getusername_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getusername-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_sendjsonresponse">sendJSONresponse(req, status, content)</h3>
+<div class="sendjsonresponse"><div class="sendjsonresponse-page"><p>Devuelve una respuesta al cliente.</p>
+</div><h5 id="methods_sendjsonresponse_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="sendjsonresponse-page"><p>Objeto de respuesta</p>
+</div></td></tr><tr><td>status</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="sendjsonresponse-page"><p>Código HTTP</p>
+</div></td></tr><tr><td>content</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="sendjsonresponse-page"><p>Contenido de la respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_setpassword">setPassword(password)</h3>
+<div class="setpassword"><div class="setpassword-page"><p>Crea un hash y salt a partir de la contraseña pasada como parámetro.</p>
+</div><h5 id="methods_setpassword_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>password</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setpassword-page"><p>Contraseña cuya hash y salt se quiere obtener.</p>
+</div></td></tr></tbody></table><h5 id="methods_setpassword_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="setpassword-page"><p>Objeto que contiene el hash y salt resultante.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_validpassword">validPassword(password, hash, salt)</h3>
+<div class="validpassword"><div class="validpassword-page"><p>Comprueba que la contraseña introducida sea válida generando un hash y comparandolo con el hash almacenado en la
+base de datos.</p>
+</div><h5 id="methods_validpassword_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>password</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="validpassword-page"><p>Contraseña.</p>
+</div></td></tr><tr><td>hash</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="validpassword-page"><p>Hash real.</p>
+</div></td></tr><tr><td>salt</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="validpassword-page"><p>Salt almacenada en la base de datos.</p>
+</div></td></tr></tbody></table><h5 id="methods_validpassword_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="validpassword-page"><p>Booleano que indica si la contraseña es válida.</p>
+</div></td></tr></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_crypto">crypto</h3>
+<div class="crypto"><div class="crypto-page"><p>Módulo &#39;crypto&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_crypto">crypto</h3>
+<div class="crypto"><div class="crypto-page"><p>Módulo &#39;jwt&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_moment">moment</h3>
+<div class="moment"><div class="moment-page"><p>Módulo &#39;moment&#39;.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

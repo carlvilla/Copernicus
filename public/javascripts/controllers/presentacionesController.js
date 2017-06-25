@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:PresentacionesController
+ * @name copernicus.controller:presentacionesController
  *
  * @description
  * Este controlador es utilizado para comunicar al usuario con 'PresentacionesManager', de modo que pueda cambiar la
@@ -14,7 +14,7 @@ copernicus.controller('presentacionesController', function ($scope, $rootScope, 
     /**
      * @ngdoc property
      * @name usuario
-     * @propertyOf copernicus.controller:PresentacionesController
+     * @propertyOf copernicus.controller:presentacionesController
      * @description
      * Almacena los datos del usuario.
      *
@@ -24,7 +24,7 @@ copernicus.controller('presentacionesController', function ($scope, $rootScope, 
     /**
      * @ngdoc property
      * @name sala
-     * @propertyOf copernicus.controller:PresentacionesController
+     * @propertyOf copernicus.controller:presentacionesController
      * @description
      * Almacena los datos de la sala accedida.
      *
@@ -34,7 +34,7 @@ copernicus.controller('presentacionesController', function ($scope, $rootScope, 
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:PresentacionesController
+     * @methodOf copernicus.controller:presentacionesController
      * @description
      * Inicializa el controlador, obteniendo los datos de la sala y del usuario e inicializa 'PresentacionesManager'
      * enviándole el nombre de usuario del usuario y el id de la sala.
@@ -54,7 +54,7 @@ copernicus.controller('presentacionesController', function ($scope, $rootScope, 
     /**
      * @ngdoc method
      * @name enviarFichero
-     * @methodOf copernicus.controller:PresentacionesController
+     * @methodOf copernicus.controller:presentacionesController
      * @description
      * Envía la presentación seleccionada a 'PresentacionesManager'.
      *

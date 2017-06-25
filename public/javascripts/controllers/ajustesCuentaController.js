@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:AjustesCuentaController
+ * @name copernicus.controller:ajustesCuentaController
  *
  * @description
  * Controlador que permite al usuario modificar los datos y contraseña de su cuenta, así como eliminarla.
@@ -12,7 +12,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc property
      * @name usuario
-     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @propertyOf copernicus.controller:ajustesCuentaController
      * @description
      * Datos del usuario el cual está modificando su cuenta.
      *
@@ -22,7 +22,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc property
      * @name pass
-     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @propertyOf copernicus.controller:ajustesCuentaController
      * @description
      * En este objeto se almacena la contraseña actual y la nueva seleccionada por el usuario.
      *
@@ -32,7 +32,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc property
      * @name foto
-     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @propertyOf copernicus.controller:ajustesCuentaController
      * @description
      * En este objeto se almacena la foto seleccionada por el usuario.
      *
@@ -42,7 +42,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc property
      * @name fotoRecortada
-     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @propertyOf copernicus.controller:ajustesCuentaController
      * @description
      * Almacena la foto recortada subida por el usuario.
      *
@@ -52,7 +52,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc property
      * @name fotoCambiada
-     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @propertyOf copernicus.controller:ajustesCuentaController
      * @description
      * Booleano que indica si el usuario modifica su foto.
      *
@@ -62,7 +62,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc property
      * @name fotoCambiada
-     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @propertyOf copernicus.controller:ajustesCuentaController
      * @description
      * Indica el tamaño máximo de fotografía aceptado.
      *
@@ -72,7 +72,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc property
      * @name actualizando_mensaje
-     * @propertyOf copernicus.controller:AjustesCuentaController
+     * @propertyOf copernicus.controller:ajustesCuentaController
      * @description
      * Propiedad utilizada para resolver un problema a la hora de eliminar una notificación cuando se produce un error.
      *
@@ -82,7 +82,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:AjustesCuentaController
+     * @methodOf copernicus.controller:ajustesCuentaController
      * @description
      * Inicializa el controlador obteniendo los datos del usuario y almacenandolos en el atributo 'usuario'.
      *
@@ -103,7 +103,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc method
      * @name fotoSeleccionada
-     * @methodOf copernicus.controller:AjustesCuentaController
+     * @methodOf copernicus.controller:ajustesCuentaController
      * @description
      * Método invocado cuando un usuario selecciona una foto de perfil.
      *
@@ -135,7 +135,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc method
      * @name actualizarDatos
-     * @methodOf copernicus.controller:AjustesCuentaController
+     * @methodOf copernicus.controller:ajustesCuentaController
      * @description
      * Actualiza los datos del usuario.
      *
@@ -158,7 +158,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc method
      * @name actualizarPassword
-     * @methodOf copernicus.controller:AjustesCuentaController
+     * @methodOf copernicus.controller:ajustesCuentaController
      * @description
      * Actualiza la contraseña del usuario.
      *
@@ -178,7 +178,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc method
      * @name eliminarCuenta
-     * @methodOf copernicus.controller:AjustesCuentaController
+     * @methodOf copernicus.controller:ajustesCuentaController
      * @description
      * Elimina la cuenta de un usuario.
      *
@@ -200,7 +200,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc method
      * @name cuentaEliminada
-     * @methodOf copernicus.controller:AjustesCuentaController
+     * @methodOf copernicus.controller:ajustesCuentaController
      * @description
      * Elimina la cookie 'token' del usuario y refresca la página. De esta forma el usuario será devuelto a la página de
      * inicio de sesión y registro.
@@ -216,7 +216,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc method
      * @name mensajeExitoDatos
-     * @methodOf copernicus.controller:AjustesCuentaController
+     * @methodOf copernicus.controller:ajustesCuentaController
      * @description
      * Muestra un mensaje para indicar que los datos fueron actualizados correctamente.
      *
@@ -231,7 +231,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc method
      * @name mensajeExitoPass
-     * @methodOf copernicus.controller:AjustesCuentaController
+     * @methodOf copernicus.controller:ajustesCuentaController
      * @description
      * Muestra un mensaje para indicar que la contraseña fue modificada.
      *
@@ -245,7 +245,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
     /**
      * @ngdoc method
      * @name mensajeError
-     * @methodOf copernicus.controller:AjustesCuentaController
+     * @methodOf copernicus.controller:ajustesCuentaController
      * @description
      * Muestra un error en el caso de que algún dato enviado fuese erróneo.
      *

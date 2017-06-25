@@ -1,3 +1,10 @@
+/**
+ * @ngdoc directive
+ * @name copernicus.directive:passwordValidation
+ *
+ * @description
+ * Directiva utilizada para validar que la contraseña y la contraseña de confirmación coinciden.
+ */
 angular.module("copernicus").directive("passwordValidation",[function () {
     return {
             require: 'ngModel',

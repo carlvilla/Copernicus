@@ -1,0 +1,155 @@
+<h1><code ng:non-bindable="">middleware</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-middleware-page"><p>Proporciona métodos para realizar comprobaciones sobre las peticiones para decir si dejarlas continuar a
+los controladores para que las gestionen.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new middleware();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_checkadmin">checkAdmin(req, res, next)</h3>
+<div class="checkadmin"><div class="checkadmin-page"><p>Comprueba que el usuario que envio la petición sea administrador de la sala.</p>
+</div><h5 id="methods_checkadmin_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkadmin-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkadmin-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkadmin-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkadminomoderador">checkAdminOModerador(req, res, next)</h3>
+<div class="checkadminomoderador"><div class="checkadminomoderador-page"><p>Comprueba que el usuario que envio la petición sea administrador o moderador de la sala.</p>
+</div><h5 id="methods_checkadminomoderador_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkadminomoderador-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkadminomoderador-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkadminomoderador-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkadminsicambioamoderador">checkAdminSiCambioAModerador(req, res, next)</h3>
+<div class="checkadminsicambioamoderador"><div class="checkadminsicambioamoderador-page"><p>Comprueba que el usuario sea administrador si se intenta realizar un cambio a un participante que sea administrador.</p>
+</div><h5 id="methods_checkadminsicambioamoderador_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkadminsicambioamoderador-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkadminsicambioamoderador-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkadminsicambioamoderador-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkemail">checkEmail(req, res, next)</h3>
+<div class="checkemail"><div class="checkemail-page"><p>Comprueba que el formato de un email sea válido.</p>
+</div><h5 id="methods_checkemail_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkemail-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkemail-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkemail-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkexistesolicitudcontacto">checkExisteSolicitudContacto(req, res, next)</h3>
+<div class="checkexistesolicitudcontacto"><div class="checkexistesolicitudcontacto-page"><p>Comprueba que exista una solicitud de contacto entre dos usuarios.</p>
+</div><h5 id="methods_checkexistesolicitudcontacto_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkexistesolicitudcontacto-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkexistesolicitudcontacto-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkexistesolicitudcontacto-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkexistesolicitudsala">checkExisteSolicitudSala(req, res, next)</h3>
+<div class="checkexistesolicitudsala"><div class="checkexistesolicitudsala-page"><p>Comprueba que exista una solicitud de salas (Candidato) entre el usuario y una sala.</p>
+</div><h5 id="methods_checkexistesolicitudsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkexistesolicitudsala-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkexistesolicitudsala-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkexistesolicitudsala-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checklimitesala">checkLimiteSala(req, res, next)</h3>
+<div class="checklimitesala"><div class="checklimitesala-page"><p>Comprueba que no existan 4 participantes en la sala.</p>
+</div><h5 id="methods_checklimitesala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checklimitesala-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checklimitesala-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checklimitesala-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checknosoncontactos">checkNoSonContactos(req, res, next)</h3>
+<div class="checknosoncontactos"><div class="checknosoncontactos-page"><p>Comprueba que dos usuarios no son contactos.</p>
+</div><h5 id="methods_checknosoncontactos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checknosoncontactos-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checknosoncontactos-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checknosoncontactos-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checknombreapellidos">checkNombreApellidos(req, res, next)</h3>
+<div class="checknombreapellidos"><div class="checknombreapellidos-page"><p>Comprueba que el nombre y apellidos sean válidos.</p>
+</div><h5 id="methods_checknombreapellidos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checknombreapellidos-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checknombreapellidos-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checknombreapellidos-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checknombredescripcionsala">checkNombreDescripcionSala(req, res, next)</h3>
+<div class="checknombredescripcionsala"><div class="checknombredescripcionsala-page"><p>Comprueba que el nombre y descripción de la sala sean válidos.</p>
+</div><h5 id="methods_checknombredescripcionsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checknombredescripcionsala-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checknombredescripcionsala-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checknombredescripcionsala-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkposibleeliminar">checkPosibleEliminar(req, res, next)</h3>
+<div class="checkposibleeliminar"><div class="checkposibleeliminar-page"><p>Comprueba que el nombre y descripción de la sala sean válidos.</p>
+</div><h5 id="methods_checkposibleeliminar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkposibleeliminar-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkposibleeliminar-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkposibleeliminar-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checksoncontactos">checkSonContactos(req, res, next)</h3>
+<div class="checksoncontactos"><div class="checksoncontactos-page"><p>Comprueba que dos usuarios no son contactos.</p>
+</div><h5 id="methods_checksoncontactos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checksoncontactos-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checksoncontactos-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checksoncontactos-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkusernamesenviados">checkUsernamesEnviados(req, res, next)</h3>
+<div class="checkusernamesenviados"><div class="checkusernamesenviados-page"><p>Comprueba que los username enviados no sea vacios.</p>
+</div><h5 id="methods_checkusernamesenviados_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkusernamesenviados-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkusernamesenviados-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkusernamesenviados-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_usernameexiste">usernameExiste(req, res, next)</h3>
+<div class="usernameexiste"><div class="usernameexiste-page"><p>Comprueba que el nombre de usuario exista en la base de datos.</p>
+</div><h5 id="methods_usernameexiste_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usernameexiste-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usernameexiste-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usernameexiste-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_usernamenoexiste">usernameNoExiste(req, res, next)</h3>
+<div class="usernamenoexiste"><div class="usernamenoexiste-page"><p>Comprueba que el nombre de usuario no exista en la base de datos.</p>
+</div><h5 id="methods_usernamenoexiste_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usernamenoexiste-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usernamenoexiste-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usernamenoexiste-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_usuarionoadminmoderadoromiembro">usuarioNoAdminModeradorOMiembro(req, res, next)</h3>
+<div class="usuarionoadminmoderadoromiembro"><div class="usuarionoadminmoderadoromiembro-page"><p>Comprueba que el usuario no sea administrador, moderador o miembro de cierta sala.</p>
+</div><h5 id="methods_usuarionoadminmoderadoromiembro_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usuarionoadminmoderadoromiembro-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usuarionoadminmoderadoromiembro-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usuarionoadminmoderadoromiembro-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_usuarionocandidatoadminmoderadoromiembro">usuarioNoCandidatoAdminModeradorOMiembro(req, res, next)</h3>
+<div class="usuarionocandidatoadminmoderadoromiembro"><div class="usuarionocandidatoadminmoderadoromiembro-page"><p>Comprueba que el usuario no sea candidato a unirse a una sala o administrador, moderador o miembro de la misma.</p>
+</div><h5 id="methods_usuarionocandidatoadminmoderadoromiembro_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usuarionocandidatoadminmoderadoromiembro-page"><p>Objeto de solicitud.</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usuarionocandidatoadminmoderadoromiembro-page"><p>Objeto de respuesta.</p>
+</div></td></tr><tr><td>next</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="usuarionocandidatoadminmoderadoromiembro-page"><p>Siguiente función de middleware en el ciclo de solicitud/respuestas de la aplicación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_confdb">confDB</h3>
+<div class="confdb"><div class="confdb-page"><p>Referencia a &#39;DB&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_db">db</h3>
+<div class="db"><div class="db-page"><p>Atributo utilizado para realizar consultas contra la base de datos. Es creado con el módulo &#39;seraph&#39; utilizando la
+configuración de la base de datos contenida en &#39;confDB&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_emailregex">emailRegex</h3>
+<div class="emailregex"><div class="emailregex-page"><p>Contiene una expresión regular para comprobar la validez de los emails.</p>
+</div></div>
+</li>
+<li><h3 id="properties_utils">utils</h3>
+<div class="utils"><div class="utils-page"><p>Referencia a &#39;Utils&#39;</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

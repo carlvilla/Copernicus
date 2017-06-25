@@ -1,3 +1,19 @@
+/**
+ * @ngdoc function
+ * @name copernicus.function:db
+ *
+ * @description
+ * Encargado de almacenar la dirección de la base de datos y las credenciales.
+ */
+
+/**
+ * @ngdoc property
+ * @name config
+ * @propertyOf copernicus.function:db
+ * @description
+ * Almacena la dirección de la base de datos y las credenciales.
+ *
+ **/
 var config = {};
 
 if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'test-travis') {

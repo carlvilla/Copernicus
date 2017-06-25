@@ -1,0 +1,98 @@
+<h1><code ng:non-bindable="">usuarioController</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-usuariocontroller-page"><p>Encargado de procesar las peticiones relacionadas con un usuario, recibidas por la API REST, realizando las
+consultas necesarias contra la base de datos.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new usuarioController();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_datosusuario">datosUsuario(req, res)</h3>
+<div class="datosusuario"><div class="datosusuario-page"><p>Devuelve la información (exceptuando su hash, salt e ID utilizado en la base de datos)
+del usuario que realizó la petición.</p>
+</div><h5 id="methods_datosusuario_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="datosusuario-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="datosusuario-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_eliminarcuenta">eliminarCuenta(req, res)</h3>
+<div class="eliminarcuenta"><div class="eliminarcuenta-page"><p>Eliminar la cuenta del usuario. Esto implica eliminar todas las salas en las que es administrador y sus relaciones,
+y todas las relaciones que tiene con otros usuario o salas</p>
+</div><h5 id="methods_eliminarcuenta_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="eliminarcuenta-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="eliminarcuenta-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_login">login(req, res)</h3>
+<div class="login"><div class="login-page"><p>Comprueba que las credenciales enviadas por el usuario son correctas. En el caso de serlo, se envía un token que
+lo identifica y que le permite el acceso sin volver a introducir los credenciales durante cierto tiempo.</p>
+</div><h5 id="methods_login_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="login-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="login-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_modificardatos">modificarDatos(req, res)</h3>
+<div class="modificardatos"><div class="modificardatos-page"><p>Modificar datos del usuario.</p>
+</div><h5 id="methods_modificardatos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="modificardatos-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="modificardatos-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_modificarpass">modificarPass(req, res)</h3>
+<div class="modificarpass"><div class="modificarpass-page"><p>Modificar contraseña del usuario.</p>
+</div><h5 id="methods_modificarpass_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="modificarpass-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="modificarpass-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_perfil">perfil(req, res)</h3>
+<div class="perfil"><div class="perfil-page"><p>Devuelve la información (exceptuando su hash, salt e ID utilizado en la base de datos)
+del usuario que realizó la petición.</p>
+</div><h5 id="methods_perfil_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="perfil-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="perfil-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_registrar">registrar(req, res)</h3>
+<div class="registrar"><div class="registrar-page"><p>Registra a un nuevo usuario, creando un nuevo nodo de tipo &#39;Usuario&#39; en el que se almacena los datos enviados.
+En el caso de la contraseña, se crea una hash y una salt a partir de ella, y se almacenan estos en vez de
+la contraseña.</p>
+</div><h5 id="methods_registrar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="registrar-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="registrar-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_validarusername">validarUsername(req, res)</h3>
+<div class="validarusername"><div class="validarusername-page"><p>Comprueba que el nombre de usuario no este ya asignado.</p>
+</div><h5 id="methods_validarusername_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="validarusername-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="validarusername-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_cloudinary">cloudinary</h3>
+<div class="cloudinary"><div class="cloudinary-page"><p>Módulo &#39;cloudinary&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_confdb">confDB</h3>
+<div class="confdb"><div class="confdb-page"><p>Referencia a &#39;DB&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_db">db</h3>
+<div class="db"><div class="db-page"><p>Atributo utilizado para realizar consultas contra la base de datos. Es creado con el módulo &#39;seraph&#39; utilizando la
+configuración de la base de datos contenida en &#39;confDB&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_jwt">jwt</h3>
+<div class="jwt"><div class="jwt-page"><p>Módulo &#39;jwt&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_passport">passport</h3>
+<div class="passport"><div class="passport-page"><p>Módulo &#39;passport&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_utils">utils</h3>
+<div class="utils"><div class="utils-page"><p>Referencia a &#39;Utils&#39;.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

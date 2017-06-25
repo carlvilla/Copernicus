@@ -2,17 +2,17 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:AddContactoController
+ * @name copernicus.controller:addContactoController
  *
  * @description
  * Controlador encargado de la gestión de las solicitudes de contacto.
  */
-copernicus.controller('solicitudContactoController', function ($scope, $http, utils, $translate) {
+copernicus.controller('addContactoController', function ($scope, $http, utils, $translate) {
 
     /**
      * @ngdoc property
      * @name usuarios
-     * @propertyOf copernicus.controller:AddContactoController
+     * @propertyOf copernicus.controller:addContactoController
      * @description
      * Almacena los posibles contactos a los que el usuario puede enviar una solicitud de contacto.
      *
@@ -22,7 +22,7 @@ copernicus.controller('solicitudContactoController', function ($scope, $http, ut
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:AddContactoController
+     * @methodOf copernicus.controller:addContactoController
      * @description
      * Inicializa el controlador, obteniendo los usuarios que pueden ser nuevos contactos del usuario y almacenandolos
      * en la variable usuarios.
@@ -50,7 +50,7 @@ copernicus.controller('solicitudContactoController', function ($scope, $http, ut
     /**
      * @ngdoc method
      * @name enviarSolicitudContacto
-     * @methodOf copernicus.controller:AddContactoController
+     * @methodOf copernicus.controller:addContactoController
      * @description
      * Envía una solicitud de contacto a un usuario previamente seleccionado.
      *
@@ -81,6 +81,7 @@ copernicus.controller('solicitudContactoController', function ($scope, $http, ut
             $('#username-solicitud-contacto_value').val('');
             $('#mensaje-solicitud-contacto').val('');
             $scope.usuarioSeleccionado = undefined;
+            $scope.mensaje = undefined;
 
 
         }, function (res) {
