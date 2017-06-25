@@ -34,15 +34,14 @@ module.exports.checkNombreApellidos = function (req, res, next) {
     var nombre = req.body.nombre;
     var apellidos = req.body.apellidos;
 
-    if(nombre.length > 15 || nombre.length < 3){
+    if (nombre.length > 15 || nombre.length < 3) {
         utils.sendJSONresponse(res, 400, "nombre");
-    }else if(apellidos.length > 35){
+    } else if (apellidos.length > 35) {
         utils.sendJSONresponse(res, 400, "apellidos");
-    }else{
+    } else {
         next();
     }
 }
-
 
 
 /**
@@ -55,9 +54,9 @@ module.exports.checkNombreApellidos = function (req, res, next) {
 module.exports.usernameExiste = function (req, res, next) {
     var username = utils.getUsername(req);
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'}) return u";
+    var query = "MATCH(u:Usuario{username: {username} }) return u";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -80,9 +79,9 @@ module.exports.usernameExiste = function (req, res, next) {
 module.exports.usernameNoExiste = function (req, res, next) {
     var username = req.body.username;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'}) return u";
+    var query = "MATCH(u:Usuario{username:{username}}) return u";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username: username}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -107,10 +106,10 @@ module.exports.checkAdminOModerador = function (req, res, next) {
     var idSala = req.body.idSala;
     var username = utils.getUsername(req);
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[r:Moderador | Admin]->(s:Sala{idSala:" + idSala + "})" +
+    var query = "MATCH(u:Usuario{username: {username} })-[r:Moderador | Admin]->(s:Sala{idSala:{idSala} })" +
         "RETURN  r";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username:username, idSala:idSala} ,function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -136,10 +135,9 @@ module.exports.checkAdminSiCambioAModerador = function (req, res, next) {
     var username = utils.getUsername(req);
     var usernamePermisosModificados = req.body.username;
 
-    var query = "MATCH(u:Usuario{username:'" + usernamePermisosModificados + "'})" +
-        "-[r]-(s:Sala{idSala:" + idSala + "}) return r";
+    var query = "MATCH(u:Usuario{username:{usernamePermisosModificados}})-[r]-(s:Sala{idSala:{idSala}}) return r";
 
-    db.query(query, function (err, result) {
+    db.query(query, {usernamePermisosModificados:usernamePermisosModificados, idSala:idSala} ,function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -183,10 +181,9 @@ module.exports.checkAdmin = function (req, res, next) {
     var idSala = req.body.idSala;
     var username = utils.getUsername(req);
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[r:Admin]->(s:Sala{idSala:" + idSala + "})" +
-        "RETURN  r";
+    var query = "MATCH(u:Usuario{username:{username}})-[r:Admin]->(s:Sala{idSala:{idSala}}) RETURN  r";
 
-    db.query(query, function (err, result) {
+    db.query(query,{username:username, idSala:idSala}, function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -211,10 +208,10 @@ module.exports.checkNoSonContactos = function (req, res, next) {
     var username = utils.getUsername(req);
     var username2 = req.body.username;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:SolicitudContacto | Contacto]-(u2:Usuario{username:'" + username2 + "'})" +
-        "RETURN  c";
+    var query = "MATCH(u:Usuario{username:{username}})-[c:SolicitudContacto | Contacto]-" +
+        "(u2:Usuario{username:{username2}}) RETURN  c";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username:username, username2:username2} , function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -238,10 +235,10 @@ module.exports.checkSonContactos = function (req, res, next) {
     var username = utils.getUsername(req);
     var username2 = req.body.username;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:SolicitudContacto | Contacto]-(u2:Usuario{username:'" + username2 + "'})" +
-        "RETURN  c";
+    var query = "MATCH(u:Usuario{username:{username}})-[c:SolicitudContacto | Contacto]-" +
+        "(u2:Usuario{username:{username2}}) RETURN  c";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username:username, username2:username2} ,function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -288,10 +285,10 @@ module.exports.usuarioNoCandidatoAdminModeradorOMiembro = function (req, res, ne
     if (username == undefined || idSala == undefined) {
         utils.sendJSONresponse(res, 400, err);
     } else {
-        var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:Candidato | Admin | Moderador | Miembro]" +
-            "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+        var query = "MATCH(u:Usuario{username:{username}})-[c:Candidato | Admin | Moderador | Miembro]-" +
+            "(s:Sala{idSala:{idSala}}) RETURN  c";
 
-        db.query(query, function (err, result) {
+        db.query(query, {username:username, idSala:idSala} ,function (err, result) {
             if (err) {
                 utils.sendJSONresponse(res, 500, err);
             } else {
@@ -321,10 +318,10 @@ module.exports.usuarioNoAdminModeradorOMiembro = function (req, res, next) {
         utils.sendJSONresponse(res, 400, err);
     } else {
 
-        var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:Admin | Moderador | Miembro]" +
-            "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+        var query = "MATCH(u:Usuario{username:{username}})-[c:Admin | Moderador | Miembro]" +
+            "-(s:Sala{idSala:{idSala}}) RETURN  c";
 
-        db.query(query, function (err, result) {
+        db.query(query, {username:username, idSala:idSala} ,function (err, result) {
             if (err) {
                 utils.sendJSONresponse(res, 500, err);
             } else {
@@ -354,10 +351,10 @@ module.exports.checkExisteSolicitudContacto = function (req, res, next) {
         usernameEnvioSolicitud = req.body.usernameIgnorado;
     }
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:SolicitudContacto]" +
-        "-(u2:Usuario{username:'" + usernameEnvioSolicitud + "'}) RETURN  c";
+    var query = "MATCH(u:Usuario{username:{username}})-[c:SolicitudContacto]-" +
+        "(u2:Usuario{username:{usernameEnvioSolicitud}}) RETURN  c";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username:username, usernameEnvioSolicitud:usernameEnvioSolicitud} ,function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -387,10 +384,9 @@ module.exports.checkExisteSolicitudSala = function (req, res, next) {
 
     var idSala = req.body.idSala;
 
-    var query = "MATCH(u:Usuario{username:'" + username + "'})-[c:Candidato]" +
-        "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+    var query = "MATCH(u:Usuario{username:{username}})-[c:Candidato]-(s:Sala{idSala:{idSala}}) RETURN  c";
 
-    db.query(query, function (err, result) {
+    db.query(query, {username:username, idSala:idSala} ,function (err, result) {
         if (err) {
             utils.sendJSONresponse(res, 500, err);
         } else {
@@ -429,10 +425,9 @@ module.exports.checkLimiteSala = function (req, res, next) {
     //Si no se envió un listado de usuarios, significa que se está enviando una
     //solicitud de unión a una sala a un usuario
     else {
-        var query = "MATCH(s:Sala{idSala:" + idSala + "})-[c:Candidato | Admin | Moderador | Miembro]" +
-            "-(Usuario) RETURN  c";
+        var query = "MATCH(s:Sala{idSala:{idSala}})-[c:Candidato | Admin | Moderador | Miembro]-(Usuario) RETURN  c";
 
-        db.query(query, function (err, result) {
+        db.query(query, {idSala:idSala} ,function (err, result) {
             if (err) {
                 utils.sendJSONresponse(res, 500, err);
             } else {
@@ -487,23 +482,22 @@ module.exports.checkPosibleEliminar = function (req, res, next) {
     // abandonar la sala. Puede hacerlo si este no es administrador.
     if (!username) {
 
-        var query = "MATCH(u:Usuario{username:'" + usernameEnvia + "'})-[c]" +
-            "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+        var query = "MATCH(u:Usuario{username:{usernameEnvia}})-[c]-(s:Sala{idSala:{idSala}}) RETURN  c";
 
-        db.query(query, function (err, result) {
+        db.query(query, {usernameEnvia:usernameEnvia, idSala:idSala} ,function (err, result) {
             if (err) {
                 utils.sendJSONresponse(res, 500, err);
             } else {
                 if (!result[0]) {
                     utils.sendJSONresponse(res, 400, err);
                     return;
-                }else{
+                } else {
 
                     //Si el usuario que envía la petición es administrador de la sala, puede realizar la operación
                     if (result[0].type != 'Admin') {
                         next();
 
-                    }else{
+                    } else {
                         utils.sendJSONresponse(res, 400, err);
                     }
                 }
@@ -511,30 +505,28 @@ module.exports.checkPosibleEliminar = function (req, res, next) {
         });
 
     } else {
-        var query = "MATCH(u:Usuario{username:'" + usernameEnvia + "'})-[c]" +
-            "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+        var query = "MATCH(u:Usuario{username:{usernameEnvia}})-[c]-(s:Sala{idSala:{idSala}}) RETURN  c";
 
-        db.query(query, function (err, result) {
+        db.query(query, {usernameEnvia:usernameEnvia, idSala:idSala} , function (err, result) {
             if (err) {
                 utils.sendJSONresponse(res, 500, err);
             } else {
-                if (!result) {
+                if (!result[0]) {
                     utils.sendJSONresponse(res, 400, err);
                     return;
                 }
 
                 //Si el usuario que envía la petición es administrador de la sala, puede realizar la operación
-                if (result[0] && result[0].type == 'Admin') {
+                if (result[0].type == 'Admin') {
                     next();
 
                     //Si el usuario que envía la petición es moderador de la sala, hay que comprobar que el usuario
                     //al que intenta eliminar sea miembro
                 } else if (result[0] && result[0].type == 'Moderador') {
 
-                    query = "MATCH(u:Usuario{username:'" + username + "'})-[c]" +
-                        "-(s:Sala{idSala:" + idSala + "}) RETURN  c";
+                    query = "MATCH(u:Usuario{username:{username}})-[c]-(s:Sala{idSala:{idSala}}) RETURN  c";
 
-                    db.query(query, function (err, result) {
+                    db.query(query, {username:username, idSala:idSala} ,function (err, result) {
                         if (err) {
                             utils.sendJSONresponse(res, 500, err);
                         } else {

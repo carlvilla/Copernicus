@@ -268,17 +268,18 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
      * @param {String} username Nombre del usuario a eliminar de la sala.
      *
      **/
-    $scope.eliminarUsuario = function (username) {
+    $scope.eliminarUsuario = function (usuario) {
+
         $http({
             method: "POST",
             url: "api/eliminarUsuarioSala",
             data: {
                 idSala: salaSeleccionada,
-                username: username
+                username: usuario.username
             }
         }).then(function (res) {
             $scope.participantes.forEach(function (participante) {
-                if (participante.user.username == username) {
+                if (participante.user.username == usuario.username) {
                     $scope.participantes.splice($scope.participantes.indexOf(participante), 1);
                     utils.mensajeSuccess($translate.instant('USUARIO_ELIMINADO'));
                 }
