@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:BloquearContactoController
+ * @name copernicus.controller:bloquearContactoController
  *
  * @description
  * Este controlador es utilizado para bloquear y desbloquear contactos, además de listar los usuarios bloqueados.
@@ -12,7 +12,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc property
      * @name contactoSeleccionado
-     * @propertyOf copernicus.controller:BloquearContactoController
+     * @propertyOf copernicus.controller:bloquearContactoController
      * @description
      * Contacto seleccionado para ser bloqueado.
      *
@@ -22,7 +22,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc property
      * @name contactosBloqueados
-     * @propertyOf copernicus.controller:BloquearContactoController
+     * @propertyOf copernicus.controller:bloquearContactoController
      * @description
      * Contactos bloqueados.
      *
@@ -32,7 +32,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc method
      * @name success
-     * @methodOf copernicus.controller:BloquearContactoController
+     * @methodOf copernicus.controller:bloquearContactoController
      * @description
      * Almacena en la propiedad 'contactosBloqueados' los usuarios bloqueados obtenidos a partir de una petición a la
      * API REST.
@@ -47,7 +47,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc method
      * @name error
-     * @methodOf copernicus.controller:BloquearContactoController
+     * @methodOf copernicus.controller:bloquearContactoController
      * @description
      * Muestra un mensaje de error en el caso de que no se pudo recuperar información al conectarse con el servidor.
      *
@@ -61,7 +61,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc method
      * @name buscarContactosBloqueados
-     * @methodOf copernicus.controller:BloquearContactoController
+     * @methodOf copernicus.controller:bloquearContactoController
      * @description
      * Realiza petición a la API REST para recuperar los contactos bloqueados.
      *
@@ -78,7 +78,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc method
      * @name buscarContactos
-     * @methodOf copernicus.controller:BloquearContactoController
+     * @methodOf copernicus.controller:bloquearContactoController
      * @description
      * Realiza petición a la API REST para recuperar los contactos del usuario.
      *
@@ -107,7 +107,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc method
      * @name bloquearContacto
-     * @methodOf copernicus.controller:BloquearContactoController
+     * @methodOf copernicus.controller:bloquearContactoController
      * @description
      * Bloquea el contacto seleccionado.
      *
@@ -136,7 +136,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc method
      * @name errorBloquear
-     * @methodOf copernicus.controller:BloquearContactoController
+     * @methodOf copernicus.controller:bloquearContactoController
      * @description
      *  Error producido cuando dos usuarios si bloquean entre sí a la vez
      *
@@ -150,7 +150,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc method
      * @name desbloquearContacto
-     * @methodOf copernicus.controller:BloquearContactoController
+     * @methodOf copernicus.controller:bloquearContactoController
      * @description
      * Desbloquea al contacto seleccionado.
      *
@@ -171,7 +171,7 @@ copernicus.controller('bloquearContactoController', function ($scope, $http, $wi
     /**
      * @ngdoc method
      * @name cerrarPantallaBloquear
-     * @methodOf copernicus.controller:BloquearContactoController
+     * @methodOf copernicus.controller:bloquearContactoController
      * @description
      * Actualiza la página al cerrar el diálogo para bloquear y desbloquear contactos.
      *

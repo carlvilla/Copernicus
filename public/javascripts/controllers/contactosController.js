@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:ContactosController
+ * @name copernicus.controller:contactosController
  *
  * @description
  * Este controlador es utilizado para mostrar el listado de contactos, mostrar la información de los contactos
@@ -13,7 +13,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc property
      * @name contactos
-     * @propertyOf copernicus.controller:ContactosController
+     * @propertyOf copernicus.controller:contactosController
      * @description
      * Variable necesario para el filtrado de contactos.
      *
@@ -23,7 +23,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc property
      * @name contactoSeleccionado
-     * @propertyOf copernicus.controller:ContactosController
+     * @propertyOf copernicus.controller:contactosController
      * @description
      * Contacto seleccionado.
      *
@@ -33,7 +33,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc property
      * @name textoFiltrar
-     * @propertyOf copernicus.controller:ContactosController
+     * @propertyOf copernicus.controller:contactosController
      * @description
      * Texot para filtrar el listado de contactos.
      *
@@ -52,7 +52,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:ContactosController
+     * @methodOf copernicus.controller:contactosController
      * @description
      * Obtiene los contactos del usuario.
      *
@@ -70,7 +70,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc method
      * @name mostrarContacto
-     * @methodOf copernicus.controller:ContactosController
+     * @methodOf copernicus.controller:contactosController
      * @description
      * Muestra la información de un contacto seleccionado.
      *
@@ -88,7 +88,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc method
      * @name successMostrar
-     * @methodOf copernicus.controller:ContactosController
+     * @methodOf copernicus.controller:contactosController
      * @description
      * Obtiene de una respuesta de la API REST la información del contacto seleccionado.
      *
@@ -102,7 +102,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc method
      * @name bloquearContacto
-     * @methodOf copernicus.controller:ContactosController
+     * @methodOf copernicus.controller:contactosController
      * @description
      * Bloquea a un contacto seleccionado.
      *
@@ -120,7 +120,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc method
      * @name successBloquear
-     * @methodOf copernicus.controller:ContactosController
+     * @methodOf copernicus.controller:contactosController
      * @description
      * Muestra una notificación indicando que el usuario fue bloqueado y actualiza la página.
      *
@@ -135,7 +135,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc method
      * @name successBloquear
-     * @methodOf copernicus.controller:ContactosController
+     * @methodOf copernicus.controller:contactosController
      * @description
      * Muestra una notificación indicando que hubo un error al bloquear al usuario.
      *
@@ -147,7 +147,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
     /**
      * @ngdoc method
      * @name successBloquear
-     * @methodOf copernicus.controller:ContactosController
+     * @methodOf copernicus.controller:contactosController
      * @description
      * Filtra el listado de contactos.
      *

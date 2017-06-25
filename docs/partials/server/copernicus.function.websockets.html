@@ -1,0 +1,106 @@
+<h1><code ng:non-bindable="">websockets</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-websockets-page"><p>Utilizado por Express.js para la ejecución del servidor de WebSockets.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new websockets();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_isjsonstring">IsJsonString(str)</h3>
+<div class="isjsonstring"><div class="isjsonstring-page"><p>Comprueba si un String es un JSON válido.</p>
+</div><h5 id="methods_isjsonstring_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>str</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="isjsonstring-page"><p>String a comprobar.</p>
+</div></td></tr></tbody></table><h5 id="methods_isjsonstring_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="isjsonstring-page"><p>Resultado de la comprobación.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_broadcast">broadcast(message, usuarioAccion, sala)</h3>
+<div class="broadcast"><div class="broadcast-page"><p>Se envía un mensaje a cada usuario conectado, excepto al usuario por el cual se envía el mensaje</p>
+</div><h5 id="methods_broadcast_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>message</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="broadcast-page"><p>Mensaje a enviar.</p>
+</div></td></tr><tr><td>usuarioAccion</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="broadcast-page"><p>Usuario que realizó la acción.</p>
+</div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="broadcast-page"><p>Sala en la que se aplica el mensaje.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_desconectarusuario">desconectarUsuario(usuarioAccion, sala)</h3>
+<div class="desconectarusuario"><div class="desconectarusuario-page"><p>Si el usuario se desconecta, lo eliminamos de la lista de usuarios conectados.</p>
+</div><h5 id="methods_desconectarusuario_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usuarioAccion</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="desconectarusuario-page"><p>Usuario que se desconectó.</p>
+</div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="desconectarusuario-page"><p>Sala en la que ocurre la desconexión.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_enviara">enviarA(message, usernameSeEnvia, sala)</h3>
+<div class="enviara"><div class="enviara-page"><p>Envía el mensaje al usuario especificado de una sala concreta.</p>
+</div><h5 id="methods_enviara_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>message</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="enviara-page"><p>Mensaje enviado.</p>
+</div></td></tr><tr><td>usernameSeEnvia</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="enviara-page"><p>Nombre de usuario del usuario al que se envía el mensaje.</p>
+</div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="enviara-page"><p>Sala en la que ocurre la acción.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_feedback">feedBack(conexion, sala, seccion, mensaje)</h3>
+<div class="feedback"><div class="feedback-page"><p>Devuelve información al usuario que mandó información a otros.</p>
+</div><h5 id="methods_feedback_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>conexion</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="feedback-page"><p>Conexión de un usuario.</p>
+</div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="feedback-page"><p>Sala en la que ocurrió la acción.</p>
+</div></td></tr><tr><td>seccion</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="feedback-page"><p>Sección del mensaje</p>
+</div></td></tr><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="feedback-page"><p>Mensaje que se envía.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_filtrarporsala">filtrarPorSala(sala)</h3>
+<div class="filtrarporsala"><div class="filtrarporsala-page"><p>Utilizado para filtrar las conexiones, de modo que solo tengamos aquellas para la sala cuyo id es pasado
+como parámetro</p>
+</div><h5 id="methods_filtrarporsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>sala</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="filtrarporsala-page"><p>Filtrar conexiones por el id de la sala.</p>
+</div></td></tr></tbody></table><h5 id="methods_filtrarporsala_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="filtrarporsala-page"><p>Booleano que indica si la conexión pertenece a la sala indicada.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_getusuarios">getUsuarios(usernameEnvia, sala)</h3>
+<div class="getusuarios"><div class="getusuarios-page"><p>Obtiene los demás usuarios disponibles para hacer una videoconferencia en la sala</p>
+</div><h5 id="methods_getusuarios_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usernameEnvia</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getusuarios-page"><p>Nombre de usuario del usuario que busca conocer los usuarios disponible para
+una videollamada.</p>
+</div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getusuarios-page"><p>Sala en la que ocurre la acción.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_obtenerinformacionasistentes">obtenerInformacionAsistentes(ws, usuarioAccion, sala)</h3>
+<div class="obtenerinformacionasistentes"><div class="obtenerinformacionasistentes-page"><p>Obtenemos la información de los usuarios que ya estaban conectados, para comunicarsela al usuario
+que se acaba de conectar.</p>
+</div><h5 id="methods_obtenerinformacionasistentes_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>ws</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="obtenerinformacionasistentes-page"><p>Servidor de WebSockets.</p>
+</div></td></tr><tr><td>usuarioAccion</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="obtenerinformacionasistentes-page"><p>Usuario que realizó la acción.</p>
+</div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="obtenerinformacionasistentes-page"><p>Sala en la que se aplica el mensaje.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_onerror">onError(error)</h3>
+<div class="onerror"><div class="onerror-page"><p>Utilizado cuando ocurre un error.</p>
+</div><h5 id="methods_onerror_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>error</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="onerror-page"><p>Error ocurrido.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_onerror">onError()</h3>
+<div class="onerror"><div class="onerror-page"><p>Indicar el puerto en el que escucha el servidor de WebSockets.</p>
+</div></div>
+</li>
+<li><h3 id="methods_setdisponibleusuariovideollamada">setDisponibleUsuarioVideollamada(username, sala, disponible)</h3>
+<div class="setdisponibleusuariovideollamada"><div class="setdisponibleusuariovideollamada-page"><p>Establece el estado del usuario pasado como parámetro respecto a la videollamada.</p>
+</div><h5 id="methods_setdisponibleusuariovideollamada_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setdisponibleusuariovideollamada-page"><p>Nombre de usuario del usuario.</p>
+</div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setdisponibleusuariovideollamada-page"><p>Sala en la que ocurre la acción.</p>
+</div></td></tr><tr><td>disponible</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setdisponibleusuariovideollamada-page"><p>Estado del usuario respecto a la videollamada.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_connections">connections</h3>
+<div class="connections"><div class="connections-page"><p>Conexiones de los usuarios a salas.</p>
+</div></div>
+</li>
+<li><h3 id="properties_port">port</h3>
+<div class="port"><div class="port-page"><p>Puerto en el que escucha el servidor.</p>
+</div></div>
+</li>
+<li><h3 id="properties_port">port</h3>
+<div class="port"><div class="port-page"><p>Módulo &#39;ws&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_wss">wss</h3>
+<div class="wss"><div class="wss-page"><p>Servidor de WebSockets.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

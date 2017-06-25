@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:VideollamadasController
+ * @name copernicus.controller:videollamadasController
  *
  * @description
  * Este controlador es utilizado para comunicar al usuario con 'VideollamadasManager', de modo que el usuario pueda
@@ -13,7 +13,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc property
      * @name usuario
-     * @propertyOf copernicus.controller:VideollamadasController
+     * @propertyOf copernicus.controller:videollamadasController
      * @description
      * Almacena los datos del usuario.
      *
@@ -23,7 +23,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc property
      * @name sala
-     * @propertyOf copernicus.controller:VideollamadasController
+     * @propertyOf copernicus.controller:videollamadasController
      * @description
      * Almacena los datos de la sala a la que se accedió.
      *
@@ -33,7 +33,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc property
      * @name muteMicrophone
-     * @propertyOf copernicus.controller:VideollamadasController
+     * @propertyOf copernicus.controller:videollamadasController
      * @description
      * Booleano que indica si el micrófono está silenciado.
      *
@@ -43,7 +43,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc property
      * @name muteAltavoz
-     * @propertyOf copernicus.controller:VideollamadasController
+     * @propertyOf copernicus.controller:videollamadasController
      * @description
      * Booleano que indica si el altavoz está silenciado.
      *
@@ -53,7 +53,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc property
      * @name video
-     * @propertyOf copernicus.controller:VideollamadasController
+     * @propertyOf copernicus.controller:videollamadasController
      * @description
      * Booleano que indica si el video está desactivado.
      *
@@ -63,7 +63,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc method
      * @name incializacion
-     * @methodOf copernicus.controller:VideollamadasController
+     * @methodOf copernicus.controller:videollamadasController
      * @description
      * Inicializa el controlador, obteniendo los datos de la sala y el usuario e inicializa 'VideollamadasManager'
      * pasandole el nombre de usuario e ID de la sala.
@@ -81,7 +81,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc method
      * @name setAltavoz
-     * @methodOf copernicus.controller:VideollamadasController
+     * @methodOf copernicus.controller:videollamadasController
      * @description
      * Indica a 'VideollamadasManager' que el usuario quiere silenciar o activar el altavoz.
      *
@@ -93,7 +93,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc method
      * @name setMicrofono
-     * @methodOf copernicus.controller:VideollamadasController
+     * @methodOf copernicus.controller:videollamadasController
      * @description
      * Indica a 'VideollamadasManager' que el usuario quiere silenciar o activar el micrófono.
      *
@@ -105,7 +105,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc method
      * @name stopVideo
-     * @methodOf copernicus.controller:VideollamadasController
+     * @methodOf copernicus.controller:videollamadasController
      * @description
      * Indica a 'VideollamadasManager' que el usuario quiere activar o desactivar el video.
      *
@@ -117,7 +117,7 @@ copernicus.controller('videollamadasController', function ($scope, $rootScope, w
     /**
      * @ngdoc method
      * @name cerrarServicio
-     * @methodOf copernicus.controller:VideollamadasController
+     * @methodOf copernicus.controller:videollamadasController
      * @description
      * Indica a 'VideollamadasManager' que el usuario ha cerrado el servicio de videollamadas.
      *

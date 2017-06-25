@@ -6,7 +6,6 @@
  * Se encarga de gestionar las peticiones de páginas recibidas por el servidor HTTP
  */
 
-
 /**
  * @ngdoc method
  * @name index
@@ -18,7 +17,6 @@
 module.exports.index = function (req, res) {
     res.render('index');
 }
-
 
 /**
  * @ngdoc method

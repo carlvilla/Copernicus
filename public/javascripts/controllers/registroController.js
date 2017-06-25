@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:RegistroController
+ * @name copernicus.controller:registroController
  *
  * @description
  * Este controlador permite a un usuario registrarse.
@@ -12,7 +12,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc property
      * @name foto
-     * @propertyOf copernicus.controller:RegistroController
+     * @propertyOf copernicus.controller:registroController
      * @description
      * Foto seleccionada por el usuario.
      *
@@ -22,7 +22,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc property
      * @name fotoRecortada
-     * @propertyOf copernicus.controller:RegistroController
+     * @propertyOf copernicus.controller:registroController
      * @description
      * Parte seleccionada por el usuario de la foto que subió.
      *
@@ -32,7 +32,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc property
      * @name fotoPorDefecto
-     * @propertyOf copernicus.controller:RegistroController
+     * @propertyOf copernicus.controller:registroController
      * @description
      * Booleano que indica si se va a utilizar como foto de perfil la foto por defecto.
      *
@@ -42,7 +42,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc property
      * @name sizeMaxFoto
-     * @propertyOf copernicus.controller:RegistroController
+     * @propertyOf copernicus.controller:registroController
      * @description
      * Entero que indica el tamaño máximo permitido de las fotos.
      *
@@ -52,7 +52,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc property
      * @name messages
-     * @propertyOf copernicus.controller:RegistroController
+     * @propertyOf copernicus.controller:registroController
      * @description
      * Atributo utilizado para mostrar mensajes de error.
      *
@@ -64,7 +64,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc method
      * @name registrar
-     * @methodOf copernicus.controller:RegistroController
+     * @methodOf copernicus.controller:registroController
      * @description
      * Registra a un usuario en el sistema.
      *
@@ -85,7 +85,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc method
      * @name fotoSeleccionada
-     * @methodOf copernicus.controller:RegistroController
+     * @methodOf copernicus.controller:registroController
      * @description
      * Obtiene la foto seleccionada por el usuario.
      *
@@ -116,7 +116,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc method
      * @name success
-     * @methodOf copernicus.controller:RegistroController
+     * @methodOf copernicus.controller:registroController
      * @description
      * Método llamado si el registro se completó con éxito. Crea una cookie en el navegador con el token de sesión y
      * redirige al usuario a la página principal de la aplicación.
@@ -133,7 +133,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc method
      * @name error
-     * @methodOf copernicus.controller:RegistroController
+     * @methodOf copernicus.controller:registroController
      * @description
      * Método llamado si el registro no se pudo completar. Muestra un mensaje uno u otro mensaje de error dependiendo
      * si el problema fue del servidor o del usuario.
@@ -151,7 +151,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     /**
      * @ngdoc method
      * @name comprobarCaracter
-     * @methodOf copernicus.controller:RegistroController
+     * @methodOf copernicus.controller:registroController
      * @description
      * Método utilizado para que el usuario no pueda introducir espacios en blanco en el nombre de usuario.
      *

@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:SolicitudesContactoController
+ * @name copernicus.controller:solicitudesContactoController
  *
  * @description
  * Este controlador está encargado de gestionar las solicitudes de contacto, mostrandolas y permitiendo aceptarlas
@@ -14,7 +14,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc property
      * @name solicitudes
-     * @propertyOf copernicus.controller:SolicitudesContactoController
+     * @propertyOf copernicus.controller:solicitudesContactoController
      * @description
      * Listado de solicitudes de contacto pendientes.
      *
@@ -24,7 +24,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc method
      * @name error
-     * @methodOf copernicus.controller:SolicitudesContactoController
+     * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      *
      * Muestra un mensaje de error debido a un problema con el servidor.
@@ -39,7 +39,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:SolicitudesContactoController
+     * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      * Inicializa el controlador, obteniendo las solicitudes de contacto pendientes del usuario.
      *
@@ -51,6 +51,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
         }).then(successSolicitudes, error);
 
         function successSolicitudes(res) {
+            console.log(res.data);
             $scope.solicitudes = res.data;
         }
 
@@ -61,7 +62,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc method
      * @name aceptarSolicitud
-     * @methodOf copernicus.controller:SolicitudesContactoController
+     * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      * Permite aceptar una solicitud de contacto.
      * @param {String} usernameMandoSolicitud Nombre de usuario del usuario que mando la solicitud de contacto.
@@ -83,7 +84,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc method
      * @name solicitudAceptada
-     * @methodOf copernicus.controller:SolicitudesContactoController
+     * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      * Muestra una notificación indicando que la solicitud fue aceptada
      * @param {object} res Respuesta de la API REST.
@@ -96,7 +97,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc method
      * @name problemaAceptarSolicitud
-     * @methodOf copernicus.controller:SolicitudesContactoController
+     * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      * Muestra una notificación si hubo un problema al aceptar la solicitud.
      * @param {object} res Respuesta de la API REST.
@@ -109,7 +110,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc method
      * @name ignorarSolicitud
-     * @methodOf copernicus.controller:SolicitudesContactoController
+     * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      * Permite ignorar una solicitud de contacto.
      * @param {String} usernameMandoSolicitud Nombre de usuario del usuario que mando la solicitud de contacto.
@@ -130,7 +131,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc method
      * @name ignorarSolicitud
-     * @methodOf copernicus.controller:SolicitudesContactoController
+     * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      * Muestra una notificación indicando que la solicitud fue ignorada.
      * @param {object} res Respuesta de la API REST.
@@ -143,7 +144,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc method
      * @name eliminarSolicitud
-     * @methodOf copernicus.controller:SolicitudesContactoController
+     * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      * Elimina de la lista de solicitudes una solicitud que se acaba de aceptar o ignorar.
      * @param {String} username Nombre de usuario del usuario que mando la solicitud de contacto.
@@ -162,7 +163,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
     /**
      * @ngdoc method
      * @name cerrarPantallaSolicitudes
-     * @methodOf copernicus.controller:SolicitudesContactoController
+     * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      *
      * Cierra el dialogo de las solicitudes refrescando la página. De este modo los usuarios cuya solicitud de contacto

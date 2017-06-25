@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:AccesoSalaController
+ * @name copernicus.controller:accesoSalaController
  *
  * @description
  * Este controlador es utilizado para comprobar que un acceso a una sala está autorizado.
@@ -12,7 +12,7 @@ copernicus.controller('accesoSalaController', function ($scope, $rootScope, util
     /**
      * @ngdoc property
      * @name salaSeleccionada
-     * @propertyOf copernicus.controller:AccesoSalaController
+     * @propertyOf copernicus.controller:accesoSalaController
      * @description
      * Almacena los datos sala seleccionada
      *
@@ -22,7 +22,7 @@ copernicus.controller('accesoSalaController', function ($scope, $rootScope, util
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:AccesoSalaController
+     * @methodOf copernicus.controller:accesoSalaController
      * @description
      * Inicializa el controlador, obteniendo los datos de la sala y almacenandolos en la propiedad 'salaSeleccionada',
      * y comprueba mediante el utils que el id de la sala exista y que el usuario sea participante.

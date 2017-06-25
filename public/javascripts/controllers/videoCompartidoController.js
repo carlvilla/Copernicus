@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:VideoCompartidoController
+ * @name copernicus.controller:videoCompartidoController
  *
  * @description
  * Este controlador es utilizado para comunicar al usuario con 'VideoCompartidoManager', de modo que pueda
@@ -13,7 +13,7 @@ copernicus.controller('videoCompartidoController', function ($scope, $rootScope,
     /**
      * @ngdoc property
      * @name usuario
-     * @propertyOf copernicus.controller:VideoCompartidoController
+     * @propertyOf copernicus.controller:videoCompartidoController
      * @description
      * Almacena los datos del usuario.
      *
@@ -23,7 +23,7 @@ copernicus.controller('videoCompartidoController', function ($scope, $rootScope,
     /**
      * @ngdoc property
      * @name usuario
-     * @propertyOf copernicus.controller:VideoCompartidoController
+     * @propertyOf copernicus.controller:videoCompartidoController
      * @description
      * Almacena los datos de la sala a la que se accedió.
      *
@@ -33,7 +33,7 @@ copernicus.controller('videoCompartidoController', function ($scope, $rootScope,
     /**
      * @ngdoc property
      * @name youtube
-     * @propertyOf copernicus.controller:VideoCompartidoController
+     * @propertyOf copernicus.controller:videoCompartidoController
      * @description
      * Booleano que indica si la URL del video es de un video de YouTube o no.
      *
@@ -43,7 +43,7 @@ copernicus.controller('videoCompartidoController', function ($scope, $rootScope,
     /**
      * @ngdoc method
      * @name inicializar
-     * @methodOf copernicus.controller:VideoCompartidoController
+     * @methodOf copernicus.controller:videoCompartidoController
      * @description
      * Inicializa el controlador, obteniendo los datos de la sala y el usuario e inicializa 'VideoCompartidoManager'
      * pasandole el nombre de usuario e ID de la sala.
@@ -60,7 +60,7 @@ copernicus.controller('videoCompartidoController', function ($scope, $rootScope,
     /**
      * @ngdoc method
      * @name cambiarVideo
-     * @methodOf copernicus.controller:VideoCompartidoController
+     * @methodOf copernicus.controller:videoCompartidoController
      * @description
      * Modifica el video que se está reproduciendo a través de VideoCompartidoManager. Se comprueba antes si el video
      * pasado es de YouTube ya que en ese caso es necesario utilizar otro reproductor.
@@ -84,7 +84,7 @@ copernicus.controller('videoCompartidoController', function ($scope, $rootScope,
     /**
      * @ngdoc method
      * @name onPlayerReady
-     * @methodOf copernicus.controller:VideoCompartidoController
+     * @methodOf copernicus.controller:videoCompartidoController
      * @description
      * Cuando el reproductor de video está preparado, se le pasa su API a 'VideoCompartidoManager' de modo que lo pueda
      * controlar.

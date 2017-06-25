@@ -1,6 +1,6 @@
 /**
  * @ngdoc function
- * @name copernicus.function:SalaController
+ * @name copernicus.function:salaController
  *
  * @description
  * Encargado de procesar las peticiones relacionadas con las salas, recibidas por la API REST, realizando las
@@ -10,7 +10,7 @@
 /**
  * @ngdoc property
  * @name utils
- * @propertyOf copernicus.function:SalaController
+ * @propertyOf copernicus.function:salaController
  * @description
  * Referencia a 'Utils'.
  *
@@ -20,7 +20,7 @@ var utils = require('../utils/utils');
 /**
  * @ngdoc property
  * @name jwt
- * @propertyOf copernicus.function:SalaController
+ * @propertyOf copernicus.function:salaController
  * @description
  * Módulo 'jwt'.
  *
@@ -30,7 +30,7 @@ var jwt = require('jwt-simple');
 /**
  * @ngdoc property
  * @name cloudinary
- * @propertyOf copernicus.function:SalaController
+ * @propertyOf copernicus.function:salaController
  * @description
  * Módulo 'cloudinary'.
  *
@@ -40,7 +40,7 @@ var cloudinary = require('cloudinary');
 /**
  * @ngdoc property
  * @name confDB
- * @propertyOf copernicus.function:SalaController
+ * @propertyOf copernicus.function:salaController
  * @description
  * Referencia a 'DB'.
  *
@@ -50,7 +50,7 @@ var confDB = require('../config/db');
 /**
  * @ngdoc property
  * @name db
- * @propertyOf copernicus.function:SalaController
+ * @propertyOf copernicus.function:salaController
  * @description
  * Atributo utilizado para realizar consultas contra la base de datos. Es creado con el módulo 'seraph' utilizando la
  * configuración de la base de datos contenida en 'confDB'.
@@ -72,7 +72,7 @@ cloudinary.config({
 /**
  * @ngdoc method
  * @name crearSala
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Crea una sala con la información pasada y envía peticiones de unión a esta a los usuarios pasados en la petición.
  *
@@ -173,7 +173,7 @@ module.exports.crearSala = function (req, res) {
 /**
  * @ngdoc method
  * @name buscarSalasParticipa
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Busca las salas en las que el usuario es administrador a miembro.
  *
@@ -209,7 +209,7 @@ module.exports.buscarSalasParticipa = function (req, res) {
 /**
  * @ngdoc method
  * @name checkParticipante
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Comprueba que un usuario sea miembro, moderador o administrador de una sala concreta.
  *
@@ -242,7 +242,7 @@ module.exports.checkParticipante = function (req, res) {
 /**
  * @ngdoc method
  * @name buscarSalasCandidato
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Busca las salas en las que el usuario es candidato. Esto es que
  * se ha enviado una solicitud al usuario a que se una a una sala,
@@ -271,7 +271,7 @@ module.exports.buscarSalasCandidato = function (req, res) {
 /**
  * @ngdoc method
  * @name buscarSalasAdmin
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Devuelve las salas en las que el usuario es administrador.
  *
@@ -299,7 +299,7 @@ module.exports.buscarSalasAdmin = function (req, res) {
 /**
  * @ngdoc method
  * @name buscarSalasModerador
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Devuelve las salas en las que el usuario es moderador.
  *
@@ -325,7 +325,7 @@ module.exports.buscarSalasModerador = function (req, res) {
 /**
  * @ngdoc method
  * @name buscarSalasMiembro
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Devuelve las salas en las que el usuario es miembro. Esto es, que no es ni administrador ni moderador.
  *
@@ -351,7 +351,7 @@ module.exports.buscarSalasMiembro = function (req, res) {
 /**
  * @ngdoc method
  * @name aceptarSolicitudSala
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Elimina la relación de candidato entre el usuario y sala y se crea una relación del tipo de los parámetros otorgados.
  *
@@ -392,7 +392,7 @@ module.exports.aceptarSolicitudSala = function (req, res) {
 /**
  * @ngdoc method
  * @name ignorarSolicitudSala
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Elimina la relación de candidato entre el usuario y sala. Si se envía un nombre de usuario en la petición, se
  * eliminará la relación 'Candidato' entre ese usuario y la sala pasado. Si no es así, se eliminará la relación
@@ -427,7 +427,7 @@ module.exports.ignorarSolicitudSala = function (req, res) {
 /**
  * @ngdoc method
  * @name buscarParticipantesSala
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Devuelve los participantes de una sala (Miembros, Admin y Moderadores)
  *
@@ -462,7 +462,7 @@ module.exports.buscarParticipantesSala = function (req, res) {
 /**
  * @ngdoc method
  * @name actualizarDatos
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Actualiza los datos de la sala.
  *
@@ -528,7 +528,7 @@ module.exports.actualizarDatos = function (req, res) {
 /**
  * @ngdoc method
  * @name eliminarUsuario
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Elimina la relación entre el usuario y la sala especificados.
  *
@@ -565,7 +565,7 @@ module.exports.eliminarUsuario = function (req, res) {
 /**
  * @ngdoc method
  * @name eliminarSala
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Elimina la sala cuyo ID es pasado como parámetro.
  *
@@ -590,7 +590,7 @@ module.exports.eliminarSala = function (req, res) {
 /**
  * @ngdoc method
  * @name cambiarPermisos
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Cambia los permisos de un determinado usuario que participa en una sala.
  *
@@ -621,7 +621,7 @@ module.exports.cambiarPermisos = function (req, res) {
 /**
  * @ngdoc method
  * @name cambiarPermisosSolicitud
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Cambia los permisos de una petición para unirse a una sala
  *
@@ -649,7 +649,7 @@ module.exports.cambiarPermisosSolicitud = function (req, res) {
 /**
  * @ngdoc method
  * @name enviarSolicitudSala
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Crea una relación 'Candidato' entre un usuario y una sala, estableciendo una propiedad 'permisos'
  * con valor 'Miembro'.
@@ -677,7 +677,7 @@ module.exports.enviarSolicitudSala = function (req, res) {
 /**
  * @ngdoc method
  * @name buscarCandidatos
- * @methodOf copernicus.function:SalaController
+ * @methodOf copernicus.function:salaController
  * @description
  * Devuelve los participantes de una sala (Miembros, Admin y Moderadores).
  *

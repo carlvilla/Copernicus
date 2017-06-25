@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:NotificacionesYCabeceraController
+ * @name copernicus.controller:notificacionesYCabeceraController
  *
  * @description
  * Este controlador está encargado de obtener las solicitudes del usuario para mostrarle notificaciones, y de obtener
@@ -13,7 +13,7 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
     /**
      * @ngdoc property
      * @name usuario
-     * @propertyOf copernicus.controller:NotificacionesYCabeceraController
+     * @propertyOf copernicus.controller:notificacionesYCabeceraController
      * @description
      * Almacena los datos del usuario.
      *
@@ -23,7 +23,7 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
     /**
      * @ngdoc property
      * @name solicitudes
-     * @propertyOf copernicus.controller:NotificacionesYCabeceraController
+     * @propertyOf copernicus.controller:notificacionesYCabeceraController
      * @description
      * Almacena las solicitudes de contacto del usuario.
      *
@@ -33,7 +33,7 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
     /**
      * @ngdoc property
      * @name solicitudesSala
-     * @propertyOf copernicus.controller:NotificacionesYCabeceraController
+     * @propertyOf copernicus.controller:notificacionesYCabeceraController
      * @description
      * Almacena las solicitudes de unión a salas del usuario.
      *
@@ -44,7 +44,7 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
     /**
      * @ngdoc method
      * @name successPerfil
-     * @methodOf copernicus.controller:NotificacionesYCabeceraController
+     * @methodOf copernicus.controller:notificacionesYCabeceraController
      * @description
      * Almacena en el atributo 'usuario' los datos del usuario.
      *
@@ -61,7 +61,7 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
     /**
      * @ngdoc method
      * @name successSolicitudes
-     * @methodOf copernicus.controller:NotificacionesYCabeceraController
+     * @methodOf copernicus.controller:notificacionesYCabeceraController
      * @description
      * Almacena en el atributo 'solicitudes' las solicitudes de contacto del usuario.
      *
@@ -75,7 +75,7 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
     /**
      * @ngdoc method
      * @name successSala
-     * @methodOf copernicus.controller:NotificacionesYCabeceraController
+     * @methodOf copernicus.controller:notificacionesYCabeceraController
      * @description
      * Almacena en el atributo 'solicitudesSala' las solicitudes de unión a salas del usuario.
      *
@@ -89,7 +89,7 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
     /**
      * @ngdoc method
      * @name error
-     * @methodOf copernicus.controller:NotificacionesYCabeceraController
+     * @methodOf copernicus.controller:notificacionesYCabeceraController
      * @description
      * Muestra un mensaje de error.
      *
@@ -103,7 +103,7 @@ copernicus.controller('notificacionesYCabeceraController', function ($scope, $ht
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:NotificacionesYCabeceraController
+     * @methodOf copernicus.controller:notificacionesYCabeceraController
      * @description
      * Obtiene la información del usuario y sus solicitudes de contacto y de unión a salas.
      *

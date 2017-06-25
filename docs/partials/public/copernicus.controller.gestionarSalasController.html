@@ -1,0 +1,148 @@
+<h1><code ng:non-bindable="">gestionarSalasController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-controller-page copernicus-controller-gestionarsalascontroller-page"><p>Este controlador es utilizado para permitir a los usuarios realizar todas las operaciones de gestión de salas.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_actualizarsala">actualizarSala()</h3>
+<div class="actualizarsala"><div class="actualizarsala-page"><p>Actualiza la información de una sala</p>
+</div></div>
+</li>
+<li><h3 id="methods_added">added(usuario)</h3>
+<div class="added"><div class="added-page"><p>Comprueba si un usuario ya fue añadido a una sala o si ya se le mandó una solicitud de unión.</p>
+</div><h5 id="methods_added_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usuario</td><td><a href="" class="label type-hint type-hint-objectc">objectc</a></td><td><div class="added-page"><p>Datos del usuario.</p>
+</div></td></tr></tbody></table><h5 id="methods_added_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="added-page"><p>Indica si el usuario ya fue añadido a una sala o si ya se le mandó una solicitud de unión.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_cambiarpermisos">cambiarPermisos(participante)</h3>
+<div class="cambiarpermisos"><div class="cambiarpermisos-page"><p>Elimina la sala seleccionada</p>
+</div><h5 id="methods_cambiarpermisos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>participante</td><td><a href="" class="label type-hint type-hint-objectc">objectc</a></td><td><div class="cambiarpermisos-page"><p>Objeto con el participante al que se le cambian los permisos y los nuevos permisos
+que se le otorgan.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_cambiarpermisossolicitud">cambiarPermisosSolicitud(participante)</h3>
+<div class="cambiarpermisossolicitud"><div class="cambiarpermisossolicitud-page"><p>Cambiar los permisos de una solicitud de unión a salas.</p>
+</div><h5 id="methods_cambiarpermisossolicitud_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>participante</td><td><a href="" class="label type-hint type-hint-objectc">objectc</a></td><td><div class="cambiarpermisossolicitud-page"><p>Objeto con el usuario cuyos permisos de la solicitud de unión a la sala se
+modifican y los nuevos permisos que se otorgan.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_comprobarlimitesala">comprobarLimiteSala()</h3>
+<div class="comprobarlimitesala"><div class="comprobarlimitesala-page"><p>Comprueba si se alcanzó el límite de personas en una sala.</p>
+</div><h5 id="methods_comprobarlimitesala_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="comprobarlimitesala-page"><p>Indica si se alcanzó o no el límite de la sala.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_eliminarsala">eliminarSala()</h3>
+<div class="eliminarsala"><div class="eliminarsala-page"><p>Elimina la sala seleccionada.</p>
+</div></div>
+</li>
+<li><h3 id="methods_eliminarsolicitudsala">eliminarSolicitudSala(usuario)</h3>
+<div class="eliminarsolicitudsala"><div class="eliminarsolicitudsala-page"><p>Elimina una solicitud de unión a la sala.</p>
+</div><h5 id="methods_eliminarsolicitudsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usuario</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="eliminarsolicitudsala-page"><p>Usuario cuya solicitud de unión a la sala es eliminada.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_eliminarusuario">eliminarUsuario(username)</h3>
+<div class="eliminarusuario"><div class="eliminarusuario-page"><p>Elimina un usuario de la sala</p>
+</div><h5 id="methods_eliminarusuario_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="eliminarusuario-page"><p>Nombre del usuario a eliminar de la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_error">error(res)</h3>
+<div class="error"><div class="error-page"><p>Muestra un mensaje de error en el caso de que una operación no fue autorizada.</p>
+</div><h5 id="methods_error_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="error-page"><p>Respuesta de la API REST</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_filtraradmin">filtrarAdmin()</h3>
+<div class="filtraradmin"><div class="filtraradmin-page"><p>Filtrar salas en las que el usuario es administrador</p>
+</div></div>
+</li>
+<li><h3 id="methods_filtrarmoderador">filtrarModerador()</h3>
+<div class="filtrarmoderador"><div class="filtrarmoderador-page"><p>Filtrar salas en las que el usuario es moderador</p>
+</div></div>
+</li>
+<li><h3 id="methods_filtrarmoderador">filtrarModerador()</h3>
+<div class="filtrarmoderador"><div class="filtrarmoderador-page"><p>Filtrar salas en las que el usuario es miembro</p>
+</div></div>
+</li>
+<li><h3 id="methods_findcontactos">findContactos()</h3>
+<div class="findcontactos"><div class="findcontactos-page"><p>Busca los contactos del usuario</p>
+</div></div>
+</li>
+<li><h3 id="methods_fotoseleccionada">fotoSeleccionada(evt)</h3>
+<div class="fotoseleccionada"><div class="fotoseleccionada-page"><p>Obtiene la foto para la sala seleccionada por el usuario, y comprueba si es válida.</p>
+</div><h5 id="methods_fotoseleccionada_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>evt</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="fotoseleccionada-page"><p>Objeto que contiene la foto seleccionada.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_inicializacion">inicializacion()</h3>
+<div class="inicializacion"><div class="inicializacion-page"><p>Inicializa el controlador, obteniendo las salas en las que el usuario es administrado, moderador y miembro.</p>
+</div></div>
+</li>
+<li><h3 id="methods_mandarsolicitud">mandarSolicitud()</h3>
+<div class="mandarsolicitud"><div class="mandarsolicitud-page"><p>Manda una solicitud de unión a la sala</p>
+</div></div>
+</li>
+<li><h3 id="methods_mostrarinfosala">mostrarInfoSala(idSala, permisos)</h3>
+<div class="mostrarinfosala"><div class="mostrarinfosala-page"><p>Muestra la información de una sala.</p>
+</div><h5 id="methods_mostrarinfosala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>idSala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="mostrarinfosala-page"><p>Sala que se quiere mostrar.</p>
+</div></td></tr><tr><td>permisos</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="mostrarinfosala-page"><p>Permisos de los que dispone el usuario en la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_salirsala">salirSala()</h3>
+<div class="salirsala"><div class="salirsala-page"><p>Utilizado para salir de una sala</p>
+</div></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_contactosadded">contactosAdded</h3>
+<div class="contactosadded"><div class="contactosadded-page"><p>Contactos a los que el usuario acaba de mandar una solicitud de unión a la sala.</p>
+</div></div>
+</li>
+<li><h3 id="properties_foto">foto</h3>
+<div class="foto"><div class="foto-page"><p>Foto seleccionada por el usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_fotocambiada">fotoCambiada</h3>
+<div class="fotocambiada"><div class="fotocambiada-page"><p>Booleano que indica si la foto de la sala fue cambiada.</p>
+</div></div>
+</li>
+<li><h3 id="properties_fotorecortada">fotoRecortada</h3>
+<div class="fotorecortada"><div class="fotorecortada-page"><p>Recorte de la foto seleccionada por el usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_salaseleccionada">salaSeleccionada</h3>
+<div class="salaseleccionada"><div class="salaseleccionada-page"><p>Almacena los datos de la sala seleccionada</p>
+</div></div>
+</li>
+<li><h3 id="properties_salasadmin">salasAdmin</h3>
+<div class="salasadmin"><div class="salasadmin-page"><p>Salas en las que el usuario es administrador.</p>
+</div></div>
+</li>
+<li><h3 id="properties_salasadminfiltrado">salasAdminFiltrado</h3>
+<div class="salasadminfiltrado"><div class="salasadminfiltrado-page"><p>Atributo necesario para permitir el filtrado de las salas donde el usuario es administrador.</p>
+</div></div>
+</li>
+<li><h3 id="properties_salasmiembro">salasMiembro</h3>
+<div class="salasmiembro"><div class="salasmiembro-page"><p>Salas en las que el usuario es miembro.</p>
+</div></div>
+</li>
+<li><h3 id="properties_salasmiembrofiltrado">salasMiembroFiltrado</h3>
+<div class="salasmiembrofiltrado"><div class="salasmiembrofiltrado-page"><p>Atributo necesario para permitir el filtrado de las salas donde el usuario es miembro.</p>
+</div></div>
+</li>
+<li><h3 id="properties_salasmoderador">salasModerador</h3>
+<div class="salasmoderador"><div class="salasmoderador-page"><p>Salas en las que el usuario es moderador.</p>
+</div></div>
+</li>
+<li><h3 id="properties_salasmoderadorfiltrado">salasModeradorFiltrado</h3>
+<div class="salasmoderadorfiltrado"><div class="salasmoderadorfiltrado-page"><p>Atributo necesario para permitir el filtrado de las salas donde el usuario es moderador.</p>
+</div></div>
+</li>
+<li><h3 id="properties_sizemaxfoto">sizeMaxFoto</h3>
+<div class="sizemaxfoto"><div class="sizemaxfoto-page"><p>Entero que indica el tamaño máximo de la foto de la sala.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

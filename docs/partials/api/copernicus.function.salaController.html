@@ -1,0 +1,147 @@
+<h1><code ng:non-bindable="">salaController</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-salacontroller-page"><p>Encargado de procesar las peticiones relacionadas con las salas, recibidas por la API REST, realizando las
+consultas necesarias contra la base de datos.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new salaController();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_aceptarsolicitudsala">aceptarSolicitudSala(req, res)</h3>
+<div class="aceptarsolicitudsala"><div class="aceptarsolicitudsala-page"><p>Elimina la relación de candidato entre el usuario y sala y se crea una relación del tipo de los parámetros otorgados.</p>
+</div><h5 id="methods_aceptarsolicitudsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="aceptarsolicitudsala-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="aceptarsolicitudsala-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_actualizardatos">actualizarDatos(req, res)</h3>
+<div class="actualizardatos"><div class="actualizardatos-page"><p>Actualiza los datos de la sala.</p>
+</div><h5 id="methods_actualizardatos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="actualizardatos-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="actualizardatos-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarcandidatos">buscarCandidatos(req, res)</h3>
+<div class="buscarcandidatos"><div class="buscarcandidatos-page"><p>Devuelve los participantes de una sala (Miembros, Admin y Moderadores).</p>
+</div><h5 id="methods_buscarcandidatos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarcandidatos-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarcandidatos-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarparticipantessala">buscarParticipantesSala(req, res)</h3>
+<div class="buscarparticipantessala"><div class="buscarparticipantessala-page"><p>Devuelve los participantes de una sala (Miembros, Admin y Moderadores)</p>
+</div><h5 id="methods_buscarparticipantessala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarparticipantessala-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarparticipantessala-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarsalasadmin">buscarSalasAdmin(req, res)</h3>
+<div class="buscarsalasadmin"><div class="buscarsalasadmin-page"><p>Devuelve las salas en las que el usuario es administrador.</p>
+</div><h5 id="methods_buscarsalasadmin_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalasadmin-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalasadmin-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarsalascandidato">buscarSalasCandidato(req, res)</h3>
+<div class="buscarsalascandidato"><div class="buscarsalascandidato-page"><p>Busca las salas en las que el usuario es candidato. Esto es que
+se ha enviado una solicitud al usuario a que se una a una sala,
+pero todavía no la ha aceptado.</p>
+</div><h5 id="methods_buscarsalascandidato_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalascandidato-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalascandidato-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarsalasmiembro">buscarSalasMiembro(req, res)</h3>
+<div class="buscarsalasmiembro"><div class="buscarsalasmiembro-page"><p>Devuelve las salas en las que el usuario es miembro. Esto es, que no es ni administrador ni moderador.</p>
+</div><h5 id="methods_buscarsalasmiembro_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalasmiembro-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalasmiembro-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarsalasmoderador">buscarSalasModerador(req, res)</h3>
+<div class="buscarsalasmoderador"><div class="buscarsalasmoderador-page"><p>Devuelve las salas en las que el usuario es moderador.</p>
+</div><h5 id="methods_buscarsalasmoderador_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalasmoderador-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalasmoderador-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarsalasparticipa">buscarSalasParticipa(req, res)</h3>
+<div class="buscarsalasparticipa"><div class="buscarsalasparticipa-page"><p>Busca las salas en las que el usuario es administrador a miembro.</p>
+</div><h5 id="methods_buscarsalasparticipa_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalasparticipa-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsalasparticipa-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_cambiarpermisos">cambiarPermisos(req, res)</h3>
+<div class="cambiarpermisos"><div class="cambiarpermisos-page"><p>Cambia los permisos de un determinado usuario que participa en una sala.</p>
+</div><h5 id="methods_cambiarpermisos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="cambiarpermisos-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="cambiarpermisos-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_cambiarpermisossolicitud">cambiarPermisosSolicitud(req, res)</h3>
+<div class="cambiarpermisossolicitud"><div class="cambiarpermisossolicitud-page"><p>Cambia los permisos de una petición para unirse a una sala</p>
+</div><h5 id="methods_cambiarpermisossolicitud_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="cambiarpermisossolicitud-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="cambiarpermisossolicitud-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkparticipante">checkParticipante(req, res)</h3>
+<div class="checkparticipante"><div class="checkparticipante-page"><p>Comprueba que un usuario sea miembro, moderador o administrador de una sala concreta.</p>
+</div><h5 id="methods_checkparticipante_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkparticipante-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkparticipante-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_crearsala">crearSala(req, res)</h3>
+<div class="crearsala"><div class="crearsala-page"><p>Crea una sala con la información pasada y envía peticiones de unión a esta a los usuarios pasados en la petición.</p>
+</div><h5 id="methods_crearsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="crearsala-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="crearsala-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_eliminarsala">eliminarSala(req, res)</h3>
+<div class="eliminarsala"><div class="eliminarsala-page"><p>Elimina la sala cuyo ID es pasado como parámetro.</p>
+</div><h5 id="methods_eliminarsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="eliminarsala-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="eliminarsala-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_eliminarusuario">eliminarUsuario(req, res)</h3>
+<div class="eliminarusuario"><div class="eliminarusuario-page"><p>Elimina la relación entre el usuario y la sala especificados.</p>
+</div><h5 id="methods_eliminarusuario_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="eliminarusuario-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="eliminarusuario-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_enviarsolicitudsala">enviarSolicitudSala(req, res)</h3>
+<div class="enviarsolicitudsala"><div class="enviarsolicitudsala-page"><p>Crea una relación &#39;Candidato&#39; entre un usuario y una sala, estableciendo una propiedad &#39;permisos&#39;
+con valor &#39;Miembro&#39;.</p>
+</div><h5 id="methods_enviarsolicitudsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="enviarsolicitudsala-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="enviarsolicitudsala-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_ignorarsolicitudsala">ignorarSolicitudSala(req, res)</h3>
+<div class="ignorarsolicitudsala"><div class="ignorarsolicitudsala-page"><p>Elimina la relación de candidato entre el usuario y sala. Si se envía un nombre de usuario en la petición, se
+eliminará la relación &#39;Candidato&#39; entre ese usuario y la sala pasado. Si no es así, se eliminará la relación
+entre el usuario que envió la solicitud y la sala enviada.</p>
+</div><h5 id="methods_ignorarsolicitudsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="ignorarsolicitudsala-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="ignorarsolicitudsala-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_cloudinary">cloudinary</h3>
+<div class="cloudinary"><div class="cloudinary-page"><p>Módulo &#39;cloudinary&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_confdb">confDB</h3>
+<div class="confdb"><div class="confdb-page"><p>Referencia a &#39;DB&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_db">db</h3>
+<div class="db"><div class="db-page"><p>Atributo utilizado para realizar consultas contra la base de datos. Es creado con el módulo &#39;seraph&#39; utilizando la
+configuración de la base de datos contenida en &#39;confDB&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_jwt">jwt</h3>
+<div class="jwt"><div class="jwt-page"><p>Módulo &#39;jwt&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_utils">utils</h3>
+<div class="utils"><div class="utils-page"><p>Referencia a &#39;Utils&#39;.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

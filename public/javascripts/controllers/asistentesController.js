@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:AsistentesController
+ * @name copernicus.controller:asistentesController
  *
  * @description
  * Este controlador es utilizado cuando un usuario se conecta a una sala para obtener la información de ese usuario,
@@ -15,7 +15,7 @@ copernicus.controller('asistentesController', function ($scope, $http, $cookies,
     /**
      * @ngdoc property
      * @name usuario
-     * @propertyOf copernicus.controller:AsistentesController
+     * @propertyOf copernicus.controller:asistentesController
      * @description
      * Usuario que se conecta
      *
@@ -25,7 +25,7 @@ copernicus.controller('asistentesController', function ($scope, $http, $cookies,
     /**
      * @ngdoc property
      * @name sala
-     * @propertyOf copernicus.controller:AsistentesController
+     * @propertyOf copernicus.controller:asistentesController
      * @description
      * Id de la sala a la que se accedió
      *
@@ -35,7 +35,7 @@ copernicus.controller('asistentesController', function ($scope, $http, $cookies,
     /**
      * @ngdoc property
      * @name asistentes
-     * @propertyOf copernicus.controller:AsistentesController
+     * @propertyOf copernicus.controller:asistentesController
      * @description
      * Asistentes conectados a la sala
      *
@@ -46,7 +46,7 @@ copernicus.controller('asistentesController', function ($scope, $http, $cookies,
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:AsistentesController
+     * @methodOf copernicus.controller:asistentesController
      * @description
      * Inicializa el controlador, obteniendo los datos del usuario que se conectó
      *
@@ -63,7 +63,7 @@ copernicus.controller('asistentesController', function ($scope, $http, $cookies,
     /**
      * @ngdoc method
      * @name success
-     * @methodOf copernicus.controller:AsistentesController
+     * @methodOf copernicus.controller:asistentesController
      * @description
      * Este método obtiene los datos del usuario de la respuesta que recibe como parámetro, comunica a
      * 'AsistentesManager' que el usuario se ha conectado y obtiene del mismo los usuarios conectados a la sala
@@ -99,7 +99,7 @@ copernicus.controller('asistentesController', function ($scope, $http, $cookies,
     /**
      * @ngdoc method
      * @name error
-     * @methodOf copernicus.controller:AsistentesController
+     * @methodOf copernicus.controller:asistentesController
      * @description
      * Muestra un mensaje de error en el caso de que no se pudo recuperar los datos del usuario
      *

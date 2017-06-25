@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:SalaController
+ * @name copernicus.controller:salaController
  *
  * @description
  * Este controlador está encargado de realizar varias gestiones referentes a las salas. Estas son la creación de salas,
@@ -15,7 +15,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc property
      * @name foto
-     * @propertyOf copernicus.controller:SalaController
+     * @propertyOf copernicus.controller:salaController
      * @description
      * Foto seleccionada por el usuario para la sala.
      *
@@ -25,7 +25,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc property
      * @name fotoRecortada
-     * @propertyOf copernicus.controller:SalaController
+     * @propertyOf copernicus.controller:salaController
      * @description
      * Foto recortada por el usuario para la sala.
      *
@@ -35,7 +35,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc property
      * @name fotoPorDefecto
-     * @propertyOf copernicus.controller:SalaController
+     * @propertyOf copernicus.controller:salaController
      * @description
      * Booleano que indica si la foto que se asignará a una sala creada es la de por defecto.
      *
@@ -45,7 +45,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc property
      * @name sizeMaxFoto
-     * @propertyOf copernicus.controller:SalaController
+     * @propertyOf copernicus.controller:salaController
      * @description
      * Entero que indica el tamaño máximo permitido de las fotos.
      *
@@ -55,7 +55,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc property
      * @name sizeMaxFoto
-     * @propertyOf copernicus.controller:SalaController
+     * @propertyOf copernicus.controller:salaController
      * @description
      * Contactos a mostrar en los campos con autocompletado.
      *
@@ -65,7 +65,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc property
      * @name contactosSeleccionados
-     * @propertyOf copernicus.controller:SalaController
+     * @propertyOf copernicus.controller:salaController
      * @description
      * Contactos que fueron seleccionados para mandarles una solicitud de unión durante la creación de una sala.
      *
@@ -75,7 +75,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc property
      * @name salasFiltrado
-     * @propertyOf copernicus.controller:SalaController
+     * @propertyOf copernicus.controller:salaController
      * @description
      * Variable necesaria para el filtrado de sala
      *
@@ -85,7 +85,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name findContactos
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Encuentra los contactos del usuario para que les pueda mandar solicitudes de unión a una sala que cree.
@@ -107,7 +107,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name findSolicitudes
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Busca las solicitudes de unión a salas recibidas.
@@ -128,7 +128,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Inicializa el controlador, obteniendo las salas en las que participa el usuario y llamando a los métodos para
@@ -155,7 +155,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name successAcceso
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Método invocado cuando el acceso a una sala es autorizado. Almacena la información de la sala en el
@@ -172,7 +172,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name errorAcceso
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Método invocado cuando el acceso a una sala no es autorizado. Muestra un mensaje indicando que no se ha
@@ -188,7 +188,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name comprobarLimiteSala
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Comprueba que no se supera el límite de una sala.
@@ -208,7 +208,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name eliminarSolicitud
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Elimina una solicitud de unión de una sala que está siendo creada.
@@ -229,7 +229,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name successCrear
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Invocado cuando una sala fue creada con éxito. Redirige al usuario a la página principal.
@@ -244,7 +244,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name nombreNoValido
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Invocado cuando el nombre de la sala no es válido.
@@ -257,7 +257,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name descripcionNoValida
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Invocado cuando la descripción de la sala no es válido. Muestra una notificación indicando que la descripción
@@ -271,7 +271,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name descripcionNoValida
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Permite el acceso a las salas.
@@ -290,7 +290,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name errorCrear
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Invocado si ocurre un error al crear la sala por problemas en el servidor. Muestra un mensaje indicando que
@@ -304,7 +304,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name crearSala
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Comprueba que los valores introducidos para crear la sala sean válido y, si es así, la crea.
@@ -345,7 +345,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name addContacto
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Añade el contacto seleccionado a la tabla de usuarios a los que se enviará una solicitud de unión para
@@ -372,7 +372,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name eliminarSeleccionado
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Elimina al usuario de aquellos a los que se enviará una solicitud de unión a la sala que se está creando.
@@ -393,7 +393,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name aceptarSolicitud
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Acepta una solicitud a una sala
@@ -419,7 +419,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name ignorarSolicitud
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Ignora una solicitud a una sala
@@ -441,7 +441,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name cerrarPantallaSolicitudes
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Cierra la pantalla de solicitudes refrescando la página.
@@ -454,7 +454,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name fotoSeleccionada
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Obtiene la foto seleccionada por el usuario para la sala creada.
@@ -487,7 +487,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
     /**
      * @ngdoc method
      * @name filtrar
-     * @methodOf copernicus.controller:SalaController
+     * @methodOf copernicus.controller:salaController
      * @description
      *
      * Filtra el listado de salas

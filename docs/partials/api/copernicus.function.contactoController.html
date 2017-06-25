@@ -1,0 +1,96 @@
+<h1><code ng:non-bindable="">contactoController</code>
+<div><span class="hint">function in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-function-page copernicus-function-contactocontroller-page"><p>Encargado de procesar las peticiones relacionadas con los contactos, recibidas por la API REST, realizando las
+consultas necesarias contra la base de datos.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">new contactoController();</pre>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_aceptarsolicitudcontacto">aceptarSolicitudContacto(req, res)</h3>
+<div class="aceptarsolicitudcontacto"><div class="aceptarsolicitudcontacto-page"><p>Establece una relación de tipo Contacto y elimina la relación de tipo Solicitud Contacto. Se utiliza cuando se acepta
+una solicitud de contacto.</p>
+</div><h5 id="methods_aceptarsolicitudcontacto_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="aceptarsolicitudcontacto-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="aceptarsolicitudcontacto-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_bloquear">bloquear(req, res)</h3>
+<div class="bloquear"><div class="bloquear-page"><p>Crea una relación &#39;Bloqueado&#39; entre el usuario que realiza la petición y el usuario cuyo username es enviado.
+También elimina la relación &#39;Contacto&#39; que existía entre los usuarios, elimina las solicitudes que el usuario envió
+al usuario bloqueado y expulsa a este último de todas aquellas salas en las que el usuario que envió la petición
+es administrador</p>
+</div><h5 id="methods_bloquear_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="bloquear-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="bloquear-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarbloqueados">buscarBloqueados(req, res)</h3>
+<div class="buscarbloqueados"><div class="buscarbloqueados-page"><p>Devuelve los usuarios que tiene bloqueados el usuario que manda la petición.</p>
+</div><h5 id="methods_buscarbloqueados_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarbloqueados-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarbloqueados-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarcontactos">buscarContactos(req, res)</h3>
+<div class="buscarcontactos"><div class="buscarcontactos-page"><p>Devuelve todos los contactos del usuario.</p>
+</div><h5 id="methods_buscarcontactos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarcontactos-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarcontactos-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarposiblescontactos">buscarPosiblesContactos(req, res)</h3>
+<div class="buscarposiblescontactos"><div class="buscarposiblescontactos-page"><p>Devuelve para el usuario que realizó la consulta, todos los usuarios existentes exceptuandose
+aquellos bloqueados, los que lo tienen bloqueado, los que ya son contactos, a los que se envió solicitud de contacto
+y a él mismo.</p>
+</div><h5 id="methods_buscarposiblescontactos_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarposiblescontactos-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarposiblescontactos-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_buscarsolicitudescontacto">buscarSolicitudesContacto(req, res)</h3>
+<div class="buscarsolicitudescontacto"><div class="buscarsolicitudescontacto-page"><p>Devuelve las solicitudes de contacto recibidas por el usuario.</p>
+</div><h5 id="methods_buscarsolicitudescontacto_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsolicitudescontacto-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="buscarsolicitudescontacto-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_desbloquear">desbloquear(req, res)</h3>
+<div class="desbloquear"><div class="desbloquear-page"><p>Elimina la relación &quot;Bloqueado&quot; entre los usuarios y vuelve a establecer la relación &quot;Contacto&quot;.</p>
+</div><h5 id="methods_desbloquear_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="desbloquear-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="desbloquear-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_enviarsolicitudcontacto">enviarSolicitudContacto(req, res)</h3>
+<div class="enviarsolicitudcontacto"><div class="enviarsolicitudcontacto-page"><p>Establece una relación de tipo SolicitudContacto entre los usuarios pasados con un atributo mensaje.</p>
+</div><h5 id="methods_enviarsolicitudcontacto_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="enviarsolicitudcontacto-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="enviarsolicitudcontacto-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_ignorarsolicitudcontacto">ignorarSolicitudContacto(req, res)</h3>
+<div class="ignorarsolicitudcontacto"><div class="ignorarsolicitudcontacto-page"><p>Elimina la relación de tipo Solicitud Contacto. Se utiliza cuando se ignora una solicitud de contacto.</p>
+</div><h5 id="methods_ignorarsolicitudcontacto_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>req</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="ignorarsolicitudcontacto-page"><p>Objeto de solicitud</p>
+</div></td></tr><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="ignorarsolicitudcontacto-page"><p>Objeto de respuesta</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_confdb">confDB</h3>
+<div class="confdb"><div class="confdb-page"><p>Referencia a &#39;DB&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_db">db</h3>
+<div class="db"><div class="db-page"><p>Atributo utilizado para realizar consultas contra la base de datos. Es creado con el módulo &#39;seraph&#39; utilizando la
+configuración de la base de datos contenida en &#39;confDB&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_jwt">jwt</h3>
+<div class="jwt"><div class="jwt-page"><p>Módulo &#39;jwt&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_utils">utils</h3>
+<div class="utils"><div class="utils-page"><p>Referencia a &#39;Utils&#39;.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

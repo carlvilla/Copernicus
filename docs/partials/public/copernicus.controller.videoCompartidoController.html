@@ -1,0 +1,44 @@
+<h1><code ng:non-bindable="">videoCompartidoController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-controller-page copernicus-controller-videocompartidocontroller-page"><p>Este controlador es utilizado para comunicar al usuario con &#39;VideoCompartidoManager&#39;, de modo que pueda
+enviar y recibir la URL de los videos.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_cambiarvideo">cambiarVideo()</h3>
+<div class="cambiarvideo"><div class="cambiarvideo-page"><p>Modifica el video que se está reproduciendo a través de VideoCompartidoManager. Se comprueba antes si el video
+pasado es de YouTube ya que en ese caso es necesario utilizar otro reproductor.</p>
+</div></div>
+</li>
+<li><h3 id="methods_inicializar">inicializar()</h3>
+<div class="inicializar"><div class="inicializar-page"><p>Inicializa el controlador, obteniendo los datos de la sala y el usuario e inicializa &#39;VideoCompartidoManager&#39;
+pasandole el nombre de usuario e ID de la sala.</p>
+</div></div>
+</li>
+<li><h3 id="methods_onplayerready">onPlayerReady(API)</h3>
+<div class="onplayerready"><div class="onplayerready-page"><p>Cuando el reproductor de video está preparado, se le pasa su API a &#39;VideoCompartidoManager&#39; de modo que lo pueda
+controlar.</p>
+</div><h5 id="methods_onplayerready_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>API</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="onplayerready-page"><p>API del reproductor de video.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_usuario">usuario</h3>
+<div class="usuario"><div class="usuario-page"><p>Almacena los datos del usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_usuario">usuario</h3>
+<div class="usuario"><div class="usuario-page"><p>Almacena los datos de la sala a la que se accedió.</p>
+</div></div>
+</li>
+<li><h3 id="properties_youtube">youtube</h3>
+<div class="youtube"><div class="youtube-page"><p>Booleano que indica si la URL del video es de un video de YouTube o no.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

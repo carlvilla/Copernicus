@@ -1,14 +1,14 @@
 NG_DOCS={
   "sections": {
     "public": "public",
-    "server": "server",
-    "api": "api"
+    "api": "api",
+    "server": "server"
   },
   "pages": [
     {
       "section": "public",
-      "id": "copernicus.controller:AccesoSalaController",
-      "shortName": "AccesoSalaController",
+      "id": "copernicus.controller:accesoSalaController",
+      "shortName": "accesoSalaController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para comprobar que un acceso a una sala está autorizado.",
@@ -16,8 +16,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:AddContactoController",
-      "shortName": "AddContactoController",
+      "id": "copernicus.controller:addContactoController",
+      "shortName": "addContactoController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Controlador encargado de la gestión de las solicitudes de contacto.",
@@ -25,8 +25,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:AjustesCuentaController",
-      "shortName": "AjustesCuentaController",
+      "id": "copernicus.controller:ajustesCuentaController",
+      "shortName": "ajustesCuentaController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Controlador que permite al usuario modificar los datos y contraseña de su cuenta, así como eliminarla.",
@@ -34,8 +34,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:AsistentesController",
-      "shortName": "AsistentesController",
+      "id": "copernicus.controller:asistentesController",
+      "shortName": "asistentesController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado cuando un usuario se conecta a una sala para obtener la información de ese usuario,",
@@ -43,8 +43,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:BloquearContactoController",
-      "shortName": "BloquearContactoController",
+      "id": "copernicus.controller:bloquearContactoController",
+      "shortName": "bloquearContactoController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para bloquear y desbloquear contactos, además de listar los usuarios bloqueados.",
@@ -52,8 +52,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:ChatTextoController",
-      "shortName": "ChatTextoController",
+      "id": "copernicus.controller:chatTextoController",
+      "shortName": "chatTextoController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para comunicar al usuario con &#39;ChatTextoManager&#39;, de modo que pueda enviar y recibir",
@@ -61,8 +61,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:ContactosController",
-      "shortName": "ContactosController",
+      "id": "copernicus.controller:contactosController",
+      "shortName": "contactosController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para mostrar el listado de contactos, mostrar la información de los contactos",
@@ -70,8 +70,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:DibujosController",
-      "shortName": "DibujosController",
+      "id": "copernicus.controller:dibujosController",
+      "shortName": "dibujosController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para comunicar las acciones del usuario con el servicio de dibujos a &#39;DibujosManager&#39;,",
@@ -79,8 +79,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:GestionarSalasController",
-      "shortName": "GestionarSalasController",
+      "id": "copernicus.controller:gestionarSalasController",
+      "shortName": "gestionarSalasController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para permitir a los usuarios realizar todas las operaciones de gestión de salas.",
@@ -88,8 +88,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:LangController",
-      "shortName": "LangController",
+      "id": "copernicus.controller:langController",
+      "shortName": "langController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para permitir cambiar el idioma de la aplicación.",
@@ -97,8 +97,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:LoginController",
-      "shortName": "LoginController",
+      "id": "copernicus.controller:loginController",
+      "shortName": "loginController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Controlador encargado de permitir iniciar sesión a los usuarios.",
@@ -106,8 +106,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:LogoutController",
-      "shortName": "LogoutController",
+      "id": "copernicus.controller:logoutController",
+      "shortName": "logoutController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para cerrar sesión.",
@@ -115,8 +115,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:NotificacionesYCabeceraController",
-      "shortName": "NotificacionesYCabeceraController",
+      "id": "copernicus.controller:notificacionesYCabeceraController",
+      "shortName": "notificacionesYCabeceraController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador está encargado de obtener las solicitudes del usuario para mostrarle notificaciones, y de obtener",
@@ -124,8 +124,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:PresentacionesController",
-      "shortName": "PresentacionesController",
+      "id": "copernicus.controller:presentacionesController",
+      "shortName": "presentacionesController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para comunicar al usuario con &#39;PresentacionesManager&#39;, de modo que pueda cambiar la",
@@ -133,8 +133,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:RadioController",
-      "shortName": "RadioController",
+      "id": "copernicus.controller:radioController",
+      "shortName": "radioController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para comunicar al usuario con &#39;RadioManager&#39;, de modo que pueda enviar y recibir la URL",
@@ -142,8 +142,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:RegistroController",
-      "shortName": "RegistroController",
+      "id": "copernicus.controller:registroController",
+      "shortName": "registroController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador permite a un usuario registrarse.",
@@ -151,8 +151,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:SalaController",
-      "shortName": "SalaController",
+      "id": "copernicus.controller:salaController",
+      "shortName": "salaController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador está encargado de realizar varias gestiones referentes a las salas. Estas son la creación de salas,",
@@ -160,8 +160,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:ServiciosController",
-      "shortName": "ServiciosController",
+      "id": "copernicus.controller:serviciosController",
+      "shortName": "serviciosController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador está encargado de gestionar los servicios de las salas.",
@@ -169,8 +169,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:SolicitudesContactoController",
-      "shortName": "SolicitudesContactoController",
+      "id": "copernicus.controller:solicitudesContactoController",
+      "shortName": "solicitudesContactoController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador está encargado de gestionar las solicitudes de contacto, mostrandolas y permitiendo aceptarlas",
@@ -178,8 +178,8 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:VideoCompartidoController",
-      "shortName": "VideoCompartidoController",
+      "id": "copernicus.controller:videoCompartidoController",
+      "shortName": "videoCompartidoController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para comunicar al usuario con &#39;VideoCompartidoManager&#39;, de modo que pueda",
@@ -187,12 +187,48 @@ NG_DOCS={
     },
     {
       "section": "public",
-      "id": "copernicus.controller:VideollamadasController",
-      "shortName": "VideollamadasController",
+      "id": "copernicus.controller:videollamadasController",
+      "shortName": "videollamadasController",
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para comunicar al usuario con &#39;VideollamadasManager&#39;, de modo que el usuario pueda",
       "keywords": "accedi activar al almacena altavoz booleano cerrado cerrarservicio comunicar con controlador controlar controller copernicus datos de del desactivado desactivar el es est este ha incializacion indica inicializa la los method micr modo mutealtavoz mutemicrophone nombre obteniendo otros para participar pasandole property public pueda quiere retransmitido sala se servicio setaltavoz setmicrofono si silenciado silenciar sonido stopvideo una usuario usuarios utilizado video videollamada videollamadas videollamadasmanager"
+    },
+    {
+      "section": "public",
+      "id": "copernicus.directive:ngConfirmClick",
+      "shortName": "ngConfirmClick",
+      "type": "directive",
+      "moduleName": "copernicus",
+      "shortDescription": "Directiva utilizada para mostrar la ventana emergente de confirmación por defecto del navegador.",
+      "keywords": "confirmaci copernicus de defecto del directiva directive emergente la mostrar navegador para por public utilizada ventana"
+    },
+    {
+      "section": "public",
+      "id": "copernicus.directive:passwordValidation",
+      "shortName": "passwordValidation",
+      "type": "directive",
+      "moduleName": "copernicus",
+      "shortDescription": "Directiva utilizada para validar que la contraseña y la contraseña de confirmación coinciden.",
+      "keywords": "coinciden confirmaci contrase copernicus de directiva directive la para public utilizada validar"
+    },
+    {
+      "section": "public",
+      "id": "copernicus.directive:tooltip",
+      "shortName": "tooltip",
+      "type": "directive",
+      "moduleName": "copernicus",
+      "shortDescription": "Directiva utilizada para mostrar tooltips de elementos generador con ng-repeat.",
+      "keywords": "con copernicus de directiva directive elementos generador mostrar ng-repeat para public tooltips utilizada"
+    },
+    {
+      "section": "public",
+      "id": "copernicus.directive:usernameValidation",
+      "shortName": "usernameValidation",
+      "type": "directive",
+      "moduleName": "copernicus",
+      "shortDescription": "Directiva que comprueba si la contraseña introducida ya está en uso.",
+      "keywords": "comprueba contrase copernicus directiva directive en est introducida la public si uso ya"
     },
     {
       "section": "public",
@@ -259,6 +295,24 @@ NG_DOCS={
     },
     {
       "section": "public",
+      "id": "copernicus.service:utils",
+      "shortName": "utils",
+      "type": "service",
+      "moduleName": "copernicus",
+      "shortDescription": "Servicio que proporciona métodos de utilidad.",
+      "keywords": "accedido acceso al autorizado caso checkdatabaseerror checkidsalaexists checkparticipante comprobaci comprobamos comprobar comprueba con contrario copernicus de del directamente el en err error es fue haber habr idsala informaci intent interno isjsonstring json la mensaje mensajeerror mensajeerrorsintiempo mensajeinfo mensajeinfosintiempo mensajesuccess mensajesuccesssintiempo method mostrar muestra noautorizado notificaci participante pase por proporciona public redirige respuesta resultado sala salas se seleccionado service servicio servidor si sin str string tiempo una usuario utilidad ya"
+    },
+    {
+      "section": "public",
+      "id": "copernicus.service:webSocketService",
+      "shortName": "webSocketService",
+      "type": "service",
+      "moduleName": "copernicus",
+      "shortDescription": "Servicio encargado de recibir mensajes del servidor de WebSockets y ejecutar e invocar los métodos correspondientes",
+      "keywords": "$translate asistentesmanager chattextomanager copernicus correspondientes crea de del dibujosmanager ejecutar el encargado esos host instancia invocar los managers mensajes partir pasandole presentacionesmanager property public radiomanager recibir se service servicio servidor uri utils videocompartidomanager videollamadasmanager websockets"
+    },
+    {
+      "section": "public",
       "id": "overview:copernicus",
       "shortName": "copernicus",
       "type": "overview",
@@ -268,8 +322,8 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "copernicus.function:ContactoController",
-      "shortName": "ContactoController",
+      "id": "copernicus.function:contactoController",
+      "shortName": "contactoController",
       "type": "function",
       "moduleName": "copernicus",
       "shortDescription": "Encargado de procesar las peticiones relacionadas con los contactos, recibidas por la API REST, realizando las",
@@ -277,8 +331,44 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "copernicus.function:SalaController",
-      "shortName": "SalaController",
+      "id": "copernicus.function:db",
+      "shortName": "db",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Encargado de almacenar la dirección de la base de datos y las credenciales.",
+      "keywords": "almacena almacenar api base config copernicus credenciales datos de direcci encargado function la las property"
+    },
+    {
+      "section": "api",
+      "id": "copernicus.function:middleware",
+      "shortName": "middleware",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Proporciona métodos para realizar comprobaciones sobre las peticiones para decir si dejarlas continuar a",
+      "keywords": "administrador apellidos api aplicaci atributo base cambio candidato checkadmin checkadminomoderador checkadminsicambioamoderador checkemail checkexistesolicitudcontacto checkexistesolicitudsala checklimitesala checknombreapellidos checknombredescripcionsala checknosoncontactos checkposibleeliminar checksoncontactos checkusernamesenviados ciclo cierta comprobaciones comprobar comprueba con confdb configuraci consultas contacto contactos contenida contiene continuar contra controladores copernicus creado datos db de decir dejarlas descripci dos el email emailregex emails en entre enviados envio es exista existan expresi formato funci function gestionen intenta la las los method middleware miembro misma moderador nombre objeto para participante participantes petici peticiones property proporciona realizar referencia regular req res respuesta sala salas se sea sean seraph si siguiente sobre solicitud son una unirse username usernameexiste usernamenoexiste usuario usuarionoadminmoderadoromiembro usuarionocandidatoadminmoderadoromiembro usuarios utilizado utilizando utils vacios validez"
+    },
+    {
+      "section": "api",
+      "id": "copernicus.function:passport",
+      "shortName": "passport",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Valida si las credenciales del usuario son correctas.",
+      "keywords": "api atributo autenticaci base con configuraci consultas contenida contiene contra contrase copernicus correctas creado credenciales datos dbconfig de del direcci el en es estrategia function la las localstrategy nombre para passport property proporciona realizar referencia seraph si son una usuario usuarios utilizado utilizando utils valida"
+    },
+    {
+      "section": "api",
+      "id": "copernicus.function:routes",
+      "shortName": "routes",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Redirecciona las peticiones del usuario a los controladores correspondientes.",
+      "keywords": "api contactocontroller controladores copernicus correspondientes del express function las los middleware modulo obtenido partir peticiones property redirecciona referencia router salacontroller usuario usuariocontroller"
+    },
+    {
+      "section": "api",
+      "id": "copernicus.function:salaController",
+      "shortName": "salaController",
       "type": "function",
       "moduleName": "copernicus",
       "shortDescription": "Encargado de procesar las peticiones relacionadas con las salas, recibidas por la API REST, realizando las",
@@ -286,12 +376,39 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "copernicus.function:UsuarioController",
-      "shortName": "UsuarioController",
+      "id": "copernicus.function:usuarioController",
+      "shortName": "usuarioController",
       "type": "function",
       "moduleName": "copernicus",
       "shortDescription": "Encargado de procesar las peticiones relacionadas con un usuario, recibidas por la API REST, realizando las",
       "keywords": "acceso administrador almacena almacenan api asignado atributo base caso cierto cloudinary comprueba con confdb configuraci consultas contenida contra contrase copernicus correctas crea creado creando credenciales cuenta datos datosusuario db de del devuelve durante el eliminar eliminarcuenta ella en encargado env enviadas enviados es este esto estos function hash identifica implica informaci introducir jwt la las le lo login los method modificar modificardatos modificarpass necesarias nodo nombre nuevo objeto otros para partir passport perfil permite petici peticiones por procesar property realiz realizando realizar recibidas referencia registra registrar relacionadas relaciones req res respuesta rest salas salt se seraph serlo sin solicitud son su sus tiempo tiene tipo todas token una usuario utilizado utilizando utils validarusername vez volver ya"
+    },
+    {
+      "section": "api",
+      "id": "copernicus.function:utils",
+      "shortName": "utils",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Proporciona métodos de utilidad.",
+      "keywords": "al almacena almacenada almacenado api base booleano cliente como comparandolo comprueba con contenido content contiene contrase copernicus crea crypto cuya datos de del devuelve el en es function genera generado generando generatejwt getusername hash http indica introducida jwt la method moment nombre objeto obtener par partir pasada password petici property proporciona quiere real realiz req respuesta resultante salt se sea sendjsonresponse sesi setpassword si solicitud status tiene token una username usuario utilidad validez validpassword"
+    },
+    {
+      "section": "server",
+      "id": "copernicus.function:http",
+      "shortName": "http",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Utilizado por Express.js para la ejecución del servidor HTTP.",
+      "keywords": "copernicus del ejecuci express function http js la para por server servidor utilizado"
+    },
+    {
+      "section": "server",
+      "id": "copernicus.function:middleware",
+      "shortName": "middleware",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Middleware para verificar si existe el token generado al iniciar sesión.",
+      "keywords": "al aplicaci autenticado caso checksesion checktoken ciclo comprueba copernicus correctamente de el en es est existe funci function generado iniciar jwt la le method middleware moment objeto para personal property redirigir req res respuesta se server sesi si siguiente solicitud token usuario verificar"
     },
     {
       "section": "server",
@@ -301,12 +418,30 @@ NG_DOCS={
       "moduleName": "copernicus",
       "shortDescription": "Se encarga de gestionar las peticiones de páginas recibidas por el servidor HTTP",
       "keywords": "chatroom copernicus de el encarga function gestionar http la las legal mainpage managerooms method peticiones por profilesettings recibidas renderiza se server servidor vista"
+    },
+    {
+      "section": "server",
+      "id": "copernicus.function:routes",
+      "shortName": "routes",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Redirecciona las peticiones del usuario a los controladores correspondientes.",
+      "keywords": "controladores copernicus correspondientes ctrl del express function las los middleware modulo obtenido pagescontrollers partir peticiones property redirecciona referencia router server usuario"
+    },
+    {
+      "section": "server",
+      "id": "copernicus.function:websockets",
+      "shortName": "websockets",
+      "type": "function",
+      "moduleName": "copernicus",
+      "shortDescription": "Utilizado por Express.js para la ejecución del servidor de WebSockets.",
+      "keywords": "acaba acci al aplica aquellas booleano broadcast busca cada como comprobaci comprobar comprueba comunicarsela concreta conectado conectados conectar conexi conexion conexiones connections conocer copernicus cual cuando cuyo de del dem desconect desconecta desconectarusuario desconexi devuelve disponible disponibles ejecuci el eliminamos en env enviado enviar enviara error es escucha especificado estaban establece estado excepto express feedback filtrar filtrarporsala function getusuarios hacer indica indicada indicar informaci isjsonstring js json la las lista lo los mand mensaje message method modo nombre obtenemos obtenerinformacionasistentes obtiene ocurre ocurri ocurrido onerror otros par para pasado pertenece por port property puerto realiz respecto resultado sala salas se secci seccion server servidor setdisponibleusuariovideollamada si solo str string tengamos una username usernameenvia usernameseenvia usuario usuarioaccion usuarios utilizado videoconferencia videollamada websockets ws wss ya"
     }
   ],
   "apis": {
     "public": false,
-    "server": false,
-    "api": true
+    "api": true,
+    "server": false
   },
   "html5Mode": true,
   "editExample": true,

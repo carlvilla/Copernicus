@@ -1,4 +1,12 @@
+/**
+ * @ngdoc function
+ * @name copernicus.function:http
+ *
+ * @description
+ * Utilizado por Express.js para la ejecución del servidor HTTP.
+ */
 module.exports = function (app) {
+
     var http = require('http');
     var port = process.env.HTTP_PORT || process.env.PORT || 8080;
     var server = http.createServer(app);

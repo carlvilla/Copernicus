@@ -1,9 +1,69 @@
+/**
+ * @ngdoc function
+ * @name copernicus.function:routes
+ *
+ * @description
+ * Redirecciona las peticiones del usuario a los controladores correspondientes.
+ */
+
+/**
+ * @ngdoc property
+ * @name express
+ * @propertyOf copernicus.function:routes
+ * @description
+ * Módulo 'express'.
+ *
+ **/
 var express = require('express');
+
+/**
+ * @ngdoc property
+ * @name usuarioController
+ * @propertyOf copernicus.function:routes
+ * @description
+ * Referencia a 'UsuarioController'.
+ *
+ **/
 var usuarioController = require('../controllers/usuarioController');
+
+/**
+ * @ngdoc property
+ * @name salaController
+ * @propertyOf copernicus.function:routes
+ * @description
+ * Referencia a 'SalaController'.
+ *
+ **/
 var salaController = require('../controllers/salaController');
+
+/**
+ * @ngdoc property
+ * @name contactoController
+ * @propertyOf copernicus.function:routes
+ * @description
+ * Referencia a 'ContactoController'.
+ *
+ **/
 var contactoController = require('../controllers/contactoController');
 
+/**
+ * @ngdoc property
+ * @name middleware
+ * @propertyOf copernicus.function:routes
+ * @description
+ * Referencia a 'Middleware'.
+ *
+ **/
 var middleware = require('./middleware');
+
+/**
+ * @ngdoc property
+ * @name router
+ * @propertyOf copernicus.function:routes
+ * @description
+ * Router obtenido a partir del modulo 'express'.
+ *
+ **/
 var router = express.Router();
 
 //llamadas rest para gestionar usuarios

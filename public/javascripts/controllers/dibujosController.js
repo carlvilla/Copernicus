@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:DibujosController
+ * @name copernicus.controller:dibujosController
  *
  * @description
  * Este controlador es utilizado para comunicar las acciones del usuario con el servicio de dibujos a 'DibujosManager',
@@ -13,7 +13,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     /**
      * @ngdoc property
      * @name usuario
-     * @propertyOf copernicus.controller:DibujosController
+     * @propertyOf copernicus.controller:dibujosController
      * @description
      * Usuario que está utilizando la sala.
      *
@@ -23,7 +23,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     /**
      * @ngdoc property
      * @name sala
-     * @propertyOf copernicus.controller:DibujosController
+     * @propertyOf copernicus.controller:dibujosController
      * @description
      * ID de la sala en la que está conectado el usuario.
      *
@@ -34,7 +34,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:DibujosController
+     * @methodOf copernicus.controller:dibujosController
      * @description
      * Inicializa 'DibujosManager' comunicandole el usuario que acaba de abrir el servicio y en qué sala.
      *
@@ -51,7 +51,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     /**
      * @ngdoc method
      * @name addCirculo
-     * @methodOf copernicus.controller:DibujosController
+     * @methodOf copernicus.controller:dibujosController
      * @description
      * Comunica a 'DibujosManager' que el usuario quiere añadir un circulo.
      *
@@ -63,7 +63,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     /**
      * @ngdoc method
      * @name addTriangulo
-     * @methodOf copernicus.controller:DibujosController
+     * @methodOf copernicus.controller:dibujosController
      * @description
      * Comunica a 'DibujosManager' que el usuario quiere añadir un triangulo.
      *
@@ -75,7 +75,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     /**
      * @ngdoc method
      * @name addRectangulo
-     * @methodOf copernicus.controller:DibujosController
+     * @methodOf copernicus.controller:dibujosController
      * @description
      * Comunica a 'DibujosManager' que el usuario quiere añadir un rectangulo.
      *
@@ -87,7 +87,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     /**
      * @ngdoc method
      * @name dibujar
-     * @methodOf copernicus.controller:DibujosController
+     * @methodOf copernicus.controller:dibujosController
      * @description
      * Comunica a 'DibujosManager' que el usuario quiere dibujar.
      *
@@ -99,7 +99,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     /**
      * @ngdoc method
      * @name seleccionar
-     * @methodOf copernicus.controller:DibujosController
+     * @methodOf copernicus.controller:dibujosController
      * @description
      * Comunica a 'DibujosManager' que el usuario quiere poder seleccionar figuras o dibujos.
      *
@@ -111,7 +111,7 @@ copernicus.controller('dibujosController', function ($scope, $rootScope, webSock
     /**
      * @ngdoc method
      * @name borrar
-     * @methodOf copernicus.controller:DibujosController
+     * @methodOf copernicus.controller:dibujosController
      * @description
      * Comunica a 'DibujosManager' que el usuario quiere todos las figuras y dibujos.
      *

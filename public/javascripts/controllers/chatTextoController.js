@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:ChatTextoController
+ * @name copernicus.controller:chatTextoController
  *
  * @description
  * Este controlador es utilizado para comunicar al usuario con 'ChatTextoManager', de modo que pueda enviar y recibir
@@ -14,7 +14,7 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
     /**
      * @ngdoc property
      * @name usuario
-     * @propertyOf copernicus.controller:ChatTextoController
+     * @propertyOf copernicus.controller:chatTextoController
      * @description
      * Usuario que está utilizando la sala.
      *
@@ -24,7 +24,7 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
     /**
      * @ngdoc property
      * @name sala
-     * @propertyOf copernicus.controller:ChatTextoController
+     * @propertyOf copernicus.controller:chatTextoController
      * @description
      * Id de la sala a la que se accedió.
      *
@@ -34,7 +34,7 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
     /**
      * @ngdoc property
      * @name mensajes
-     * @propertyOf copernicus.controller:ChatTextoController
+     * @propertyOf copernicus.controller:chatTextoController
      * @description
      * Mensajes del chat de texto.
      *
@@ -44,7 +44,7 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:ChatTextoController
+     * @methodOf copernicus.controller:chatTextoController
      * @description
      * Inicializa el controlador. Se encarga de inicializar el 'ChatTextoManager' pasandole el nombre de usuario y la
      * sala, y recibe los mensajes enviados.
@@ -69,7 +69,7 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
     /**
      * @ngdoc method
      * @name enviarMensaje
-     * @methodOf copernicus.controller:ChatTextoController
+     * @methodOf copernicus.controller:chatTextoController
      * @description
      * Envía un mensaje del usuario.
      *
@@ -88,7 +88,7 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
     /**
      * @ngdoc method
      * @name enviarMensajeTeclado
-     * @methodOf copernicus.controller:ChatTextoController
+     * @methodOf copernicus.controller:chatTextoController
      * @description
      * Envía un mensaje del usuario al pulsar Enter en el teclado.
      *
@@ -106,7 +106,7 @@ copernicus.controller("chatTextoController", function ($scope, $rootScope, webSo
     /**
      * @ngdoc method
      * @name enviarFichero
-     * @methodOf copernicus.controller:ChatTextoController
+     * @methodOf copernicus.controller:chatTextoController
      * @description
      * Envía un fichero.
      *

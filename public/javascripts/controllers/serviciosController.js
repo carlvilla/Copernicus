@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:ServiciosController
+ * @name copernicus.controller:serviciosController
  *
  * @description
  * Este controlador está encargado de gestionar los servicios de las salas.
@@ -17,7 +17,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc property
      * @name htmlVideollamada
-     * @propertyOf copernicus.controller:ServiciosController
+     * @propertyOf copernicus.controller:serviciosController
      * @description
      * HTML del servicio de videollamada.
      *
@@ -27,7 +27,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc property
      * @name htmlPresentaciones
-     * @propertyOf copernicus.controller:ServiciosController
+     * @propertyOf copernicus.controller:serviciosController
      * @description
      * HTML del servicio de presentaciones.
      *
@@ -37,7 +37,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc property
      * @name htmlDibujo
-     * @propertyOf copernicus.controller:ServiciosController
+     * @propertyOf copernicus.controller:serviciosController
      * @description
      * HTML del servicio de dibujo.
      *
@@ -47,7 +47,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc property
      * @name htmlChatTexto
-     * @propertyOf copernicus.controller:ServiciosController
+     * @propertyOf copernicus.controller:serviciosController
      * @description
      * HTML del servicio de chat de texto.
      *
@@ -57,7 +57,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc property
      * @name htmlRadio
-     * @propertyOf copernicus.controller:ServiciosController
+     * @propertyOf copernicus.controller:serviciosController
      * @description
      * HTML del servicio de radio.
      *
@@ -67,7 +67,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc property
      * @name htmlVideoCompartido
-     * @propertyOf copernicus.controller:ServiciosController
+     * @propertyOf copernicus.controller:serviciosController
      * @description
      * HTML del servicio de video compartido.
      *
@@ -77,7 +77,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc property
      * @name serviciosAbiertos
-     * @propertyOf copernicus.controller:ServiciosController
+     * @propertyOf copernicus.controller:serviciosController
      * @description
      * Listado de servicio abiertos.
      *
@@ -112,7 +112,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc property
      * @name options
-     * @propertyOf copernicus.controller:ServiciosController
+     * @propertyOf copernicus.controller:serviciosController
      * @description
      * Objeto de configuración para Gridstack.js
      *
@@ -128,7 +128,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc method
      * @name addServicio
-     * @methodOf copernicus.controller:ServiciosController
+     * @methodOf copernicus.controller:serviciosController
      * @description
      * Abre un servicio.
      *
@@ -268,7 +268,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc method
      * @name contains
-     * @methodOf copernicus.controller:ServiciosController
+     * @methodOf copernicus.controller:serviciosController
      * @description
      * Comprueba si un array contiene cierto objeto.
      *
@@ -289,7 +289,7 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
     /**
      * @ngdoc method
      * @name eliminarServicio
-     * @methodOf copernicus.controller:ServiciosController
+     * @methodOf copernicus.controller:serviciosController
      * @description
      * Cierra un servicio.
      *

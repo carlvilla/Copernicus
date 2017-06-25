@@ -1,0 +1,69 @@
+<h1><code ng:non-bindable="">utils</code>
+<div><span class="hint">service in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-service-page copernicus-service-utils-page"><p>Servicio que proporciona métodos de utilidad.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_isjsonstring">IsJsonString(str)</h3>
+<div class="isjsonstring"><div class="isjsonstring-page"><p>Comprueba si un String es un JSON válido.</p>
+</div><h5 id="methods_isjsonstring_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>str</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="isjsonstring-page"><p>String a comprobar.</p>
+</div></td></tr></tbody></table><h5 id="methods_isjsonstring_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="isjsonstring-page"><p>Resultado de la comprobación.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_checkdatabaseerror">checkDatabaseError(err)</h3>
+<div class="checkdatabaseerror"><div class="checkdatabaseerror-page"><p>Comprueba si la respuesta fue errónea por un error interno del servidor.</p>
+</div><h5 id="methods_checkdatabaseerror_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>err</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="checkdatabaseerror-page"><p>Respuesta del servidor.</p>
+</div></td></tr></tbody></table><h5 id="methods_checkdatabaseerror_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="checkdatabaseerror-page"><p>Resultado de la comprobación.</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_checkidsalaexists">checkIdSalaExists(id)</h3>
+<div class="checkidsalaexists"><div class="checkidsalaexists-page"><p>Comprobamos que se pase un idSala, en caso contrario el usuario habrá accedido directamente a la
+página de salas sin haber seleccionado una sala.</p>
+</div><h5 id="methods_checkidsalaexists_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>id</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="checkidsalaexists-page"><p>ID de la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_checkparticipante">checkParticipante(idSala)</h3>
+<div class="checkparticipante"><div class="checkparticipante-page"><p>Comprobar usuario es participante de la sala.</p>
+</div><h5 id="methods_checkparticipante_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>idSala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="checkparticipante-page"><p>ID de la sala.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_mensajeerror">mensajeError(mensaje)</h3>
+<div class="mensajeerror"><div class="mensajeerror-page"><p>Muestra una notificación de error con tiempo</p>
+</div><h5 id="methods_mensajeerror_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="mensajeerror-page"><p>Mensaje a mostrar en la notificación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_mensajeerrorsintiempo">mensajeErrorSinTiempo(mensaje)</h3>
+<div class="mensajeerrorsintiempo"><div class="mensajeerrorsintiempo-page"><p>Muestra una notificación de error sin tiempo</p>
+</div><h5 id="methods_mensajeerrorsintiempo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="mensajeerrorsintiempo-page"><p>Mensaje a mostrar en la notificación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_mensajeinfo">mensajeInfo(mensaje)</h3>
+<div class="mensajeinfo"><div class="mensajeinfo-page"><p>Muestra una notificación de información con tiempo</p>
+</div><h5 id="methods_mensajeinfo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="mensajeinfo-page"><p>Mensaje a mostrar en la notificación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_mensajeinfosintiempo">mensajeInfoSinTiempo(mensaje)</h3>
+<div class="mensajeinfosintiempo"><div class="mensajeinfosintiempo-page"><p>Muestra una notificación de información sin tiempo.</p>
+</div><h5 id="methods_mensajeinfosintiempo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="mensajeinfosintiempo-page"><p>Mensaje a mostrar en la notificación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_mensajesuccess">mensajeSuccess(mensaje)</h3>
+<div class="mensajesuccess"><div class="mensajesuccess-page"><p>Muestra una notificación de éxito con tiempo.</p>
+</div><h5 id="methods_mensajesuccess_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="mensajesuccess-page"><p>Mensaje a mostrar en la notificación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_mensajesuccesssintiempo">mensajeSuccessSinTiempo(mensaje)</h3>
+<div class="mensajesuccesssintiempo"><div class="mensajesuccesssintiempo-page"><p>Muestra una notificación de éxito sin tiempo</p>
+</div><h5 id="methods_mensajesuccesssintiempo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>mensaje</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="mensajesuccesssintiempo-page"><p>Mensaje a mostrar en la notificación.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_noautorizado">noAutorizado()</h3>
+<div class="noautorizado"><div class="noautorizado-page"><p>Redirige al usuario a index, ya que intentó un acceso no autorizado.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

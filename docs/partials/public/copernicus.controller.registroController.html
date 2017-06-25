@@ -1,0 +1,62 @@
+<h1><code ng:non-bindable="">registroController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-controller-page copernicus-controller-registrocontroller-page"><p>Este controlador permite a un usuario registrarse.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_comprobarcaracter">comprobarCaracter(event)</h3>
+<div class="comprobarcaracter"><div class="comprobarcaracter-page"><p>Método utilizado para que el usuario no pueda introducir espacios en blanco en el nombre de usuario.</p>
+</div><h5 id="methods_comprobarcaracter_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>event</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="comprobarcaracter-page"><p>Evento del cual se puede tener el código de la tecla introducida por el usuario.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_error">error(err)</h3>
+<div class="error"><div class="error-page"><p>Método llamado si el registro no se pudo completar. Muestra un mensaje uno u otro mensaje de error dependiendo
+si el problema fue del servidor o del usuario.</p>
+</div><h5 id="methods_error_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>err</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="error-page"><p>Respuesta de la API REST.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_fotoseleccionada">fotoSeleccionada(evt)</h3>
+<div class="fotoseleccionada"><div class="fotoseleccionada-page"><p>Obtiene la foto seleccionada por el usuario.</p>
+</div><h5 id="methods_fotoseleccionada_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>evt</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="fotoseleccionada-page"><p>Contiene la foto seleccionada por el usuario.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_registrar">registrar(usuario)</h3>
+<div class="registrar"><div class="registrar-page"><p>Registra a un usuario en el sistema.</p>
+</div><h5 id="methods_registrar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usuario</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="registrar-page"><p>Datos del usuario que se quiere registrar.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_success">success(res)</h3>
+<div class="success"><div class="success-page"><p>Método llamado si el registro se completó con éxito. Crea una cookie en el navegador con el token de sesión y
+redirige al usuario a la página principal de la aplicación.</p>
+</div><h5 id="methods_success_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="success-page"><p>Respuesta de la API REST.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_foto">foto</h3>
+<div class="foto"><div class="foto-page"><p>Foto seleccionada por el usuario.</p>
+</div></div>
+</li>
+<li><h3 id="properties_fotopordefecto">fotoPorDefecto</h3>
+<div class="fotopordefecto"><div class="fotopordefecto-page"><p>Booleano que indica si se va a utilizar como foto de perfil la foto por defecto.</p>
+</div></div>
+</li>
+<li><h3 id="properties_fotorecortada">fotoRecortada</h3>
+<div class="fotorecortada"><div class="fotorecortada-page"><p>Parte seleccionada por el usuario de la foto que subió.</p>
+</div></div>
+</li>
+<li><h3 id="properties_messages">messages</h3>
+<div class="messages"><div class="messages-page"><p>Atributo utilizado para mostrar mensajes de error.</p>
+</div></div>
+</li>
+<li><h3 id="properties_sizemaxfoto">sizeMaxFoto</h3>
+<div class="sizemaxfoto"><div class="sizemaxfoto-page"><p>Entero que indica el tamaño máximo permitido de las fotos.</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>

@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:LoginController
+ * @name copernicus.controller:loginController
  *
  * @description
  * Controlador encargado de permitir iniciar sesión a los usuarios.
@@ -12,7 +12,7 @@ copernicus.controller('loginController', function ($scope, $http, $cookies, $win
     /**
      * @ngdoc property
      * @name loginError
-     * @propertyOf copernicus.controller:LoginController
+     * @propertyOf copernicus.controller:loginController
      * @description
      * Atributo que indica si hay que mostrar un mensaje de error o no por un inicio de sesión no autorizado.
      *
@@ -22,7 +22,7 @@ copernicus.controller('loginController', function ($scope, $http, $cookies, $win
     /**
      * @ngdoc method
      * @name login
-     * @methodOf copernicus.controller:LoginController
+     * @methodOf copernicus.controller:loginController
      * @description
      * Permite iniciar sesión a un usuario.
      *
@@ -38,7 +38,7 @@ copernicus.controller('loginController', function ($scope, $http, $cookies, $win
     /**
      * @ngdoc method
      * @name success
-     * @methodOf copernicus.controller:LoginController
+     * @methodOf copernicus.controller:loginController
      * @description
      * Incluye el token de sesión al navegador y redirige al usuario a la página principal.
      *
@@ -54,7 +54,7 @@ copernicus.controller('loginController', function ($scope, $http, $cookies, $win
     /**
      * @ngdoc method
      * @name error
-     * @methodOf copernicus.controller:LoginController
+     * @methodOf copernicus.controller:loginController
      * @description
      * Muestra un mensaje de error si las credenciales de acceso eran erroneas.
      *

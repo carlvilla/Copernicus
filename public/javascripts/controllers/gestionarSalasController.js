@@ -2,7 +2,7 @@ var copernicus = angular.module('copernicus');
 
 /**
  * @ngdoc controller
- * @name copernicus.controller:GestionarSalasController
+ * @name copernicus.controller:gestionarSalasController
  *
  * @description
  * Este controlador es utilizado para permitir a los usuarios realizar todas las operaciones de gestión de salas.
@@ -13,7 +13,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name salaSeleccionada
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Almacena los datos de la sala seleccionada
      *
@@ -25,7 +25,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name salasAdminFiltrado
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Atributo necesario para permitir el filtrado de las salas donde el usuario es administrador.
      *
@@ -35,7 +35,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name salasModeradorFiltrado
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Atributo necesario para permitir el filtrado de las salas donde el usuario es moderador.
      *
@@ -45,7 +45,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name salasMiembroFiltrado
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Atributo necesario para permitir el filtrado de las salas donde el usuario es miembro.
      *
@@ -55,7 +55,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name foto
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Foto seleccionada por el usuario.
      *
@@ -65,7 +65,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name fotoRecortada
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Recorte de la foto seleccionada por el usuario.
      *
@@ -75,7 +75,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name fotoCambiada
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Booleano que indica si la foto de la sala fue cambiada.
      *
@@ -85,7 +85,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name sizeMaxFoto
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Entero que indica el tamaño máximo de la foto de la sala.
      *
@@ -95,7 +95,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name salasAdmin
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Salas en las que el usuario es administrador.
      *
@@ -105,7 +105,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name salasModerador
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Salas en las que el usuario es moderador.
      *
@@ -115,7 +115,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name salasMiembro
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Salas en las que el usuario es miembro.
      *
@@ -125,7 +125,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc property
      * @name contactosAdded
-     * @propertyOf copernicus.controller:GestionarSalasController
+     * @propertyOf copernicus.controller:gestionarSalasController
      * @description
      * Contactos a los que el usuario acaba de mandar una solicitud de unión a la sala.
      *
@@ -135,7 +135,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name error
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Muestra un mensaje de error en el caso de que una operación no fue autorizada.
      *
@@ -149,7 +149,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name inicializacion
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Inicializa el controlador, obteniendo las salas en las que el usuario es administrado, moderador y miembro.
      *
@@ -188,7 +188,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name mostrarInfoSala
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Muestra la información de una sala.
      *
@@ -261,7 +261,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name eliminarUsuario
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Elimina un usuario de la sala
      *
@@ -290,7 +290,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name actualizarSala
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Actualiza la información de una sala
      *
@@ -332,7 +332,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name salirSala
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Utilizado para salir de una sala
      *
@@ -353,7 +353,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name eliminarSala
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Elimina la sala seleccionada.
      *
@@ -376,7 +376,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name cambiarPermisos
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Elimina la sala seleccionada
      *
@@ -402,7 +402,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name cambiarPermisosSolicitud
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Cambiar los permisos de una solicitud de unión a salas.
      *
@@ -428,7 +428,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name added
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Comprueba si un usuario ya fue añadido a una sala o si ya se le mandó una solicitud de unión.
      *
@@ -464,7 +464,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name mandarSolicitud
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Manda una solicitud de unión a la sala
      *
@@ -497,7 +497,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name comprobarLimiteSala
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Comprueba si se alcanzó el límite de personas en una sala.
      *
@@ -516,7 +516,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name eliminarSolicitudSala
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Elimina una solicitud de unión a la sala.
      *
@@ -547,7 +547,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name findContactos
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Busca los contactos del usuario
      *
@@ -570,7 +570,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name fotoSeleccionada
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Obtiene la foto para la sala seleccionada por el usuario, y comprueba si es válida.
      *
@@ -604,7 +604,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name filtrarAdmin
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Filtrar salas en las que el usuario es administrador
      *
@@ -620,7 +620,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name filtrarModerador
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Filtrar salas en las que el usuario es moderador
      *
@@ -636,7 +636,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
     /**
      * @ngdoc method
      * @name filtrarModerador
-     * @methodOf copernicus.controller:GestionarSalasController
+     * @methodOf copernicus.controller:gestionarSalasController
      * @description
      * Filtrar salas en las que el usuario es miembro
      *

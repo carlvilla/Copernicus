@@ -9,7 +9,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var forceSSL = require('force-ssl');
-var index = require('./server/routes/index');
 var routesServer = require('./server/routes/routes');
 var routesApi = require('./api/routes/routes');
 

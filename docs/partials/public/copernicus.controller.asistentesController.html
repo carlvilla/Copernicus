@@ -1,0 +1,44 @@
+<h1><code ng:non-bindable="">asistentesController</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">copernicus</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="copernicus-controller-page copernicus-controller-asistentescontroller-page"><p>Este controlador es utilizado cuando un usuario se conecta a una sala para obtener la información de ese usuario,
+pasarla a &#39;AsistentesManager&#39; para que otros usuarios en la sala lo vean como conectado
+y obtener del mismo manager los usuarios que están conectado a la sala.</p>
+</div></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_error">error(res)</h3>
+<div class="error"><div class="error-page"><p>Muestra un mensaje de error en el caso de que no se pudo recuperar los datos del usuario</p>
+</div><h5 id="methods_error_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="error-page"><p>respuesta de la API REST</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_inicializacion">inicializacion()</h3>
+<div class="inicializacion"><div class="inicializacion-page"><p>Inicializa el controlador, obteniendo los datos del usuario que se conectó</p>
+</div></div>
+</li>
+<li><h3 id="methods_success">success(res)</h3>
+<div class="success"><div class="success-page"><p>Este método obtiene los datos del usuario de la respuesta que recibe como parámetro, comunica a
+&#39;AsistentesManager&#39; que el usuario se ha conectado y obtiene del mismo los usuarios conectados a la sala</p>
+</div><h5 id="methods_success_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>res</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="success-page"><p>respuesta de la API REST con los datos del usuario</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_asistentes">asistentes</h3>
+<div class="asistentes"><div class="asistentes-page"><p>Asistentes conectados a la sala</p>
+</div></div>
+</li>
+<li><h3 id="properties_sala">sala</h3>
+<div class="sala"><div class="sala-page"><p>Id de la sala a la que se accedió</p>
+</div></div>
+</li>
+<li><h3 id="properties_usuario">usuario</h3>
+<div class="usuario"><div class="usuario-page"><p>Usuario que se conecta</p>
+</div></div>
+</li>
+</ul>
+</div>
+</div>
