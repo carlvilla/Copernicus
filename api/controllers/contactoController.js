@@ -1,8 +1,51 @@
+/**
+ * @ngdoc function
+ * @name copernicus.function:ContactoController
+ *
+ * @description
+ * Encargado de procesar las peticiones relacionadas con los contactos, recibidas por la API REST, realizando las
+ * consultas necesarias contra la base de datos.
+ */
+
+/**
+ * @ngdoc property
+ * @name utils
+ * @propertyOf copernicus.function:ContactoController
+ * @description
+ * Referencia a 'Utils'.
+ *
+ **/
 var utils = require('../utils/utils');
+
+/**
+ * @ngdoc property
+ * @name jwt
+ * @propertyOf copernicus.function:ContactoController
+ * @description
+ * Módulo 'jwt'.
+ *
+ **/
 var jwt = require('jwt-simple');
 
-var model = require('seraph-model');
-var confDB = require('../config/db')
+/**
+ * @ngdoc property
+ * @name confDB
+ * @propertyOf copernicus.function:ContactoController
+ * @description
+ * Referencia a 'DB'.
+ *
+ **/
+var confDB = require('../config/db');
+
+/**
+ * @ngdoc property
+ * @name db
+ * @propertyOf copernicus.function:ContactoController
+ * @description
+ * Atributo utilizado para realizar consultas contra la base de datos. Es creado con el módulo 'seraph' utilizando la
+ * configuración de la base de datos contenida en 'confDB'.
+ *
+ **/
 var db = require('seraph')({
     server: confDB.db.server,
     user: confDB.db.user,
@@ -10,13 +53,18 @@ var db = require('seraph')({
 });
 
 /**
+ * @ngdoc method
+ * @name buscarPosiblesContactos
+ * @methodOf copernicus.function:ContactoController
+ * @description
  * Devuelve para el usuario que realizó la consulta, todos los usuarios existentes exceptuandose
  * aquellos bloqueados, los que lo tienen bloqueado, los que ya son contactos, a los que se envió solicitud de contacto
- * y a él mismo
+ * y a él mismo.
  *
- * @param req
- * @param res
- */
+ * @param {object} req Objeto de solicitud
+ * @param {object} res Objeto de respuesta
+ *
+ **/
 module.exports.buscarPosiblesContactos = function (req, res) {
 
     var username = utils.getUsername(req);
@@ -40,11 +88,16 @@ module.exports.buscarPosiblesContactos = function (req, res) {
 }
 
 /**
- * Devuelve todos los contactos del usuario
+ * @ngdoc method
+ * @name buscarContactos
+ * @methodOf copernicus.function:ContactoController
+ * @description
+ * Devuelve todos los contactos del usuario.
  *
- * @param req
- * @param res
- */
+ * @param {object} req Objeto de solicitud
+ * @param {object} res Objeto de respuesta
+ *
+ **/
 module.exports.buscarContactos = function (req, res) {
 
     var username = utils.getUsername(req);
@@ -74,11 +127,16 @@ module.exports.buscarContactos = function (req, res) {
 }
 
 /**
- * Devuelve las solicitudes de contacto recibidas por el usuario
+ * @ngdoc method
+ * @name buscarSolicitudesContacto
+ * @methodOf copernicus.function:ContactoController
+ * @description
+ * Devuelve las solicitudes de contacto recibidas por el usuario.
  *
- * @param req
- * @param res
- */
+ * @param {object} req Objeto de solicitud
+ * @param {object} res Objeto de respuesta
+ *
+ **/
 module.exports.buscarSolicitudesContacto = function (req, res) {
 
     var username = utils.getUsername(req);
@@ -101,11 +159,16 @@ module.exports.buscarSolicitudesContacto = function (req, res) {
 }
 
 /**
- * Establece una relación de tipo SolicitudContacto entre los usuarios pasados con un atributo mensaje
+ * @ngdoc method
+ * @name enviarSolicitudContacto
+ * @methodOf copernicus.function:ContactoController
+ * @description
+ * Establece una relación de tipo SolicitudContacto entre los usuarios pasados con un atributo mensaje.
  *
- * @param req
- * @param res
- */
+ * @param {object} req Objeto de solicitud
+ * @param {object} res Objeto de respuesta
+ *
+ **/
 module.exports.enviarSolicitudContacto = function (req, res) {
 
     var usernameEnvia = utils.getUsername(req);
@@ -134,12 +197,17 @@ module.exports.enviarSolicitudContacto = function (req, res) {
 }
 
 /**
+ * @ngdoc method
+ * @name aceptarSolicitudContacto
+ * @methodOf copernicus.function:ContactoController
+ * @description
  * Establece una relación de tipo Contacto y elimina la relación de tipo Solicitud Contacto. Se utiliza cuando se acepta
- * una solicitud de contacto
+ * una solicitud de contacto.
  *
- * @param req
- * @param res
- */
+ * @param {object} req Objeto de solicitud
+ * @param {object} res Objeto de respuesta
+ *
+ **/
 module.exports.aceptarSolicitudContacto = function (req, res) {
 
     var usernameAceptaSolicitud = utils.getUsername(req);
@@ -207,11 +275,16 @@ module.exports.aceptarSolicitudContacto = function (req, res) {
 }
 
 /**
+ * @ngdoc method
+ * @name ignorarSolicitudContacto
+ * @methodOf copernicus.function:ContactoController
+ * @description
  * Elimina la relación de tipo Solicitud Contacto. Se utiliza cuando se ignora una solicitud de contacto.
  *
- * @param req
- * @param res
- */
+ * @param {object} req Objeto de solicitud
+ * @param {object} res Objeto de respuesta
+ *
+ **/
 module.exports.ignorarSolicitudContacto = function (req, res) {
 
     var usernameIgnoraSolicitud = utils.getUsername(req);
@@ -244,14 +317,19 @@ module.exports.ignorarSolicitudContacto = function (req, res) {
 }
 
 /**
- * Crea una relación 'Bloqueado' entre el usuario que realiza la petición y el usuario cuyo username es enviado. También
- * elimina la relación 'Contacto' que existía entre los usuarios, elimina las solicitudes que el usuario envió al
- * usuario bloqueado y expulsa a este último de todas aquellas salas en las que el usuario que envió la petición
+ * @ngdoc method
+ * @name bloquear
+ * @methodOf copernicus.function:ContactoController
+ * @description
+ * Crea una relación 'Bloqueado' entre el usuario que realiza la petición y el usuario cuyo username es enviado.
+ * También elimina la relación 'Contacto' que existía entre los usuarios, elimina las solicitudes que el usuario envió
+ * al usuario bloqueado y expulsa a este último de todas aquellas salas en las que el usuario que envió la petición
  * es administrador
  *
- * @param req
- * @param res
- */
+ * @param {object} req Objeto de solicitud
+ * @param {object} res Objeto de respuesta
+ *
+ **/
 module.exports.bloquear = function (req, res) {
     var username = utils.getUsername(req);
 
@@ -320,11 +398,16 @@ module.exports.bloquear = function (req, res) {
 }
 
 /**
- * Elimina la relación "Bloqueado" entre los usuarios y vuelve a establecer la relación "Contacto"
+ * @ngdoc method
+ * @name desbloquear
+ * @methodOf copernicus.function:ContactoController
+ * @description
+ * Elimina la relación "Bloqueado" entre los usuarios y vuelve a establecer la relación "Contacto".
  *
- * @param req
- * @param res
- */
+ * @param {object} req Objeto de solicitud
+ * @param {object} res Objeto de respuesta
+ *
+ **/
 module.exports.desbloquear = function (req, res) {
     var username = utils.getUsername(req);
     var usernameBloqueado = req.body.username;
@@ -354,11 +437,16 @@ module.exports.desbloquear = function (req, res) {
 };
 
 /**
- * Devuelve los usuarios que tiene bloqueados el usuario que manda la petición
+ * @ngdoc method
+ * @name buscarBloqueados
+ * @methodOf copernicus.function:ContactoController
+ * @description
+ * Devuelve los usuarios que tiene bloqueados el usuario que manda la petición.
  *
- * @param req
- * @param res
- */
+ * @param {object} req Objeto de solicitud
+ * @param {object} res Objeto de respuesta
+ *
+ **/
 module.exports.buscarBloqueados = function (req, res) {
     var username = utils.getUsername(req);
 
