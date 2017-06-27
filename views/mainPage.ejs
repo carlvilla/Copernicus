@@ -91,9 +91,9 @@
 
     <!-- Listado contactos -->
     <div id="contenedor-listado-contactos" ng-controller="contactosController">
-        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left"> <span
+        <div class="panel-heading" style="margin-bottom:25px;"><label class="label-filtrar"> <span
                         translate="CONTACTOS"/>
-            </label><input id="input-filtrar-contactos" style="float:left; margin-bottom: 5px;"
+            </label><input id="input-filtrar-contactos"
                            placeholder="{{'FILTRAR_CONTACTOS' | translate}}" ng-model="textoFiltrar" ng-keyup="filtrar()"/></div>
         <div id="contenedor2-listado-contactos">
             <div id="listado-contactos">
@@ -113,9 +113,8 @@
 
     <!-- Listado salas -->
     <div ng-controller="salaController" id="contenedor-listado-salas" class="btn-group-vertical">
-        <div class="panel-heading" style="margin-bottom:25px;"><label style="margin-right:100px; float:left;">
+        <div class="panel-heading" style="margin-bottom:25px;"><label class="label-filtrar">
                 {{'ACCESO_SALAS' | translate}}:</label><input id="input-filtrar-salas"
-                                                              style="float:left; margin-bottom: 5px;"
                                                               ng-keyup="filtrar()"
                                                               placeholder="{{'FILTRAR_SALAS' | translate}}"/></div>
         <div id="contenedor2-listado-salas">
