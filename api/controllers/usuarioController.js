@@ -93,6 +93,7 @@ cloudinary.config({
  *
  **/
 module.exports.login = function (req, res) {
+
     if (!req.body.username || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
             "message": "Todos los campos son obligatorios"
@@ -132,7 +133,6 @@ module.exports.login = function (req, res) {
  *
  **/
 module.exports.registrar = function (req, res) {
-
     if (!req.body.username || !req.body.nombre || !req.body.email || !req.body.password) {
         utils.sendJSONresponse(res, 400, {
             "message": "Faltan campos obligatorios"
@@ -234,21 +234,24 @@ module.exports.perfil = function (req, res) {
     var query = "MATCH(u:Usuario{username:{username}}) return u";
 
     db.query(query, {username: username}, function (err, people) {
-        if (err) throw err;
-        if (people.length == 0) {
-            utils.sendJSONresponse(res, 204, '');
-        } else {
+        if (err) {
+            utils.sendJSONresponse(res, 500, '');
+        }
+        else {
+            if (people.length == 0) {
+                utils.sendJSONresponse(res, 204, '');
+            } else {
 
-            //No queremos mostrar información sobre las credenciales del usuario o el id de la BD, por ello los
-            //eliminamos antes de enviarlos al cliente
-            delete people[0].hash;
-            delete people[0].salt;
-            delete people[0].id;
+                //No queremos mostrar información sobre las credenciales del usuario o el id de la BD, por ello los
+                //eliminamos antes de enviarlos al cliente
+                delete people[0].hash;
+                delete people[0].salt;
+                delete people[0].id;
 
-            utils.sendJSONresponse(res, 200, people);
+                utils.sendJSONresponse(res, 200, people);
+            }
         }
     });
-
 };
 
 /**

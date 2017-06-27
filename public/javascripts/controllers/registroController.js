@@ -75,6 +75,7 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
         utils.mensajeInfo($translate.instant("SOLICITANDO_REGISTRO"));
         usuario.foto = $scope.fotoRecortada;
         usuario.fotoPorDefecto = fotoPorDefecto;
+
         $http({
             method: "POST",
             url: "/api/registrar",
