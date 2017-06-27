@@ -71,6 +71,20 @@ listado-salas {
     border-radius: 50%;
 }
 
+.label-filtrar{
+    float:left;
+}
+
+#input-filtrar-salas{
+    float: right;
+    margin-bottom: 5px;
+}
+
+#input-filtrar-contactos{
+    float: right;
+    margin-bottom: 5px;
+}
+
 /* Dialogs */
 
 /* Mostrar datos contacto */

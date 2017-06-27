@@ -51,7 +51,6 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
         }).then(successSolicitudes, error);
 
         function successSolicitudes(res) {
-            console.log(res.data);
             $scope.solicitudes = res.data;
         }
 
