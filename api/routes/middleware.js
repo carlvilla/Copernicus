@@ -65,6 +65,7 @@ var emailRegex = /([a-z0-9][-a-z0-9_\+\.]*[a-z0-9])@([a-z0-9][-a-z0-9\.]*[a-z0-9
  *
  **/
 module.exports.checkEmail = function (req, res, next) {
+
     if (emailRegex.test(req.body.email)) {
         next();
     } else {
