@@ -22,7 +22,7 @@ copernicus.controller('videoCompartidoController', function ($scope, $rootScope,
 
     /**
      * @ngdoc property
-     * @name usuario
+     * @name sala
      * @propertyOf copernicus.controller:videoCompartidoController
      * @description
      * Almacena los datos de la sala a la que se accedió.

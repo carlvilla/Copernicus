@@ -134,7 +134,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
 
     /**
      * @ngdoc method
-     * @name successBloquear
+     * @name errorBloquear
      * @methodOf copernicus.controller:contactosController
      * @description
      * Muestra una notificación indicando que hubo un error al bloquear al usuario.
@@ -146,7 +146,7 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
 
     /**
      * @ngdoc method
-     * @name successBloquear
+     * @name filtrar
      * @methodOf copernicus.controller:contactosController
      * @description
      * Filtra el listado de contactos.

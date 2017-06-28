@@ -28,7 +28,7 @@ var crypto = require('crypto');
 
 /**
  * @ngdoc property
- * @name crypto
+ * @name jwt
  * @propertyOf copernicus.function:utils
  * @description
  * Módulo 'jwt'.

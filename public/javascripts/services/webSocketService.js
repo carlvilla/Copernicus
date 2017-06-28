@@ -24,7 +24,7 @@ angular.module('copernicus')
 
         /**
          * @ngdoc property
-         * @name HOST
+         * @name ws
          * @propertyOf copernicus.service:webSocketService
          * @description
          * Servidor de WebSockets.

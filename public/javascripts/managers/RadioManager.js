@@ -99,7 +99,7 @@ function RadioManager(ws, utils, $translate) {
 
     /**
      * @ngdoc method
-     * @name cambiarEmisoraRemoto
+     * @name cambiarEmisora
      * @methodOf copernicus.function:RadioManager
      * @description
      * Modifica la URL a reproducir.

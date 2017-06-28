@@ -48,7 +48,7 @@ var dbConfig = require('../config/db');
 
 /**
  * @ngdoc property
- * @name dbConfig
+ * @name db
  * @propertyOf copernicus.function:passport
  * @description
  * Atributo utilizado para realizar consultas contra la base de datos. Es creado con el módulo 'seraph' utilizando la

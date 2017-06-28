@@ -19,7 +19,7 @@ module.exports = function (server) {
 
     /**
      * @ngdoc property
-     * @name port
+     * @name WebSocket
      * @propertyOf copernicus.function:websockets
      * @description
      * Módulo 'ws'.
@@ -222,6 +222,8 @@ module.exports = function (server) {
          * @param {object} message Mensaje a enviar.
          * @param {String} usuarioAccion Usuario que realizó la acción.
          * @param {String} sala Sala en la que se aplica el mensaje.
+         *
+         * @return {object} Conexion del usuario que realiza la acción.
          *
          **/
         broadcast = function (message, usuarioAccion, sala) {
@@ -433,11 +435,13 @@ module.exports = function (server) {
      * @name getUsuarios
      * @methodOf copernicus.function:websockets
      * @description
-     * Obtiene los demás usuarios disponibles para hacer una videoconferencia en la sala
+     * Obtiene los demás usuarios disponibles para hacer una videoconferencia en la sala.
      *
      * @param {String} usernameEnvia Nombre de usuario del usuario que busca conocer los usuarios disponible para
      * una videollamada.
      * @param {String} sala Sala en la que ocurre la acción.
+     *
+     * @return {object[]} Array con los usuarios disponibles para hacer una videoconferencia.
      *
      **/
     getUsuarios = function (usernameEnvia, sala) {

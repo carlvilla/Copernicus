@@ -21,7 +21,8 @@
 </div><h5 id="methods_broadcast_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>message</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="broadcast-page"><p>Mensaje a enviar.</p>
 </div></td></tr><tr><td>usuarioAccion</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="broadcast-page"><p>Usuario que realizó la acción.</p>
 </div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="broadcast-page"><p>Sala en la que se aplica el mensaje.</p>
-</div></td></tr></tbody></table></div>
+</div></td></tr></tbody></table><h5 id="methods_broadcast_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="broadcast-page"><p>Conexion del usuario que realiza la acción.</p>
+</div></td></tr></table></div>
 </li>
 <li><h3 id="methods_desconectarusuario">desconectarUsuario(usuarioAccion, sala)</h3>
 <div class="desconectarusuario"><div class="desconectarusuario-page"><p>Si el usuario se desconecta, lo eliminamos de la lista de usuarios conectados.</p>
@@ -52,11 +53,12 @@ como parámetro</p>
 </div></td></tr></table></div>
 </li>
 <li><h3 id="methods_getusuarios">getUsuarios(usernameEnvia, sala)</h3>
-<div class="getusuarios"><div class="getusuarios-page"><p>Obtiene los demás usuarios disponibles para hacer una videoconferencia en la sala</p>
+<div class="getusuarios"><div class="getusuarios-page"><p>Obtiene los demás usuarios disponibles para hacer una videoconferencia en la sala.</p>
 </div><h5 id="methods_getusuarios_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usernameEnvia</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getusuarios-page"><p>Nombre de usuario del usuario que busca conocer los usuarios disponible para
 una videollamada.</p>
 </div></td></tr><tr><td>sala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getusuarios-page"><p>Sala en la que ocurre la acción.</p>
-</div></td></tr></tbody></table></div>
+</div></td></tr></tbody></table><h5 id="methods_getusuarios_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object[]</a></td><td><div class="getusuarios-page"><p>Array con los usuarios disponibles para hacer una videoconferencia.</p>
+</div></td></tr></table></div>
 </li>
 <li><h3 id="methods_obtenerinformacionasistentes">obtenerInformacionAsistentes(ws, usuarioAccion, sala)</h3>
 <div class="obtenerinformacionasistentes"><div class="obtenerinformacionasistentes-page"><p>Obtenemos la información de los usuarios que ya estaban conectados, para comunicarsela al usuario
@@ -85,16 +87,16 @@ que se acaba de conectar.</p>
 </ul>
 </div>
 <div class="member property"><h2 id="properties">Properties</h2>
-<ul class="properties"><li><h3 id="properties_connections">connections</h3>
+<ul class="properties"><li><h3 id="properties_websocket">WebSocket</h3>
+<div class="websocket"><div class="websocket-page"><p>Módulo &#39;ws&#39;.</p>
+</div></div>
+</li>
+<li><h3 id="properties_connections">connections</h3>
 <div class="connections"><div class="connections-page"><p>Conexiones de los usuarios a salas.</p>
 </div></div>
 </li>
 <li><h3 id="properties_port">port</h3>
 <div class="port"><div class="port-page"><p>Puerto en el que escucha el servidor.</p>
-</div></div>
-</li>
-<li><h3 id="properties_port">port</h3>
-<div class="port"><div class="port-page"><p>Módulo &#39;ws&#39;.</p>
 </div></div>
 </li>
 <li><h3 id="properties_wss">wss</h3>
