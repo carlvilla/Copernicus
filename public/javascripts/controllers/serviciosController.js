@@ -137,7 +137,6 @@ copernicus.controller('serviciosController', function ($scope, utils, $compile, 
      **/
     $scope.addServicio = function (servicio) {
 
-
         //Valores por defecto
         var node = {
             width: 5,

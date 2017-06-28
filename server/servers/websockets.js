@@ -380,7 +380,7 @@ module.exports = function (server) {
      *
      **/
     function onListening() {
-        console.info('Servidor Websocket escuchando en el puerto: ' + port);
+        console.info('Servidor de WebSockets escuchando en el puerto: ' + port);
     }
 
     /**
