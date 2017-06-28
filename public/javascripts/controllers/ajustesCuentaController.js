@@ -61,7 +61,7 @@ copernicus.controller('ajustesCuentaController', function ($scope, $http, $windo
 
     /**
      * @ngdoc property
-     * @name fotoCambiada
+     * @name sizeMaxFoto
      * @propertyOf copernicus.controller:ajustesCuentaController
      * @description
      * Indica el tamaño máximo de fotografía aceptado.

@@ -30,7 +30,7 @@ NG_DOCS={
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Controlador que permite al usuario modificar los datos y contraseña de su cuenta, así como eliminarla.",
-      "keywords": "aceptado actual actualiza actualizados actualizando_mensaje actualizardatos actualizarpassword al alg almacena almacenandolos api atributo booleano caso como contiene contrase controlador controller cookie copernicus correctamente cual cuando cuenta cuentaeliminada dato datos de del devuelto el elimina eliminar eliminarcuenta eliminarla en enviado err error est esta este evt forma foto fotocambiada fotograf fotorecortada fotoseleccionada fue fueron fuese hora indica indicar inicializa inicializacion inicio invocado la los mensaje mensajeerror mensajeexitodatos mensajeexitopass method modifica modificada modificando modificar muestra notificaci nueva objeto obteniendo para pass perfil permite por problema produce property propiedad public recortada refresca registro res resolver respuesta rest se selecciona seleccionada ser sesi si su subida tama token una usuario utilizada"
+      "keywords": "aceptado actual actualiza actualizados actualizando_mensaje actualizardatos actualizarpassword al alg almacena almacenandolos api atributo booleano caso como contiene contrase controlador controller cookie copernicus correctamente cual cuando cuenta cuentaeliminada dato datos de del devuelto el elimina eliminar eliminarcuenta eliminarla en enviado err error est esta este evt forma foto fotocambiada fotograf fotorecortada fotoseleccionada fue fueron fuese hora indica indicar inicializa inicializacion inicio invocado la los mensaje mensajeerror mensajeexitodatos mensajeexitopass method modifica modificada modificando modificar muestra notificaci nueva objeto obteniendo para pass perfil permite por problema produce property propiedad public recortada refresca registro res resolver respuesta rest se selecciona seleccionada ser sesi si sizemaxfoto su subida tama token una usuario utilizada"
     },
     {
       "section": "public",
@@ -66,7 +66,7 @@ NG_DOCS={
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador es utilizado para mostrar el listado de contactos, mostrar la información de los contactos",
-      "keywords": "actualiza al api bloquea bloqueado bloquear bloquearcontacto bloquearlos contacto contactos contactoseleccionado controlador controller copernicus cuya de del el error es este filtra filtrado filtrar fue hubo indicando informaci inicializacion la listado los method mostrar mostrarcontacto muestra necesario nombre notificaci obtiene para property public quiere res respuesta rest se seleccionado successbloquear successmostrar texot textofiltrar una username usuario utilizado variable"
+      "keywords": "actualiza al api bloquea bloqueado bloquear bloquearcontacto bloquearlos contacto contactos contactoseleccionado controlador controller copernicus cuya de del el error errorbloquear es este filtra filtrado filtrar fue hubo indicando informaci inicializacion la listado los method mostrar mostrarcontacto muestra necesario nombre notificaci obtiene para property public quiere res respuesta rest se seleccionado successbloquear successmostrar texot textofiltrar una username usuario utilizado variable"
     },
     {
       "section": "public",
@@ -156,7 +156,7 @@ NG_DOCS={
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador está encargado de realizar varias gestiones referentes a las salas. Estas son la creación de salas,",
-      "keywords": "acceder acceso acepta aceptada aceptar aceptarsolicitud addcontacto al almacena almacenamiento api aquellos asignar autocompletado autorizado booleano busca buscar campos cerrarpantallasolicitudes cierra comprobarlimitesala comprueba con contacto contactos contactosseleccionados contiene controlador controller copernicus crea creaci creada creando crear crearsala cree cual cuando cuya de defecto del demasiado descripci descripcionnovalida durante el elimina eliminar eliminarseleccionado eliminarsolicitud en encargado encuentra entero enviar envir error erroracceso errorcrear es est estas este evt filtra filtrado filtrar findcontactos findsolicitudes foto fotopordefecto fotorecortada fotos fotoseleccionada fue fueron gestiones ha idsala ignora ignorada ignorar ignorarsolicitud indica indicando informaci inicializa inicializacion intente introducidos invocado la larga las les listado llamando los mandar mandarles mensaje method mostrar muestra necesaria nombre nombrenovalido notificaci nuevo obtener obteniendo obtiene ocurre pantalla para participa pendientes permite permitido permitir por principal problemas property public pueda quiere realizar recibidas recortada redirige referentes refrescando res respuesta rest sala salas salasfiltrado se sean seleccionada seleccionado seleccionados servidor sesi si siendo sizemaxfoto solicitud solicitudes son su successacceso successcrear supera sus tabla tama tarde una uni username usuario usuarios valores variable varias"
+      "keywords": "acceder accedersala acceso acepta aceptada aceptar aceptarsolicitud addcontacto al almacena almacenamiento api aquellos asignar autocompletado autorizado booleano busca buscar campos cerrarpantallasolicitudes cierra comprobarlimitesala comprueba con contacto contactos contactosseleccionados contiene controlador controller copernicus crea creaci creada creando crear crearsala cree cual cuando cuya de defecto del demasiado descripci descripcionnovalida durante el elimina eliminar eliminarseleccionado eliminarsolicitud en encargado encuentra entero enviar envir error erroracceso errorcrear es est estas este evt filtra filtrado filtrar findcontactos findsolicitudes foto fotopordefecto fotorecortada fotos fotoseleccionada fue fueron gestiones ha idsala ignora ignorada ignorar ignorarsolicitud indica indicando informaci inicializa inicializacion intente introducidos invocado la larga las les listado llamando los mandar mandarles mensaje method mostrar muestra necesaria nombre nombrenovalido notificaci nuevo obtener obteniendo obtiene ocurre pantalla para participa pendientes permite permitido permitir por principal problemas property public pueda quiere realizar recibidas recortada redirige referentes refrescando res respuesta rest sala salas salasfiltrado se sean seleccionada seleccionado seleccionados servidor sesi si siendo sizemaxfoto solicitud solicitudes son su successacceso successcrear supera sus tabla tama tarde una uni username usuario usuarios valores variable varias"
     },
     {
       "section": "public",
@@ -174,7 +174,7 @@ NG_DOCS={
       "type": "controller",
       "moduleName": "copernicus",
       "shortDescription": "Este controlador está encargado de gestionar las solicitudes de contacto, mostrandolas y permitiendo aceptarlas",
-      "keywords": "acaba aceptada aceptar aceptarlas aceptarsolicitud al aparecer api cerrarpantallasolicitudes cierra con contacto contactos controlador controller copernicus cuya de debido del dialogo el elimina eliminarsolicitud en encargado err error est este fue gestionar hubo ignorada ignorar ignorarlas ignorarsolicitud indicando inicializa inicializacion la las lista listado los mando mensaje method modo mostrandolas muestra nombre notificaci obteniendo pendientes permite permitiendo problema problemaaceptarsolicitud property public refrescando res respuesta rest se servidor si solicitud solicitudaceptada solicitudes una username usernamemandosolicitud usuario usuarios"
+      "keywords": "acaba aceptada aceptar aceptarlas aceptarsolicitud al aparecer api cerrarpantallasolicitudes cierra con contacto contactos controlador controller copernicus cuya de debido del dialogo el elimina eliminarsolicitud en encargado err error est este fue gestionar hubo ignorada ignorar ignorarlas ignorarsolicitud indicando inicializa inicializacion la las lista listado los mando mensaje method modo mostrandolas muestra nombre notificaci obteniendo pendientes permite permitiendo problema problemaaceptarsolicitud property public refrescando res respuesta rest se servidor si solicitud solicitudaceptada solicitudes solicitudignorada una username usernamemandosolicitud usuario usuarios"
     },
     {
       "section": "public",
@@ -273,7 +273,7 @@ NG_DOCS={
       "type": "function",
       "moduleName": "copernicus",
       "shortDescription": "Este manager se encarga de la gestión del servicio de radio.",
-      "keywords": "abrir al alg antes atributo atributoes cambiaremisoraremoto cambio canci caso comienza como conectados copernicus de del el emisora en encarga env eso est establece establecida establecido este fue function gesti inicializa inicializar introducida la lo los manager method modifica nombre nueva otro pas play por property public radio recibe reproduciendo reproducir reproductor resto sala salaparam se senddata servicio setvolumen significa sonido tuviese una url urlradio username usernameremoto usernameusuario usuario usuarios utilizando valor valores volumen volumenparam"
+      "keywords": "abrir al alg antes atributo atributoes cambiaremisora cambiaremisoraremoto cambio canci caso comienza como conectados copernicus de del el emisora en encarga env eso est establece establecida establecido este fue function gesti inicializa inicializar introducida la lo los manager method modifica nombre nueva otro pas play por property public radio recibe reproduciendo reproducir reproductor resto sala salaparam se senddata servicio setvolumen significa sonido tuviese una url urlradio username usernameremoto usernameusuario usuario usuarios utilizando valor valores volumen volumenparam"
     },
     {
       "section": "public",
@@ -291,7 +291,7 @@ NG_DOCS={
       "type": "function",
       "moduleName": "copernicus",
       "shortDescription": "Este manager se encarga de la gestión del servicio de videollamadas.",
-      "keywords": "acciones activa actualizan actualizar actualizarvideos actualmente al almacene altavoz atributoes audio candidate candidato ciertas cierto coincide colecci como con conecta conectados conexi conexiones constraints copernicus cual cuatro cuyo data de del desactiva desconect desconectado devuelve dimensiones el en encarga entre env envia error errorvideo es esta establece estado este function gesti getmessage hay indica indicando indicia inicia inicializa inicializar iniciarvideollamada inicio invocado la las lo local localpeerconnection los manager manda mensaje mensajes method micr mostrar muestra mute necesarias necesario nombre nuevo objeto ocurri ocurrido oferta offer onanswer oncandidate ondesconectado onoffer operaci operacion otherusername otros par para pasado pausa peerconnection peerconnections por preparaciones produce property public realiza realizada realizar recibe recibida recibido referencia referencias referenciastream relaciona remotas remotes remoto remotos reproductores respuesta resto sala salaparam se sendanswer sendcandidate senddata sendoffer servicio servidore setaltavoz setdesconectado setmicrofono setvideo si silencian silenciar sonido sonidosilenciado stream successvideo tanto todos trav una username usernameorigen usernameusuario usuario usuarios utilizar valores variable video videollamada videollamadas videolocal videoremoto1 videoremoto2 videoremoto3 videos websockets"
+      "keywords": "acciones activa actualizan actualizar actualizarvideos actualmente al almacene altavoz atributoes audio candidate candidato ciertas cierto coincide colecci como con conecta conectados conexi conexiones constraints copernicus cual cuatro cuyo data de del desactiva desconect desconectado devuelve dimensiones el en encarga entre env envia error errorvideo es esta establece estado este function gesti getmessage getusername hay indica indicando indicia inicia inicializa inicializar iniciarvideollamada inicio invocado la las lo local localpeerconnection los manager manda mensaje mensajes method micr mostrar muestra mute necesarias necesario nombre nuevo objeto ocurri ocurrido oferta offer onanswer oncandidate ondesconectado onoffer operaci operacion otherusername otros par para pasado pausa peerconnection peerconnections por preparaciones produce property public realiza realizada realizar recibe recibida recibido referencia referencias referenciastream relaciona remotas remotes remoto remotos reproductores respuesta resto sala salaparam se sendanswer sendcandidate senddata sendoffer servicio servidore setaltavoz setdesconectado setmicrofono setvideo si silencian silenciar sonido sonidosilenciado stream successvideo tanto todos trav una username usernameorigen usernameusuario usuario usuarios utilizar valores variable video videollamada videollamadas videolocal videoremoto1 videoremoto2 videoremoto3 videos websockets"
     },
     {
       "section": "public",
@@ -309,7 +309,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "copernicus",
       "shortDescription": "Servicio encargado de recibir mensajes del servidor de WebSockets y ejecutar e invocar los métodos correspondientes",
-      "keywords": "$translate asistentesmanager chattextomanager copernicus correspondientes crea de del dibujosmanager ejecutar el encargado esos host instancia invocar los managers mensajes partir pasandole presentacionesmanager property public radiomanager recibir se service servicio servidor uri utils videocompartidomanager videollamadasmanager websockets"
+      "keywords": "$translate asistentesmanager chattextomanager copernicus correspondientes crea de del dibujosmanager ejecutar el encargado esos host instancia invocar los managers mensajes partir pasandole presentacionesmanager property public radiomanager recibir se service servicio servidor uri utils videocompartidomanager videollamadasmanager websockets ws"
     },
     {
       "section": "public",
@@ -354,7 +354,7 @@ NG_DOCS={
       "type": "function",
       "moduleName": "copernicus",
       "shortDescription": "Valida si las credenciales del usuario son correctas.",
-      "keywords": "api atributo autenticaci base con configuraci consultas contenida contiene contra contrase copernicus correctas creado credenciales datos dbconfig de del direcci el en es estrategia function la las localstrategy nombre para passport property proporciona realizar referencia seraph si son una usuario usuarios utilizado utilizando utils valida"
+      "keywords": "api atributo autenticaci base con configuraci consultas contenida contiene contra contrase copernicus correctas creado credenciales datos db dbconfig de del direcci el en es estrategia function la las localstrategy nombre para passport property proporciona realizar referencia seraph si son una usuario usuarios utilizado utilizando utils valida"
     },
     {
       "section": "api",
@@ -399,7 +399,7 @@ NG_DOCS={
       "type": "function",
       "moduleName": "copernicus",
       "shortDescription": "Utilizado por Express.js para la ejecución del servidor HTTP.",
-      "keywords": "copernicus del ejecuci express function http js la para por server servidor utilizado"
+      "keywords": "caso copernicus de del devuelve ejecuci el en error escucha express function http indicar invocado js la method ocurra ocurrido onerror onlistening para por port preparado property puerto server servidor utilizado"
     },
     {
       "section": "server",
@@ -435,7 +435,7 @@ NG_DOCS={
       "type": "function",
       "moduleName": "copernicus",
       "shortDescription": "Utilizado por Express.js para la ejecución del servidor de WebSockets.",
-      "keywords": "acaba acci al aplica aquellas booleano broadcast busca cada como comprobaci comprobar comprueba comunicarsela concreta conectado conectados conectar conexi conexion conexiones connections conocer copernicus cual cuando cuyo de del dem desconect desconecta desconectarusuario desconexi devuelve disponible disponibles ejecuci el eliminamos en env enviado enviar enviara error es escucha especificado estaban establece estado excepto express feedback filtrar filtrarporsala function getusuarios hacer indica indicada indicar informaci isjsonstring js json la las lista lo los mand mensaje message method modo nombre obtenemos obtenerinformacionasistentes obtiene ocurre ocurri ocurrido onerror otros par para pasado pertenece por port property puerto realiz respecto resultado sala salas se secci seccion server servidor setdisponibleusuariovideollamada si solo str string tengamos una username usernameenvia usernameseenvia usuario usuarioaccion usuarios utilizado videoconferencia videollamada websockets ws wss ya"
+      "keywords": "acaba acci al aplica aquellas array booleano broadcast busca cada como comprobaci comprobar comprueba comunicarsela con concreta conectado conectados conectar conexi conexion conexiones connections conocer copernicus cual cuando cuyo de del dem desconect desconecta desconectarusuario desconexi devuelve disponible disponibles ejecuci el eliminamos en env enviado enviar enviara error es escucha especificado estaban establece estado excepto express feedback filtrar filtrarporsala function getusuarios hacer indica indicada indicar informaci isjsonstring js json la las lista lo los mand mensaje message method modo nombre obtenemos obtenerinformacionasistentes obtiene ocurre ocurri ocurrido onerror otros par para pasado pertenece por port property puerto realiz realiza respecto resultado sala salas se secci seccion server servidor setdisponibleusuariovideollamada si solo str string tengamos una username usernameenvia usernameseenvia usuario usuarioaccion usuarios utilizado videoconferencia videollamada websocket websockets ws wss ya"
     }
   ],
   "apis": {

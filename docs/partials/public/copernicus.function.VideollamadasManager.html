@@ -27,20 +27,20 @@ un error.</p>
 </div><h5 id="methods_getmessage_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>data</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="getmessage-page"><p>Stream del video local.</p>
 </div></td></tr></tbody></table></div>
 </li>
+<li><h3 id="methods_getusername">getUsername(localPeerConnection)</h3>
+<div class="getusername"><div class="getusername-page"><p>Devuelve el nombre de usuario de la colección de peerConnection cuyo localPeerConnection
+coincide con el pasado como parámetro.</p>
+</div><h5 id="methods_getusername_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>localPeerConnection</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="getusername-page"><p>Objeto localPeerConnection</p>
+</div></td></tr></tbody></table><h5 id="methods_getusername_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="getusername-page"><p>Nombre de usuario de la colección de peerConnection cuyo localPeerConnection
+coincide con el pasado como parámetro</p>
+</div></td></tr></table></div>
+</li>
 <li><h3 id="methods_inicializar">inicializar(username, salaParam)</h3>
 <div class="inicializar"><div class="inicializar-page"><p>Inicializa los valores de los atributoes &#39;usernameUsuario&#39; y &#39;sala&#39;, establece referencias a los cuatro
 reproductores de video e inicializa el video local.</p>
 </div><h5 id="methods_inicializar_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>username</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>Nombre de usuario del usuario.</p>
 </div></td></tr><tr><td>salaParam</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="inicializar-page"><p>ID de la sala.</p>
 </div></td></tr></tbody></table></div>
-</li>
-<li><h3 id="methods_iniciarvideollamada">iniciarVideollamada(localPeerConnection)</h3>
-<div class="iniciarvideollamada"><div class="iniciarvideollamada-page"><p>Devuelve el nombre de usuario de la colección de peerConnection cuyo localPeerConnection
-coincide con el pasado como parámetro.</p>
-</div><h5 id="methods_iniciarvideollamada_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>localPeerConnection</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="iniciarvideollamada-page"><p>Objeto localPeerConnection</p>
-</div></td></tr></tbody></table><h5 id="methods_iniciarvideollamada_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="iniciarvideollamada-page"><p>Nombre de usuario de la colección de peerConnection cuyo localPeerConnection
-coincide con el pasado como parámetro</p>
-</div></td></tr></table></div>
 </li>
 <li><h3 id="methods_iniciarvideollamada">iniciarVideollamada()</h3>
 <div class="iniciarvideollamada"><div class="iniciarvideollamada-page"><p>Inicia la videollamada.</p>
@@ -79,6 +79,12 @@ coincide con el pasado como parámetro</p>
 </div><h5 id="methods_sendcandidate_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>otherUsername</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="sendcandidate-page"><p>Nombre de usuario al que se envía el candidato de conexión.</p>
 </div></td></tr></tbody></table></div>
 </li>
+<li><h3 id="methods_senddata">sendData(operacion)</h3>
+<div class="senddata"><div class="senddata-page"><p>Envia mensajes con la operación realizada a los usuarios conectados a la videollamada a través del servidore
+de WebSockets.</p>
+</div><h5 id="methods_senddata_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>operacion</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="senddata-page"><p>Operación realizada.</p>
+</div></td></tr></tbody></table></div>
+</li>
 <li><h3 id="methods_sendoffer">sendOffer(usernameOrigen)</h3>
 <div class="sendoffer"><div class="sendoffer-page"><p>Envia una oferta a cierto usuario.</p>
 </div><h5 id="methods_sendoffer_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>usernameOrigen</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="sendoffer-page"><p>Nombre de usuario al que se envía la oferta.</p>
@@ -92,12 +98,6 @@ coincide con el pasado como parámetro</p>
 <li><h3 id="methods_setdesconectado">setDesconectado()</h3>
 <div class="setdesconectado"><div class="setdesconectado-page"><p>Establece al usuario como desconectado.</p>
 </div></div>
-</li>
-<li><h3 id="methods_setdesconectado">setDesconectado(operacion)</h3>
-<div class="setdesconectado"><div class="setdesconectado-page"><p>Envia mensajes con la operación realizada a los usuarios conectados a la videollamada a través del servidore
-de WebSockets.</p>
-</div><h5 id="methods_setdesconectado_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>operacion</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="setdesconectado-page"><p>Operación realizada.</p>
-</div></td></tr></tbody></table></div>
 </li>
 <li><h3 id="methods_setmicrofono">setMicrofono(mute)</h3>
 <div class="setmicrofono"><div class="setmicrofono-page"><p>Activa o desactiva el micrófono</p>

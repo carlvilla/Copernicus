@@ -54,7 +54,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
     /**
      * @ngdoc property
-     * @name sizeMaxFoto
+     * @name contactos
      * @propertyOf copernicus.controller:salaController
      * @description
      * Contactos a mostrar en los campos con autocompletado.
@@ -270,7 +270,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
     /**
      * @ngdoc method
-     * @name descripcionNoValida
+     * @name accederSala
      * @methodOf copernicus.controller:salaController
      * @description
      *
@@ -318,8 +318,8 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
             if (sala.nombre.length > 50) {
                 nombreNoValido();
                 return;
-            } else if (sala.descripcion > 200) {
-                utils.mensajeError($translate.instant("DESCRIPCION_SALA_MAX"));
+            } else if (sala.descripcion && sala.descripcion.length > 200) {
+                descripcionNoValida();
                 return;
             }
 

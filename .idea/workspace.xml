@@ -3,9 +3,37 @@
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/utils/passport.js" afterPath="$PROJECT_DIR$/api/utils/passport.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/utils/utils.js" afterPath="$PROJECT_DIR$/api/utils/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/js/docs-setup.js" afterPath="$PROJECT_DIR$/docs/js/docs-setup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.passport.html" afterPath="$PROJECT_DIR$/docs/partials/api/copernicus.function.passport.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.utils.html" afterPath="$PROJECT_DIR$/docs/partials/api/copernicus.function.utils.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.ajustesCuentaController.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.ajustesCuentaController.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.contactosController.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.contactosController.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.salaController.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.salaController.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.solicitudesContactoController.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.solicitudesContactoController.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.videoCompartidoController.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.videoCompartidoController.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.AsistentesManager.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.function.AsistentesManager.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.RadioManager.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.function.RadioManager.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.VideoCompartidoManager.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.function.VideoCompartidoManager.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.VideollamadasManager.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.function.VideollamadasManager.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.service.webSocketService.html" afterPath="$PROJECT_DIR$/docs/partials/public/copernicus.service.webSocketService.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.http.html" afterPath="$PROJECT_DIR$/docs/partials/server/copernicus.function.http.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.websockets.html" afterPath="$PROJECT_DIR$/docs/partials/server/copernicus.function.websockets.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/ajustesCuentaController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/ajustesCuentaController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/contactosController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/contactosController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/solicitudesContactoController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/solicitudesContactoController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/videoCompartidoController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/videoCompartidoController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/managers/AsistentesManager.js" afterPath="$PROJECT_DIR$/public/javascripts/managers/AsistentesManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/managers/RadioManager.js" afterPath="$PROJECT_DIR$/public/javascripts/managers/RadioManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/managers/VideoCompartidoManager.js" afterPath="$PROJECT_DIR$/public/javascripts/managers/VideoCompartidoManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js" afterPath="$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/services/webSocketService.js" afterPath="$PROJECT_DIR$/public/javascripts/services/webSocketService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modulo.js" afterPath="$PROJECT_DIR$/public/modulo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/servers/http.js" afterPath="$PROJECT_DIR$/server/servers/http.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/servers/websockets.js" afterPath="$PROJECT_DIR$/server/servers/websockets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/mainPage.ejs" afterPath="$PROJECT_DIR$/views/mainPage.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs" afterPath="$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,38 +63,18 @@
       <file leaf-file-name="websockets.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/servers/websockets.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="380" column="8" lean-forward="true" selection-start-line="380" selection-start-column="8" selection-end-line="380" selection-end-column="8" />
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contactoController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/controllers/contactoController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-346">
-              <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tests-unitarios.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tests-unitarios.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1305">
-              <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contactosController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/contactosController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1057">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="224">
+              <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -75,31 +83,41 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+            <state relative-caret-position="210">
+              <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
               <folding>
-                <marker date="1498636263000" expanded="true" signature="4537:4801" ph="..." />
-                <marker date="1498636263000" expanded="true" signature="4877:5148" ph="..." />
+                <marker date="1498692795000" expanded="true" signature="4537:4801" ph="..." />
+                <marker date="1498692795000" expanded="true" signature="4877:5148" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="http.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/servers/http.js">
+      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/utils/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+            <state relative-caret-position="329">
+              <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
+      <file leaf-file-name="VideoCompartidoManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideoCompartidoManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="479">
+              <caret line="184" column="6" lean-forward="false" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AsistentesManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/managers/AsistentesManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -108,18 +126,18 @@
       <file leaf-file-name="VideollamadasManager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10065">
-              <caret line="671" column="10" lean-forward="false" selection-start-line="671" selection-start-column="8" selection-end-line="671" selection-end-column="10" />
+            <state relative-caret-position="331">
+              <caret line="770" column="21" lean-forward="false" selection-start-line="770" selection-start-column="21" selection-end-line="770" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="radioController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/radioController.js">
+      <file leaf-file-name="RadioManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/managers/RadioManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="97" column="6" lean-forward="false" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -128,8 +146,18 @@
       <file leaf-file-name="webSocketService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/services/webSocketService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="51" lean-forward="false" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+            <state relative-caret-position="344">
+              <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="passport.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/utils/passport.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="57" column="28" lean-forward="false" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -147,24 +175,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>solicitudesContacto</find>
-      <find>solicitudes</find>
-      <find>enviar</find>
-      <find>validar</find>
-      <find>sala</find>
-      <find>salas</find>
-      <find>registrar</find>
-      <find>checkEmail</find>
-      <find>registra</find>
-      <find>login</find>
-      <find>console.log()</find>
-      <find>console.log(&quot;&quot;)</find>
-      <find>console.log(&quot;H&quot;)</find>
-      <find>console.log(&quot;HO&quot;)</find>
-      <find>regist</find>
-      <find>crearsala</find>
-      <find>participantesSala</find>
-      <find>ELIMinar</find>
       <find>mostrarIn</find>
       <find>participa</find>
       <find>console.log(&quot;HOLA&quot;)</find>
@@ -177,6 +187,24 @@
       <find>servicio-abierto</find>
       <find>ws</find>
       <find>servidor</find>
+      <find>param</find>
+      <find>return</find>
+      <find>no puede se</find>
+      <find>nombre</find>
+      <find>crear</find>
+      <find>PROTECCION_DATOS_6</find>
+      <find>sizeMaxFoto</find>
+      <find>ignorarSolicitud</find>
+      <find>usuario</find>
+      <find>suces</find>
+      <find>cambiarEmisoraRemoto</find>
+      <find>setYoutube</find>
+      <find>iniciarVideollamada</find>
+      <find>setDesconectado</find>
+      <find>HOST</find>
+      <find>dbConfig</find>
+      <find>crypto</find>
+      <find>port</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -212,20 +240,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/javascripts/directives/passwordValidation.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/directives/tooltip.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/directives/usernameValidation.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/managers/DibujosManager.js" />
-        <option value="$PROJECT_DIR$/server/routes/index.js" />
         <option value="$PROJECT_DIR$/server/controllers/pagesControllers.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/server/servers/http.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/accesoSalaController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/ajustesCuentaController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/asistentesController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/bloquearContactoController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/chatTextoController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/contactosController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/dibujosController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/loginController.js" />
@@ -233,35 +253,43 @@
         <option value="$PROJECT_DIR$/public/javascripts/controllers/notificacionesYCabeceraController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/presentacionesController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/radioController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/videoCompartidoController.js" />
         <option value="$PROJECT_DIR$/api/controllers/contactoController.js" />
         <option value="$PROJECT_DIR$/api/controllers/salaController.js" />
         <option value="$PROJECT_DIR$/api/routes/routes.js" />
         <option value="$PROJECT_DIR$/api/config/db.js" />
         <option value="$PROJECT_DIR$/server/routes/middleware.js" />
         <option value="$PROJECT_DIR$/server/routes/routes.js" />
-        <option value="$PROJECT_DIR$/api/utils/passport.js" />
-        <option value="$PROJECT_DIR$/api/utils/utils.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/langController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/videollamadasController.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/services/webSocketService.js" />
         <option value="$PROJECT_DIR$/public/javascripts/util/utils.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js" />
         <option value="$PROJECT_DIR$/views/partials/dialogs/solicitudesContacto.ejs" />
         <option value="$PROJECT_DIR$/views/chatroom.ejs" />
-        <option value="$PROJECT_DIR$/public/modulo.js" />
         <option value="$PROJECT_DIR$/views/about.ejs" />
         <option value="$PROJECT_DIR$/views/legal.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/registroController.js" />
         <option value="$PROJECT_DIR$/api/routes/middleware.js" />
         <option value="$PROJECT_DIR$/api/controllers/usuarioController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/solicitudesContactoController.js" />
-        <option value="$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/mainPage.css" />
         <option value="$PROJECT_DIR$/views/mainPage.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js" />
+        <option value="$PROJECT_DIR$/server/servers/http.js" />
+        <option value="$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs" />
+        <option value="$PROJECT_DIR$/public/modulo.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/ajustesCuentaController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/contactosController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/solicitudesContactoController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/videoCompartidoController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/managers/AsistentesManager.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/managers/RadioManager.js" />
+        <option value="$PROJECT_DIR$/docs/index.html" />
+        <option value="$PROJECT_DIR$/public/javascripts/managers/VideoCompartidoManager.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/services/webSocketService.js" />
+        <option value="$PROJECT_DIR$/api/utils/passport.js" />
+        <option value="$PROJECT_DIR$/api/utils/utils.js" />
         <option value="$PROJECT_DIR$/server/servers/websockets.js" />
       </list>
     </option>
@@ -299,8 +327,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -355,6 +383,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Copernicus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Copernicus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dialogs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Copernicus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Copernicus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -374,6 +442,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="servers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Copernicus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Copernicus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1296,25 +1382,12 @@
       <workItem from="1498486816650" duration="15967000" />
       <workItem from="1498596736012" duration="6584000" />
       <workItem from="1498633078804" duration="4884000" />
+      <workItem from="1498658103327" duration="1790000" />
+      <workItem from="1498676797861" duration="3106000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_tests-unitarios_js - 2017.06.26 at 00h 27m 53s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.26 at 00h 27m 58s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.26 at 00h 28m 48s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.26 at 16h 05m 45s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.28 at 10h 12m 41s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="test_tests-unitarios_js - 2017.06.28 at 10h 13m 02s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -1330,9 +1403,24 @@
     <history-entry file="test_tests-unitarios_js - 2017.06.28 at 11h 42m 53s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.29 at 01h 33m 57s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.29 at 01h 34m 22s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.29 at 01h 34m 58s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.29 at 01h 36m 07s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.06.29 at 01h 38m 10s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1215603000" />
+    <option name="totallyTimeSpent" value="1220499000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1356,13 +1444,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4043716" sideWeight="0.48626816" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802126" sideWeight="0.49353796" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.73828757" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24474959" sideWeight="0.5315682" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329235" sideWeight="0.73828757" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12978142" sideWeight="0.73828757" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12978142" sideWeight="0.73828757" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3206785" sideWeight="0.46843177" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33037156" sideWeight="0.46843177" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1426,55 +1514,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/accesoSalaController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="18" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/util/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="173" column="41" lean-forward="false" selection-start-line="173" selection-start-column="41" selection-end-line="173" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/ajustesCuentaController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4050">
-          <caret line="270" column="0" lean-forward="false" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/notificacionesYCabeceraController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="105" column="72" lean-forward="false" selection-start-line="105" selection-start-column="72" selection-end-line="105" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/asistentesController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="101" column="59" lean-forward="false" selection-start-line="101" selection-start-column="59" selection-end-line="101" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/dialogs/addContacto.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/dialogs/solicitudesContacto.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
@@ -1503,24 +1542,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-733">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/usuarioController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/salaController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="383" column="4" lean-forward="false" selection-start-line="383" selection-start-column="4" selection-end-line="383" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1559,65 +1584,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/legal.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes/middleware.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-853">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/routes/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="66" column="10" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/controllers/pagesControllers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-832">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideoCompartidoManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/AsistentesManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2340">
-          <caret line="156" column="10" lean-forward="false" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/modulo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3390">
-          <caret line="226" column="21" lean-forward="false" selection-start-line="226" selection-start-column="21" selection-end-line="226" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/RadioManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -1643,20 +1612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="92" column="26" lean-forward="false" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/solicitudesContactoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="52" column="27" lean-forward="false" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
@@ -1668,7 +1623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1095">
           <caret line="73" column="33" lean-forward="false" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1676,7 +1630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1691,23 +1644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="73" lean-forward="false" selection-start-line="0" selection-start-column="73" selection-end-line="0" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/ChatTextoManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1890">
-          <caret line="126" column="21" lean-forward="false" selection-start-line="126" selection-start-column="21" selection-end-line="126" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/videoCompartidoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1715,7 +1651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2610">
           <caret line="174" column="61" lean-forward="false" selection-start-line="174" selection-start-column="61" selection-end-line="174" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1723,65 +1658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/services/webSocketService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="51" lean-forward="false" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10065">
-          <caret line="671" column="10" lean-forward="false" selection-start-line="671" selection-start-column="8" selection-end-line="671" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding>
-            <marker date="1498636263000" expanded="true" signature="4537:4801" ph="..." />
-            <marker date="1498636263000" expanded="true" signature="4877:5148" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/contactosController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1057">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/controllers/contactoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-346">
-          <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/servers/websockets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="380" column="8" lean-forward="true" selection-start-line="380" selection-start-column="8" selection-end-line="380" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1794,10 +1670,237 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/routes/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="66" column="10" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/PresentacionesManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/controllers/contactoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="452" column="89" lean-forward="false" selection-start-line="452" selection-start-column="83" selection-end-line="452" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/servers/http.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/ChatTextoManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="126" column="21" lean-forward="false" selection-start-line="126" selection-start-column="21" selection-end-line="126" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/DibujosManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-983">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/middleware.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/directives/confirmAction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1890">
+          <caret line="126" column="28" lean-forward="false" selection-start-line="126" selection-start-column="28" selection-end-line="126" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/dialogs/datosContacto.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/legal.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="66" column="36" lean-forward="false" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/modulo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="365" column="262" lean-forward="false" selection-start-line="365" selection-start-column="262" selection-end-line="365" selection-end-column="262" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/ajustesCuentaController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="63" column="24" lean-forward="false" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/contactosController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="136" column="26" lean-forward="false" selection-start-line="136" selection-start-column="26" selection-end-line="136" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/salaController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="59" column="40" lean-forward="false" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/solicitudesContactoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="135" column="27" lean-forward="false" selection-start-line="135" selection-start-column="27" selection-end-line="135" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/videoCompartidoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/AsistentesManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/RadioManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="97" column="6" lean-forward="false" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideoCompartidoManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="184" column="6" lean-forward="false" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/managers/VideollamadasManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="770" column="21" lean-forward="false" selection-start-line="770" selection-start-column="21" selection-end-line="770" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/services/webSocketService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/passport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="57" column="28" lean-forward="false" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding>
+            <marker date="1498692795000" expanded="true" signature="4537:4801" ph="..." />
+            <marker date="1498692795000" expanded="true" signature="4877:5148" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/servers/websockets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
           <folding />
         </state>
       </provider>

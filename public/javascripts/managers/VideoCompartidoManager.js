@@ -175,7 +175,7 @@ function VideoCompartidoManager(ws, utils, $translate) {
 
     /**
      * @ngdoc method
-     * @name setYoutube
+     * @name sendData
      * @methodOf copernicus.function:VideoCompartidoManager
      * @description
      *

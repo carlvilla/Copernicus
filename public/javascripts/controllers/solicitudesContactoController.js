@@ -129,7 +129,7 @@ copernicus.controller('solicitudesContactoController', function ($scope, $http, 
 
     /**
      * @ngdoc method
-     * @name ignorarSolicitud
+     * @name solicitudIgnorada
      * @methodOf copernicus.controller:solicitudesContactoController
      * @description
      * Muestra una notificación indicando que la solicitud fue ignorada.

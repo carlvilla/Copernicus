@@ -9,7 +9,12 @@ aceptar o ignorar solicitudes de unión a salas, obtener el listado de salas en 
 permitir su filtrado, y permitir a los usuarios acceder a las salas.</p>
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
-<ul class="methods"><li><h3 id="methods_aceptarsolicitud">aceptarSolicitud(idSala)</h3>
+<ul class="methods"><li><h3 id="methods_accedersala">accederSala(idSala)</h3>
+<div class="accedersala"><div class="accedersala-page"><p>Permite el acceso a las salas.</p>
+</div><h5 id="methods_accedersala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>idSala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="accedersala-page"><p>ID de la sala a la que se quiere acceder.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_aceptarsolicitud">aceptarSolicitud(idSala)</h3>
 <div class="aceptarsolicitud"><div class="aceptarsolicitud-page"><p>Acepta una solicitud a una sala</p>
 </div><h5 id="methods_aceptarsolicitud_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>idSala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="aceptarsolicitud-page"><p>ID de la sala cuya solicitud de unión fue aceptada por el usuario.</p>
 </div></td></tr></tbody></table></div>
@@ -30,11 +35,6 @@ la sala creada.</p>
 <li><h3 id="methods_crearsala">crearSala(sala)</h3>
 <div class="crearsala"><div class="crearsala-page"><p>Comprueba que los valores introducidos para crear la sala sean válido y, si es así, la crea.</p>
 </div><h5 id="methods_crearsala_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>sala</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="crearsala-page"><p>Contiene la información de la sala.</p>
-</div></td></tr></tbody></table></div>
-</li>
-<li><h3 id="methods_descripcionnovalida">descripcionNoValida(idSala)</h3>
-<div class="descripcionnovalida"><div class="descripcionnovalida-page"><p>Permite el acceso a las salas.</p>
-</div><h5 id="methods_descripcionnovalida_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>idSala</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="descripcionnovalida-page"><p>ID de la sala a la que se quiere acceder.</p>
 </div></td></tr></tbody></table></div>
 </li>
 <li><h3 id="methods_descripcionnovalida">descripcionNoValida()</h3>
@@ -109,7 +109,11 @@ almacenamiento de la sesión, y redirige al usuario a la sala</p>
 </ul>
 </div>
 <div class="member property"><h2 id="properties">Properties</h2>
-<ul class="properties"><li><h3 id="properties_contactosseleccionados">contactosSeleccionados</h3>
+<ul class="properties"><li><h3 id="properties_contactos">contactos</h3>
+<div class="contactos"><div class="contactos-page"><p>Contactos a mostrar en los campos con autocompletado.</p>
+</div></div>
+</li>
+<li><h3 id="properties_contactosseleccionados">contactosSeleccionados</h3>
 <div class="contactosseleccionados"><div class="contactosseleccionados-page"><p>Contactos que fueron seleccionados para mandarles una solicitud de unión durante la creación de una sala.</p>
 </div></div>
 </li>
@@ -131,10 +135,6 @@ almacenamiento de la sesión, y redirige al usuario a la sala</p>
 </li>
 <li><h3 id="properties_sizemaxfoto">sizeMaxFoto</h3>
 <div class="sizemaxfoto"><div class="sizemaxfoto-page"><p>Entero que indica el tamaño máximo permitido de las fotos.</p>
-</div></div>
-</li>
-<li><h3 id="properties_sizemaxfoto">sizeMaxFoto</h3>
-<div class="sizemaxfoto"><div class="sizemaxfoto-page"><p>Contactos a mostrar en los campos con autocompletado.</p>
 </div></div>
 </li>
 </ul>

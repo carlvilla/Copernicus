@@ -362,7 +362,7 @@ function VideollamadasManager(ws) {
 
     /**
      * @ngdoc method
-     * @name iniciarVideollamada
+     * @name getUsername
      * @methodOf copernicus.function:VideollamadasManager
      * @description
      * Devuelve el nombre de usuario de la colección de peerConnection cuyo localPeerConnection
@@ -764,7 +764,7 @@ function VideollamadasManager(ws) {
 
     /**
      * @ngdoc method
-     * @name setDesconectado
+     * @name sendData
      * @methodOf copernicus.function:VideollamadasManager
      * @description
      * Envia mensajes con la operación realizada a los usuarios conectados a la videollamada a través del servidore

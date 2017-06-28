@@ -28,7 +28,7 @@ function AsistentesManager(ws) {
 
     /**
      * @ngdoc property
-     * @name usuario
+     * @name sala
      * @propertyOf copernicus.function:AsistentesManager
      * @description
      * Datos de la sala.

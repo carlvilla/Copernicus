@@ -130,8 +130,8 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "ACTUALIZAR_PASS": 'Actualizar contraseña',
         "DATOS_ACTUALIZADOS_CORRECTAMENTE": 'Datos actualizados correctamente',
         "NOMBRE_SALA_NO_VACIO": 'El nombre de la sala no puede estar vacio',
-        "NOMBRE_SALA_MAX": 'El nombre de la sala no puede se mayor a 50 carácteres',
-        "DESCRIPCION_SALA_MAX": 'La descripción de la sala no puede se mayor a 200 carácteres',
+        "NOMBRE_SALA_MAX": 'El nombre de la sala no puede ser mayor a 50 carácteres',
+        "DESCRIPCION_SALA_MAX": 'La descripción de la sala no puede ser mayor a 200 carácteres',
         "DATOS_INTRODUCIDOS_INCORRECTOS": 'Los datos introducidos no son válidos',
         "DATOS_INTRODUCIDOS_INCORRECTOS_CORREO": 'Los datos introducidos no son válidos. Compruebe que el email sea correcto',
         "NOMBRE_ERRONEO": 'El nombre solo puede tener entre 2 y 15 carácteres',
@@ -187,7 +187,7 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "PROTECCION_DATOS_3":'Los datos de carácter personal que nos ha suministrado en esta y otras comunicaciones mantenidas con usted serán objeto de tratamiento en los ficheros responsabilidad de Carlos Villa Blanco.',
         "PROTECCION_DATOS_4":'La finalidad del tratamiento es la de gestionar de forma adecuada la prestación del servicio que nos ha requerido. Asimismo estos datos no serán cedidos a terceros, salvo las cesiones legalmente permitidas.',
         "PROTECCION_DATOS_5":'Su negativa a suministrar los datos obligatorios solicitados implica la imposibilidad prestarle el servicio.',
-        "PROTECCION_DATOS_6":'Asimismo, le informamos de la posibilidad de ejercitar los correspondiente derechos de acceso, rectificación, cancelación y oposición de conformidad con lo establecido en la Ley 15/1999 ante Carlos Villa Blanco como responsable del fichero. Los derechos mencionados los puede ejercitar a través de los siguientes medios: carlosvillablanco@gmail.com'
+        "PROTECCION_DATOS_6":'Asimismo, le informamos de la posibilidad de ejercitar los correspondiente derechos de acceso, rectificación, cancelación y oposición de conformidad con lo establecido en la Ley 15/1999 ante Carlos Villa Blanco como responsable del fichero. Los derechos mencionados los puede ejercitar a través de los siguientes medios: uo236851@uniovi.es'
        });
 
     $translateProvider.translations('en', {
@@ -367,7 +367,7 @@ copernicus.config(['$translateProvider', function ($translateProvider) {
         "PROTECCION_DATOS_3":'The personal data that you have provided us in this and other communications will be processed in the files that are responsability of Carlos Villa Blanco.',
         "PROTECCION_DATOS_4":'The purpose of the treatment is to properly provide the service of this platform. Likewise, these data will not be transferred to third parties, except for legally permitted activities.',
         "PROTECCION_DATOS_5":'Your refusal to provide the required requested data implies the impossibility of providing the service.',
-        "PROTECCION_DATOS_6":'We also inform you of the possibility of exercising the corresponding rights of access, rectification, cancellation and opposition in accordance with the Law 15/1999 where Carlos Villa Blanco is the responsible for the file. The mentioned rights can be exercised through the following means: carlosvillablanco@gmail.com'
+        "PROTECCION_DATOS_6":'We also inform you of the possibility of exercising the corresponding rights of access, rectification, cancellation and opposition in accordance with the Law 15/1999 where Carlos Villa Blanco is the responsible for the file. The mentioned rights can be exercised through the following means: uo236851@uniovi.es'
 
     })
 
