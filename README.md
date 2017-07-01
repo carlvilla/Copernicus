@@ -1,2 +1,2 @@
 # Copernicus
-Aplicación web de videoconferencias para mi trabajo de fin de grado.
+Plataforma de comunicaciones para mi trabajo de fin de grado.
