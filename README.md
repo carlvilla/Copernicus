@@ -2,6 +2,8 @@
 
 Plataforma de comunicaciones para mi trabajo de fin de grado.
 
+[![Build Status](https://travis-ci.com/carlvilla/Copernicus.svg?token=aJzHjLbR53QnhrMdqpW5&branch=master)](https://travis-ci.com/carlvilla/Copernicus)
+
 ## Resumen
 
 El famoso astrónomo Nicolás Copérnico dedicó gran parte de su trabajo al desarrollo del modelo heliocéntrico, el cual explica que los planetas giran alrededor del sol y que este se encuentra en el centro del universo. De esta premisa proviene el nombre “Copernicus”, una plataforma web de comunicaciones cuyo principal objetivo es ser el centro de todas las comunicaciones de sus usuarios.
