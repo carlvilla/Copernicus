@@ -23,10 +23,12 @@ var tokenUsuario4;
 var tokenUsuario5;
 
 //Preparamos la base de datos antes de realizar los tests
-before(function () {
+before(function (done) {
     db.query(deleteDBQuery, function (err, result) {
         if (err)
             throw err;
+        else
+            done();
     });
 });
 

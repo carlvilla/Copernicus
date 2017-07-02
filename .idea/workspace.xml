@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/routes/middleware.js" afterPath="$PROJECT_DIR$/api/routes/middleware.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/tests-unitarios.js" afterPath="$PROJECT_DIR$/test/tests-unitarios.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,8 +32,8 @@
       <file leaf-file-name="tests-unitarios.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="280">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1295,17 +1294,11 @@
       <workItem from="1498819512035" duration="372000" />
       <workItem from="1498826585512" duration="337000" />
       <workItem from="1498866007090" duration="412000" />
-      <workItem from="1499002243458" duration="1024000" />
+      <workItem from="1499002243458" duration="1179000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 46m 39s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 47m 31s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 48m 30s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -1330,9 +1323,15 @@
     <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 49m 51s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 52m 50s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 53m 22s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1224587000" />
+    <option name="totallyTimeSpent" value="1224742000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1779,8 +1778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        <state relative-caret-position="280">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
