@@ -652,7 +652,7 @@ module.exports.checkPosibleEliminar = function (req, res, next) {
                         if (err) {
                             utils.sendJSONresponse(res, 500, err);
                         } else {
-                            if (result[0].type == 'Miembro') {
+                            if (result[0] && result[0].type == 'Miembro') {
                                 next();
                             } else {
                                 utils.sendJSONresponse(res, 400, err);
