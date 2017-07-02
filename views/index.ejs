@@ -158,7 +158,8 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <button ng-disabled="registerForm.confirmPassword.$error.samepass"
+                                                <button ng-disabled="registerForm.confirmPassword.$error.samepass
+                                                || messages.showError"
                                                         class="form-control btn-success" type="submit"
                                                         id="register-submit"
                                                         translate="REGISTRARSE"></button>
