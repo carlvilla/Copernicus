@@ -145,7 +145,6 @@ copernicus.controller('registroController', function ($scope, $http, $window, $c
     function error(err) {
         if (!utils.checkDatabaseError(err)) {
             utils.mensajeError($translate.instant("DATOS_INTRODUCIDOS_INCORRECTOS_CORREO"));
-            $scope.messages.showError = true;
         }
     }
 
