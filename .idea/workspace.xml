@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/routes/middleware.js" afterPath="$PROJECT_DIR$/api/routes/middleware.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/tests-unitarios.js" afterPath="$PROJECT_DIR$/test/tests-unitarios.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,8 +33,18 @@
       <file leaf-file-name="tests-unitarios.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+            <state relative-caret-position="174">
+              <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="middleware.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/routes/middleware.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="659" column="25" lean-forward="true" selection-start-line="659" selection-start-column="25" selection-end-line="659" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -1284,44 +1295,44 @@
       <workItem from="1498819512035" duration="372000" />
       <workItem from="1498826585512" duration="337000" />
       <workItem from="1498866007090" duration="412000" />
-      <workItem from="1499002243458" duration="553000" />
+      <workItem from="1499002243458" duration="1024000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_tests-unitarios_js - 2017.06.29 at 23h 29m 45s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 46m 39s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.30 at 12h 29m 59s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 47m 31s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.30 at 12h 30m 43s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 48m 30s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.06.30 at 12h 31m 04s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 48m 38s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 36m 12s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 48m 50s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 36m 24s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 49m 00s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 37m 52s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 49m 14s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 39m 32s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 49m 25s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 39m 44s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 49m 38s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 40m 06s.xml">
+    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 49m 51s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1224116000" />
+    <option name="totallyTimeSpent" value="1224587000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1346,7 +1357,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802126" sideWeight="0.49353796" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24474959" sideWeight="0.5315682" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329235" sideWeight="0.73828757" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329235" sideWeight="0.73828757" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3374317" sideWeight="0.73828757" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1723,13 +1734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/routes/middleware.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="33" column="15" lean-forward="false" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/controllers/usuarioController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1765,10 +1769,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/routes/middleware.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="659" column="25" lean-forward="true" selection-start-line="659" selection-start-column="25" selection-end-line="659" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/tests-unitarios.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+        <state relative-caret-position="174">
+          <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
           <folding />
         </state>
       </provider>
