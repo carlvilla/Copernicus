@@ -22,14 +22,14 @@ var tokenUsuario3;
 var tokenUsuario4;
 var tokenUsuario5;
 
-describe('Pruebas unitarias', function () {
-
-    //Preparamos la base de datos antes de realizar los tests
-    before(function () {
-        db.query(deleteDBQuery, function (err, result) {
-            if (err) throw err;
-        });
+//Preparamos la base de datos antes de realizar los tests
+before(function () {
+    db.query(deleteDBQuery, function (err, result) {
+        if (err) throw err;
     });
+});
+
+describe('Pruebas unitarias', function () {
 
     describe('Registrarse', function () {
 
