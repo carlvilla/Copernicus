@@ -40,11 +40,27 @@ copernicus.controller('contactosController', function ($scope, $http, $window, u
      **/
     $scope.textoFiltrar;
 
+    /**
+     * @ngdoc method
+     * @name success
+     * @methodOf copernicus.controller:contactosController
+     * @description
+     * Almacena los contactos recuperados de la petición a la API REST.
+     *
+     **/
     function success(res) {
         $scope.contactos = res.data;
         contactos = res.data;
     }
 
+    /**
+     * @ngdoc method
+     * @name error
+     * @methodOf copernicus.controller:contactosController
+     * @description
+     * Invocado si ocurrió un error al recuperar los contactos.
+     *
+     **/
     function error() {
         console.log("Ocurrió un error al recuperar los contactos");
     }

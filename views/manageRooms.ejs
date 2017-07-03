@@ -169,7 +169,7 @@
                                     ng-init="contacto.permisos = participante.user.permisos"
                                     ng-disabled="miembro || (!admin && participante.user.permisos=='Moderador')
                                      || (participante.user.permisos=='Admin')"
-                                    ng-change="cambiarPermisos(participante.user.username)">
+                                    ng-change="cambiarPermisos(participante.user)">
                                 <option value="Miembro">{{'MIEMBRO' | translate}}</option>
                                 <option value="Moderador">{{'MODERADOR' | translate}}</option>
                                 <option value="Admin" ng-show="false">{{'ADMIN' | translate}}</option>

@@ -380,7 +380,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
      * @description
      * Elimina la sala seleccionada
      *
-     * @param {objectc} participante Objeto con el participante al que se le cambian los permisos y los nuevos permisos
+     * @param {object} participante Objeto con el participante al que se le cambian los permisos y los nuevos permisos
      * que se le otorgan.
      *
      **/
@@ -396,7 +396,6 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
         }).then(function (res) {
             utils.mensajeSuccess($translate.instant("PERMISOS_USUARIO_CAMBIADOS"));
         }, error)
-
     }
 
     /**
@@ -406,7 +405,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
      * @description
      * Cambiar los permisos de una solicitud de unión a salas.
      *
-     * @param {objectc} participante Objeto con el usuario cuyos permisos de la solicitud de unión a la sala se
+     * @param {object} candidato Objeto con el usuario cuyos permisos de la solicitud de unión a la sala se
      * modifican y los nuevos permisos que se otorgan.
      *
      **/
@@ -432,7 +431,7 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
      * @description
      * Comprueba si un usuario ya fue añadido a una sala o si ya se le mandó una solicitud de unión.
      *
-     * @param {objectc} usuario Datos del usuario.
+     * @param {object} usuario Datos del usuario.
      * @return {boolean} Indica si el usuario ya fue añadido a una sala o si ya se le mandó una solicitud de unión.
      *
      **/
@@ -524,9 +523,6 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
      *
      **/
     $scope.eliminarSolicitudSala = function (username) {
-
-        console.log("Eliminar solicitud: " + username);
-
         $http({
             method: "POST",
             url: "api/eliminarSolicitudSala",
