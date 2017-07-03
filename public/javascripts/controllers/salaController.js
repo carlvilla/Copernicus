@@ -60,7 +60,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
      * Contactos a mostrar en los campos con autocompletado.
      *
      **/
-    $scope.contactos = {};
+    $scope.contactos = [];
 
     /**
      * @ngdoc property
