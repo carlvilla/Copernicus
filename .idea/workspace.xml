@@ -2,78 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/animations.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/doc_widgets.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/docs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/font-awesome.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/prettify.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/grunt-scripts/angular-animate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/grunt-scripts/angular.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/angular-bootstrap-prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/angular-bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/angular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/docs-setup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/docs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/google-code-prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/marked.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.contactoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.db.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.middleware.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.passport.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.routes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.salaController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.usuarioController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.utils.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.accesoSalaController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.addContactoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.ajustesCuentaController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.asistentesController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.bloquearContactoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.chatTextoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.contactosController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.dibujosController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.gestionarSalasController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.langController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.loginController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.logoutController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.notificacionesYCabeceraController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.presentacionesController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.radioController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.registroController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.salaController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.serviciosController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.solicitudesContactoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.videoCompartidoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.videollamadasController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.directive.ngConfirmClick.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.directive.passwordValidation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.directive.tooltip.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.directive.usernameValidation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.AsistentesManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.ChatTextoManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.DibujosManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.PresentacionesManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.RadioManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.VideoCompartidoManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.VideollamadasManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.service.utils.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.service.webSocketService.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/overview.copernicus.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.http.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.middleware.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.pagesController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.routes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.websockets.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -99,22 +29,32 @@
     <favorites_list name="Copernicus" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="registroController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/registroController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1601">
+            <state relative-caret-position="1920">
               <caret line="128" column="24" lean-forward="false" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="salaController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="salaController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/salaController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="60" column="6" lean-forward="true" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
+            <state relative-caret-position="615">
+              <caret line="41" column="8" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addContactoController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="77" column="13" lean-forward="true" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -123,7 +63,7 @@
       <file leaf-file-name="gestionarSalasController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
+            <state relative-caret-position="2085">
               <caret line="139" column="19" lean-forward="false" selection-start-line="139" selection-start-column="19" selection-end-line="139" selection-end-column="19" />
               <folding />
             </state>
@@ -152,7 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pass</find>
       <find>showError</find>
       <find>error</find>
       <find>scroll</find>
@@ -182,6 +121,7 @@
       <find>contactos</find>
       <find>contactosSe</find>
       <find>$scope.contactos</find>
+      <find>mensajeSuccess</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -237,7 +177,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/controllers/videollamadasController.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/public/javascripts/util/utils.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js" />
         <option value="$PROJECT_DIR$/views/partials/dialogs/solicitudesContacto.ejs" />
         <option value="$PROJECT_DIR$/views/chatroom.ejs" />
         <option value="$PROJECT_DIR$/views/about.ejs" />
@@ -268,6 +207,7 @@
         <option value="$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js" />
       </list>
     </option>
   </component>
@@ -305,6 +245,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -706,7 +647,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1375,7 +1315,8 @@
       <workItem from="1499011280999" duration="1697000" />
       <workItem from="1499081835069" duration="1305000" />
       <workItem from="1499083939274" duration="2181000" />
-      <workItem from="1499116609263" duration="1884000" />
+      <workItem from="1499116609263" duration="2018000" />
+      <workItem from="1499121547815" duration="114000" />
     </task>
     <servers />
   </component>
@@ -1412,7 +1353,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1231952000" />
+    <option name="totallyTimeSpent" value="1232200000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1436,15 +1377,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4043716" sideWeight="0.48626816" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802126" sideWeight="0.49353796" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329235" sideWeight="0.73828757" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.73828757" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24474959" sideWeight="0.5315682" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29234973" sideWeight="0.73828757" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29234973" sideWeight="0.73828757" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25121164" sideWeight="0.46843177" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2552504" sideWeight="0.46843177" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.26171243" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1457,6 +1397,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.26171243" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1506,13 +1447,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/servicios/presentaciones.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="73" lean-forward="false" selection-start-line="0" selection-start-column="73" selection-end-line="0" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2610">
@@ -1713,7 +1647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1742,7 +1675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="1211" column="11" lean-forward="false" selection-start-line="1211" selection-start-column="11" selection-end-line="1211" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1750,7 +1682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
           <caret line="83" column="17" lean-forward="false" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1764,13 +1695,6 @@
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/accesoSalaController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-346">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-269">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -1826,7 +1750,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/registroController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1601">
+        <state relative-caret-position="1920">
           <caret line="128" column="24" lean-forward="false" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
           <folding />
         </state>
@@ -1836,7 +1760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="160" column="66" lean-forward="false" selection-start-line="160" selection-start-column="59" selection-end-line="160" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1850,7 +1773,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
+        <state relative-caret-position="2085">
           <caret line="139" column="19" lean-forward="false" selection-start-line="139" selection-start-column="19" selection-end-line="139" selection-end-column="19" />
           <folding />
         </state>
@@ -1860,14 +1783,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="51" lean-forward="false" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/salaController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="6" lean-forward="true" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
+        <state relative-caret-position="615">
+          <caret line="41" column="8" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/util/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1986">
+          <caret line="144" column="27" lean-forward="false" selection-start-line="144" selection-start-column="13" selection-end-line="144" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="77" column="13" lean-forward="true" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
           <folding />
         </state>
       </provider>

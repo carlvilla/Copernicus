@@ -67,7 +67,7 @@ copernicus.controller('addContactoController', function ($scope, $http, utils, $
             data: angular.toJson(datos)
         }).then(function (res) {
 
-            utils.mensajeInfo($translate.instant("SOLICITUD_CONTACTO_ENVIADA"));
+            utils.mensajeSuccess($translate.instant("SOLICITUD_CONTACTO_ENVIADA"));
 
             //Es necesario borrar de la lista al usuario al que acabamos de mandar la solicitud, sino
             //nos volverá a dejar envirle otra
