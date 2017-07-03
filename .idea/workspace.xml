@@ -2,82 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70285bdd-82c9-4256-bb10-10f86843c5c5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/animations.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/doc_widgets.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/docs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/font-awesome.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/css/prettify.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/font/fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/grunt-scripts/angular-animate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/grunt-scripts/angular.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/angular-bootstrap-prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/angular-bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/angular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/docs-setup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/docs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/google-code-prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/js/marked.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.contactoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.db.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.middleware.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.passport.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.routes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.salaController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.usuarioController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/api/copernicus.function.utils.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.LangController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.accesoSalaController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.addContactoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.ajustesCuentaController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.asistentesController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.bloquearContactoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.chatTextoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.contactosController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.dibujosController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.gestionarSalasController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.loginController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.logoutController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.notificacionesYCabeceraController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.presentacionesController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.radioController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.registroController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.salaController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.serviciosController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.solicitudesContactoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.videoCompartidoController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.controller.videollamadasController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.directive.ngConfirmClick.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.directive.passwordValidation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.directive.tooltip.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.directive.usernameValidation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.directive.webSocketService.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.AsistentesManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.ChatTextoManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.DibujosManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.PresentacionesManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.RadioManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.VideoCompartidoManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.function.VideollamadasManager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.service.Utils.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/copernicus.service.webSocketService.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/public/overview.copernicus.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.http.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.middleware.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.pagesController.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.routes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/partials/server/copernicus.function.websockets.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/controllers/salaController.js" afterPath="$PROJECT_DIR$/api/controllers/salaController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/contactosController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/contactosController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/manageRooms.ejs" afterPath="$PROJECT_DIR$/views/manageRooms.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" afterPath="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs" afterPath="$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,101 +31,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gestionarSalasController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js">
+      <file leaf-file-name="registroController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/registroController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3012">
-              <caret line="427" column="20" lean-forward="false" selection-start-line="427" selection-start-column="20" selection-end-line="427" selection-end-column="20" />
+            <state relative-caret-position="1601">
+              <caret line="128" column="24" lean-forward="false" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dibujosController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/dibujosController.js">
+      <file leaf-file-name="salaController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/salaController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="222">
+              <caret line="311" column="26" lean-forward="false" selection-start-line="311" selection-start-column="15" selection-end-line="311" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manageRooms.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/manageRooms.ejs">
+      <file leaf-file-name="crearSala.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="171" column="31" lean-forward="false" selection-start-line="171" selection-start-column="31" selection-end-line="171" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contactosController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/contactosController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1381">
-              <caret line="64" column="39" lean-forward="false" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="accesoSalaController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/accesoSalaController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-346">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addContactoController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/addContactoController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-269">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajustesCuentaController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/ajustesCuentaController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2487">
-              <caret line="63" column="24" lean-forward="false" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="asistentesController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/asistentesController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1366">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bloquearContactoController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/bloquearContactoController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chatTextoController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/chatTextoController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="1365">
+              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -216,10 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>HOST</find>
-      <find>dbConfig</find>
-      <find>crypto</find>
-      <find>port</find>
       <find>validarUsername/</find>
       <find>validarUsername</find>
       <find>DATOS_INTRODUCIDOS_INCORRECTOS</find>
@@ -246,6 +99,10 @@
       <find>console</find>
       <find>checkAdminSiCambioAModerador</find>
       <find>objectc</find>
+      <find>crear</find>
+      <find>btn-crear-sala</find>
+      <find>crearSala</find>
+      <find>disable</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -311,9 +168,7 @@
         <option value="$PROJECT_DIR$/views/mainPage.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/serviciosController.js" />
         <option value="$PROJECT_DIR$/server/servers/http.js" />
-        <option value="$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/ajustesCuentaController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/solicitudesContactoController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/videoCompartidoController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/managers/AsistentesManager.js" />
@@ -332,6 +187,8 @@
         <option value="$PROJECT_DIR$/api/routes/middleware.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/contactosController.js" />
         <option value="$PROJECT_DIR$/public/javascripts/controllers/gestionarSalasController.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers/salaController.js" />
+        <option value="$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs" />
       </list>
     </option>
   </component>
@@ -369,7 +226,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -771,6 +627,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1438,14 +1295,12 @@
       <workItem from="1499002243458" duration="1322000" />
       <workItem from="1499011280999" duration="1697000" />
       <workItem from="1499081835069" duration="1305000" />
-      <workItem from="1499083939274" duration="1627000" />
+      <workItem from="1499083939274" duration="2181000" />
+      <workItem from="1499116609263" duration="1028000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 49m 14s.xml">
-      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="test_tests-unitarios_js - 2017.07.02 at 15h 49m 25s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -1473,9 +1328,12 @@
     <history-entry file="test_tests-unitarios_js - 2017.07.03 at 14h 24m 54s.xml">
       <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="test_tests-unitarios_js - 2017.07.03 at 23h 29m 47s.xml">
+      <configuration name="test/tests-unitarios.js" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1229514000" />
+    <option name="totallyTimeSpent" value="1231096000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1488,6 +1346,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.49353796" order="6" side_tool="false" content_ui="tabs" />
@@ -1498,13 +1357,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4043716" sideWeight="0.48626816" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802126" sideWeight="0.49353796" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329235" sideWeight="0.73828757" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24474959" sideWeight="0.5315682" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.73828757" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34836066" sideWeight="0.73828757" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14617486" sideWeight="0.73828757" order="10" side_tool="true" content_ui="tabs" x="21" y="262" width="1238" height="276" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24717286" sideWeight="0.46843177" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25121164" sideWeight="0.46843177" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329235" sideWeight="0.26171243" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1652,24 +1511,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/legal.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="66" column="36" lean-forward="false" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/salaController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="59" column="40" lean-forward="false" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1778,24 +1623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="161" column="69" lean-forward="false" selection-start-line="161" selection-start-column="60" selection-end-line="161" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/directives/passwordValidation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/registroController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="139" column="53" lean-forward="false" selection-start-line="139" selection-start-column="53" selection-end-line="139" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1848,7 +1679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-105">
           <caret line="205" column="33" lean-forward="false" selection-start-line="205" selection-start-column="33" selection-end-line="205" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1856,10 +1686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding>
-            <marker date="1499085202000" expanded="true" signature="4537:4801" ph="..." />
-            <marker date="1499085202000" expanded="true" signature="4877:5148" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1867,7 +1693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-346">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1875,7 +1700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-269">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1883,7 +1707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2487">
           <caret line="63" column="24" lean-forward="false" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1891,7 +1714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1366">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1899,7 +1721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1907,7 +1728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1915,7 +1735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1381">
           <caret line="64" column="39" lean-forward="false" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1923,7 +1742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3012">
           <caret line="427" column="20" lean-forward="false" selection-start-line="427" selection-start-column="20" selection-end-line="427" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1931,7 +1749,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1939,6 +1756,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="171" column="31" lean-forward="false" selection-start-line="171" selection-start-column="31" selection-end-line="171" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/salaController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="311" column="26" lean-forward="false" selection-start-line="311" selection-start-column="15" selection-end-line="311" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/controllers/registroController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1601">
+          <caret line="128" column="24" lean-forward="false" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="160" column="66" lean-forward="false" selection-start-line="160" selection-start-column="59" selection-end-line="160" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/dialogs/crearSala.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding />
         </state>
       </provider>
