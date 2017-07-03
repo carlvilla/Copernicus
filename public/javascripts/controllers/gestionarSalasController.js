@@ -132,6 +132,17 @@ copernicus.controller('gestionarSalasController', function ($scope, $http, $wind
      **/
     $scope.contactosAdded = [];
 
+
+    /**
+     * @ngdoc property
+     * @name contactos
+     * @propertyOf copernicus.controller:gestionarSalasController
+     * @description
+     * Contactos a mostrar en los campos con autocompletado.
+     *
+     **/
+    $scope.contactos = [];
+
     /**
      * @ngdoc method
      * @name error
