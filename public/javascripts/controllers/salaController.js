@@ -74,6 +74,16 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
     /**
      * @ngdoc property
+     * @name creandoSala
+     * @propertyOf copernicus.controller:salaController
+     * @description
+     * Booleano que indica si se esta intentando crear una sala.
+     *
+     **/
+    $scope.creandoSala = false;
+
+    /**
+     * @ngdoc property
      * @name salasFiltrado
      * @propertyOf copernicus.controller:salaController
      * @description
@@ -238,6 +248,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
      *
      **/
     var successCrear = function (res) {
+        $scope.creandoSala = false;
         $window.location.href = '/mainPage';
     }
 
@@ -298,6 +309,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
      *
      **/
     var errorCrear = function (err) {
+        $scope.creandoSala = false;
         utils.mensajeError($translate.instant("ERROR_INTENTAR_MAS_TARDE"));
     }
 
@@ -327,6 +339,9 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
 
             sala.foto = $scope.fotoRecortada;
             sala.fotoPorDefecto = fotoPorDefecto;
+
+            $scope.creandoSala = true;
+
             $http({
                 method: "POST",
                 url: "api/crearSala",
@@ -337,6 +352,7 @@ copernicus.controller('salaController', function ($scope, $rootScope, $http, $wi
                     }
                 )
             }).then(successCrear, errorCrear);
+
         } else {
             utils.mensajeError($translate.instant("NOMBRE_SALA_OBLIGATORIO"));
         }

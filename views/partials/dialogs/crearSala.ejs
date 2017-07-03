@@ -99,7 +99,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-primary" type="button" ng-click="crearSala(sala)">{{'CREAR_SALA' |
+                    <button class="btn btn-primary" id="btn-crear-sala" type="button" ng-disabled="creandoSala"
+                            ng-click="crearSala(sala)">{{'CREAR_SALA' |
                         translate}}
                     </button>
                     <button class="btn btn-primary" type="button" data-dismiss="modal">{{'CERRAR' | translate}}</button>
