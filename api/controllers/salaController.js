@@ -547,10 +547,6 @@ module.exports.eliminarUsuario = function (req, res) {
         username = utils.getUsername(req);
     }
 
-    console.log(idSala);
-
-    console.log(username);
-
     var query = "MATCH(Sala{idSala:{idSala}})-[r]-(Usuario{username:{username}}) DELETE r";
 
     db.query(query, {idSala: idSala, username: username}, function (err, result) {
