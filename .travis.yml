@@ -1,21 +1,18 @@
 language: node_js
 node_js:
- - "stable"
-
+- stable
 notifications:
   email:
     recipients:
-      - uo236851@uniovi.es
+    - uo236851@uniovi.es
     on_success: change
     on_failure: change
-    
 deploy:
   provider: heroku
   api_key:
-    secure: 7dd91c82-8298-4b15-a764-b427a5ec64ea
+    secure: DmrxsNqU9kPN679b4on1Hw34h/j8S1VDdYYARHrHLt8KnDkMxHu+CWzcRDVN+Gd6ql8N+nVEF7z0GXZXBBjKeU9jLIB09N7fhKDLgYPNIDMpqhQPlZD0/3DfNMRySs8p2j3+uwkjIZCiNYS9E+pjqxger096xfK+L80ULeEkUCNq6TX8qtKZhvRT3L0UkeDbFfVSVggOiRMIhIYiHQDEcZKEbNGRURpEbMasIvvGrVborpu2htXA9gSlWcvtb5HA9Ac/KcERHEKWbDFOSw/MMhv+LmMolH1EKUG++Z5nWYIuC8Jzs5C/E0AC3MeK16F9zMaHZEs6cBMWmwgr2i3YlCnhlSLQpDkIE/hBVYy4lHGynL9DWJdrb/6tX+R/NQScuHjWteVZWR2pmYZUm59OG5Coy3LiYzN19X/n/8zyjStZf9/PxuumdMiCMhTbpeG1qZaFdTvmf8PSvmB4WAeOPJ8h7aaueggroEK1i8i20cKfqZv9Yk4HjkOW7gq+39FaRPpoiaguScQx2BiVEp1/luq4EMP01rJ+qvMP3a/jtX4kKdHWwR5bCL8EXgvffO8TwUrwy4SBoCrv/KJLuSgzRmBTIiWl0ooIJRoodE1PmMZdO+WF3JCzv7X/vX01bbEg5GxOHwaED4TnvkkaoU3uBK4KmHc6c2XPAq5F9A+Knn8=
   app: copernicus-platform
   skip_cleanup: true
-
 script:
-   - node app.js &
-   - npm test
+- node app.js &
+- npm test
