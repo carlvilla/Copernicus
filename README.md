@@ -10,7 +10,7 @@ El famoso astrónomo Nicolás Copérnico dedicó gran parte de su trabajo al des
 
 La rápida evolución de las tecnologías web y la reducción de las barreras de acceso a internet han permitido en los últimos años la aparición de nuevas formas de trabajo y de ocio a través de comunicaciones remotas. Sin embargo, la mayoría de las aplicaciones que lo hacen posible solo se centran en proporcionar pocas funcionalidades. Copernicus busca ser una plataforma web que se pueda ampliar fácilmente con nuevos servicios, pero que no implique una saturación de sus interfaces. Una plataforma que permita a sus usuarios decidir qué quieren utilizar en cada momento y cómo lo quieren utilizar. 
 
-El objetivo es crear una plataforma web que mejore las comunicaciones entre personas y posicione en una sola interfaz varios servicios (videollamada, texto, video compartido…) de la forma más eficiente posible. Para ello se ha diseñado una interfaz a la que se ha denominado “Modular” que le permite al usuario configurarla añadiendo y eliminando servicios. Con esto se pretende mejorar la productividad y el tiempo de ocio de sus usuarios.
+El objetivo es crear una plataforma web que mejore las comunicaciones entre personas y posicione en una sola interfaz varios servicios (videollamada, chat de texto, video compartido…) de la forma más eficiente posible. Para ello se ha diseñado una interfaz a la que se ha denominado “Modular” que le permite al usuario configurarla añadiendo y eliminando servicios. Con esto se pretende mejorar la productividad y el tiempo de ocio de sus usuarios.
 
 Los servicios proporcionados por Copernicus son:
 -	Chat de texto
