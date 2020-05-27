@@ -34,7 +34,7 @@
     "seraph": "^0.15.2",
     "seraph-model": "^0.9.1",
     "serve-favicon": "~2.3.2",
-    "ws": "^2.0.3"
+    "ws": "^3.3.1"
   },
   "devDependencies": {
     "bower": "^1.8.8",
